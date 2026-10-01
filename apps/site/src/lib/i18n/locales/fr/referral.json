@@ -1,0 +1,81 @@
+{
+  "seo": {
+    "title": "Parrainage : de 300 € à 600 € par filleul | Soliance",
+    "description": "Recommandez Soliance à un proche : prime de 300 € à 600 € par virement à la mise en service de son installation, puis un week-end pour deux au 5e filleul."
+  },
+  "hero": {
+    "eyebrow": "Programme de parrainage",
+    "title": "Vous recommandez. Nous vous remercions, en euros.",
+    "lead": "Un proche signe une installation avec Soliance grâce à vous ? Vous recevez une prime dès la mise en service, et elle augmente à chaque nouveau filleul. Sans plafond dans le temps.",
+    "cta": "Je parraine un proche",
+    "scaleLabel": "Barème du parrainage",
+    "scale": {
+      "first": { "reward": "300 €", "rank": "1er filleul" },
+      "second": { "reward": "400 €", "rank": "2e filleul" },
+      "third": { "reward": "500 €", "rank": "3e filleul" },
+      "fourth": { "reward": "600 €", "rank": "4e filleul" },
+      "fifth": { "reward": "Week-end pour deux", "rank": "5e filleul" }
+    },
+    "imageAlt": "Deux voisins discutent par-dessus une haie, l'un montre les panneaux de son toit"
+  },
+  "steps": {
+    "title": "Comment ça marche",
+    "items": {
+      "shareContact": {
+        "title": "Vous nous transmettez un contact",
+        "description": "Par le formulaire ci-dessous, par téléphone ou depuis votre espace client. Avec son accord."
+      },
+      "callWithin48Hours": {
+        "title": "Nous l'appelons sous 48 h",
+        "description": "Étude gratuite, rendez-vous, devis : le même parcours que le vôtre."
+      },
+      "signAndInstall": {
+        "title": "Il signe et se fait installer",
+        "description": "Photovoltaïque, pompe à chaleur ou borne : toute installation compte."
+      },
+      "receiveReward": {
+        "title": "Vous recevez votre prime",
+        "description": "Par virement, dans les 30 jours suivant la mise en service de l'installation."
+      }
+    }
+  },
+  "conditions": {
+    "title": "Conditions",
+    "text": "Réservé aux clients Soliance et Soliance Care. Le filleul ne doit pas déjà être en contact avec Soliance. La prime est due à la mise en service de l'installation du filleul et versée par virement. Le rang du filleul est calculé sur l'ensemble des parrainages aboutis du parrain, sans limite de durée. Le week-end pour deux est remis sous forme de coffret, valeur indicative communiquée sur demande. Programme modifiable ; les conditions applicables sont celles en vigueur à la date de transmission du contact.",
+    "contact": {
+      "question": "Une question ?",
+      "phoneLabel": "Ligne parrainage :",
+      "phone": "06 08 62 84 71",
+      "email": "commercial@soliance-enr.fr"
+    }
+  },
+  "form": {
+    "title": "Parrainer un proche",
+    "fields": {
+      "referrerFullName": "Vous — nom et prénom",
+      "referrerContact": "Vous — téléphone ou e-mail",
+      "refereeFullName": "Votre filleul — nom et prénom",
+      "refereePhone": "Votre filleul — téléphone",
+      "refereeProject": "Son projet"
+    },
+    "projectOptions": {
+      "SOLAR_PANELS": "Panneaux solaires",
+      "HEAT_PUMP": "Pompe à chaleur",
+      "EV_CHARGER": "Borne de recharge",
+      "UNDECIDED": "Je ne sais pas encore"
+    },
+    "consent": "Je confirme que mon filleul accepte d'être contacté par Soliance au sujet de son projet.",
+    "privacyLink": "Lire la politique de confidentialité",
+    "submit": "Envoyer le parrainage",
+    "successTitle": "Parrainage envoyé",
+    "successDescription": "Merci ! Nous appelons votre filleul sous 48 h. Votre prime vous est versée par virement dans les 30 jours suivant la mise en service de son installation.",
+    "referAnother": "Parrainer un autre proche",
+    "validation": {
+      "referrerFullNameRequired": "Indiquez votre nom et votre prénom.",
+      "referrerContactInvalid": "Indiquez un numéro de téléphone français ou une adresse e-mail valide.",
+      "refereeFullNameRequired": "Indiquez le nom et le prénom de votre filleul.",
+      "refereePhoneInvalid": "Indiquez un numéro de téléphone français valide, par exemple 06 12 34 56 78.",
+      "consentRequired": "Cochez cette case : nous n'appelons votre filleul qu'avec son accord."
+    }
+  }
+}

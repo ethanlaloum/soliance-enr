@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "IRVE EV charger installation in the Alpes-Maritimes | Soliance",
+    "description": "7 to 22 kW charger installed by our IRVE-qualified electricians and driven by your solar production. Home, condominium, business: fixed quote within 48 h."
+  },
+  "hero": {
+    "breadcrumb": "EV chargers",
+    "eyebrow": "Home · Condominium · Business",
+    "title": "Charge at home, <highlight>in the sun</highlight> or at night.",
+    "lead": "A 7 to 22 kW charger installed by our IRVE-qualified electricians, driven by your solar production when you have it. Fixed quote, Consuel included, commissioning and handover on installation day.",
+    "requestQuote": "Request a quote",
+    "businessSolutions": "Business solutions",
+    "trustLabel": "Our commitments",
+    "trust": {
+      "irve": "IRVE qualification",
+      "installation": "Installed in ½ to 1 day",
+      "connector": "Type 2 socket, all makes"
+    },
+    "imageAlt": "Wallbox on a post in front of a stone wall, electric vehicle charging",
+    "widget": {
+      "title": "Charging · solar mode",
+      "power": "6.4 kW",
+      "level": "68% · 310 km of range",
+      "levelValueText": "68%, 310 km of range",
+      "forecast": "100% at 4:40 pm · 80% solar energy"
+    }
+  },
+  "usages": {
+    "title": "Which charger for which use?",
+    "singlePhase": {
+      "audience": "Home · single-phase",
+      "title": "7.4 kW charger",
+      "description": "A full charge overnight for most vehicles. Works on a standard contract, with a load shedder so the meter never trips.",
+      "features": {
+        "cable": "Tethered cable or T2 socket",
+        "access": "Badge or app",
+        "solar": "Optional solar control"
+      }
+    },
+    "threePhase": {
+      "audience": "Home · three-phase",
+      "title": "11 or 22 kW charger",
+      "description": "For two vehicles, heavy use or a three-phase solar installation. Charges 3 times faster, with dynamic power management.",
+      "features": {
+        "dualPoint": "Dual charging point available",
+        "battery": "Compatible with home batteries",
+        "solar": "Solar control recommended"
+      }
+    },
+    "chargingPark": {
+      "audience": "Condominium · business",
+      "title": "Supervised charging park",
+      "description": "Several 22 kW charging points on posts or walls, supervision and billing by a charge point operator, badge access, power sharing between chargers.",
+      "features": {
+        "powerStudy": "Available power study",
+        "operator": "Freshmile or equivalent operator",
+        "advenir": "Advenir programme where eligible"
+      }
+    }
+  },
+  "solarCharging": {
+    "eyebrow": "Charger + solar + battery",
+    "title": "Fill up from your roof.",
+    "body": "With surplus bought back at €0.01 per kWh, every kilowatt-hour sent to the grid is lost. The charger becomes the best consumer of your production: in solar mode it adjusts its power to the surplus and the vehicle charges during the day without buying anything. In the evening, the battery takes over.",
+    "discoverSolar": "Discover solar power",
+    "simulate": "Simulate my project",
+    "example": {
+      "title": "Example: 12,000 km/year, 7 kW charger, 6 kWp of solar",
+      "stats": {
+        "energy": {
+          "value": "≈ 2,000 kWh",
+          "label": "of charging per year"
+        },
+        "solarShare": {
+          "value": "≈ 60%",
+          "label": "covered by solar"
+        },
+        "savings": {
+          "value": "€[X]/year",
+          "label": "vs fuel"
+        }
+      },
+      "note": "Indicative estimate, refined during the study."
+    }
+  },
+  "business": {
+    "eyebrow": "Condominiums · company fleets",
+    "title": "From underground car parks to vehicle fleets.",
+    "body": "We equip shared car parks with a single scalable infrastructure: power riser, 22 kW chargers on posts or walls, supervision and badge billing. For businesses, fleet charging pairs with a solar carport or rooftop so you drive on the site's own energy.",
+    "condominium": {
+      "imageAlt": "Charging stations in a condominium underground car park",
+      "title": "Condominium · underground car park",
+      "description": "Shared infrastructure, spaces equipped on request, badge access"
+    },
+    "fleet": {
+      "imageAlt": "Fleet of electric vans charging in front of a company headquarters",
+      "title": "Business · vehicle fleet",
+      "description": "Charging at night or on solar surplus, tracking per vehicle"
+    }
+  },
+  "aids": {
+    "title": "Incentives and obligations",
+    "items": {
+      "taxCredit": {
+        "title": "Smart charger tax credit (individuals)",
+        "description": "For a smart charger installed by an IRVE-qualified installer in a main or second home. [Current amount, see glossary]"
+      },
+      "reducedVat": {
+        "title": "Reduced VAT",
+        "description": "On installation in a home more than 2 years old."
+      },
+      "advenir": {
+        "title": "Advenir programme (condominiums, businesses)",
+        "description": "Grant for shared infrastructure and company car parks, subject to the programme's current conditions."
+      },
+      "rightToPlug": {
+        "title": "Right to plug and LOM obligations",
+        "description": "Any condominium resident can have a charger installed; company car parks and new buildings must be pre-equipped according to their size."
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "reinforcedSocket": {
+        "question": "Isn't a reinforced socket enough?",
+        "answer": "It charges 3 times slower than a 7 kW charger and qualifies for no incentive. A charger also protects your electrical installation."
+      },
+      "subscription": {
+        "question": "Do I need to change my electricity contract?",
+        "answer": "Rarely: the load shedder adapts charging to the available power. We check this during the study."
+      },
+      "timeline": {
+        "question": "How long does installation take?",
+        "answer": "Quote within 48 h of the visit, installation within 2 to 3 weeks, in half a day to one day. No town hall paperwork."
+      },
+      "compatibility": {
+        "question": "Is the charger compatible with my vehicle?",
+        "answer": "Yes, every charger we install uses a Type 2 socket, the European standard."
+      },
+      "condominium": {
+        "question": "What about condominiums?",
+        "answer": "We handle the notification to the property manager and offer an individual or shared solution depending on the car park."
+      }
+    }
+  },
+  "projects": {
+    "title": "Our EV charger projects",
+    "viewAll": "See all projects",
+    "items": {
+      "pulsarPlus": {
+        "title": "[Town] · Wallbox Pulsar Plus 7.4 kW",
+        "description": "Wall-mounted on the façade, dedicated breaker, app control",
+        "imageAlt": "Wallbox Pulsar Plus mounted on a façade"
+      },
+      "flayosc": {
+        "title": "Flayosc · 2 Wallbox 11 kW on posts",
+        "description": "Back to back on a stand, paired with 12 kWp + 6 kWh battery",
+        "imageAlt": "Wallbox charger on a post, vehicle plugged in"
+      },
+      "niceCondominium": {
+        "title": "Nice · condominium, 4 spaces",
+        "description": "Shared solution with badge · €[X] Advenir",
+        "photoPlaceholder": "[Real site photo to be supplied]"
+      }
+    }
+  },
+  "cta": {
+    "title": "Technical visit and fixed quote within 48 h.",
+    "body": "Our electrician checks the switchboard, the power supply and the cable route, then gives you an all-inclusive quote.",
+    "button": "Request my quote"
+  }
+}

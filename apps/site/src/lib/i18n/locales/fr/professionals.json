@@ -1,0 +1,247 @@
+{
+  "seo": {
+    "title": "Panneaux solaires pour entreprises en PACA | Soliance",
+    "description": "Toitures industrielles, ombrières loi APER, bornes pro, autoconsommation collective : étude de rentabilité gratuite, crédit-bail et réalisation en PACA."
+  },
+  "hero": {
+    "eyebrow": "Entreprises · Bailleurs · Collectivités",
+    "title": "Votre toiture est un actif. Faites-la produire.",
+    "lead": "Toitures industrielles, ombrières de parking, bâtiments agricoles et tertiaires de 36 à 500 kWc. Étude de rentabilité, financement en crédit-bail, réalisation et maintenance par une équipe unique en PACA.",
+    "requestStudy": "Demander une étude de rentabilité",
+    "seeReferences": "Voir nos références",
+    "imageAlt": "Ombrière photovoltaïque sur un parking d'entreprise, vue aérienne"
+  },
+  "offers": {
+    "title": "Ce que nous réalisons",
+    "items": {
+      "industrialRoofs": {
+        "title": "Toitures industrielles & agricoles",
+        "description": "Bac acier, membrane, fibrociment à remplacer, hangars agricoles : de 15 à 500 kWc, en autoconsommation avec stockage, vente totale ou autoconsommation collective. Ex. : <exampleLink>Vergers Niçois, 15 kWc + 12 kWh</exampleLink>.",
+        "imageAlt": "Hangar agricole des Vergers Niçois équipé de 15 kWc"
+      },
+      "carports": {
+        "title": "Ombrières de parking",
+        "description": "Conformité loi APER pour les parkings de plus de 1 500 m², couplage avec bornes de recharge.",
+        "imageAlt": "Ombrière photovoltaïque de parking"
+      },
+      "evCharging": {
+        "title": "Bornes de recharge pro",
+        "description": "Flottes et parkings visiteurs, bornes 22 kW, supervision et facturation via opérateur de recharge.",
+        "imageAlt": "Flotte d'utilitaires en charge sur bornes d'entreprise"
+      },
+      "collectives": {
+        "title": "Collectivités, copropriétés & bailleurs",
+        "description": "Autoconsommation collective patrimoniale ou entre voisins : la production d'un toit alimente plusieurs bâtiments. Ex. : <exampleLink>gymnase de Pertuis, 163 kWc</exampleLink>.",
+        "imageAlt": "Gymnase municipal de Pertuis équipé de 163 kWc"
+      }
+    }
+  },
+  "caseStudies": {
+    "readMore": "Lire l'étude de cas complète",
+    "readMoreContext": "({{name}})",
+    "solisInvest": {
+      "name": "Solis Invest",
+      "eyebrow": "Étude de cas · autoconsommation collective",
+      "title": "Solis Invest : 148 kWc sur un immeuble de bureaux, l'électricité vendue aux locataires.",
+      "description": "Le propriétaire d'un ERP tertiaire a solarisé sa toiture-terrasse et revend la production aux entreprises locataires du bâtiment, dans le cadre d'une opération d'autoconsommation collective. Pour lui, un actif immobilier qui rapporte ; pour ses locataires, une électricité locale moins chère que le réseau.",
+      "statsLabel": "Chiffres clés de l'installation Solis Invest",
+      "stats": {
+        "power": {
+          "value": "148 kWc",
+          "label": "≈ 330 panneaux 450 W"
+        },
+        "inverter": {
+          "value": "150 kVA",
+          "label": "onduleur Solax X3 Pro"
+        },
+        "production": {
+          "value": "≈ 190 MWh",
+          "label": "produits par an (estimation)"
+        }
+      },
+      "equipment": "Panneaux La Francilienne 450 W full black · lestage K2 S-Dome sans percement de l'étanchéité · PMO, convention Enedis et répartition entre locataires montées par Soliance.",
+      "imageAlt": "Solis Invest : 148 kWc en toiture d'un immeuble tertiaire face à la Baie des Anges"
+    },
+    "seranonSpar": {
+      "name": "Spar de Séranon",
+      "eyebrow": "Étude de cas · commerce de proximité",
+      "title": "Spar de Séranon : 36 kWc pour un magasin qui consomme toute la journée.",
+      "description": "Froid alimentaire, éclairage, caisses : un supermarché consomme quand le soleil brille. 88 % de la production est consommée sur place, sans batterie, et le surplus est revendu. Résultat : un tiers de l'électricité du magasin produite sur son toit et un investissement remboursé en moins de 3 ans.",
+      "statsLabel": "Chiffres clés de l'installation du Spar de Séranon",
+      "stats": {
+        "power": {
+          "value": "36 kWc",
+          "label": "≈ 53 000 kWh/an"
+        },
+        "selfConsumption": {
+          "value": "88 %",
+          "label": "autoconsommés en direct"
+        },
+        "payback": {
+          "value": "< 3 ans",
+          "label": "de retour sur investissement"
+        }
+      },
+      "testimonial": {
+        "initial": "R",
+        "quote": "« [Extrait de l'interview vidéo de M. Rey, 1 à 2 phrases] »",
+        "author": "M. Rey, propriétaire du Spar · témoignage vidéo sur la fiche"
+      },
+      "imageAlt": "Vue drone du Spar de Séranon, toiture entièrement solarisée"
+    }
+  },
+  "studyCta": {
+    "eyebrow": "Votre bâtiment",
+    "title": "Une toiture, un parking, une flotte ? Nous chiffrons le projet en 10 jours.",
+    "lead": "Étude de productible, simulation du dispositif le plus rentable (autoconsommation, vente, collectif), note technique et proposition ferme. Sans engagement, réalisée par notre bureau d'études.",
+    "requestStudy": "Demander une étude gratuite",
+    "callSales": "Parler à un chargé d'affaires",
+    "note": "Réponse sous 48 h · déplacement sur site offert"
+  },
+  "schemes": {
+    "eyebrow": "Comprendre les dispositifs",
+    "title": "Quatre façons de valoriser une toiture ou un parking",
+    "intro": "Les règles ne sont pas les mêmes qu'en résidentiel : pour un professionnel, la vente et le partage de la production restent des leviers réels. L'étude compare les scénarios.",
+    "diagramLabel": "Schéma du dispositif : {{title}}",
+    "labels": {
+      "definition": "Définition :",
+      "audience": "Pour qui :",
+      "keyPoint": "Point clé :"
+    },
+    "items": {
+      "totalSale": {
+        "title": "Vente totale en obligation d'achat",
+        "definition": "jusqu'à 500 kWc, l'exploitant vend 100 % de sa production à EDF OA à un tarif fixé par arrêté pour 20 ans.",
+        "audience": "toitures et hangars dont le bâtiment consomme peu (stockage, agricole, bailleur).",
+        "keyPoint": "la rentabilité dépend du productible et du tarif du trimestre de la demande de raccordement, pas de la consommation.",
+        "imageAlt": "Entrepôt logistique dont la toiture est entièrement couverte de panneaux, pylône électrique au loin",
+        "diagram": {
+          "source": "Toiture solaire",
+          "hub": "Compteur de production",
+          "target": "Vente à EDF OA sur 20\u00a0ans"
+        }
+      },
+      "collectiveSelfConsumption": {
+        "title": "Autoconsommation collective",
+        "definition": "une opération où plusieurs consommateurs proches (2 km, jusqu'à 20 km en zone rurale) se partagent la production d'une ou plusieurs installations, via une personne morale organisatrice (PMO) et un comptage Enedis.",
+        "audience": "zones d'activité, copropriétés, bailleurs, collectivités.",
+        "keyPoint": "l'électricité partagée est vendue à un prix convenu entre membres, sans passer par un fournisseur.",
+        "imageAlt": "Solis Invest : toiture tertiaire en autoconsommation collective",
+        "diagram": {
+          "source": "Installation partagée",
+          "hub": "PMO et comptage Enedis",
+          "target": "Membres à 2\u00a0km (20\u00a0km en rural)"
+        }
+      },
+      "thirdPartyInvestment": {
+        "title": "Tiers-investissement et location de toiture",
+        "definition": "un investisseur finance, exploite et entretient la centrale ; le propriétaire perçoit un loyer ou achète l'électricité produite moins cher, sans immobiliser de capital.",
+        "audience": "grandes toitures, bâtiments à rénover ou désamianter, parkings.",
+        "keyPoint": "moins rentable que l'achat direct financé en crédit-bail, mais zéro investissement et zéro exploitation.",
+        "imageAlt": "Toiture industrielle solarisée au coucher du soleil",
+        "diagram": {
+          "source": "Investisseur",
+          "hub": "Centrale sur votre toiture",
+          "target": "Loyer ou électricité moins chère"
+        }
+      },
+      "aperCarports": {
+        "title": "Loi APER : ombrières de parking",
+        "definition": "obligation d'équiper d'ombrières photovoltaïques au moins la moitié de la surface des parkings extérieurs de plus de 1 500 m², avec des échéances selon la taille.",
+        "audience": "commerces, zones d'activité, collectivités, sites logistiques.",
+        "keyPoint": "l'obligation devient un actif : production vendue ou partagée, bornes de recharge intégrées, ombre pour les usagers. Réalisé avec nos partenaires spécialisés.",
+        "imageAlt": "Ombrières photovoltaïques sur un parking de zone commerciale",
+        "diagram": {
+          "source": "Parking >\u00a01\u00a0500\u00a0m²",
+          "hub": "Ombrières sur 50\u00a0% au moins",
+          "target": "Production et bornes"
+        }
+      }
+    },
+    "insets": {
+      "individualSelfConsumption": {
+        "title": "Autoconsommation individuelle avec surplus",
+        "description": "Le bâtiment consomme sa production et vend le reste. Idéal quand la consommation de jour est forte (froid, production, bureaux). Batterie possible."
+      },
+      "creTenders": {
+        "title": "Appels d'offres CRE (> 500 kWc)",
+        "description": "Au-delà de 500 kWc, le tarif s'obtient par appel d'offres. Nous accompagnons le dossier avec nos partenaires développeurs."
+      },
+      "taxation": {
+        "title": "Amortissement et fiscalité",
+        "description": "Centrale amortissable, TVA récupérée, crédit-bail BPCE Lease sans apport : l'étude de rentabilité intègre le montage financier."
+      }
+    },
+    "footnote": "Définitions simplifiées ; seuils, tarifs et échéances mis à jour dans le <glossaryLink>lexique des ressources</glossaryLink> et vérifiés à chaque étude."
+  },
+  "method": {
+    "title": "Comment nous travaillons",
+    "steps": {
+      "study": {
+        "title": "Étude de rentabilité gratuite",
+        "description": "Productible, scénarios vente totale / autoconsommation, temps de retour, hypothèses de financement."
+      },
+      "technical": {
+        "title": "Note technique et administratif",
+        "description": "Dimensionnement, raccordement Enedis, urbanisme, dossier de financement BPCE Lease."
+      },
+      "delivery": {
+        "title": "Réalisation en trois étapes de paiement",
+        "description": "Commande, avancement, mise en service. Équipes Soliance et partenaires spécialisés pour les grandes puissances."
+      },
+      "operations": {
+        "title": "Exploitation et maintenance",
+        "description": "Supervision, rapport de performance, visite préventive annuelle avec Soliance Care Pro."
+      }
+    }
+  },
+  "form": {
+    "title": "Demander une étude de rentabilité",
+    "lead": "Réponse sous 48 h ouvrées par Ruben Darmon, gestion des opérations.",
+    "company": "Société",
+    "fullName": "Nom et prénom",
+    "jobTitle": "Fonction",
+    "email": "E-mail professionnel",
+    "phone": "Téléphone",
+    "projectType": "Type de projet",
+    "projectOptions": {
+      "INDUSTRIAL_OR_AGRICULTURAL_ROOF": "Toiture industrielle ou agricole",
+      "PARKING_CARPORT": "Ombrière de parking",
+      "EV_CHARGING": "Bornes de recharge",
+      "CONDOMINIUM_OR_LANDLORD": "Copropriété / bailleur",
+      "PUBLIC_AUTHORITY_OR_TENDER": "Collectivité / appel d'offres"
+    },
+    "surface": "Surface de toiture ou de parking (m²)",
+    "postalCode": "Code postal du site",
+    "consent": "J'accepte d'être recontacté par Soliance au sujet de ma demande. Données traitées selon notre politique de confidentialité.",
+    "privacyLink": "Lire la politique de confidentialité",
+    "submit": "Envoyer ma demande",
+    "successTitle": "Demande envoyée",
+    "successDescription": "Merci ! Nous revenons vers vous sous 48 h ouvrées pour organiser votre étude de rentabilité.",
+    "validation": {
+      "companyRequired": "Indiquez le nom de votre société.",
+      "fullNameRequired": "Indiquez votre nom et votre prénom.",
+      "jobTitleRequired": "Indiquez votre fonction.",
+      "emailInvalid": "Indiquez une adresse e-mail professionnelle valide.",
+      "phoneInvalid": "Indiquez un numéro de téléphone français valide, par exemple 06 12 34 56 78.",
+      "surfaceInvalid": "Indiquez une surface approximative en m², par exemple 1200.",
+      "postalCodeInvalid": "Indiquez le code postal du site à 5 chiffres.",
+      "consentRequired": "Cochez cette case pour que nous puissions vous rappeler."
+    }
+  },
+  "guarantees": {
+    "title": "Financement, assurances et partenaires",
+    "financing": {
+      "label": "Financement",
+      "value": "Crédit-bail BPCE Lease · Banque Populaire Méditerranée"
+    },
+    "insurance": {
+      "label": "Assurances",
+      "value": "RC pro et décennale · marchés jusqu'à 500 k€ HT"
+    },
+    "partners": {
+      "label": "Partenaires grands projets",
+      "value": "Irisolaris · Enerlis · Gisco"
+    }
+  }
+}

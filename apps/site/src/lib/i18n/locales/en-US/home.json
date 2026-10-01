@@ -1,0 +1,189 @@
+{
+  "seo": {
+    "title": "Solar panel, heat pump and EV charger installer on the French Riviera | Soliance",
+    "description": "Soliance installs solar panels with batteries, heat pumps and EV chargers in the Alpes-Maritimes, Var and Bouches-du-Rhône. Detailed study, fixed price, installed by our own technicians, first-year maintenance included."
+  },
+  "hero": {
+    "eyebrow": "Solar installer · Alpes-Maritimes, Var, Bouches-du-Rhône",
+    "eyebrowShort": "Solar installer · 06 · 83 · 13",
+    "title": "Renewable energy you can trust.",
+    "lead": "Solar panels with batteries, heat pumps and EV chargers, installed by our own technicians. Every installation starts with a detailed study of your consumption, your household and your home. Fixed price, paperwork handled, first-year maintenance included.",
+    "leadShort": "Solar panels with batteries, heat pumps and EV chargers, installed by our own technicians. Detailed study of your household, fixed price, paperwork included.",
+    "simulate": "Estimate my savings",
+    "requestStudy": "Request a free study",
+    "trustLabel": "Our guarantees",
+    "trust": {
+      "rge": "RGE certified",
+      "decennial": "Ten-year warranty",
+      "installation": "Installed in 1 to 3 days",
+      "localTeam": "Local team since 2022"
+    },
+    "imageAlt": "Villa in Vence equipped by Soliance: 16 kWp and a 15 kWh battery",
+    "statsLabel": "Soliance in figures",
+    "stats": {
+      "installations": { "value": "280+", "label": "installations monitored in PACA", "labelShort": "installations monitored" },
+      "signature": { "value": "10 days", "label": "from first contact to signature", "labelShort": "to signature" },
+      "maintenance": { "value": "1 year", "label": "of maintenance included", "labelShort": "maintenance included" }
+    }
+  },
+  "partners": {
+    "title": "Our partners",
+    "logosAlt": "Partner logos: SolaX, Francilienne, K2, Daikin, Sofinco, MMA, BPCE Lease, RI2E, Synexium"
+  },
+  "solutions": {
+    "title": "Our solutions",
+    "intro": "Three kinds of equipment, one team: we design, install, connect and maintain.",
+    "discover": "Discover",
+    "solar": {
+      "audience": "Homes & businesses",
+      "title": "Solar panels",
+      "description": "3 to 12 kWp, always with a battery: you use your own electricity in the evening instead of selling it off to the grid. Town hall, Consuel and Enedis paperwork included.",
+      "shortDescription": "3 to 12 kWp, always with a battery, paperwork included",
+      "imageAlt": "Villa equipped with solar panels, swimming pool"
+    },
+    "heatPump": {
+      "audience": "Homes",
+      "title": "Heat pumps",
+      "description": "Air-to-air or air-to-water heating and cooling, sized after a study. Eligible for MaPrimeRénov' and CEE: we prepare the grant application.",
+      "shortDescription": "Eligible for MaPrimeRénov' and CEE",
+      "imageAlt": "Heat pump outdoor unit"
+    },
+    "evCharger": {
+      "audience": "Homes & businesses",
+      "title": "EV chargers",
+      "description": "7 to 22 kW chargers, at home or in company car parks, driven by your solar production. IRVE-qualified installers.",
+      "shortDescription": "7 to 22 kW, homes and businesses",
+      "imageAlt": "Wall-mounted charger in front of a garage, electric car charging"
+    }
+  },
+  "simulator": {
+    "eyebrow": "Simulator",
+    "title": "How much could your roof save you?",
+    "lead": "Address, roof area and electricity bill: in two minutes you get an estimate of production, savings and recommended power. No commitment.",
+    "leadShort": "Address, roof area, bill: an estimate in two minutes.",
+    "cta": "Start the simulation",
+    "imageAlt": "Roof fitted with solar panels at sunset, French Riviera",
+    "estimateLabel": "Sample estimate for a typical house",
+    "estimate": {
+      "power": { "value": "6 kWp + 10 kWh", "label": "recommended for a typical house" },
+      "production": { "value": "≈ 7,800 kWh", "label": "produced per year (1,300 kWh/kWp)" },
+      "autonomy": { "value": "≈ 75%", "label": "self-sufficiency · no bonus, surplus at €0.01" }
+    }
+  },
+  "steps": {
+    "title": "Your project in 5 steps",
+    "study": {
+      "title": "A detailed study for 100% of projects",
+      "titleShort": "Detailed study",
+      "description": "Your actual consumption, your household profile and the technical features of your home: nothing is sized by default.",
+      "descriptionShort": "Consumption, household, home: for 100% of projects."
+    },
+    "quote": {
+      "title": "Meeting & quote",
+      "titleShort": "Meeting & quote",
+      "description": "Presentation at home or at the showroom, technical visit, detailed fixed-price quote.",
+      "descriptionShort": "Technical visit, fixed price."
+    },
+    "paperwork": {
+      "title": "Paperwork",
+      "titleShort": "Paperwork",
+      "description": "Town hall declaration, Enedis connection, buy-back contract: we handle everything.",
+      "descriptionShort": "Town hall, Enedis, buy-back contract."
+    },
+    "installation": {
+      "title": "Installed in 1 to 3 days",
+      "titleShort": "Installed in 1 to 3 days",
+      "description": "By our own technicians, never subcontracted. Consuel inspection and commissioning.",
+      "descriptionShort": "By our technicians, Consuel, commissioning."
+    },
+    "followUp": {
+      "title": "Monitoring & maintenance",
+      "titleShort": "Monitoring & maintenance",
+      "description": "Monitoring app, check-ins at 6 months and 1 year, first-year maintenance included, then Soliance Care.",
+      "descriptionShort": "1 year included, then Soliance Care."
+    }
+  },
+  "why": {
+    "eyebrow": "Why Soliance",
+    "title": "A local team that stays after the installation.",
+    "body": "We have been installers on the French Riviera since 2022. Our technicians do the installation themselves, our showroom is open in Saint-Laurent-du-Var, and every installation is monitored by Soliance Care, our supervision and maintenance service.",
+    "values": {
+      "trust": { "title": "Trust", "description": "A fixed price, no surprises, before you sign." },
+      "transparency": { "title": "Transparency", "description": "Surplus buy-back is close to zero: we say so, and we size for self-consumption." },
+      "expertise": { "title": "Expertise", "description": "RGE-certified technicians, carefully selected equipment." },
+      "proximity": { "title": "Proximity", "description": "Showroom, local technician, answer within 48 hours." }
+    },
+    "imageAlt": "The Soliance team in front of the showroom",
+    "insurance": { "label": "Insurance", "value": "Professional liability & ten-year cover by MMA" },
+    "financing": { "label": "Financing", "value": "Sofinco · BPCE Lease" }
+  },
+  "testimonials": {
+    "title": "They trust us",
+    "rating": "[Google rating] · [Number] reviews",
+    "starsLabel": "5 out of 5 stars",
+    "solar": { "quote": "[Real customer testimonial — solar installation, town, year]", "author": "[First name L.] · [Town]" },
+    "heatPump": { "quote": "[Real customer testimonial — heat pump]", "author": "[First name L.] · [Town]" },
+    "evCharger": { "quote": "[Real customer testimonial — EV charger or business project]", "author": "[First name L.] · [Town]" }
+  },
+  "tiles": {
+    "referral": {
+      "eyebrow": "Referral",
+      "title": "Recommend Soliance and earn €300 to €600 per referral.",
+      "description": "Plus a weekend for two on your 5th referral."
+    },
+    "care": {
+      "eyebrow": "Soliance Care",
+      "title": "Your installation monitored 24/7, repaired within 2 days.",
+      "description": "AI monitoring, annual servicing, local technician. From €19.99/month.",
+      "imageAlt": "Soliance Care monitoring screen"
+    }
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "lead": "An advisor calls you back within 48 business hours for a first free study. You can also drop by the showroom.",
+    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "sales": { "label": "Sales", "email": "commercial@soliance-enr.fr", "phone": "+33 7 63 54 51 44" },
+    "admin": { "label": "Administration", "email": "adv@soliance-enr.fr", "phone": "+33 6 59 40 38 88" },
+    "hours": { "label": "Opening hours", "value": "Monday to Friday, 9 am – 6 pm" },
+    "mapLink": "See the showroom on Google Maps",
+    "form": {
+      "title": "Request a free study",
+      "fullName": "Full name",
+      "phone": "Phone",
+      "email": "Email (optional)",
+      "postalCode": "Postcode",
+      "projectType": "Your project",
+      "projectOptions": {
+        "SOLAR_PANELS": "Solar panels",
+        "HEAT_PUMP": "Heat pump",
+        "EV_CHARGER": "EV charger",
+        "PROFESSIONAL_PROJECT": "Business project",
+        "UNDECIDED": "Other / not sure yet"
+      },
+      "monthlyBill": "Monthly electricity bill (optional)",
+      "monthlyBillPlaceholder": "e.g. €180",
+      "consent": "I agree to be contacted by Soliance about my request. Data processed in line with our privacy policy.",
+      "privacyLink": "Read the privacy policy",
+      "submit": "Send my request",
+      "submitting": "Sending…",
+      "successTitle": "Request sent",
+      "successDescription": "Thank you! A Soliance advisor will call you back within 48 business hours.",
+      "errorTitle": "Unable to send",
+      "validation": {
+        "fullNameRequired": "Enter your full name.",
+        "phoneInvalid": "Enter a valid French phone number, for example 06 12 34 56 78.",
+        "emailInvalid": "Enter a valid email address, or leave the field empty.",
+        "postalCodeInvalid": "Enter a 5-digit postcode.",
+        "monthlyBillTooLong": "Enter a short amount, for example €180.",
+        "consentRequired": "Tick this box so that we can call you back."
+      },
+      "errors": {
+        "CONSENT_REQUIRED": "We cannot call you back without your consent. Tick the consent box.",
+        "INVALID_REQUEST": "Some details were not accepted. Check the form and try again.",
+        "SUBMISSION_FAILED": "Your request could not be sent. Try again in a moment or call us on +33 7 63 54 51 44.",
+        "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 7 63 54 51 44.",
+        "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 7 63 54 51 44."
+      }
+    }
+  }
+}

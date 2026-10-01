@@ -1,0 +1,90 @@
+{
+  "brand": {
+    "name": "Soliance",
+    "homeLink": "Soliance, back to home",
+    "slogan": "Renewable energy you can trust."
+  },
+  "nav": {
+    "label": "Main navigation",
+    "solar": "Solar panels",
+    "heatPump": "Heat pumps",
+    "evCharger": "EV chargers",
+    "professionals": "Businesses",
+    "projects": "Projects",
+    "resources": "Resources",
+    "care": "Soliance Care"
+  },
+  "header": {
+    "phoneDisplay": "+33 7 63 54 51 44",
+    "callLabel": "Call Soliance",
+    "simulate": "Simulate my project",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu"
+  },
+  "footer": {
+    "company": "Solar Trade SAS · 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var, France",
+    "registration": "SIREN 949 576 946 · RGE certified · Insured by MMA",
+    "solutionsTitle": "Solutions",
+    "solianceTitle": "Soliance",
+    "legalTitle": "Legal",
+    "renovation": "Whole-home renovation",
+    "about": "About us",
+    "referral": "Referral programme",
+    "blog": "Blog & advice",
+    "contact": "Contact",
+    "legalNotice": "Legal notice",
+    "termsIndividuals": "Terms for individuals",
+    "termsProfessionals": "Terms for businesses",
+    "privacy": "Privacy",
+    "cookies": "Cookie settings",
+    "mobileAddress": "30 avenue du Général Leclerc, Saint-Laurent-du-Var",
+    "mobileContact": "commercial@soliance-enr.fr · +33 7 63 54 51 44"
+  },
+  "notFound": {
+    "seoTitle": "Page in progress | Soliance",
+    "title": "This page is coming soon",
+    "description": "We are preparing this part of the site. In the meantime, our team is happy to answer all your questions.",
+    "backHome": "Back to home",
+    "seoDescription": "This page of the Soliance website is being prepared. Discover our solar, heat pump and EV charger solutions."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "label": "Breadcrumb"
+  },
+  "leadForm": {
+    "submitting": "Sending…",
+    "errorTitle": "Unable to send",
+    "errors": {
+      "CONSENT_REQUIRED": "We cannot call you back without your consent. Tick the consent box.",
+      "INVALID_REQUEST": "Some details were not accepted. Check the form and try again.",
+      "SUBMISSION_FAILED": "Your request could not be sent. Try again in a moment or call us on +33 7 63 54 51 44.",
+      "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 7 63 54 51 44.",
+      "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 7 63 54 51 44."
+    }
+  },
+  "seo": {
+    "services": {
+      "solar": {
+        "name": "Solar panel installation with battery",
+        "serviceType": "Solar PV installation"
+      },
+      "heatPump": {
+        "name": "Daikin heat pump installation",
+        "serviceType": "Heat pump installation"
+      },
+      "evCharger": {
+        "name": "IRVE EV charger installation",
+        "serviceType": "EV charger installation"
+      },
+      "professionals": {
+        "name": "Solar plants for businesses",
+        "serviceType": "Commercial solar PV installation"
+      }
+    },
+    "areaServed": [
+      "Alpes-Maritimes",
+      "Var",
+      "Bouches-du-Rhône"
+    ]
+  }
+}

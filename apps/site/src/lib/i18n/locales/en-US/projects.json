@@ -1,0 +1,590 @@
+{
+  "seo": {
+    "title": "Our solar, heat pump and EV charger projects | Soliance",
+    "description": "Villas, shops, local authorities: our solar, battery, heat pump and EV charger installations on the French Riviera, with their real figures."
+  },
+  "portfolio": {
+    "breadcrumb": "Projects",
+    "title": "Our projects, with their real figures.",
+    "intro": "Every installation we fit is followed by our monitoring. We publish the production actually measured here, not a brochure promise.",
+    "filters": {
+      "typeLabel": "Filter by installation type",
+      "all": "All",
+      "chip": "{{label}} ({{count}})",
+      "categories": {
+        "solar": "Solar",
+        "battery": "With battery",
+        "heatPump": "Heat pump",
+        "evCharger": "EV chargers",
+        "professional": "Businesses"
+      },
+      "city": "Town",
+      "allCities": "All"
+    },
+    "resultCount": "Projects shown: {{count}}",
+    "empty": "No project matches these filters.",
+    "reset": "Show all projects"
+  },
+  "cities": {
+    "antibes": "Antibes",
+    "berreLEtang": "Berre-l'Étang",
+    "flayosc": "Flayosc",
+    "laColleSurLoup": "La Colle-sur-Loup",
+    "laGaude": "La Gaude",
+    "lePlanDeLaTour": "Le Plan-de-la-Tour",
+    "nice": "Nice",
+    "pertuis": "Pertuis",
+    "roquebruneSurArgens": "Roquebrune-sur-Argens",
+    "saintJeannet": "Saint-Jeannet",
+    "saintLaurentDuVar": "Saint-Laurent-du-Var",
+    "seranon": "Séranon",
+    "vence": "Vence",
+    "villeneuveLoubet": "Villeneuve-Loubet"
+  },
+  "items": {
+    "vence-villa-16-kwc": {
+      "badge": "Solar + battery",
+      "title": "Vence · 16 kWp · 15 kWh",
+      "description": "Contemporary villa, pool, 38,000 kWh used per year. Fitted on a flat roof terrace, February 2026.",
+      "imageAlt": "Vence, contemporary villa fitted with 16 kWp and a 15 kWh battery",
+      "metrics": {
+        "first": { "value": "21,000 kWh", "label": "produced per year (study)" },
+        "second": { "value": "96%", "label": "self-consumed" },
+        "third": { "value": "7.5 years", "label": "payback period" }
+      }
+    },
+    "plan-de-la-tour-villa-20-kwc": {
+      "badge": "Solar + battery",
+      "title": "Le Plan-de-la-Tour · 20 kWp · 24 kWh",
+      "description": "Isolated estate with a pool, panels spread over the villa and the garage, 4 T58 batteries. Commissioned in March 2026.",
+      "imageAlt": "Provençal villa in the Var, 20 kWp spread over the house and the garage",
+      "metrics": {
+        "first": { "value": "40", "label": "500 W panels" },
+        "second": { "value": "25 kW", "label": "Solax X3 Ultra" },
+        "third": { "value": "≈ 1,300", "label": "kWh/kWp per year" }
+      }
+    },
+    "vence-villa-28-kwc": {
+      "badge": "Solar + battery",
+      "title": "Vence · 28.5 kWp · 35 kWh",
+      "description": "Large villa with a pool, 57 panels on the house and the pool house, 35 kWh of T58 batteries. Fitted in June 2026.",
+      "imageAlt": "Villa in Vence, 29 kWp spread over the house and the pool house",
+      "metrics": {
+        "first": { "value": "36,000 kWh", "label": "produced per year (study)" },
+        "second": { "value": "70%", "label": "self-sufficiency" },
+        "third": { "value": "≈ 6 years", "label": "payback" }
+      }
+    },
+    "villeneuve-loubet-maison-4-kwc": {
+      "badge": "Solar + battery",
+      "title": "Villeneuve-Loubet · 4 kWp · 6 kWh",
+      "description": "Estate house, 8 panels on two roof slopes, Solax X3 hybrid inverter and 2 T30 batteries (6 kWh). Commissioned in May 2026.",
+      "imageAlt": "House in Villeneuve-Loubet fitted with 4 kWp, the sea on the horizon",
+      "metrics": {
+        "first": { "value": "8", "label": "500 W panels" },
+        "second": { "value": "1 day", "label": "of fitting" },
+        "third": { "value": "≈ 1,300", "label": "kWh/kWp per year" }
+      }
+    },
+    "saint-jeannet-villa-6-kwc": {
+      "badge": "Solar + battery",
+      "title": "Saint-Jeannet · 6 kWp · 6 kWh",
+      "description": "Villa with a pool among olive trees, 12 panels on the garage and covered terrace roofs, X1 inverter and T58 battery. Commissioned in March 2026.",
+      "imageAlt": "Villa in Saint-Jeannet, 6 kWp on the garage and the canopy, pool and palm tree",
+      "metrics": {
+        "first": { "value": "12", "label": "500 W panels" },
+        "second": { "value": "6 kWh", "label": "T58 battery" },
+        "third": { "value": "≈ 1,300", "label": "kWh/kWp per year" }
+      }
+    },
+    "saint-laurent-du-var-hangar-agricole-15-kwc": {
+      "badge": "Farm · self-consumption + storage",
+      "title": "Saint-Laurent-du-Var · Vergers Niçois · 15 kWp",
+      "description": "Farm: steel-sheet shed, cold room and workshop powered by the roof, 2 T58 batteries (12 kWh). Fitted in June 2025.",
+      "imageAlt": "Vergers Niçois shed, Saint-Laurent-du-Var hills in the background",
+      "metrics": {
+        "first": { "value": "15 kWp", "label": "steel sheet, due south" },
+        "second": { "value": "12 kWh", "label": "Solax battery" },
+        "third": { "value": "≈ 1,300", "label": "kWh/kWp per year" }
+      }
+    },
+    "roquebrune-sur-argens-villa-10-kwc": {
+      "badge": "Solar + battery",
+      "title": "Roquebrune-sur-Argens · 10 kWp · 11.5 kWh",
+      "description": "Sea-view villa with a pool, 20 panels on two roofs, 2 T58 batteries, 270 L heat pump water heater. Summer 2025.",
+      "imageAlt": "Roquebrune-sur-Argens · 10 kWp · 11.5 kWh",
+      "metrics": {
+        "first": { "value": "20", "label": "500 W panels" },
+        "second": { "value": "11.5 kWh", "label": "2 × T58" },
+        "third": { "value": "≈ 13,000 kWh", "label": "produced per year" }
+      }
+    },
+    "la-gaude-estate-21-kwc": {
+      "badge": "Solar + battery",
+      "title": "La Gaude · 21 kWp · 18 kWh",
+      "description": "Estate among olive trees: 42 panels on an outbuilding, 6 T30 batteries, buried supply line to the house. July 2025.",
+      "imageAlt": "La Gaude · 21 kWp · 18 kWh",
+      "metrics": {
+        "first": { "value": "42", "label": "500 W panels" },
+        "second": { "value": "18 kWh", "label": "6 × T30" },
+        "third": { "value": "≈ 27,000 kWh", "label": "produced per year" }
+      }
+    },
+    "nice-equestrian-centre-9-kwc": {
+      "badge": "Equestrian centre",
+      "title": "Nice · equestrian centre · 9 kWp · 6 kWh",
+      "description": "A long south-facing stable roof: 18 panels, three-phase inverter and 2 batteries for lighting, water troughs and the clubhouse. 2024.",
+      "imageAlt": "Nice · equestrian centre · 9 kWp · 6 kWh",
+      "metrics": {
+        "first": { "value": "18", "label": "500 W panels" },
+        "second": { "value": "6 kWh", "label": "2 × T30" },
+        "third": { "value": "≈ 11,700 kWh", "label": "produced per year" }
+      }
+    },
+    "berre-l-etang-farm-shed-30-kwc": {
+      "badge": "Farm · 30 kWp",
+      "title": "Berre-l'Étang · farm shed · 30 kWp",
+      "description": "60 panels on a steel-sheet shed, 4 X3 inverters in 2024, then 24 kWh of batteries added in 2025 to store the summer. Bouches-du-Rhône.",
+      "imageAlt": "Berre-l'Étang · farm shed · 30 kWp",
+      "metrics": {
+        "first": { "value": "30 kWp", "label": "steel sheet" },
+        "second": { "value": "24 kWh", "label": "added in 2025" },
+        "third": { "value": "≈ 39,000 kWh", "label": "produced per year" }
+      }
+    },
+    "saint-laurent-du-var-heat-pump-7-kwc": {
+      "badge": "Solar + battery + heat pump",
+      "title": "Saint-Laurent-du-Var · 7 kWp · 10 kWh · 10 kW heat pump",
+      "description": "Town house facing the hills: 14 panels, 10 kWh IES battery, EPS box and 10 kW Daikin air-to-water heat pump. May 2026.",
+      "imageAlt": "Saint-Laurent-du-Var · 7 kWp · 10 kWh · 10 kW heat pump",
+      "metrics": {
+        "first": { "value": "14", "label": "500 W panels" },
+        "second": { "value": "10 kWh", "label": "IES battery" },
+        "third": { "value": "≈ 9,100 kWh", "label": "produced per year" }
+      }
+    },
+    "antibes-villa-10-kwc": {
+      "badge": "Solar + battery",
+      "title": "Antibes · 10 kWp · 10 kWh",
+      "description": "Hillside villa with the sea on the horizon, 20 panels on two roof slopes, IES inverter and EPS box, heritage (ABF) approval obtained. May 2026.",
+      "imageAlt": "Antibes · 10 kWp · 10 kWh",
+      "metrics": {
+        "first": { "value": "20", "label": "500 W panels" },
+        "second": { "value": "10 kWh", "label": "IES battery" },
+        "third": { "value": "≈ 13,000 kWh", "label": "produced per year" }
+      }
+    },
+    "immeuble-bureaux-148-kwc": {
+      "badge": "Commercial · collective self-consumption",
+      "title": "Solis Invest · 148 kWp on a flat roof",
+      "description": "Office building (public-access), production sold to the tenant companies.",
+      "imageAlt": "Solis Invest, 148 kWp commercial building",
+      "metrics": {
+        "first": { "value": "330", "label": "450 W panels" },
+        "second": { "value": "150 kVA", "label": "Solax X3 Pro" },
+        "third": { "value": "≈ 190 MWh", "label": "per year" }
+      }
+    },
+    "villeneuve-loubet-le-kern-145-kwc": {
+      "badge": "Businesses",
+      "title": "Villeneuve-Loubet · Le Kern · 145 kWp",
+      "description": "Commercial roof and 6 charging points of 22 kW.",
+      "imagePlaceholder": "[Real photo of Le Kern to be supplied]",
+      "metrics": {
+        "first": { "value": "170 MWh", "label": "produced per year" },
+        "second": { "value": "6", "label": "charging points" },
+        "third": { "value": "145 kWp", "label": "on the roof" }
+      }
+    },
+    "la-colle-sur-loup-pac-13-kwc": {
+      "badge": "Solar + battery + heat pump",
+      "title": "La Colle-sur-Loup · 13 kWp · 15 kWh · 16 kW Daikin heat pump",
+      "description": "Villa with a pool: solar, IES battery and Daikin air-to-water heat pump fitted together, the house is heated by the sun. May 2026.",
+      "imageAlt": "La Colle-sur-Loup · 13 kWp · 15 kWh · 16 kW Daikin heat pump",
+      "metrics": {
+        "first": { "value": "26", "label": "500 W panels" },
+        "second": { "value": "15 kWh", "label": "IES battery" },
+        "third": { "value": "≈ 16,900 kWh", "label": "produced per year" }
+      }
+    },
+    "flayosc-ev-chargers-12-kwc": {
+      "badge": "EV charger",
+      "title": "Flayosc · 2 Wallbox 11 kW on a post",
+      "description": "Paired with 12 kWp and 6 kWh of battery: no wall near the parking spaces, two back-to-back chargers on a stand, buried supply line. June 2025.",
+      "imageAlt": "Wallbox on a post, electric car charging in front of a stone wall",
+      "metrics": {
+        "first": { "value": "12 kWp", "label": "of paired solar" },
+        "second": { "value": "½ day", "label": "of fitting" },
+        "third": { "value": "€[X]", "label": "saved / year" }
+      }
+    },
+    "pertuis-gymnase-163-kwc": {
+      "badge": "Local authority · collective self-consumption",
+      "title": "Pertuis · municipal gym · 163 kWp",
+      "description": "Asset-based collective self-consumption: the production supplies the town's buildings.",
+      "imageAlt": "Pertuis gym, 163 kWp on the roof",
+      "metrics": {
+        "first": { "value": "163 kWp", "label": "on a steel-sheet roof" },
+        "second": { "value": "≈ 210 MWh", "label": "per year" },
+        "third": { "value": "X3 Forth", "label": "Solax inverters" }
+      }
+    },
+    "seranon-spar-36-kwc": {
+      "badge": "Retail · self-consumption",
+      "title": "Séranon · Spar · 36 kWp",
+      "description": "Local supermarket, direct self-consumption with surplus resale. Commissioned in October 2024.",
+      "imageAlt": "Spar in Séranon, 36 kWp on the roof",
+      "metrics": {
+        "first": { "value": "53,000 kWh", "label": "produced per year" },
+        "second": { "value": "33%", "label": "store self-sufficiency" },
+        "third": { "value": "< 3 years", "label": "payback" }
+      }
+    }
+  },
+  "fiche": {
+    "blocks": {
+      "need": "The need",
+      "solution": "The solution",
+      "process": "How it went",
+      "result": "Result",
+      "followUp": "Follow-up"
+    },
+    "technicalSheet": {
+      "title": "Technical sheet",
+      "rows": {
+        "power": "Power",
+        "solar": "Solar",
+        "panels": "Panels",
+        "inverter": "Inverter",
+        "inverters": "Inverters",
+        "inverterStorage": "Inverter · storage",
+        "storage": "Storage",
+        "heatPump": "Heat pump",
+        "structure": "Mounting",
+        "roof": "Roof",
+        "roofs": "Roofs",
+        "scheme": "Scheme",
+        "building": "Building",
+        "owner": "Project owner",
+        "commissioning": "Commissioning",
+        "aids": "Grants"
+      }
+    },
+    "expectedResults": {
+      "title": "Expected results (study)",
+      "measurement": "Soliance Care measurements at 12 months"
+    },
+    "estimateNote": "Production estimated at 1,300 kWh/kWp, regional baseline; real figures published by the monitoring.",
+    "galleryLabel": "Site photos"
+  },
+  "fiches": {
+    "vence-villa-16-kwc": {
+      "seo": {
+        "title": "Vence: 16 kWp and 15 kWh on a villa | Soliance",
+        "description": "Contemporary villa in Vence: 32 panels on a flat roof, Solax IES inverter and 15 kWh battery. Need, solution, process and expected results."
+      },
+      "band": "Project sheet · residential project",
+      "eyebrow": "Solar + battery · Vence · February 2026",
+      "title": "16 kWp and 15 kWh of storage for a villa that uses 38,000 kWh per year.",
+      "blocks": {
+        "need": "Large villa with a pool, electricity for heating and water, a bill of about €300 per month. Goal: reduce reliance on the grid without selling anything back.",
+        "solution": "32 La Francilienne 500 W panels on the flat roof on K2 S-Dome ballast, Solax IES X3 15 kW three-phase hybrid inverter, 15 kWh battery.",
+        "process": "Study based on real consumption and roof orientation, prior declaration at the town hall, Enedis connection request, fitted by our technicians on 17 February 2026, Consuel and commissioning.",
+        "followUp": "Soliance Care monitoring from commissioning; 96% of the production used on site according to the study, real figures published after 12 months."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from Mr S., 2 to 3 sentences]”"
+      },
+      "cta": "A project like this one? Free study",
+      "images": {
+        "panelsHills": "The panels facing the Vence hills",
+        "inverterBattery": "Solax IES X3 inverter and 15 kWh battery",
+        "technicians": "Our technicians at the end of the installation"
+      },
+      "panel": {
+        "metrics": {
+          "first": { "value": "21,014 kWh", "label": "produced per year" },
+          "second": { "value": "53%", "label": "self-sufficiency out of 38,099 kWh" },
+          "third": { "value": "≈ €125,000", "label": "saved over 20 years" }
+        }
+      }
+    },
+    "immeuble-bureaux-148-kwc": {
+      "seo": {
+        "title": "148 kWp in collective self-consumption | Soliance",
+        "description": "Solis Invest office building: 148 kWp on a flat roof, production shared with the tenant companies. Need, solution and technical sheet."
+      },
+      "band": "Project sheet · commercial project",
+      "eyebrow": "Collective self-consumption · Solis Invest · [town] · [month year]",
+      "title": "148 kWp on an office building: the owner becomes the electricity supplier of its tenants.",
+      "blocks": {
+        "need": "A multi-tenant public-access commercial building, a large unused flat roof and occupying companies exposed to rising electricity prices. The owner wants to add value to the building without selling to EDF OA.",
+        "solution": "148 kWp: ≈ 330 La Francilienne 450 W full black panels on K2 S-Dome ballast (without piercing the waterproofing), Solax X3 Pro 150 kVA inverter, perimeter guardrail. Collective self-consumption scheme: the owner is the producer, the tenants the consumers.",
+        "process": "Yield and load study, ballast calculation note, set-up of the organising legal entity, agreement with Enedis, installation, commissioning and allocation keys between tenants.",
+        "result": "About 190 MWh produced per year (1,300 kWh/kWp baseline), used first by the tenants, surplus sold. Soliance Care monitoring across the whole plant."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from the owner or a tenant, 2 to 3 sentences]”"
+      },
+      "cta": "A building to go solar? Let's talk",
+      "images": {
+        "rooftop": "Solis Invest: both sides of the solar flat roof",
+        "seaView": "Drone view towards the sea",
+        "panelRows": "Drone view of the panel rows"
+      },
+      "technicalSheet": {
+        "power": "148 kWp",
+        "panels": "La Francilienne 450 W full black",
+        "inverter": "Solax X3 Pro 150 kVA",
+        "structure": "K2 S-Dome (ballasted, flat roof)",
+        "scheme": "Collective self-consumption",
+        "building": "Public-access commercial building, multi-tenant offices"
+      }
+    },
+    "pertuis-gymnase-163-kwc": {
+      "seo": {
+        "title": "Pertuis: 163 kWp on the municipal gym | Soliance",
+        "description": "Asset-based collective self-consumption in Pertuis: 163 kWp on the gym supply the town's buildings. Need, solution and process."
+      },
+      "band": "Project sheet · local authority",
+      "eyebrow": "Asset-based collective self-consumption · Pertuis (84) · May 2026",
+      "title": "163 kWp on the gym: the town produces the electricity of its own buildings.",
+      "blocks": {
+        "need": "A town with a stock of energy-hungry buildings (gym, school, town hall, floodlit stadium) and a large unused south-facing steel-sheet roof.",
+        "solution": "163 kWp mounted over both slopes of the roof, Solax X3 Forth inverters in an outdoor cabinet, “asset-based” collective self-consumption scheme: the town is both producer and consumer across its delivery points.",
+        "process": "Yield study and mapping of the buildings' consumption, Enedis application for the sharing perimeter, installation completed on 26 May 2026 without interrupting the gym's activity, commissioning and allocation keys.",
+        "result": "About 210 MWh produced per year (1,300 kWh/kWp baseline), shared between the connected municipal buildings; Soliance Care monitoring."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from the elected official or the technical department, 2 to 3 sentences]”"
+      },
+      "cta": "Local authority, social landlord? Let's talk about your buildings",
+      "images": {
+        "village": "The Pertuis gym and its solar roof, the village in the background",
+        "roof": "Drone view of both fitted roof slopes, athletics stadium alongside",
+        "stadium": "The gym between the stadium and the synthetic pitches"
+      },
+      "technicalSheet": {
+        "power": "163 kWp",
+        "roof": "Steel sheet, two slopes, mounted over",
+        "inverters": "Solax X3 Forth, outdoor cabinet",
+        "scheme": "Asset-based collective self-consumption",
+        "owner": "Town of Pertuis"
+      }
+    },
+    "plan-de-la-tour-villa-20-kwc": {
+      "seo": {
+        "title": "Le Plan-de-la-Tour: 20 kWp and 24 kWh | Soliance",
+        "description": "Isolated estate in the Var: 40 panels on the villa and the garage, Solax X3 Ultra inverter and 24 kWh of batteries. Need, solution and process."
+      },
+      "band": "Project sheet · residential project",
+      "eyebrow": "Solar + battery · Le Plan-de-la-Tour (83) · March 2026",
+      "title": "20 kWp and 24 kWh of storage for an isolated estate that wants to do without the grid.",
+      "blocks": {
+        "need": "Large hillside estate, pool, air conditioning, end of the power line: high consumption and a wish for maximum self-sufficiency, including in the evening and during outages.",
+        "solution": "40 La Francilienne 500 W full black panels split between the villa roof and the garage roof, Solax X3 Ultra 25 kW three-phase hybrid inverter, 4 Solax T58 batteries (24 kWh), AC/DC protection boxes.",
+        "process": "Study of consumption and of both roofs, prior declaration, Enedis connection, fitted by our technicians at the end of January 2026, Consuel approved on 13 February, commissioned on 12 March 2026.",
+        "result": "About 26,000 kWh produced per year (1,300 kWh/kWp baseline); Soliance Care monitoring from commissioning."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from Mr M., 2 to 3 sentences]”"
+      },
+      "cta": "A project like this one? Free study",
+      "images": {
+        "villaDrone": "Drone view of the villa, its pool and the solar garage",
+        "inverter": "Solax X3 Ultra inverter and protection boxes under the canopy",
+        "garage": "Drone view of the garage fully covered with panels and the villa roof slope"
+      },
+      "technicalSheet": {
+        "power": "20 kWp · 40 × 500 W panels",
+        "panels": "La Francilienne full black",
+        "inverter": "Solax X3 Ultra 25 kW hybrid",
+        "storage": "4 × Solax T58 · 24 kWh",
+        "roofs": "Tiles (villa) + garage"
+      }
+    },
+    "seranon-spar-36-kwc": {
+      "seo": {
+        "title": "Séranon: 36 kWp on a Spar supermarket roof | Soliance",
+        "description": "Spar supermarket in Séranon: 36 kWp without a battery, 88% of the production used on site and a third of the store's electricity produced on its roof."
+      },
+      "band": "Project sheet · retail",
+      "eyebrow": "Self-consumption with surplus resale · Séranon (06) · October 2024",
+      "title": "36 kWp on a Spar: a third of the store's electricity produced on its roof.",
+      "blocks": {
+        "need": "A village supermarket at 1,100 m altitude using 155,000 kWh per year, mostly during the day (refrigerated displays, cold rooms, lighting). A bill that follows the price per kWh, and a south-facing steel-sheet roof.",
+        "solution": "72 full black 500 W panels mounted over the roof (36 kWp), 30° tilt due south, Solax X3 Pro inverter, no battery: the store's consumption profile absorbs the production directly. The surplus (12%) is sold to the grid.",
+        "process": "Yield and consumption study in September 2024 (terrain and distant shading taken into account), prior declaration, Enedis connection, fitted by our technicians, commissioned on 28 October 2024.",
+        "result": "53,000 kWh produced per year, 88% used on site, 33% store self-sufficiency over the year, payback in under 3 years. About 1 tonne of CO₂ avoided every year."
+      },
+      "testimonial": {
+        "quote": "“[Excerpt from Mr Rey's video interview, 2 to 3 sentences]”",
+        "author": "Mr Rey, owner of the Spar in Séranon"
+      },
+      "cta": "A shop, a workshop? Let's study your roof",
+      "images": {
+        "drone": "Drone view of the store and its solar roof",
+        "facade": "Front of the Spar in Séranon with the full black panels on the roof",
+        "installation": "Our technicians during the installation, facing the Séranon mountains"
+      },
+      "videoCaption": "Video · Mr Rey's testimonial (32 s)",
+      "panel": {
+        "title": "Why it works without a battery",
+        "text": "A shop consumes when the sun produces: refrigeration runs all day, doors open, tills operate. The production curve follows the consumption curve, hence 88% direct self-consumption, where a house reaches 30% without storage.",
+        "metrics": {
+          "first": { "value": "155 MWh", "label": "used per year" },
+          "second": { "value": "53 MWh", "label": "produced per year" },
+          "third": { "value": "12%", "label": "of surplus sold" }
+        }
+      },
+      "technicalSheet": {
+        "power": "36 kWp",
+        "roof": "Steel sheet, mounted over, 30° due south",
+        "inverter": "Solax X3 Pro 25 kW",
+        "scheme": "Self-consumption + surplus sale",
+        "commissioning": "28 October 2024"
+      }
+    },
+    "vence-villa-28-kwc": {
+      "seo": {
+        "title": "Vence: 28.5 kWp and 35 kWh of battery | Soliance",
+        "description": "Villa with a pool in Vence: 57 panels, Solax X3 Ultra inverter and 35 kWh of T58 batteries, our largest residential battery."
+      },
+      "band": "Project sheet · residential project",
+      "eyebrow": "Solar + battery · Vence (06) · June 2026",
+      "title": "28.5 kWp and 35 kWh of storage: the largest residential battery we have fitted.",
+      "blocks": {
+        "need": "Family villa with a pool and pool house, 32,000 kWh used per year with winter peaks. The client wants to cover almost all needs, evenings included, without relying on resale.",
+        "solution": "57 La Francilienne 500 W full black panels spread over the villa's south slopes and the pool house, Solax X3 Ultra 30 kW three-phase hybrid inverter, 6 Solax T58 batteries (35 kWh), EPS backup box and protection boxes in the garage.",
+        "process": "Slope-by-slope shading study (layout over 3 roofs), prior declaration, three-phase Enedis connection, fitted by our technicians on 24 June 2026, Consuel, battery / grid priority settings.",
+        "result": "36,000 kWh produced per year, 70% expected self-sufficiency (study), bill divided by 2.6; Soliance Care monitoring from commissioning."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from Mr G., 2 to 3 sentences]”"
+      },
+      "cta": "A project like this one? Free study",
+      "images": {
+        "villaDrone": "Drone view of the villa, the pool and the fitted pool house",
+        "roofRows": "Drone view of the panel rows on the various roof slopes",
+        "garageBatteries": "Garage: X3 Ultra inverter, boxes and the 6 T58 batteries"
+      },
+      "panel": {
+        "metrics": {
+          "first": { "value": "36,032 kWh", "label": "produced per year" },
+          "second": { "value": "70%", "label": "self-sufficiency out of 32,463 kWh" },
+          "third": { "value": "≈ €144,000", "label": "saved over 20 years" }
+        }
+      },
+      "technicalSheet": {
+        "power": "28.5 kWp · 57 × 500 W panels",
+        "inverter": "Solax X3 Ultra 30 kW hybrid",
+        "storage": "6 × Solax T58 · 35 kWh + EPS box",
+        "roofs": "Tiles, 3 slopes + pool house"
+      }
+    },
+    "villeneuve-loubet-maison-4-kwc": {
+      "seo": {
+        "title": "Villeneuve-Loubet: 4 kWp on a house | Soliance",
+        "description": "Estate house in Villeneuve-Loubet: 8 panels, Solax X3 hybrid inverter and 6 kWh of battery, fitted in one day."
+      },
+      "eyebrow": "Solar + battery · Villeneuve-Loubet (06) · May 2026",
+      "title": "4 kWp on an estate house: the typical project, fitted in one day.",
+      "summary": "No need for a villa to produce your own electricity. Here, 8 La Francilienne 500 W full black panels spread over two roof slopes, a Solax X3 three-phase hybrid inverter and two T30 batteries (6 kWh) sized for evening consumption. Fitted on 27 March 2026, Consuel approved on 30 April, commissioned on 14 May, Soliance Care monitoring, as on all our installations.",
+      "metrics": {
+        "first": { "value": "4 kWp", "label": "8 panels, 2 slopes" },
+        "second": { "value": "6 kWh", "label": "2 T30 batteries" },
+        "third": { "value": "≈ 1,300", "label": "kWh produced per kWp per year" }
+      },
+      "cta": "A house like this one? Simulate my project",
+      "images": {
+        "seaView": "Drone view towards the sea from the fitted house",
+        "roof": "Drone view of both fitted slopes"
+      }
+    },
+    "saint-laurent-du-var-hangar-agricole-15-kwc": {
+      "seo": {
+        "title": "Vergers Niçois: 15 kWp on a farm shed | Soliance",
+        "description": "Farm in Saint-Laurent-du-Var: 15 kWp on a steel-sheet shed and 12 kWh of battery for the cold room, the workshop and irrigation."
+      },
+      "band": "Project sheet · farm",
+      "eyebrow": "Self-consumption with storage · Vergers Niçois · Saint-Laurent-du-Var (06) · June 2025",
+      "title": "15 kWp and 12 kWh on a farm shed: refrigeration runs on the sun by day and on the battery at night.",
+      "blocks": {
+        "need": "A local market gardener and fruit grower with a cold room, a workshop and irrigation pumps: steady consumption all year round, summer peaks at harvest, and an unused south-facing steel-sheet shed.",
+        "solution": "15 kWp of full black panels mounted over the steel sheet, Solax X3 three-phase hybrid inverter, 2 Solax T58 batteries (12 kWh) and a DC box in the plant room: the farm uses its production directly and the battery covers the cold room at night.",
+        "process": "Study of the farm's consumption (refrigeration, irrigation, workshop), prior declaration, Enedis connection, fitted by our technicians on 12 June 2025 without interrupting activity, Consuel approved on 3 December, commissioned on 11 December 2025.",
+        "result": "About 19,500 kWh produced per year (1,300 kWh/kWp baseline); Soliance Care monitoring. A neighbour of our showroom: it is also our local showcase."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from the farmer, 2 to 3 sentences]”"
+      },
+      "cta": "Farmer, craftsman? Let's study your shed",
+      "images": {
+        "orchards": "Drone view of the shed and the orchards, hills in the background",
+        "roof": "Drone view of the fully fitted steel-sheet roof",
+        "technicalRoom": "Plant room: Solax inverter, DC box and two T58 batteries"
+      },
+      "technicalSheet": {
+        "power": "15 kWp",
+        "roof": "Steel-sheet shed, mounted over",
+        "inverter": "Solax X3 three-phase hybrid",
+        "storage": "2 × Solax T58 · 12 kWh",
+        "scheme": "Self-consumption with storage"
+      }
+    },
+    "saint-jeannet-villa-6-kwc": {
+      "seo": {
+        "title": "Saint-Jeannet: 6 kWp and 6 kWh on a villa | Soliance",
+        "description": "Villa with a pool in Saint-Jeannet: 12 panels on the garage and the covered terrace, Solax X1 inverter and 6 kWh T58 battery."
+      },
+      "eyebrow": "Solar + battery · Saint-Jeannet (06) · November 2025",
+      "title": "6 kWp and 6 kWh: the panels on the garage, the house untouched.",
+      "summary": "The main roof has four slopes and faces the street: we preferred the two low roofs of the garage and the covered terrace, due south and invisible from the street. 12 La Francilienne 500 W full black panels, Solax X1 single-phase hybrid inverter and 6 kWh T58 battery installed in the storeroom. Fitted on 12 November 2025, commissioned on 20 March 2026. In the evening, the battery covers the pool pump and the lighting.",
+      "metrics": {
+        "first": { "value": "6 kWp", "label": "12 panels, 2 low roofs" },
+        "second": { "value": "6 kWh", "label": "Solax T58 battery" },
+        "third": { "value": "≈ 1,300", "label": "kWh produced per kWp per year" }
+      },
+      "cta": "A house like this one? Simulate my project",
+      "images": {
+        "villaDrone": "Drone view of the villa, the pool and the palm tree",
+        "lowRoofs": "Drone view of the two fitted low roofs",
+        "inverter": "Solax inverter and T58 battery in the storeroom"
+      }
+    },
+    "la-colle-sur-loup-pac-13-kwc": {
+      "seo": {
+        "title": "La Colle-sur-Loup: solar and Daikin heat pump | Soliance",
+        "description": "Villa in La Colle-sur-Loup: 13 kWp, 15 kWh of battery and a 16 kW Daikin Altherma heat pump fitted together. The house is heated by its roof."
+      },
+      "band": "Project sheet · solar + heat pump",
+      "eyebrow": "Solar + battery + air-to-water heat pump · La Colle-sur-Loup (06) · May 2026",
+      "title": "13 kWp, 15 kWh and a 16 kW Daikin heat pump: the house is heated by its roof.",
+      "blocks": {
+        "need": "Villa with a pool and a heating system to replace. Rather than two separate jobs, the client wants a single consistent installation: produce, store, and heat with the electricity produced.",
+        "solution": "26 La Francilienne 500 W panels, Solax X1 IES inverter with 15 kWh of battery, and a 16 kW Daikin Altherma air-to-water heat pump with a buffer tank in the plant room. The heat pump runs on solar during the day, the battery takes over in the evening.",
+        "process": "Solar study and thermal study, prior declaration with heritage (ABF) approval on 13 April 2026, MaPrimeRénov' application for the heat pump, both lots fitted by our teams in May 2026, Consuel approved on 7 August.",
+        "result": "About 16,900 kWh produced per year (1,300 kWh/kWp baseline): enough to cover the heat pump in mid-season and a large share of winter heating; Soliance Care monitoring on both systems."
+      },
+      "testimonial": {
+        "quote": "“[Testimonial from Mr R., 2 to 3 sentences]”"
+      },
+      "cta": "Solar + heat pump? Free study",
+      "images": {
+        "villa": "Villa in La Colle-sur-Loup, panels on the roof, pool",
+        "bufferTank": "Buffer tank and Daikin hydraulic module in the plant room",
+        "outdoorUnit": "Daikin Altherma outdoor unit"
+      },
+      "panel": {
+        "title": "Why pair solar and a heat pump",
+        "text": "A heat pump uses 3 to 4 times less than conventional electric heating, and it mostly runs during the day. With 13 kWp on the roof and 15 kWh of battery, every solar kWh replaces heating oil or gas instead of being sold for a cent."
+      },
+      "technicalSheet": {
+        "solar": "13 kWp · 26 × 500 W panels",
+        "inverterStorage": "Solax X1 IES · 15 kWh",
+        "heatPump": "Daikin Altherma air-to-water 16 kW",
+        "aids": "MaPrimeRénov' + CEE on the heat pump"
+      }
+    }
+  }
+}

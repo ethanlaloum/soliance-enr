@@ -1,0 +1,189 @@
+{
+  "seo": {
+    "title": "Installateur panneaux solaires, pompes à chaleur et bornes dans le 06 | Soliance",
+    "description": "Soliance installe panneaux solaires avec batterie, pompes à chaleur et bornes de recharge dans les Alpes-Maritimes, le Var et les Bouches-du-Rhône. Étude précise, prix fixe, pose par nos techniciens, maintenance incluse la première année."
+  },
+  "hero": {
+    "eyebrow": "Installateur solaire · Alpes-Maritimes, Var, Bouches-du-Rhône",
+    "eyebrowShort": "Installateur solaire · 06 · 83 · 13",
+    "title": "L'énergie renouvelable en toute confiance.",
+    "lead": "Panneaux solaires avec batterie, pompes à chaleur et bornes de recharge, posés par nos propres techniciens. Chaque installation part d'une étude précise de votre consommation, de votre foyer et de votre maison. Prix fixe, démarches prises en charge, maintenance incluse la première année.",
+    "leadShort": "Panneaux solaires avec batterie, pompes à chaleur et bornes de recharge, posés par nos propres techniciens. Étude précise de votre foyer, prix fixe, démarches incluses.",
+    "simulate": "Simuler mes économies",
+    "requestStudy": "Demander une étude gratuite",
+    "trustLabel": "Nos garanties",
+    "trust": {
+      "rge": "Certifié RGE",
+      "decennial": "Garantie décennale",
+      "installation": "Pose en 1 à 3 jours",
+      "localTeam": "Équipe locale depuis 2022"
+    },
+    "imageAlt": "Villa à Vence équipée par Soliance : 16 kWc et batterie 15 kWh",
+    "statsLabel": "Soliance en chiffres",
+    "stats": {
+      "installations": { "value": "280+", "label": "installations suivies en PACA", "labelShort": "installations suivies" },
+      "signature": { "value": "10 j", "label": "du premier contact à la signature", "labelShort": "jusqu'à la signature" },
+      "maintenance": { "value": "1 an", "label": "de maintenance incluse", "labelShort": "maintenance incluse" }
+    }
+  },
+  "partners": {
+    "title": "Nos partenaires",
+    "logosAlt": "Logos des partenaires : SolaX, Francilienne, K2, Daikin, Sofinco, MMA, BPCE Lease, RI2E, Synexium"
+  },
+  "solutions": {
+    "title": "Nos solutions",
+    "intro": "Trois équipements, une seule équipe : nous concevons, posons, raccordons et entretenons.",
+    "discover": "Découvrir",
+    "solar": {
+      "audience": "Particuliers & entreprises",
+      "title": "Photovoltaïque",
+      "description": "3 à 12 kWc, toujours avec batterie : vous consommez votre propre électricité le soir au lieu de la brader au réseau. Démarches mairie, Consuel et Enedis incluses.",
+      "shortDescription": "3 à 12 kWc, toujours avec batterie, démarches incluses",
+      "imageAlt": "Villa équipée de panneaux photovoltaïques, piscine"
+    },
+    "heatPump": {
+      "audience": "Particuliers",
+      "title": "Pompe à chaleur",
+      "description": "Chauffage et climatisation air/air ou air/eau, dimensionnés sur étude. Éligible MaPrimeRénov' et CEE : nous montons le dossier d'aides.",
+      "shortDescription": "Éligible MaPrimeRénov' et CEE",
+      "imageAlt": "Unité extérieure de pompe à chaleur"
+    },
+    "evCharger": {
+      "audience": "Particuliers & entreprises",
+      "title": "Bornes de recharge",
+      "description": "Bornes 7 à 22 kW, résidentielles ou en parking d'entreprise, pilotées par votre production solaire. Installateurs qualifiés IRVE.",
+      "shortDescription": "7 à 22 kW, maison et entreprise",
+      "imageAlt": "Borne de recharge murale devant un garage, véhicule électrique en charge"
+    }
+  },
+  "simulator": {
+    "eyebrow": "Simulateur",
+    "title": "Combien votre toit peut-il vous rapporter ?",
+    "lead": "Adresse, surface de toit et facture d'électricité : en deux minutes, vous obtenez une estimation de production, d'économies et de puissance recommandée. Sans engagement.",
+    "leadShort": "Adresse, surface, facture : une estimation en deux minutes.",
+    "cta": "Lancer la simulation",
+    "imageAlt": "Toiture équipée de panneaux solaires au coucher du soleil, Côte d'Azur",
+    "estimateLabel": "Exemple d'estimation pour une maison type",
+    "estimate": {
+      "power": { "value": "6 kWc + 10 kWh", "label": "conseillés pour une maison type" },
+      "production": { "value": "≈ 7 800 kWh", "label": "produits par an (1 300 kWh/kWc)" },
+      "autonomy": { "value": "≈ 75 %", "label": "d'autonomie · aucune prime, surplus 0,01 €" }
+    }
+  },
+  "steps": {
+    "title": "Votre projet en 5 étapes",
+    "study": {
+      "title": "Étude précise, sur 100 % des projets",
+      "titleShort": "Étude précise",
+      "description": "Vos consommations réelles, le profil de votre foyer et les caractéristiques techniques de la maison : rien n'est dimensionné au forfait.",
+      "descriptionShort": "Consommations, foyer, maison : sur 100 % des projets."
+    },
+    "quote": {
+      "title": "Rendez-vous & devis",
+      "titleShort": "Rendez-vous & devis",
+      "description": "Présentation à domicile ou au showroom, visite technique, devis détaillé à prix fixe.",
+      "descriptionShort": "Visite technique, prix fixe."
+    },
+    "paperwork": {
+      "title": "Démarches",
+      "titleShort": "Démarches",
+      "description": "Déclaration en mairie, raccordement Enedis, contrat de rachat : nous gérons tout.",
+      "descriptionShort": "Mairie, Enedis, contrat de rachat."
+    },
+    "installation": {
+      "title": "Pose en 1 à 3 jours",
+      "titleShort": "Pose en 1 à 3 jours",
+      "description": "Par nos propres techniciens, jamais sous-traitée. Consuel et mise en service.",
+      "descriptionShort": "Par nos techniciens, Consuel, mise en service."
+    },
+    "followUp": {
+      "title": "Suivi & maintenance",
+      "titleShort": "Suivi & maintenance",
+      "description": "Application de suivi, point à 6 mois et à 1 an, maintenance incluse la première année puis Soliance Care.",
+      "descriptionShort": "1 an inclus, puis Soliance Care."
+    }
+  },
+  "why": {
+    "eyebrow": "Pourquoi Soliance",
+    "title": "Une équipe de la région, qui reste après la pose.",
+    "body": "Nous sommes installateurs depuis 2022 sur la Côte d'Azur. Nos techniciens posent eux-mêmes, notre showroom est ouvert à Saint-Laurent-du-Var, et chaque installation est suivie par Soliance Care, notre service de supervision et de maintenance.",
+    "values": {
+      "trust": { "title": "Confiance", "description": "Un prix fixe, sans surprise, avant la signature." },
+      "transparency": { "title": "Transparence", "description": "Le rachat du surplus est quasi nul : nous le disons, et nous dimensionnons pour l'autoconsommation." },
+      "expertise": { "title": "Expertise", "description": "Techniciens certifiés RGE, matériel sélectionné." },
+      "proximity": { "title": "Proximité", "description": "Showroom, technicien local, réponse sous 48 h." }
+    },
+    "imageAlt": "L'équipe Soliance devant le showroom",
+    "insurance": { "label": "Assurance", "value": "RC pro & décennale MMA" },
+    "financing": { "label": "Financement", "value": "Sofinco · BPCE Lease" }
+  },
+  "testimonials": {
+    "title": "Ils nous font confiance",
+    "rating": "[Note Google] · [Nombre] avis",
+    "starsLabel": "5 étoiles sur 5",
+    "solar": { "quote": "[Témoignage client réel — installation photovoltaïque, commune, année]", "author": "[Prénom N.] · [Commune]" },
+    "heatPump": { "quote": "[Témoignage client réel — pompe à chaleur]", "author": "[Prénom N.] · [Commune]" },
+    "evCharger": { "quote": "[Témoignage client réel — borne de recharge ou projet pro]", "author": "[Prénom N.] · [Commune]" }
+  },
+  "tiles": {
+    "referral": {
+      "eyebrow": "Parrainage",
+      "title": "Recommandez Soliance, gagnez de 300 € à 600 € par filleul.",
+      "description": "Et un week-end pour deux au 5e parrainage."
+    },
+    "care": {
+      "eyebrow": "Soliance Care",
+      "title": "Votre installation surveillée 24 h/24, dépannée en 2 jours.",
+      "description": "Supervision par IA, entretien annuel, technicien local. À partir de 19,99 €/mois.",
+      "imageAlt": "Écran de supervision Soliance Care"
+    }
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "lead": "Un conseiller vous rappelle sous 48 h ouvrées pour une première étude gratuite. Vous pouvez aussi passer au showroom.",
+    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "sales": { "label": "Commercial", "email": "commercial@soliance-enr.fr", "phone": "07 63 54 51 44" },
+    "admin": { "label": "Administratif", "email": "adv@soliance-enr.fr", "phone": "06 59 40 38 88" },
+    "hours": { "label": "Horaires", "value": "lundi au vendredi, 9 h – 18 h" },
+    "mapLink": "Voir le showroom sur Google Maps",
+    "form": {
+      "title": "Demander une étude gratuite",
+      "fullName": "Nom et prénom",
+      "phone": "Téléphone",
+      "email": "E-mail (facultatif)",
+      "postalCode": "Code postal",
+      "projectType": "Votre projet",
+      "projectOptions": {
+        "SOLAR_PANELS": "Panneaux solaires",
+        "HEAT_PUMP": "Pompe à chaleur",
+        "EV_CHARGER": "Borne de recharge",
+        "PROFESSIONAL_PROJECT": "Projet professionnel",
+        "UNDECIDED": "Autre / je ne sais pas encore"
+      },
+      "monthlyBill": "Facture d'électricité mensuelle (facultatif)",
+      "monthlyBillPlaceholder": "ex. 180 €",
+      "consent": "J'accepte d'être recontacté par Soliance au sujet de ma demande. Données traitées selon notre politique de confidentialité.",
+      "privacyLink": "Lire la politique de confidentialité",
+      "submit": "Envoyer ma demande",
+      "submitting": "Envoi en cours…",
+      "successTitle": "Demande envoyée",
+      "successDescription": "Merci ! Un conseiller Soliance vous rappelle sous 48 h ouvrées.",
+      "errorTitle": "Envoi impossible",
+      "validation": {
+        "fullNameRequired": "Indiquez votre nom et votre prénom.",
+        "phoneInvalid": "Indiquez un numéro de téléphone français valide, par exemple 06 12 34 56 78.",
+        "emailInvalid": "Indiquez une adresse e-mail valide, ou laissez le champ vide.",
+        "postalCodeInvalid": "Indiquez un code postal à 5 chiffres.",
+        "monthlyBillTooLong": "Indiquez un montant court, par exemple 180 €.",
+        "consentRequired": "Cochez cette case pour que nous puissions vous rappeler."
+      },
+      "errors": {
+        "CONSENT_REQUIRED": "Nous ne pouvons pas vous rappeler sans votre accord. Cochez la case de consentement.",
+        "INVALID_REQUEST": "Certaines informations n'ont pas été acceptées. Vérifiez le formulaire et réessayez.",
+        "SUBMISSION_FAILED": "Votre demande n'a pas pu être envoyée. Réessayez dans un instant ou appelez-nous au 07 63 54 51 44.",
+        "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 07 63 54 51 44.",
+        "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "seo": {
+    "title": "Free solar simulator: production and savings | Soliance",
+    "description": "Estimate in 2 minutes the power, battery, self-sufficiency and savings of your roof in the 06, 83 and 13 departments. Refined by a precise study."
+  },
+  "hero": {
+    "eyebrow": "Solar simulator · free · 2 minutes",
+    "title": "Estimate the production and savings of your roof.",
+    "stepsLabel": "Simulator steps",
+    "currentStep": "Step {{current}} of {{total}} · {{label}}"
+  },
+  "steps": {
+    "ADDRESS": "Address",
+    "ROOF": "Roof",
+    "CONSUMPTION": "Consumption",
+    "RESULT": "Result"
+  },
+  "wizard": {
+    "titles": {
+      "ADDRESS": "Step 1 — Your address",
+      "ROOF": "Step 2 — Your roof",
+      "CONSUMPTION": "Step 3 — Your consumption",
+      "RESULT": "Step 4 — Your result"
+    },
+    "privacyHint": "Nothing is saved during the simulation: your answers stay on this screen until you request the study.",
+    "fields": {
+      "address": "Installation address",
+      "addressPlaceholder": "e.g. 12 avenue des Oliviers, Cagnes-sur-Mer",
+      "postalCode": "Postal code",
+      "postalCodePlaceholder": "e.g. 06800",
+      "roofArea": "Usable roof area",
+      "roofAreaValue": "{{value}} m²",
+      "roofAreaHint": "Free, unshaded area: about 5 m² of panels per kWp.",
+      "orientation": "Orientation",
+      "roofCovering": "Roof covering",
+      "monthlyBill": "Monthly electricity bill",
+      "monthlyBillPlaceholder": "e.g. €180",
+      "monthlyBillHint": "Average amount of your bills including tax, in euros per month.",
+      "equipment": "Electrical equipment",
+      "daytimePresence": "Daytime presence"
+    },
+    "orientations": {
+      "SOUTH": "South",
+      "SOUTH_EAST": "South-east",
+      "SOUTH_WEST": "South-west",
+      "EAST_WEST": "East / West"
+    },
+    "roofCoverings": {
+      "TILES": "Tiles",
+      "SLATE": "Slate",
+      "METAL_SHEET": "Metal sheet",
+      "FLAT_ROOF": "Flat roof",
+      "OTHER": "Other / not sure"
+    },
+    "equipments": {
+      "ELECTRIC_HEATING": "Electric heating",
+      "AIR_CONDITIONING": "Air conditioning",
+      "POOL": "Swimming pool",
+      "ELECTRIC_VEHICLE": "Electric vehicle"
+    },
+    "presences": {
+      "MOSTLY_ABSENT": "Often away (working)",
+      "PRESENT": "At home (remote work, retired)"
+    },
+    "errors": {
+      "ADDRESS_REQUIRED": "Enter the installation address.",
+      "POSTAL_CODE_INVALID": "Enter a 5-digit postal code.",
+      "MONTHLY_BILL_INVALID": "Enter an amount between €{{min}} and €{{max, number}} per month, for example €180."
+    },
+    "back": "Back",
+    "next": "Continue",
+    "seeEstimate": "See my estimate"
+  },
+  "result": {
+    "lead": "Here is the estimate of your installation with a battery. It will be refined during the precise study, based on your actual consumption, your household profile and the features of your house.",
+    "details": {
+      "power": {
+        "label": "Recommended power",
+        "value": "{{kwc}} kWp · {{panels}} panels"
+      },
+      "battery": {
+        "label": "Recommended physical battery",
+        "value": "{{kwh}} kWh"
+      },
+      "consumption": {
+        "label": "Estimated annual consumption",
+        "value": "≈ {{value, number}} kWh"
+      },
+      "selfConsumption": {
+        "label": "Self-consumed energy (direct + battery)",
+        "value": "≈ {{value, number}} kWh per year"
+      }
+    },
+    "surplus": "Remaining surplus: ≈ {{kwh, number}} kWh per year, bought back at €{{tariff, number}}/kWh (≈ €{{value, number}}). It is not counted in the savings shown: we store it, we no longer sell it.",
+    "price": "Price quoted after the study, fixed and detailed.",
+    "cta": "Get the free detailed study"
+  },
+  "estimate": {
+    "title": "Your estimate",
+    "previewBadge": "Preview — refined at each step",
+    "resultBadge": "Indicative estimate",
+    "empty": "—",
+    "emptyHint": "Describe your roof in the next step to see a first estimate.",
+    "referenceHint": "Provisional figures for a typical household (€{{bill}} of electricity per month): they get more precise with your consumption.",
+    "power": {
+      "value": "{{kwc}} kWp + {{battery}} kWh",
+      "label": "{{panels}} panels and battery recommended",
+      "emptyLabel": "panels and battery recommended"
+    },
+    "production": {
+      "value": "{{value, number}} kWh",
+      "label": "produced per year"
+    },
+    "savings": {
+      "value": "≈ €{{value, number}}",
+      "label": "saved per year"
+    },
+    "autonomy": {
+      "value": "≈ {{value}}%",
+      "label": "self-sufficiency thanks to the battery"
+    },
+    "monthValue": "{{month}}: {{value, number}} kWh",
+    "caption": "Estimated monthly production, January to December · source PVGIS, regional average of {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
+    "months": {
+      "january": { "long": "January", "short": "J" },
+      "february": { "long": "February", "short": "F" },
+      "march": { "long": "March", "short": "M" },
+      "april": { "long": "April", "short": "A" },
+      "may": { "long": "May", "short": "M" },
+      "june": { "long": "June", "short": "J" },
+      "july": { "long": "July", "short": "J" },
+      "august": { "long": "August", "short": "A" },
+      "september": { "long": "September", "short": "S" },
+      "october": { "long": "October", "short": "O" },
+      "november": { "long": "November", "short": "N" },
+      "december": { "long": "December", "short": "D" }
+    }
+  },
+  "capture": {
+    "title": "Get the free detailed study",
+    "description": "An advisor goes over these figures with your actual consumption, your household profile and the features of your house — the study we carry out for 100% of our installations — then sends you a fixed-price quote.",
+    "email": "Email",
+    "phone": "Phone",
+    "submit": "Get it",
+    "consent": "I agree to be contacted by Soliance about my project.",
+    "privacyLink": "Read the privacy policy",
+    "successTitle": "Request sent",
+    "successDescription": "Thank you! An advisor reviews your estimate and calls you back within 2 business days to prepare the precise study.",
+    "validation": {
+      "emailInvalid": "Enter a valid email address.",
+      "phoneInvalid": "Enter a valid French phone number, for example 06 12 34 56 78.",
+      "consentRequired": "Tick this box so that we can call you back."
+    }
+  },
+  "commitments": {
+    "title": "Our commitments",
+    "dataUsed": {
+      "title": "Data used",
+      "description": "Regional average PVGIS solar irradiation, roof orientation, consumption profile."
+    },
+    "noDataSold": {
+      "title": "No data sold",
+      "description": "Your answers are only used for your study. They are never passed on to third parties."
+    },
+    "fixedPrice": {
+      "title": "Fixed price after the study",
+      "description": "The quote details equipment, installation, paperwork and first-year maintenance."
+    }
+  }
+}

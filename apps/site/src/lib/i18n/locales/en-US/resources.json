@@ -1,0 +1,320 @@
+{
+  "seo": {
+    "title": "Resources: news, FAQ and incentives glossary | Soliance",
+    "description": "News on incentives, our answers to your questions and a glossary of schemes (EDF OA, MaPrimeRénov', CEE, Consuel), kept up to date by the Soliance team."
+  },
+  "hero": {
+    "breadcrumb": "Resources",
+    "title": "Understand everything before you sign.",
+    "lead": "Incentives change every year, the same questions keep coming back and acronyms abound. Here you will find the news, our answers and the definitions, kept up to date by the team."
+  },
+  "sectionNav": {
+    "label": "On this page",
+    "news": "News",
+    "faq": "Frequently asked questions",
+    "glossary": "Incentives and programmes glossary",
+    "glossaryShort": "Glossary"
+  },
+  "news": {
+    "title": "News",
+    "meta": "{{category}} · {{date}}",
+    "filters": {
+      "label": "Filter news by category",
+      "all": "All"
+    },
+    "categories": {
+      "aids": "Incentives",
+      "regulation": "Regulations",
+      "advice": "Advice",
+      "soliance": "Soliance"
+    },
+    "articles": {
+      "surplusBattery": {
+        "date": "[date]",
+        "title": "Surplus buy-back close to zero: why a battery has become essential",
+        "summary": "This quarter's rates, and what they change for a 3, 6 or 9 kWp installation."
+      },
+      "inverterSigns": {
+        "date": "[date]",
+        "title": "5 signs your inverter is wearing out",
+        "imageAlt": "Technician working on an inverter"
+      },
+      "aperCarports": {
+        "date": "[date]",
+        "title": "APER law: which car parks must install solar carports?",
+        "imageAlt": "Car park covered with solar carports"
+      },
+      "heatPumpGrant": {
+        "date": "[date]",
+        "title": "MaPrimeRénov' for heat pumps: 2026 rates and conditions"
+      },
+      "batterySize": {
+        "date": "[date]",
+        "title": "What battery size for your household?"
+      },
+      "showroomOpening": {
+        "date": "[date]",
+        "title": "Our Saint-Laurent-du-Var showroom is open"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "themesLabel": "Frequently asked question topics",
+    "missing": "Can't find your question? <contactLink>Write to us</contactLink>, we reply within 48 hours and add it here.",
+    "themes": {
+      "pricing": {
+        "label": "Pricing and financing",
+        "questions": {
+          "cost": {
+            "question": "How much does a 6 kWp installation cost?",
+            "answer": "The price depends on the roof, the inverter and the options (battery, backup). We do not publish a price list: every quote is fixed, itemised line by line and issued after a free study. The simulator first gives you the expected production and savings."
+          },
+          "financing": {
+            "question": "Can I finance my installation?",
+            "answer": "Yes, with our partner Sofinco for individuals, or through leasing with BPCE Lease for businesses."
+          },
+          "deposit": {
+            "question": "What deposit is due at signature?",
+            "answer": "The deposit amount and the payment schedule are set out in the fixed, itemised quote before anything is signed. [Amount and schedule to be confirmed by Soliance]"
+          },
+          "payback": {
+            "question": "How many years until the installation pays for itself?",
+            "answer": "It depends on your consumption, the share you consume yourself and the battery size: the study works out this period for your home before the quote. A real example: the villa in Vence (16 kWp, 15 kWh) shows a payback of 7.5 years."
+          },
+          "maintenance": {
+            "question": "Is maintenance included?",
+            "answer": "Yes, for the first year. After that, Soliance Care takes over: 24/7 monitoring, annual servicing and repairs within 2 working days, from €19.99/month."
+          }
+        }
+      },
+      "aids": {
+        "label": "Incentives and tax",
+        "questions": {
+          "solarBonus": {
+            "question": "Is there still a grant for solar panels?",
+            "answer": "No self-consumption bonus is active at the moment. We do not include it in our quotes; if it is reinstated, it will be deducted at signature."
+          },
+          "resale": {
+            "question": "Can I still sell my electricity?",
+            "answer": "Total sale is no longer available to individuals and surplus is bought back at €0.01 per kWh, 20 times less than the price you pay for it. That is why all our residential installations include a battery."
+          },
+          "maPrimeRenov": {
+            "question": "Does MaPrimeRénov' apply to solar panels?",
+            "answer": "No. MaPrimeRénov' and CEE do not cover photovoltaics: they apply to heat pumps. We check your eligibility during the study and file the applications."
+          },
+          "vatRecovery": {
+            "question": "Can I recover the VAT?",
+            "answer": "Yes, on request, for installations over 3 kWp: we set up the producer structure and handle the file until the refund."
+          },
+          "chargerAids": {
+            "question": "What incentives are there for an EV charger?",
+            "answer": "A tax credit for a smart charger installed by an IRVE-qualified installer, reduced VAT in homes over 2 years old, and the Advenir programme for condominiums and businesses."
+          }
+        }
+      },
+      "technical": {
+        "label": "Technical and equipment",
+        "questions": {
+          "roof": {
+            "question": "Is my roof suitable?",
+            "answer": "South, south-east or south-west facing, 15 to 45° pitch, tiles, slate or steel sheet: we check on satellite view, then during a technical visit."
+          },
+          "battery": {
+            "question": "Why a battery on every installation?",
+            "answer": "With surplus bought back at €0.01 per kWh, every kilowatt-hour you do not use is lost. The battery keeps the daytime production for the evening and night: 70 to 85% self-sufficiency depending on the household."
+          },
+          "hardware": {
+            "question": "What equipment do you install?",
+            "answer": "Francilienne 450 to 500 W panels, Solax IES hybrid inverters, T30 / T58 batteries, an EPS box for backup power and K2 mounting systems. For heat pumps, mainly Daikin."
+          },
+          "outage": {
+            "question": "What happens during a power cut?",
+            "answer": "With the EPS box, the battery keeps powering the essentials of the house while the grid is down."
+          },
+          "heatPumpCoupling": {
+            "question": "Can I pair a heat pump with my solar panels?",
+            "answer": "Yes, and it is the ideal pair: the heat pump and the heat-pump water heater use your daytime solar production."
+          }
+        }
+      },
+      "procedures": {
+        "label": "Procedures and lead times",
+        "questions": {
+          "connection": {
+            "question": "How long until I am connected?",
+            "answer": "About 10 days from first contact to signature, then 1 to 3 months of paperwork (town hall, Enedis) before installation."
+          },
+          "paperwork": {
+            "question": "What paperwork do I have to do myself?",
+            "answer": "None: the town hall declaration, the Enedis connection, the Consuel and the buy-back contract are all handled by Soliance."
+          },
+          "installationDays": {
+            "question": "How many days does installation take?",
+            "answer": "1 to 3 days for solar depending on the power, 1 to 2 days for a heat pump, half a day to a day for a charger. Always by our own technicians."
+          },
+          "heatPumpLeadTime": {
+            "question": "How long does it take to install a heat pump?",
+            "answer": "About 10 days from first contact to signature, then 3 to 6 weeks depending on the grants to obtain before work starts. No town hall or Enedis paperwork."
+          },
+          "chargerLeadTime": {
+            "question": "And for an EV charger?",
+            "answer": "Quote within 48 hours of the visit, installation within 2 to 3 weeks, in half a day to a day. No town hall paperwork."
+          }
+        }
+      },
+      "warranty": {
+        "label": "Warranties and after-sales",
+        "questions": {
+          "breakdown": {
+            "question": "What happens if something breaks down?",
+            "answer": "The first year of maintenance is included. After that, Soliance Care monitors the installation and steps in within 2 working days."
+          },
+          "coverage": {
+            "question": "Which warranties cover my installation?",
+            "answer": "Soliance's ten-year liability insurance, with MMA, and the manufacturer warranties on the equipment, including a 25-year product warranty on Francilienne panels."
+          },
+          "manufacturerWarranty": {
+            "question": "Who handles manufacturer warranties?",
+            "answer": "We do, directly: we have installed and repaired the same brands since 2022, and we handle manufacturer warranties ourselves if there is a problem."
+          },
+          "installer": {
+            "question": "Who installs the system?",
+            "answer": "Our own technicians, based in Saint-Laurent-du-Var. We do not subcontract installation."
+          },
+          "heatPumpServicing": {
+            "question": "What servicing does a heat pump need?",
+            "answer": "An annual check is mandatory above 4 kW. It is included the first year, then offered with Soliance Care."
+          }
+        }
+      },
+      "referral": {
+        "label": "Referral",
+        "questions": {
+          "reward": {
+            "question": "How much does a referral earn?",
+            "answer": "€300 for the 1st referee, €400 for the 2nd, €500 for the 3rd, €600 for the 4th, then a weekend for two at the 5th. No time limit."
+          },
+          "eligibility": {
+            "question": "Who can refer someone?",
+            "answer": "Soliance and Soliance Care customers. The referee must not already be in contact with Soliance."
+          },
+          "payment": {
+            "question": "When is the reward paid?",
+            "answer": "By bank transfer, within 30 days of the referee's installation being commissioned."
+          },
+          "installations": {
+            "question": "Which installations count?",
+            "answer": "Solar, heat pump or charger: every installation counts."
+          },
+          "howTo": {
+            "question": "How do I pass on a contact?",
+            "answer": "Through the form on the Referral page, by phone on 06 08 62 84 71 or from your customer area, with your referee's consent."
+          }
+        }
+      }
+    }
+  },
+  "glossary": {
+    "title": "Incentives and programmes glossary",
+    "updated": "Updated on [date] · amounts checked every quarter",
+    "categories": {
+      "solar": "Solar",
+      "tax": "Tax",
+      "heatPump": "Heat pump",
+      "procedures": "Procedures",
+      "qualifications": "Qualifications",
+      "professionals": "Businesses"
+    },
+    "links": {
+      "solar": "See solar",
+      "heatPump": "See heat pumps",
+      "evCharger": "See EV chargers",
+      "professionals": "See business solutions",
+      "referral": "See the referral programme",
+      "simulator": "Simulate my project",
+      "care": "Discover Soliance Care"
+    },
+    "entries": {
+      "selfConsumptionBonus": {
+        "term": "Self-consumption bonus",
+        "definition": "A government grant that existed for self-consumption installations. No bonus is active at the moment: we do not include it in our quotes. If it is reinstated, it will be deducted at signature."
+      },
+      "feedInTariff": {
+        "term": "Purchase obligation (EDF OA)",
+        "definition": "The contract under which EDF buys unused surplus. For individuals, the rate is €0.01 per kWh and total sale is no longer offered: hence a battery on all our installations and smart-controlled equipment (water heater, charger)."
+      },
+      "vatRecovery": {
+        "term": "VAT recovery",
+        "definition": "For an installation over 3 kWp, individuals can recover the VAT by becoming a VAT-registered producer. Soliance sets up the structure and prepares the file."
+      },
+      "maPrimeRenov": {
+        "term": "MaPrimeRénov'",
+        "definition": "An Anah grant for replacing a heating system with a heat pump, based on income. Does not cover solar. Application prepared by Soliance."
+      },
+      "energySavingsCertificates": {
+        "term": "CEE (energy savings certificates)",
+        "definition": "A bonus funded by energy suppliers, combinable with MaPrimeRénov' for a heat pump. Paid after the work by an RGE installer."
+      },
+      "consuel": {
+        "term": "Consuel",
+        "definition": "The electrical compliance certificate required before grid connection. Requested and obtained by Soliance for every installation."
+      },
+      "gridConnection": {
+        "term": "Enedis connection and prior declaration",
+        "definition": "Planning permission from the town hall, then a grid connection request. Allow 1 to 3 months, included in the quote."
+      },
+      "certifications": {
+        "term": "RGE, QualiPV, QualiPac",
+        "definition": "Labels required for customers to receive incentives. Soliance holds the QualiPV and QualiPac qualifications."
+      },
+      "aperLaw": {
+        "term": "APER law and collective self-consumption",
+        "definition": "An obligation to add solar to car parks over 1,500 m²; the option to share production among several consumers in the same neighbourhood."
+      }
+    },
+    "moreTitle": "Other entries",
+    "more": {
+      "decennialWarranty": {
+        "term": "Ten-year liability insurance",
+        "definition": "The installer's mandatory insurance: for 10 years after the work is accepted, it covers damage that undermines the installation's soundness or makes it unfit for use. Soliance holds ten-year cover with MMA."
+      },
+      "performanceWarranty": {
+        "term": "Performance warranty",
+        "definition": "The manufacturer's commitment on the output the panels retain over the years. It comes on top of the product warranty, 25 years on the Francilienne panels we install."
+      },
+      "chargingInfrastructure": {
+        "term": "IRVE",
+        "definition": "Electric vehicle charging infrastructure. The IRVE qualification is mandatory to install a charger above 3.7 kW and to qualify for incentives: our electricians are IRVE-qualified."
+      },
+      "powerAndEnergy": {
+        "term": "kWp and kWh",
+        "definition": "The kWp (kilowatt-peak) measures the panels' maximum power, the kWh the energy produced or consumed. Our estimates use ≈ 1,300 kWh per kWp per year in the region."
+      },
+      "hybridInverter": {
+        "term": "Hybrid inverter",
+        "definition": "It converts the panels' direct current into alternating current for the home and manages battery charging and discharging. We install Solax IES hybrid inverters."
+      },
+      "backupBox": {
+        "term": "EPS box",
+        "definition": "A backup power unit: during a grid outage, the battery keeps powering the essentials of the house."
+      },
+      "selfConsumption": {
+        "term": "Self-consumption",
+        "definition": "Using the electricity your panels produce on site. With a battery, self-sufficiency reaches 70 to 85% depending on the household: that is why all our residential installations include one."
+      },
+      "surplus": {
+        "term": "Surplus",
+        "definition": "Electricity produced but neither used nor stored, fed into the grid and bought back at €0.01 per kWh, 20 times less than its purchase price. We size every installation to keep it low."
+      },
+      "care": {
+        "term": "Soliance Care",
+        "definition": "Our monitoring and maintenance service: 24/7 monitoring, annual servicing and repairs within 2 working days by a local technician. From €19.99/month."
+      },
+      "referral": {
+        "term": "Referral",
+        "definition": "Our recommendation programme: €300 to €600 per referee depending on their rank, and a weekend for two at the 5th, paid after their installation is commissioned."
+      }
+    }
+  }
+}

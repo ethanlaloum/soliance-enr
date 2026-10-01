@@ -1,0 +1,247 @@
+{
+  "seo": {
+    "title": "Solar panels for businesses in PACA | Soliance",
+    "description": "Industrial roofs, APER-law parking canopies, business EV chargers and collective self-consumption: free profitability study, leasing and delivery in PACA."
+  },
+  "hero": {
+    "eyebrow": "Businesses · Landlords · Local authorities",
+    "title": "Your roof is an asset. Put it to work.",
+    "lead": "Industrial roofs, parking canopies, agricultural and commercial buildings from 36 to 500 kWp. Profitability study, lease financing, installation and maintenance by a single team in PACA.",
+    "requestStudy": "Request a profitability study",
+    "seeReferences": "See our references",
+    "imageAlt": "Solar canopy over a company car park, aerial view"
+  },
+  "offers": {
+    "title": "What we deliver",
+    "items": {
+      "industrialRoofs": {
+        "title": "Industrial & agricultural roofs",
+        "description": "Steel deck, membrane, fibre cement to replace, farm sheds: from 15 to 500 kWp, as self-consumption with storage, total sale or collective self-consumption. E.g. <exampleLink>Vergers Niçois, 15 kWp + 12 kWh</exampleLink>.",
+        "imageAlt": "Vergers Niçois farm shed fitted with 15 kWp"
+      },
+      "carports": {
+        "title": "Parking canopies",
+        "description": "APER-law compliance for car parks over 1,500 m², combined with EV charging points.",
+        "imageAlt": "Solar parking canopy"
+      },
+      "evCharging": {
+        "title": "Business EV chargers",
+        "description": "Fleets and visitor car parks, 22 kW chargers, monitoring and billing through a charge point operator.",
+        "imageAlt": "Fleet of vans charging on company charging points"
+      },
+      "collectives": {
+        "title": "Local authorities, condominiums & landlords",
+        "description": "Collective self-consumption across one owner's buildings or between neighbours: one roof's output powers several buildings. E.g. <exampleLink>Pertuis gymnasium, 163 kWp</exampleLink>.",
+        "imageAlt": "Pertuis municipal gymnasium fitted with 163 kWp"
+      }
+    }
+  },
+  "caseStudies": {
+    "readMore": "Read the full case study",
+    "readMoreContext": "({{name}})",
+    "solisInvest": {
+      "name": "Solis Invest",
+      "eyebrow": "Case study · collective self-consumption",
+      "title": "Solis Invest: 148 kWp on an office building, with the electricity sold to the tenants.",
+      "description": "The owner of a commercial building open to the public put solar on its flat roof and sells the output to the companies renting the building, through a collective self-consumption scheme. For the owner, a property asset that earns money; for the tenants, local electricity cheaper than the grid.",
+      "statsLabel": "Key figures of the Solis Invest installation",
+      "stats": {
+        "power": {
+          "value": "148 kWp",
+          "label": "≈ 330 panels of 450 W"
+        },
+        "inverter": {
+          "value": "150 kVA",
+          "label": "Solax X3 Pro inverter"
+        },
+        "production": {
+          "value": "≈ 190 MWh",
+          "label": "produced per year (estimate)"
+        }
+      },
+      "equipment": "La Francilienne 450 W full black panels · K2 S-Dome ballast with no roof-membrane penetration · legal entity, Enedis agreement and tenant allocation set up by Soliance.",
+      "imageAlt": "Solis Invest: 148 kWp on the roof of an office building facing the Baie des Anges"
+    },
+    "seranonSpar": {
+      "name": "Spar in Séranon",
+      "eyebrow": "Case study · local shop",
+      "title": "Spar in Séranon: 36 kWp for a shop that uses power all day long.",
+      "description": "Refrigeration, lighting, tills: a supermarket consumes while the sun shines. 88% of the output is used on site, with no battery, and the surplus is sold. The result: a third of the shop's electricity produced on its own roof and an investment paid back in under 3 years.",
+      "statsLabel": "Key figures of the Spar installation in Séranon",
+      "stats": {
+        "power": {
+          "value": "36 kWp",
+          "label": "≈ 53,000 kWh/year"
+        },
+        "selfConsumption": {
+          "value": "88%",
+          "label": "used directly on site"
+        },
+        "payback": {
+          "value": "< 3 years",
+          "label": "payback period"
+        }
+      },
+      "testimonial": {
+        "initial": "R",
+        "quote": "“[Excerpt from Mr Rey's video interview, 1 to 2 sentences]”",
+        "author": "Mr Rey, owner of the Spar · video testimonial on the case study page"
+      },
+      "imageAlt": "Drone view of the Spar in Séranon, with its roof fully covered in solar panels"
+    }
+  },
+  "studyCta": {
+    "eyebrow": "Your building",
+    "title": "A roof, a car park, a fleet? We price the project within 10 days.",
+    "lead": "Yield study, simulation of the most profitable scheme (self-consumption, sale, collective), technical note and firm proposal. No commitment, carried out by our engineering office.",
+    "requestStudy": "Request a free study",
+    "callSales": "Talk to an account manager",
+    "note": "Reply within 48 h · free site visit"
+  },
+  "schemes": {
+    "eyebrow": "Understanding the schemes",
+    "title": "Four ways to make a roof or a car park pay",
+    "intro": "The rules are not the same as for homes: for a business, selling and sharing the output remain real levers. The study compares the scenarios.",
+    "diagramLabel": "Scheme diagram: {{title}}",
+    "labels": {
+      "definition": "Definition:",
+      "audience": "Who it is for:",
+      "keyPoint": "Key point:"
+    },
+    "items": {
+      "totalSale": {
+        "title": "Total sale under a feed-in tariff",
+        "definition": "up to 500 kWp, the operator sells 100% of the output to EDF OA at a tariff set by decree for 20 years.",
+        "audience": "roofs and sheds whose building uses little power (storage, farming, landlords).",
+        "keyPoint": "profitability depends on the yield and on the tariff of the quarter in which the grid connection is requested, not on consumption.",
+        "imageAlt": "Logistics warehouse with its roof fully covered in panels, power pylon in the distance",
+        "diagram": {
+          "source": "Solar roof",
+          "hub": "Production meter",
+          "target": "Sold to EDF OA over 20 years"
+        }
+      },
+      "collectiveSelfConsumption": {
+        "title": "Collective self-consumption",
+        "definition": "a scheme in which several nearby consumers (2 km, up to 20 km in rural areas) share the output of one or more installations, through an organising legal entity (PMO) and Enedis metering.",
+        "audience": "business parks, condominiums, landlords, local authorities.",
+        "keyPoint": "the shared electricity is sold at a price agreed between members, without going through a supplier.",
+        "imageAlt": "Solis Invest: commercial roof under collective self-consumption",
+        "diagram": {
+          "source": "Shared installation",
+          "hub": "PMO and Enedis metering",
+          "target": "Members within 2 km (20 km rural)"
+        }
+      },
+      "thirdPartyInvestment": {
+        "title": "Third-party investment and roof leasing",
+        "definition": "an investor funds, runs and maintains the plant; the owner receives rent or buys the electricity produced at a lower price, without tying up capital.",
+        "audience": "large roofs, buildings to renovate or clear of asbestos, car parks.",
+        "keyPoint": "less profitable than buying outright with lease financing, but zero investment and zero operation.",
+        "imageAlt": "Industrial roof with solar panels at sunset",
+        "diagram": {
+          "source": "Investor",
+          "hub": "Plant on your roof",
+          "target": "Rent or cheaper electricity"
+        }
+      },
+      "aperCarports": {
+        "title": "APER law: parking canopies",
+        "definition": "the obligation to cover at least half of the surface of outdoor car parks over 1,500 m² with solar canopies, with deadlines depending on size.",
+        "audience": "shops, business parks, local authorities, logistics sites.",
+        "keyPoint": "the obligation becomes an asset: output sold or shared, built-in EV charging, shade for users. Delivered with our specialist partners.",
+        "imageAlt": "Solar canopies over a retail park car park",
+        "diagram": {
+          "source": "Car park > 1,500 m²",
+          "hub": "Canopies over at least 50%",
+          "target": "Output and EV charging"
+        }
+      }
+    },
+    "insets": {
+      "individualSelfConsumption": {
+        "title": "Individual self-consumption with surplus sale",
+        "description": "The building uses its own output and sells the rest. Ideal when daytime consumption is high (refrigeration, production, offices). Battery optional."
+      },
+      "creTenders": {
+        "title": "CRE tenders (> 500 kWp)",
+        "description": "Above 500 kWp, the tariff is obtained through a tender. We support the application with our developer partners."
+      },
+      "taxation": {
+        "title": "Depreciation and tax",
+        "description": "Depreciable plant, VAT recovered, BPCE Lease leasing with no down payment: the profitability study includes the financing structure."
+      }
+    },
+    "footnote": "Simplified definitions; thresholds, tariffs and deadlines are updated in the <glossaryLink>resources glossary</glossaryLink> and checked for every study."
+  },
+  "method": {
+    "title": "How we work",
+    "steps": {
+      "study": {
+        "title": "Free profitability study",
+        "description": "Yield, total sale / self-consumption scenarios, payback period, financing assumptions."
+      },
+      "technical": {
+        "title": "Technical note and paperwork",
+        "description": "Sizing, Enedis grid connection, planning permission, BPCE Lease financing application."
+      },
+      "delivery": {
+        "title": "Delivery in three payment stages",
+        "description": "Order, progress, commissioning. Soliance teams and specialist partners for large capacities."
+      },
+      "operations": {
+        "title": "Operation and maintenance",
+        "description": "Monitoring, performance report, annual preventive visit with Soliance Care Pro."
+      }
+    }
+  },
+  "form": {
+    "title": "Request a profitability study",
+    "lead": "Reply within 48 business hours from Ruben Darmon, operations management.",
+    "company": "Company",
+    "fullName": "Full name",
+    "jobTitle": "Job title",
+    "email": "Business email",
+    "phone": "Phone",
+    "projectType": "Project type",
+    "projectOptions": {
+      "INDUSTRIAL_OR_AGRICULTURAL_ROOF": "Industrial or agricultural roof",
+      "PARKING_CARPORT": "Parking canopy",
+      "EV_CHARGING": "EV chargers",
+      "CONDOMINIUM_OR_LANDLORD": "Condominium / landlord",
+      "PUBLIC_AUTHORITY_OR_TENDER": "Local authority / tender"
+    },
+    "surface": "Roof or car park area (m²)",
+    "postalCode": "Site postcode",
+    "consent": "I agree to be contacted by Soliance about my request. Data processed in line with our privacy policy.",
+    "privacyLink": "Read the privacy policy",
+    "submit": "Send my request",
+    "successTitle": "Request sent",
+    "successDescription": "Thank you! We will get back to you within 48 business hours to arrange your profitability study.",
+    "validation": {
+      "companyRequired": "Enter your company name.",
+      "fullNameRequired": "Enter your full name.",
+      "jobTitleRequired": "Enter your job title.",
+      "emailInvalid": "Enter a valid business email address.",
+      "phoneInvalid": "Enter a valid French phone number, for example 06 12 34 56 78.",
+      "surfaceInvalid": "Enter an approximate area in m², for example 1200.",
+      "postalCodeInvalid": "Enter the site's 5-digit postcode.",
+      "consentRequired": "Tick this box so that we can call you back."
+    }
+  },
+  "guarantees": {
+    "title": "Financing, insurance and partners",
+    "financing": {
+      "label": "Financing",
+      "value": "BPCE Lease leasing · Banque Populaire Méditerranée"
+    },
+    "insurance": {
+      "label": "Insurance",
+      "value": "Professional liability and 10-year warranty · contracts up to €500k excl. VAT"
+    },
+    "partners": {
+      "label": "Large-project partners",
+      "value": "Irisolaris · Enerlis · Gisco"
+    }
+  }
+}

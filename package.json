@@ -1,0 +1,23 @@
+{
+  "name": "soliance-enr",
+  "private": true,
+  "packageManager": "pnpm@11.28.3",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "site": "pnpm --filter soliance-site",
+    "build:all": "pnpm -r build",
+    "lint:all": "pnpm -r lint:check",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0"
+  },
+  "lint-staged": {
+    "apps/site/**/*.{ts,tsx}": [
+      "pnpm --filter soliance-site exec eslint --fix"
+    ]
+  }
+}
