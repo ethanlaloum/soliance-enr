@@ -3,7 +3,7 @@
   "project": {
     "name": "Soliance ENR",
     "slug": "soliance-enr",
-    "root": "/Users/ethanlaloum/Desktop/Freelance/Ruben Darmon/soliance-enr"
+    "root": "/Users/ethanlaloum/Developer/soliance-enr"
   },
   "repo": {
     "layout": "monorepo",
@@ -16,8 +16,15 @@
       "name": "site",
       "path": "apps/site",
       "role": "frontend",
-      "rungs": ["unit"],
-      "commands": {},
+      "rungs": [
+        "unit"
+      ],
+      "commands": {
+        "build": "pnpm --filter soliance-site build",
+        "typecheck": "pnpm --filter soliance-site exec tsc -b",
+        "lint": "pnpm --filter soliance-site exec eslint {path}",
+        "unit": "pnpm --filter soliance-site exec vitest run {path}"
+      },
       "testGlobs": {
         "unit": "src/**/*.unit.spec.ts"
       }
@@ -26,7 +33,9 @@
       "name": "e2e",
       "path": "apps/e2e",
       "role": "e2e",
-      "rungs": ["e2e"],
+      "rungs": [
+        "e2e"
+      ],
       "commands": {},
       "testGlobs": {
         "e2e": "tests/real/**/*.spec.ts"
@@ -46,8 +55,12 @@
     "security": true,
     "compliance": {
       "enabled": true,
-      "frameworks": ["RGPD"],
-      "dataClasses": ["pii"],
+      "frameworks": [
+        "RGPD"
+      ],
+      "dataClasses": [
+        "pii"
+      ],
       "notes": "Site vitrine de Soliance ENR (Solar Trade SAS, Saint-Laurent-du-Var). Les formulaires (étude gratuite, contact, parrainage, professionnels, simulateur) collectent nom, téléphone, e-mail, code postal et informations sur le projet ; le parrainage collecte aussi les coordonnées d'un tiers (le filleul), avec sa case de consentement. Depuis le 11 août 2026, tout appel commercial vers un particulier exige son consentement préalable : chaque formulaire porte une case de consentement explicite au rappel, horodatée et conservée. Bandeau de consentement avant tout tracking (GA4, conversions), politique de confidentialité, registre des traitements, conservation des leads 3 ans après le dernier contact, contrat de sous-traitance avec l'hébergeur et HubSpot, hébergement en France ou dans l'UE. Un abandon du simulateur avant la saisie des coordonnées ne crée aucune donnée personnelle."
     },
     "documentation": {

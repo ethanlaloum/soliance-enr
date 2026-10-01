@@ -1,0 +1,196 @@
+{
+  "seo": {
+    "title": "Pompe à chaleur Daikin air/eau et air/air | Soliance",
+    "description": "Pompe à chaleur air/air, air/eau ou ballon thermodynamique posée par nos techniciens QualiPac dans le 06 et le 83. Étude thermique et dossiers d'aides montés."
+  },
+  "breadcrumb": "Pompe à chaleur",
+  "hero": {
+    "eyebrow": "Chauffage · Climatisation · Eau chaude",
+    "title": "Le confort toute l'année, à la moitié du prix du fioul ou de l'électrique.",
+    "lead": "Pompe à chaleur air/air, air/eau ou ballon thermodynamique : nous dimensionnons sur étude, posons avec nos techniciens qualifiés QualiPac et montons vos dossiers MaPrimeRénov' et CEE.",
+    "requestStudy": "Demander une étude gratuite",
+    "computeAid": "Calculer mes aides",
+    "trustLabel": "Nos engagements",
+    "trust": {
+      "qualipac": "Qualifié QualiPac RGE",
+      "daikin": "Partenaire installateur Daikin",
+      "installation": "Pose en 1 à 2 jours"
+    },
+    "imageAlt": "Unité extérieure Daikin Altherma posée par Soliance",
+    "statsLabel": "La pompe à chaleur en chiffres",
+    "stats": {
+      "consumption": {
+        "value": "÷ 3",
+        "label": "la consommation vs radiateurs électriques (COP ≈ 3 à 4)"
+      },
+      "bill": {
+        "value": "−60 %",
+        "label": "de facture chauffage en remplacement d'une chaudière fioul, en moyenne"
+      },
+      "energyClass": {
+        "value": "A+++",
+        "label": "classe énergétique des gammes installées"
+      }
+    }
+  },
+  "solutions": {
+    "title": "Trois solutions, un même savoir-faire",
+    "intro": "Le bon équipement dépend de votre chauffage actuel, de votre maison et de votre usage. L'étude gratuite tranche.",
+    "airToAir": {
+      "eyebrow": "Chauffer et rafraîchir",
+      "title": "Pompe à chaleur air/air",
+      "description": "La climatisation réversible : une unité extérieure, une ou plusieurs unités intérieures (monosplit, multisplit, gainable). Chauffe l'hiver, rafraîchit l'été, filtre l'air. Idéale sur la Côte d'Azur, en remplacement de radiateurs électriques ou en complément.",
+      "imageAlt": "Split mural dans un salon moderne face à la mer",
+      "features": {
+        "installation": "Pose en 1 jour",
+        "control": "Pilotage depuis le téléphone",
+        "aid": "Éligible CEE (pas à MaPrimeRénov')"
+      }
+    },
+    "airToWater": {
+      "eyebrow": "Chauffage central et eau chaude",
+      "title": "Pompe à chaleur air/eau",
+      "description": "Remplace votre chaudière fioul ou gaz en gardant vos radiateurs ou votre plancher chauffant. Produit aussi l'eau chaude sanitaire. Haute température pour les maisons anciennes, basse température pour les maisons récentes.",
+      "imageAlt": "Module intérieur Daikin Altherma chauffage + eau chaude dans un local technique",
+      "features": {
+        "installation": "Pose en 2 jours",
+        "study": "Étude thermique incluse",
+        "aid": "Éligible MaPrimeRénov' + CEE"
+      }
+    },
+    "waterHeater": {
+      "eyebrow": "Eau chaude sanitaire",
+      "title": "Ballon thermodynamique",
+      "description": "Un chauffe-eau qui capte les calories de l'air pour chauffer 200 à 300 litres. Trois fois moins d'électricité qu'un cumulus classique, et il se pilote pour tourner quand vos panneaux solaires produisent.",
+      "imageAlt": "Ballon thermodynamique dans une buanderie",
+      "features": {
+        "installation": "Pose en ½ journée",
+        "solar": "Compatible photovoltaïque",
+        "aid": "Éligible MaPrimeRénov' + CEE"
+      }
+    }
+  },
+  "daikin": {
+    "eyebrow": "Pourquoi Daikin",
+    "title": "Une marque que nous posons et dépannons depuis le début.",
+    "description": "Nous installons principalement des pompes à chaleur Daikin : fiabilité, pièces disponibles, pilotage à distance et silence de fonctionnement. Nos techniciens sont formés à la gamme et gèrent la garantie fabricant à votre place.",
+    "caption": "Photo : installation réelle Soliance — module hydraulique Altherma et ballon thermodynamique. Autres marques possibles selon l'étude. [Mention partenariat / logo Daikin sous réserve d'accord d'usage]",
+    "imageAlt": "Installation Soliance : module hydraulique Daikin Altherma et ballon thermodynamique dans un garage",
+    "features": {
+      "silence": {
+        "title": "Silence",
+        "description": "Unités extérieures parmi les plus silencieuses du marché, compatibles avec les règles de voisinage."
+      },
+      "refrigerant": {
+        "title": "Fluide R-32",
+        "description": "Impact climatique réduit par rapport aux anciens fluides, rendement élevé."
+      },
+      "app": {
+        "title": "Application Onecta",
+        "description": "Programmation, pilotage à distance, suivi de consommation depuis le téléphone."
+      },
+      "warranty": {
+        "title": "Garantie",
+        "description": "Garantie fabricant sur les pièces, entretien annuel proposé via Soliance Care."
+      }
+    }
+  },
+  "aid": {
+    "title": "Les aides, montées par nous",
+    "intro": "Contrairement au photovoltaïque, la pompe à chaleur ouvre droit aux aides à la rénovation. Nous vérifions votre éligibilité à l'étude et déposons les dossiers.",
+    "columns": {
+      "equipment": "Équipement",
+      "maPrimeRenov": "MaPrimeRénov'",
+      "cee": "Prime CEE"
+    },
+    "rows": {
+      "airToWater": {
+        "equipment": "PAC air/eau",
+        "maPrimeRenov": "Oui, selon revenus",
+        "cee": "Oui"
+      },
+      "waterHeater": {
+        "equipment": "Ballon thermodynamique",
+        "maPrimeRenov": "Oui, selon revenus",
+        "cee": "Oui"
+      },
+      "airToAir": {
+        "equipment": "PAC air/air",
+        "maPrimeRenov": "Non",
+        "cee": "Oui, sous conditions"
+      }
+    },
+    "note": "Montants indicatifs selon les barèmes en vigueur, mis à jour dans notre lexique des aides. TVA réduite applicable sur les logements de plus de 2 ans."
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "choice": {
+        "question": "Air/air ou air/eau : laquelle choisir ?",
+        "answer": "Air/eau si vous avez des radiateurs à eau ou un plancher chauffant et voulez remplacer une chaudière. Air/air si vous chauffez à l'électrique et voulez aussi climatiser."
+      },
+      "cold": {
+        "question": "Une pompe à chaleur chauffe-t-elle assez quand il fait froid ?",
+        "answer": "Oui : les gammes installées fonctionnent jusqu'à −15 °C ou moins, largement suffisant dans les Alpes-Maritimes et le Var, arrière-pays compris."
+      },
+      "solar": {
+        "question": "Puis-je la coupler à mes panneaux solaires ?",
+        "answer": "Oui, et c'est le duo idéal : la pompe à chaleur et le ballon thermodynamique consomment votre production solaire de la journée."
+      },
+      "maintenance": {
+        "question": "Quel entretien ?",
+        "answer": "Un contrôle annuel est obligatoire au-delà de 4 kW. Il est inclus la première année, puis proposé avec Soliance Care."
+      },
+      "timeline": {
+        "question": "Combien de temps pour être installé ?",
+        "answer": "Environ 10 jours du premier contact à la signature, puis 3 à 6 semaines selon les aides à obtenir avant travaux. Pas de démarche mairie ni Enedis."
+      }
+    }
+  },
+  "steps": {
+    "title": "Une installation en trois étapes",
+    "intro": "Une journée de pose dans la plupart des cas, par nos propres frigoristes et électriciens. Vous gardez votre eau chaude le soir même.",
+    "outdoorUnit": {
+      "title": "Unité extérieure",
+      "description": "Posée sur plots ou console antivibratile, à l'écart des chambres, raccordée en frigorifique et en électrique.",
+      "imageAlt": "Unité extérieure Daikin posée sur plots au pied d'une façade"
+    },
+    "indoorUnit": {
+      "title": "Unité intérieure",
+      "description": "Module hydraulique Daikin Altherma et ballon dans le local technique, raccordés sur votre circuit de chauffage existant.",
+      "imageAlt": "Module hydraulique Daikin Altherma installé dans un local technique"
+    },
+    "commissioning": {
+      "title": "Mise en service",
+      "description": "Paramétrage, courbe de chauffe, application de pilotage : notre technicien règle la machine et vous forme avant de partir.",
+      "imageAlt": "Technicien Soliance paramétrant la pompe à chaleur depuis son ordinateur"
+    }
+  },
+  "projects": {
+    "title": "Nos réalisations pompes à chaleur",
+    "seeAll": "Voir toutes les réalisations",
+    "laColleSurLoup": {
+      "tag": "Photovoltaïque + batterie + PAC",
+      "title": "La Colle-sur-Loup · 13 kWc · 15 kWh · PAC Daikin 16 kW",
+      "description": "Villa avec piscine : solaire, batterie IES et pompe à chaleur air/eau Daikin posés ensemble, la maison se chauffe au soleil. Mai 2026.",
+      "imageAlt": "Vue aérienne de la villa avec piscine équipée de panneaux solaires à La Colle-sur-Loup"
+    },
+    "saintLaurentDuVar": {
+      "tag": "Photovoltaïque + batterie + PAC",
+      "title": "Saint-Laurent-du-Var · 7 kWc · 10 kWh · PAC 10 kW",
+      "description": "Maison de ville face aux collines : 14 panneaux, batterie IES 10 kWh, box EPS et pompe à chaleur air/eau Daikin 10 kW. Mai 2026.",
+      "imageAlt": "Toiture équipée de panneaux solaires à Saint-Laurent-du-Var, collines en arrière-plan"
+    },
+    "antibes": {
+      "tag": "Photovoltaïque + batterie + PAC",
+      "title": "Antibes · 11 kWc · 9 kWh · PAC Daikin 15 kW",
+      "description": "Maison équipée en solaire en 2025 (22 panneaux, 3 batteries T30), complétée en avril 2026 par une pompe à chaleur air/eau Daikin 15 kW.",
+      "imageAlt": "Vue aérienne d'une maison équipée de panneaux solaires à Antibes"
+    }
+  },
+  "cta": {
+    "title": "Étude thermique et simulation d'aides gratuites.",
+    "description": "Un technicien passe chez vous, mesure, et vous remet un devis fixe avec les aides déduites.",
+    "button": "Demander mon étude"
+  }
+}

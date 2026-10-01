@@ -1,0 +1,211 @@
+{
+  "seo": {
+    "title": "Solar panels with battery in the Alpes-Maritimes | Soliance",
+    "description": "Solar panels with battery storage in the Alpes-Maritimes and the Var: detailed study, fixed quote, installation by our own technicians, paperwork included."
+  },
+  "breadcrumb": "Solar",
+  "hero": {
+    "title": "Solar panels and battery: produce by day, consume in the evening.",
+    "lead": "No more self-consumption bonus and a surplus bought back at €0.01/kWh: every kilowatt-hour you do not use is lost. That is why all our residential installations include a battery, and are sized after a detailed study of your consumption, your household and your home.",
+    "requestStudy": "Request a free study",
+    "simulate": "Simulate my savings",
+    "imageAlt": "Sea-view villa in Roquebrune-sur-Argens, panels on the roof and a swimming pool"
+  },
+  "keyFigures": {
+    "label": "Soliance solar in figures",
+    "autonomy": {
+      "value": "70 to 85%",
+      "label": "energy self-sufficiency with a battery, depending on the household profile"
+    },
+    "coverage": {
+      "value": "100%",
+      "label": "of installations with a physical battery and a prior study"
+    },
+    "installation": {
+      "value": "1 to 3 days",
+      "label": "of installation depending on the power, by our own teams"
+    },
+    "paperwork": {
+      "value": "0 paperwork",
+      "label": "for you to handle: town hall, Enedis, Consuel, buy-back contract"
+    }
+  },
+  "sizes": {
+    "title": "Three sizes, all with a battery",
+    "footnote": "Power and battery size are never chosen as a package: they come out of the study. Price given on quotation, fixed and itemised line by line, first-year maintenance included.",
+    "small": {
+      "tag": "3 – 6 kWp · 5 to 10 kWh battery",
+      "title": "Household of 2 to 3 people",
+      "description": "6 to 12 panels, a Solax IES hybrid inverter and a battery sized on your evening consumption. For a bill of €100 to €200 per month.",
+      "imageAlt": "Small 4 kWp installation in Villeneuve-Loubet, with the sea in the background",
+      "features": {
+        "installation": "Installed in 1 day",
+        "monitoring": "Production monitoring included",
+        "quote": "Fixed study and quote, no fictitious bonus"
+      }
+    },
+    "medium": {
+      "tag": "Saint-Jeannet · 6 kWp · 6 kWh",
+      "title": "Family, pool or air conditioning",
+      "description": "The most common setup: 10 to 15 kWh of storage to cover the evening and the night, an EPS box to keep the essentials running during a power cut, control of the water heater or the charger.",
+      "imageAlt": "Villa in Saint-Jeannet, 6 kWp on the garage and the awning",
+      "features": {
+        "installation": "Installed in 1 to 2 days",
+        "bill": "Bill of €200 to €350 per month",
+        "absence": "Ideal if you are away during the day"
+      }
+    },
+    "large": {
+      "tag": "9 – 12 kWp and more · 15 kWh battery and more",
+      "title": "Large house, three-phase",
+      "description": "Villas, heat pump, two electric vehicles, outbuildings. Three-phase inverter, expandable storage, VAT recovery on request. Beyond that, see our professional solutions.",
+      "imageAlt": "Large villa with a pool, panels spread over several roof sections and the pool house",
+      "features": {
+        "installation": "Installed in 2 to 3 days",
+        "bill": "Bill above €350 per month",
+        "financing": "Sofinco financing"
+      }
+    }
+  },
+  "method": {
+    "eyebrow": "Our method",
+    "title": "A detailed study for 100% of installations. No standard kit.",
+    "intro": "Two neighbouring houses never have the same installation. We measure before we propose.",
+    "footnote": "Result: a fixed quote stating the power, the battery capacity and the expected self-sufficiency rate — then checked by Soliance Care supervision once the installation is running.",
+    "pillars": {
+      "consumption": {
+        "step": "1 · Your consumption",
+        "title": "The real figures, hour by hour",
+        "description": "Bills from the last 12 months, Linky load curve, seasonality: we know what you consume and when, so the battery is sized on your actual evenings."
+      },
+      "household": {
+        "step": "2 · Your household",
+        "title": "Who lives there, and how",
+        "description": "Number of people, presence during the day, heating, hot water, pool, air conditioning, electric vehicle, future projects: the profile decides the power and the storage."
+      },
+      "house": {
+        "step": "3 · Your home",
+        "title": "The roof, the grid, the shading",
+        "description": "Orientation, pitch, roofing, shading, electrical panel, single or three-phase, battery location: the technical visit locks every point before the quote."
+      }
+    }
+  },
+  "hardware": {
+    "eyebrow": "The equipment",
+    "title": "Components we know inside out.",
+    "body": "We have been installing and servicing the same brands since 2022: we know what lasts, and we handle manufacturer warranties ourselves if something goes wrong.",
+    "imageAlt": "Solax IES X3 hybrid inverter and battery installed on a project in Vence",
+    "items": {
+      "panels": {
+        "title": "Panels",
+        "description": "Francilienne 450 to 500 W, a French brand, 25-year product warranty"
+      },
+      "inverters": {
+        "title": "Inverters",
+        "description": "All-in-one Solax IES (single or three-phase) or Solax micro-inverters"
+      },
+      "batteries": {
+        "title": "Batteries & backup",
+        "description": "Solax IES batteries, T30 / T58 on every installation, EPS box for backup power"
+      },
+      "mounting": {
+        "title": "Mounting & safety",
+        "description": "K2 systems, AC/DC protection boxes, Consuel on every installation"
+      }
+    }
+  },
+  "aids": {
+    "title": "Grants and tax",
+    "items": {
+      "selfConsumptionBonus": {
+        "title": "Self-consumption bonus: none active to date",
+        "description": "The scheme is closed. We do not include it in our quotes; if it is reactivated, it will be deducted at signature."
+      },
+      "surplus": {
+        "title": "Surplus bought back at €0.01 per kWh",
+        "description": "Total resale no longer exists for individuals and the surplus is bought back at one cent per kilowatt-hour, 20 times less than the price you pay for it. Every kWh should therefore be used at home: that is the job of the battery, and of the controlled water heater and charger."
+      },
+      "vatRefund": {
+        "title": "VAT recovery (on request)",
+        "description": "For installations above 3 kWp: setting up the producer structure and handling the file through to the refund."
+      }
+    },
+    "notice": {
+      "title": "Good to know",
+      "description": "MaPrimeRénov' and CEE do not apply to solar panels: they apply to heat pumps."
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "roof": {
+        "question": "Is my roof suitable?",
+        "answer": "South, south-east or south-west facing, a pitch of 15 to 45°, tiles, slate, steel sheeting: we check on satellite view, then during the technical visit."
+      },
+      "connection": {
+        "question": "How long until I am connected?",
+        "answer": "About 10 days between the first contact and signature, then 1 to 3 months of paperwork (town hall, Enedis) before installation."
+      },
+      "installer": {
+        "question": "Who installs the system?",
+        "answer": "Our own technicians, based in Saint-Laurent-du-Var. We do not subcontract installation."
+      },
+      "breakdown": {
+        "question": "What happens if something breaks down?",
+        "answer": "The first year of maintenance is included. After that, Soliance Care monitors the installation and responds within 2 working days."
+      },
+      "financing": {
+        "question": "Can I finance the project?",
+        "answer": "Yes, with our partner Sofinco for individuals, or through leasing with BPCE Lease for businesses."
+      }
+    }
+  },
+  "care": {
+    "eyebrow": "After installation · Soliance Care",
+    "title": "An installation lasts 25 years. We stay by your side.",
+    "body": "Every installation is connected to our supervision: AI detects production gaps, a local technician responds within 2 working days, and the annual service (cleaning, connection checks, inverter update) keeps the original yield.",
+    "cards": {
+      "supervision": {
+        "title": "24/7 supervision",
+        "description": "Production, self-consumption and battery monitored continuously, with an alert before you notice anything.",
+        "imageAlt": "Supervision screen: production, consumption, battery status"
+      },
+      "repair": {
+        "title": "Repair within 2 days",
+        "description": "Our own technicians, based in Saint-Laurent-du-Var, handle the diagnosis and the manufacturer warranty.",
+        "imageAlt": "Soliance technician working on the inverter"
+      },
+      "maintenance": {
+        "title": "Annual service",
+        "description": "Panel cleaning, inspection of mountings and protections, performance report.",
+        "imageAlt": "Cleaning solar panels"
+      }
+    }
+  },
+  "projects": {
+    "title": "Our solar projects",
+    "seeAll": "See all projects",
+    "cards": {
+      "venceVilla": {
+        "title": "Vence · 16 kWp · 15 kWh",
+        "details": "21,000 kWh/year · 96% self-consumed · payback in 7.5 years",
+        "imageAlt": "Solar project in Vence"
+      },
+      "varVilla": {
+        "title": "Var · 20 kWp · 24 kWh",
+        "details": "Villa + garage · X3 Ultra 25 kW · 4 T58 batteries",
+        "imageAlt": "Solar project in the Var"
+      },
+      "solisInvest": {
+        "title": "Solis Invest · 148 kWp commercial",
+        "details": "Collective self-consumption · electricity sold to tenants",
+        "imageAlt": "Solis Invest project, 148 kWp"
+      }
+    }
+  },
+  "cta": {
+    "title": "A free study, no commitment, within 48 hours.",
+    "description": "Send us your electricity bill, we take care of the rest.",
+    "button": "Request my study"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "seo": {
+    "title": "Panneaux solaires avec batterie dans le 06 | Soliance",
+    "description": "Installation de panneaux solaires avec batterie dans les Alpes-Maritimes et le Var : étude précise, devis fixe, pose par nos techniciens, démarches incluses."
+  },
+  "breadcrumb": "Photovoltaïque",
+  "hero": {
+    "title": "Panneaux solaires et batterie : produisez le jour, consommez le soir.",
+    "lead": "Plus de prime à l'autoconsommation, un surplus racheté 0,01 €/kWh : chaque kilowattheure que vous ne consommez pas est perdu. C'est pourquoi toutes nos installations résidentielles comportent une batterie, et sont dimensionnées après une étude précise de votre consommation, de votre foyer et de votre maison.",
+    "requestStudy": "Demander une étude gratuite",
+    "simulate": "Simuler mes économies",
+    "imageAlt": "Villa vue mer à Roquebrune-sur-Argens, panneaux sur le toit et piscine"
+  },
+  "keyFigures": {
+    "label": "Le photovoltaïque Soliance en chiffres",
+    "autonomy": {
+      "value": "70 à 85 %",
+      "label": "d'autonomie électrique avec batterie, selon le profil du foyer"
+    },
+    "coverage": {
+      "value": "100 %",
+      "label": "des installations avec batterie physique et étude préalable"
+    },
+    "installation": {
+      "value": "1 à 3 jours",
+      "label": "de pose selon la puissance, par nos propres équipes"
+    },
+    "paperwork": {
+      "value": "0 démarche",
+      "label": "à faire vous-même : mairie, Enedis, Consuel, contrat de rachat"
+    }
+  },
+  "sizes": {
+    "title": "Trois tailles, toutes avec batterie",
+    "footnote": "La puissance et la taille de batterie ne sont jamais choisies au forfait : elles sortent de l'étude. Prix communiqué sur devis, fixe et détaillé poste par poste, maintenance de la première année incluse.",
+    "small": {
+      "tag": "3 – 6 kWc · batterie 5 à 10 kWh",
+      "title": "Foyer de 2 à 3 personnes",
+      "description": "6 à 12 panneaux, onduleur hybride Solax IES et batterie dimensionnée sur votre consommation du soir. Pour une facture de 100 à 200 € par mois.",
+      "imageAlt": "Petite installation de 4 kWc à Villeneuve-Loubet, la mer en fond",
+      "features": {
+        "installation": "Pose en 1 jour",
+        "monitoring": "Suivi de production inclus",
+        "quote": "Étude et devis fixes, sans prime fictive"
+      }
+    },
+    "medium": {
+      "tag": "Saint-Jeannet · 6 kWc · 6 kWh",
+      "title": "Famille, piscine ou climatisation",
+      "description": "La configuration la plus fréquente : stockage 10 à 15 kWh pour couvrir la soirée et la nuit, box EPS pour garder l'essentiel en cas de coupure, pilotage du ballon ou de la borne.",
+      "imageAlt": "Villa de Saint-Jeannet, 6 kWc sur le garage et l'auvent",
+      "features": {
+        "installation": "Pose en 1 à 2 jours",
+        "bill": "Facture de 200 à 350 € par mois",
+        "absence": "Idéal si vous êtes absent la journée"
+      }
+    },
+    "large": {
+      "tag": "9 – 12 kWc et plus · batterie 15 kWh et plus",
+      "title": "Grande maison, triphasé",
+      "description": "Villas, pompe à chaleur, deux véhicules électriques, dépendances. Onduleur triphasé, stockage extensible, récupération de TVA sur demande. Au-delà, voir nos solutions professionnelles.",
+      "imageAlt": "Grande villa avec piscine, panneaux répartis sur plusieurs pans de toiture et sur le pool house",
+      "features": {
+        "installation": "Pose en 2 à 3 jours",
+        "bill": "Facture supérieure à 350 € par mois",
+        "financing": "Financement Sofinco"
+      }
+    }
+  },
+  "method": {
+    "eyebrow": "Notre méthode",
+    "title": "Une étude précise pour 100 % des installations. Pas de kit standard.",
+    "intro": "Deux maisons voisines n'ont jamais la même installation. Nous mesurons avant de proposer.",
+    "footnote": "Résultat : un devis fixe qui indique la puissance, la capacité de batterie et le taux d'autonomie attendu — puis vérifié par la supervision Soliance Care une fois l'installation en service.",
+    "pillars": {
+      "consumption": {
+        "step": "1 · Vos consommations",
+        "title": "Les vraies, heure par heure",
+        "description": "Factures des 12 derniers mois, courbe de charge Linky, saisonnalité : nous savons ce que vous consommez et quand, pour dimensionner la batterie sur vos soirées réelles."
+      },
+      "household": {
+        "step": "2 · Votre foyer",
+        "title": "Qui vit là, et comment",
+        "description": "Nombre de personnes, présence en journée, chauffage, eau chaude, piscine, climatisation, véhicule électrique, projets à venir : le profil décide de la puissance et du stockage."
+      },
+      "house": {
+        "step": "3 · Votre maison",
+        "title": "Le toit, le réseau, les ombres",
+        "description": "Orientation, pente, couverture, masques, tableau électrique, mono ou triphasé, emplacement de la batterie : la visite technique verrouille chaque point avant le devis."
+      }
+    }
+  },
+  "hardware": {
+    "eyebrow": "Le matériel",
+    "title": "Des composants que nous connaissons par cœur.",
+    "body": "Nous installons et dépannons les mêmes marques depuis 2022 : nous savons ce qui dure, et nous gérons nous-mêmes les garanties fabricant en cas de problème.",
+    "imageAlt": "Onduleur hybride Solax IES X3 et batterie posés sur une réalisation à Vence",
+    "items": {
+      "panels": {
+        "title": "Panneaux",
+        "description": "Francilienne 450 à 500 W, marque française, garantie produit 25 ans"
+      },
+      "inverters": {
+        "title": "Onduleurs",
+        "description": "Solax IES tout-en-un (mono ou triphasé) ou micro-onduleurs Solax"
+      },
+      "batteries": {
+        "title": "Batteries & secours",
+        "description": "Batteries Solax IES, T30 / T58 sur toutes les installations, box EPS pour l'alimentation de secours"
+      },
+      "mounting": {
+        "title": "Fixation & sécurité",
+        "description": "Systèmes K2, coffrets de protection AC/DC, Consuel à chaque installation"
+      }
+    }
+  },
+  "aids": {
+    "title": "Aides et fiscalité",
+    "items": {
+      "selfConsumptionBonus": {
+        "title": "Prime à l'autoconsommation : aucune active à ce jour",
+        "description": "Le dispositif n'est plus ouvert. Nous ne la faisons pas figurer dans nos devis ; si elle est réactivée, elle sera déduite au moment de la signature."
+      },
+      "surplus": {
+        "title": "Surplus racheté 0,01 € le kWh",
+        "description": "La vente totale n'existe plus pour les particuliers et le surplus est racheté un centime le kilowattheure, soit 20 fois moins que le prix auquel vous l'achetez. Chaque kWh doit donc être consommé chez vous : c'est le rôle de la batterie, du ballon et de la borne pilotés."
+      },
+      "vatRefund": {
+        "title": "Récupération de TVA (sur demande)",
+        "description": "Pour les installations de plus de 3 kWc : création de la structure de producteur et montage du dossier jusqu'au remboursement."
+      }
+    },
+    "notice": {
+      "title": "À savoir",
+      "description": "MaPrimeRénov' et les CEE ne concernent pas le photovoltaïque : ils s'appliquent à la pompe à chaleur."
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "roof": {
+        "question": "Mon toit est-il adapté ?",
+        "answer": "Orientation sud, sud-est ou sud-ouest, pente de 15 à 45°, tuiles, ardoise, bac acier : nous vérifions sur vue satellite puis en visite technique."
+      },
+      "connection": {
+        "question": "Combien de temps pour être raccordé ?",
+        "answer": "Environ 10 jours entre le premier contact et la signature, puis 1 à 3 mois de démarches (mairie, Enedis) avant la pose."
+      },
+      "installer": {
+        "question": "Qui pose l'installation ?",
+        "answer": "Nos propres techniciens, basés à Saint-Laurent-du-Var. Nous ne sous-traitons pas la pose."
+      },
+      "breakdown": {
+        "question": "Que se passe-t-il en cas de panne ?",
+        "answer": "La première année de maintenance est incluse. Ensuite, Soliance Care surveille l'installation et intervient sous 2 jours ouvrés."
+      },
+      "financing": {
+        "question": "Puis-je financer le projet ?",
+        "answer": "Oui, avec notre partenaire Sofinco pour les particuliers, ou en crédit-bail via BPCE Lease pour les professionnels."
+      }
+    }
+  },
+  "care": {
+    "eyebrow": "Après la pose · Soliance Care",
+    "title": "Une installation, c'est 25 ans. Nous restons à côté.",
+    "body": "Chaque installation est reliée à notre supervision : l'IA détecte les écarts de production, un technicien local intervient sous 2 jours ouvrés, et l'entretien annuel (nettoyage, contrôle des connexions, mise à jour de l'onduleur) garde le rendement d'origine.",
+    "cards": {
+      "supervision": {
+        "title": "Supervision 24 h/24",
+        "description": "Production, autoconsommation et batterie suivies en continu, alerte avant que vous ne remarquiez quoi que ce soit.",
+        "imageAlt": "Écran de supervision : production, consommation, état de la batterie"
+      },
+      "repair": {
+        "title": "Dépannage sous 2 jours",
+        "description": "Nos propres techniciens, basés à Saint-Laurent-du-Var, gèrent le diagnostic et la garantie fabricant.",
+        "imageAlt": "Technicien Soliance intervenant sur l'onduleur"
+      },
+      "maintenance": {
+        "title": "Entretien annuel",
+        "description": "Nettoyage des panneaux, contrôle des fixations et des protections, rapport de performance.",
+        "imageAlt": "Nettoyage des panneaux photovoltaïques"
+      }
+    }
+  },
+  "projects": {
+    "title": "Nos réalisations photovoltaïques",
+    "seeAll": "Voir toutes les réalisations",
+    "cards": {
+      "venceVilla": {
+        "title": "Vence · 16 kWc · 15 kWh",
+        "details": "21 000 kWh/an · 96 % autoconsommés · retour en 7,5 ans",
+        "imageAlt": "Réalisation photovoltaïque à Vence"
+      },
+      "varVilla": {
+        "title": "Var · 20 kWc · 24 kWh",
+        "details": "Villa + garage · X3 Ultra 25 kW · 4 batteries T58",
+        "imageAlt": "Réalisation photovoltaïque dans le Var"
+      },
+      "solisInvest": {
+        "title": "Solis Invest · 148 kWc tertiaire",
+        "details": "Autoconsommation collective · électricité vendue aux locataires",
+        "imageAlt": "Réalisation Solis Invest, 148 kWc"
+      }
+    }
+  },
+  "cta": {
+    "title": "Une étude gratuite, sans engagement, sous 48 h.",
+    "description": "Envoyez votre facture d'électricité, nous faisons le reste.",
+    "button": "Demander mon étude"
+  }
+}

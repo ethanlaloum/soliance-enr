@@ -1,0 +1,90 @@
+{
+  "brand": {
+    "name": "Soliance",
+    "homeLink": "Soliance, retour à l'accueil",
+    "slogan": "L'énergie renouvelable en toute confiance."
+  },
+  "nav": {
+    "label": "Navigation principale",
+    "solar": "Photovoltaïque",
+    "heatPump": "Pompe à chaleur",
+    "evCharger": "Bornes de recharge",
+    "professionals": "Professionnels",
+    "projects": "Réalisations",
+    "resources": "Ressources",
+    "care": "Soliance Care"
+  },
+  "header": {
+    "phoneDisplay": "07 63 54 51 44",
+    "callLabel": "Appeler Soliance",
+    "simulate": "Simuler mon projet",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "footer": {
+    "company": "Solar Trade SAS · 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",
+    "registration": "SIREN 949 576 946 · Certifié RGE · Assuré MMA",
+    "solutionsTitle": "Solutions",
+    "solianceTitle": "Soliance",
+    "legalTitle": "Légal",
+    "renovation": "Rénovation globale",
+    "about": "À propos",
+    "referral": "Parrainage",
+    "blog": "Blog & conseils",
+    "contact": "Contact",
+    "legalNotice": "Mentions légales",
+    "termsIndividuals": "CGV particuliers",
+    "termsProfessionals": "CGV professionnels",
+    "privacy": "Confidentialité",
+    "cookies": "Gestion des cookies",
+    "mobileAddress": "30 avenue du Général Leclerc, Saint-Laurent-du-Var",
+    "mobileContact": "commercial@soliance-enr.fr · 07 63 54 51 44"
+  },
+  "notFound": {
+    "seoTitle": "Page en préparation | Soliance",
+    "title": "Cette page arrive bientôt",
+    "description": "Nous préparons cette partie du site. En attendant, notre équipe répond à toutes vos questions.",
+    "backHome": "Retour à l'accueil",
+    "seoDescription": "Cette page du site Soliance est en préparation. Découvrez nos solutions solaires, pompes à chaleur et bornes de recharge."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "label": "Fil d'Ariane"
+  },
+  "leadForm": {
+    "submitting": "Envoi en cours…",
+    "errorTitle": "Envoi impossible",
+    "errors": {
+      "CONSENT_REQUIRED": "Nous ne pouvons pas vous rappeler sans votre accord. Cochez la case de consentement.",
+      "INVALID_REQUEST": "Certaines informations n'ont pas été acceptées. Vérifiez le formulaire et réessayez.",
+      "SUBMISSION_FAILED": "Votre demande n'a pas pu être envoyée. Réessayez dans un instant ou appelez-nous au 07 63 54 51 44.",
+      "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 07 63 54 51 44.",
+      "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
+    }
+  },
+  "seo": {
+    "services": {
+      "solar": {
+        "name": "Installation de panneaux solaires avec batterie",
+        "serviceType": "Installation photovoltaïque"
+      },
+      "heatPump": {
+        "name": "Installation de pompes à chaleur Daikin",
+        "serviceType": "Installation de pompe à chaleur"
+      },
+      "evCharger": {
+        "name": "Installation de bornes de recharge IRVE",
+        "serviceType": "Installation de borne de recharge"
+      },
+      "professionals": {
+        "name": "Centrales photovoltaïques pour les professionnels",
+        "serviceType": "Installation photovoltaïque professionnelle"
+      }
+    },
+    "areaServed": [
+      "Alpes-Maritimes",
+      "Var",
+      "Bouches-du-Rhône"
+    ]
+  }
+}

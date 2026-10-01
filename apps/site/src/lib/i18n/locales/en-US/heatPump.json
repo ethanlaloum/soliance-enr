@@ -1,0 +1,196 @@
+{
+  "seo": {
+    "title": "Daikin air-to-water and air-to-air heat pumps | Soliance",
+    "description": "Air-to-air or air-to-water heat pumps and heat pump water heaters installed by our QualiPac technicians in the 06 and 83. Thermal study and grant files handled."
+  },
+  "breadcrumb": "Heat pump",
+  "hero": {
+    "eyebrow": "Heating · Air conditioning · Hot water",
+    "title": "Year-round comfort at half the cost of oil or electric heating.",
+    "lead": "Air-to-air or air-to-water heat pump, or heat pump water heater: we size it from a study, install it with our QualiPac-qualified technicians and file your MaPrimeRénov' and CEE applications.",
+    "requestStudy": "Request a free study",
+    "computeAid": "Calculate my grants",
+    "trustLabel": "Our commitments",
+    "trust": {
+      "qualipac": "QualiPac RGE qualified",
+      "daikin": "Daikin installer partner",
+      "installation": "Installed in 1 to 2 days"
+    },
+    "imageAlt": "Daikin Altherma outdoor unit installed by Soliance",
+    "statsLabel": "Heat pumps in figures",
+    "stats": {
+      "consumption": {
+        "value": "÷ 3",
+        "label": "energy use vs electric radiators (COP ≈ 3 to 4)"
+      },
+      "bill": {
+        "value": "−60%",
+        "label": "on the heating bill when replacing an oil boiler, on average"
+      },
+      "energyClass": {
+        "value": "A+++",
+        "label": "energy class of the ranges we install"
+      }
+    }
+  },
+  "solutions": {
+    "title": "Three solutions, one expertise",
+    "intro": "The right equipment depends on your current heating, your house and how you use it. The free study decides.",
+    "airToAir": {
+      "eyebrow": "Heat and cool",
+      "title": "Air-to-air heat pump",
+      "description": "Reversible air conditioning: one outdoor unit, one or more indoor units (single-split, multi-split, ducted). Heats in winter, cools in summer, filters the air. Ideal on the Côte d'Azur, to replace electric radiators or as a complement.",
+      "imageAlt": "Wall-mounted split unit in a modern living room facing the sea",
+      "features": {
+        "installation": "Installed in 1 day",
+        "control": "Controlled from your phone",
+        "aid": "Eligible for CEE (not MaPrimeRénov')"
+      }
+    },
+    "airToWater": {
+      "eyebrow": "Central heating and hot water",
+      "title": "Air-to-water heat pump",
+      "description": "Replaces your oil or gas boiler while keeping your radiators or underfloor heating. Also produces domestic hot water. High temperature for older houses, low temperature for recent ones.",
+      "imageAlt": "Daikin Altherma heating and hot water indoor module in a plant room",
+      "features": {
+        "installation": "Installed in 2 days",
+        "study": "Thermal study included",
+        "aid": "Eligible for MaPrimeRénov' + CEE"
+      }
+    },
+    "waterHeater": {
+      "eyebrow": "Domestic hot water",
+      "title": "Heat pump water heater",
+      "description": "A water heater that draws heat from the air to warm 200 to 300 litres. Three times less electricity than a standard electric water heater, and it can be set to run while your solar panels are producing.",
+      "imageAlt": "Heat pump water heater in a laundry room",
+      "features": {
+        "installation": "Installed in half a day",
+        "solar": "Solar compatible",
+        "aid": "Eligible for MaPrimeRénov' + CEE"
+      }
+    }
+  },
+  "daikin": {
+    "eyebrow": "Why Daikin",
+    "title": "A brand we have installed and serviced from the start.",
+    "description": "We mainly install Daikin heat pumps: reliability, available spare parts, remote control and quiet operation. Our technicians are trained on the range and handle the manufacturer warranty for you.",
+    "caption": "Photo: a real Soliance installation — Altherma hydraulic module and heat pump water heater. Other brands possible depending on the study. [Partnership mention / Daikin logo subject to usage agreement]",
+    "imageAlt": "Soliance installation: Daikin Altherma hydraulic module and heat pump water heater in a garage",
+    "features": {
+      "silence": {
+        "title": "Quiet",
+        "description": "Outdoor units among the quietest on the market, compatible with neighbourhood noise rules."
+      },
+      "refrigerant": {
+        "title": "R-32 refrigerant",
+        "description": "Lower climate impact than older refrigerants, high efficiency."
+      },
+      "app": {
+        "title": "Onecta app",
+        "description": "Scheduling, remote control and consumption tracking from your phone."
+      },
+      "warranty": {
+        "title": "Warranty",
+        "description": "Manufacturer warranty on parts, annual servicing offered through Soliance Care."
+      }
+    }
+  },
+  "aid": {
+    "title": "Grants, handled by us",
+    "intro": "Unlike solar panels, a heat pump qualifies for renovation grants. We check your eligibility during the study and file the applications.",
+    "columns": {
+      "equipment": "Equipment",
+      "maPrimeRenov": "MaPrimeRénov'",
+      "cee": "CEE bonus"
+    },
+    "rows": {
+      "airToWater": {
+        "equipment": "Air-to-water heat pump",
+        "maPrimeRenov": "Yes, depending on income",
+        "cee": "Yes"
+      },
+      "waterHeater": {
+        "equipment": "Heat pump water heater",
+        "maPrimeRenov": "Yes, depending on income",
+        "cee": "Yes"
+      },
+      "airToAir": {
+        "equipment": "Air-to-air heat pump",
+        "maPrimeRenov": "No",
+        "cee": "Yes, under conditions"
+      }
+    },
+    "note": "Indicative amounts based on current scales, kept up to date in our grants glossary. Reduced VAT applies to homes more than 2 years old."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "choice": {
+        "question": "Air-to-air or air-to-water: which one should I choose?",
+        "answer": "Air-to-water if you have water radiators or underfloor heating and want to replace a boiler. Air-to-air if you heat with electricity and also want air conditioning."
+      },
+      "cold": {
+        "question": "Does a heat pump heat enough when it is cold?",
+        "answer": "Yes: the ranges we install work down to −15 °C or lower, more than enough in the Alpes-Maritimes and the Var, hinterland included."
+      },
+      "solar": {
+        "question": "Can I pair it with my solar panels?",
+        "answer": "Yes, and it is the ideal pair: the heat pump and the heat pump water heater use your daytime solar production."
+      },
+      "maintenance": {
+        "question": "What servicing is needed?",
+        "answer": "An annual inspection is mandatory above 4 kW. It is included the first year, then offered with Soliance Care."
+      },
+      "timeline": {
+        "question": "How long until it is installed?",
+        "answer": "About 10 days from first contact to signature, then 3 to 6 weeks depending on the grants to obtain before work starts. No town hall or Enedis paperwork."
+      }
+    }
+  },
+  "steps": {
+    "title": "An installation in three steps",
+    "intro": "One day of installation in most cases, by our own refrigeration technicians and electricians. You have hot water again the same evening.",
+    "outdoorUnit": {
+      "title": "Outdoor unit",
+      "description": "Set on pads or an anti-vibration bracket, away from bedrooms, connected to the refrigerant circuit and the electrical supply.",
+      "imageAlt": "Daikin outdoor unit set on pads at the foot of a wall"
+    },
+    "indoorUnit": {
+      "title": "Indoor unit",
+      "description": "Daikin Altherma hydraulic module and tank in the plant room, connected to your existing heating circuit.",
+      "imageAlt": "Daikin Altherma hydraulic module installed in a plant room"
+    },
+    "commissioning": {
+      "title": "Commissioning",
+      "description": "Settings, heating curve, control app: our technician tunes the unit and shows you how it works before leaving.",
+      "imageAlt": "Soliance technician configuring the heat pump from a laptop"
+    }
+  },
+  "projects": {
+    "title": "Our heat pump projects",
+    "seeAll": "See all projects",
+    "laColleSurLoup": {
+      "tag": "Solar + battery + heat pump",
+      "title": "La Colle-sur-Loup · 13 kWp · 15 kWh · Daikin 16 kW heat pump",
+      "description": "Villa with a pool: solar, IES battery and Daikin air-to-water heat pump installed together, the house is heated by the sun. May 2026.",
+      "imageAlt": "Aerial view of the villa with a pool fitted with solar panels in La Colle-sur-Loup"
+    },
+    "saintLaurentDuVar": {
+      "tag": "Solar + battery + heat pump",
+      "title": "Saint-Laurent-du-Var · 7 kWp · 10 kWh · 10 kW heat pump",
+      "description": "Town house facing the hills: 14 panels, 10 kWh IES battery, EPS box and 10 kW Daikin air-to-water heat pump. May 2026.",
+      "imageAlt": "Roof fitted with solar panels in Saint-Laurent-du-Var, hills in the background"
+    },
+    "antibes": {
+      "tag": "Solar + battery + heat pump",
+      "title": "Antibes · 11 kWp · 9 kWh · Daikin 15 kW heat pump",
+      "description": "House fitted with solar in 2025 (22 panels, 3 T30 batteries), completed in April 2026 with a 15 kW Daikin air-to-water heat pump.",
+      "imageAlt": "Aerial view of a house fitted with solar panels in Antibes"
+    }
+  },
+  "cta": {
+    "title": "Free thermal study and grant simulation.",
+    "description": "A technician visits your home, takes measurements and gives you a fixed quote with the grants already deducted.",
+    "button": "Request my study"
+  }
+}

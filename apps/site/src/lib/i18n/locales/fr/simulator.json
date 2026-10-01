@@ -1,0 +1,170 @@
+{
+  "seo": {
+    "title": "Simulateur solaire gratuit : production et économies | Soliance",
+    "description": "Estimez en 2 minutes la puissance, la batterie, l'autonomie et les économies de votre toit dans le 06, le 83 et le 13. Résultat affiné par une étude précise."
+  },
+  "hero": {
+    "eyebrow": "Simulateur solaire · gratuit · 2 minutes",
+    "title": "Estimez la production et les économies de votre toit.",
+    "stepsLabel": "Étapes du simulateur",
+    "currentStep": "Étape {{current}} sur {{total}} · {{label}}"
+  },
+  "steps": {
+    "ADDRESS": "Adresse",
+    "ROOF": "Toiture",
+    "CONSUMPTION": "Consommation",
+    "RESULT": "Résultat"
+  },
+  "wizard": {
+    "titles": {
+      "ADDRESS": "Étape 1 — Votre adresse",
+      "ROOF": "Étape 2 — Votre toiture",
+      "CONSUMPTION": "Étape 3 — Votre consommation",
+      "RESULT": "Étape 4 — Votre résultat"
+    },
+    "privacyHint": "Rien n'est enregistré pendant la simulation : vos réponses restent sur cet écran tant que vous ne demandez pas l'étude.",
+    "fields": {
+      "address": "Adresse de l'installation",
+      "addressPlaceholder": "ex. 12 avenue des Oliviers, Cagnes-sur-Mer",
+      "postalCode": "Code postal",
+      "postalCodePlaceholder": "ex. 06800",
+      "roofArea": "Surface de toit exploitable",
+      "roofAreaValue": "{{value}} m²",
+      "roofAreaHint": "Surface libre et dégagée : environ 5 m² de panneaux par kWc.",
+      "orientation": "Orientation",
+      "roofCovering": "Type de couverture",
+      "monthlyBill": "Facture d'électricité mensuelle",
+      "monthlyBillPlaceholder": "ex. 180 €",
+      "monthlyBillHint": "Montant moyen TTC de vos factures, en euros par mois.",
+      "equipment": "Équipements électriques",
+      "daytimePresence": "Présence en journée"
+    },
+    "orientations": {
+      "SOUTH": "Sud",
+      "SOUTH_EAST": "Sud-est",
+      "SOUTH_WEST": "Sud-ouest",
+      "EAST_WEST": "Est / Ouest"
+    },
+    "roofCoverings": {
+      "TILES": "Tuiles",
+      "SLATE": "Ardoise",
+      "METAL_SHEET": "Bac acier",
+      "FLAT_ROOF": "Toit-terrasse",
+      "OTHER": "Autre / je ne sais pas"
+    },
+    "equipments": {
+      "ELECTRIC_HEATING": "Chauffage électrique",
+      "AIR_CONDITIONING": "Climatisation",
+      "POOL": "Piscine",
+      "ELECTRIC_VEHICLE": "Véhicule électrique"
+    },
+    "presences": {
+      "MOSTLY_ABSENT": "Souvent absent (actifs)",
+      "PRESENT": "Présent (télétravail, retraite)"
+    },
+    "errors": {
+      "ADDRESS_REQUIRED": "Indiquez l'adresse de l'installation.",
+      "POSTAL_CODE_INVALID": "Indiquez un code postal à 5 chiffres.",
+      "MONTHLY_BILL_INVALID": "Indiquez un montant entre {{min}} € et {{max, number}} € par mois, par exemple 180 €."
+    },
+    "back": "Retour",
+    "next": "Continuer",
+    "seeEstimate": "Voir mon estimation"
+  },
+  "result": {
+    "lead": "Voici l'estimation de votre installation avec batterie. Elle sera affinée lors de l'étude précise, à partir de vos consommations réelles, du profil de votre foyer et des caractéristiques de votre maison.",
+    "details": {
+      "power": {
+        "label": "Puissance conseillée",
+        "value": "{{kwc}} kWc · {{panels}} panneaux"
+      },
+      "battery": {
+        "label": "Batterie physique conseillée",
+        "value": "{{kwh}} kWh"
+      },
+      "consumption": {
+        "label": "Consommation annuelle estimée",
+        "value": "≈ {{value, number}} kWh"
+      },
+      "selfConsumption": {
+        "label": "Énergie autoconsommée (directe + batterie)",
+        "value": "≈ {{value, number}} kWh par an"
+      }
+    },
+    "surplus": "Surplus restant : ≈ {{kwh, number}} kWh par an, racheté {{tariff, number}} €/kWh (≈ {{value, number}} €). Il n'entre pas dans les économies affichées : on stocke, on ne revend plus.",
+    "price": "Prix sur devis après étude, fixe et détaillé.",
+    "cta": "Recevoir l'étude détaillée gratuite"
+  },
+  "estimate": {
+    "title": "Votre estimation",
+    "previewBadge": "Aperçu — se précise à chaque étape",
+    "resultBadge": "Estimation indicative",
+    "empty": "—",
+    "emptyHint": "Renseignez votre toiture à l'étape suivante pour voir une première estimation.",
+    "referenceHint": "Calcul provisoire pour un foyer type ({{bill}} € d'électricité par mois) : il se précise avec votre consommation.",
+    "power": {
+      "value": "{{kwc}} kWc + {{battery}} kWh",
+      "label": "{{panels}} panneaux et batterie conseillés",
+      "emptyLabel": "panneaux et batterie conseillés"
+    },
+    "production": {
+      "value": "{{value, number}} kWh",
+      "label": "production par an"
+    },
+    "savings": {
+      "value": "≈ {{value, number}} €",
+      "label": "d'économies par an"
+    },
+    "autonomy": {
+      "value": "≈ {{value}} %",
+      "label": "d'autonomie grâce à la batterie"
+    },
+    "monthValue": "{{month}} : {{value, number}} kWh",
+    "caption": "Production mensuelle estimée, janvier à décembre · source PVGIS, moyenne régionale de {{yield, number}} kWh/kWc/an · estimation indicative, affinée lors de l'étude gratuite.",
+    "months": {
+      "january": { "long": "janvier", "short": "J" },
+      "february": { "long": "février", "short": "F" },
+      "march": { "long": "mars", "short": "M" },
+      "april": { "long": "avril", "short": "A" },
+      "may": { "long": "mai", "short": "M" },
+      "june": { "long": "juin", "short": "J" },
+      "july": { "long": "juillet", "short": "J" },
+      "august": { "long": "août", "short": "A" },
+      "september": { "long": "septembre", "short": "S" },
+      "october": { "long": "octobre", "short": "O" },
+      "november": { "long": "novembre", "short": "N" },
+      "december": { "long": "décembre", "short": "D" }
+    }
+  },
+  "capture": {
+    "title": "Recevoir l'étude détaillée gratuite",
+    "description": "Un conseiller reprend ces chiffres avec vos consommations réelles, le profil de votre foyer et les caractéristiques de votre maison — c'est l'étude que nous faisons pour 100 % de nos installations — puis vous adresse un devis à prix fixe.",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "submit": "Recevoir",
+    "consent": "J'accepte d'être recontacté par Soliance au sujet de mon projet.",
+    "privacyLink": "Lire la politique de confidentialité",
+    "successTitle": "Demande envoyée",
+    "successDescription": "Merci ! Un conseiller reprend votre estimation et vous rappelle sous 48 h ouvrées pour préparer l'étude précise.",
+    "validation": {
+      "emailInvalid": "Indiquez une adresse e-mail valide.",
+      "phoneInvalid": "Indiquez un numéro de téléphone français valide, par exemple 06 12 34 56 78.",
+      "consentRequired": "Cochez cette case pour que nous puissions vous rappeler."
+    }
+  },
+  "commitments": {
+    "title": "Nos engagements",
+    "dataUsed": {
+      "title": "Données utilisées",
+      "description": "Ensoleillement PVGIS moyen de la région, orientation du toit, profil de consommation."
+    },
+    "noDataSold": {
+      "title": "Aucune donnée vendue",
+      "description": "Vos réponses ne servent qu'à votre étude. Elles ne sont jamais transmises à des tiers."
+    },
+    "fixedPrice": {
+      "title": "Prix fixe après étude",
+      "description": "Le devis détaille matériel, pose, démarches et maintenance de la première année."
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "seo": {
+    "title": "Installation de borne de recharge IRVE dans le 06 | Soliance",
+    "description": "Borne 7 à 22 kW posée par nos électriciens qualifiés IRVE, pilotée par votre production solaire. Maison, copropriété, entreprise : devis fixe sous 48 h."
+  },
+  "hero": {
+    "breadcrumb": "Bornes de recharge",
+    "eyebrow": "Maison · Copropriété · Entreprise",
+    "title": "Rechargez chez vous, <highlight>au soleil</highlight> ou la nuit.",
+    "lead": "Borne 7 à 22 kW posée par nos électriciens qualifiés IRVE, pilotée par votre production solaire quand vous en avez une. Devis fixe, Consuel inclus, mise en service et prise en main le jour de la pose.",
+    "requestQuote": "Demander un devis",
+    "businessSolutions": "Solutions entreprises",
+    "trustLabel": "Nos engagements",
+    "trust": {
+      "irve": "Qualification IRVE",
+      "installation": "Pose en ½ à 1 journée",
+      "connector": "Prise Type 2, toutes marques"
+    },
+    "imageAlt": "Wallbox sur potelet devant un mur en pierre, véhicule électrique en charge",
+    "widget": {
+      "title": "Charge en cours · mode solaire",
+      "power": "6,4 kW",
+      "level": "68 % · 310 km d'autonomie",
+      "levelValueText": "68 %, 310 km d'autonomie",
+      "forecast": "100 % à 16 h 40 · 80 % d'énergie solaire"
+    }
+  },
+  "usages": {
+    "title": "Quelle borne pour quel usage ?",
+    "singlePhase": {
+      "audience": "Maison · monophasé",
+      "title": "Borne 7,4 kW",
+      "description": "Recharge complète en une nuit pour la plupart des véhicules. S'installe sur un abonnement classique, avec délesteur pour ne jamais faire sauter le compteur.",
+      "features": {
+        "cable": "Câble attaché ou prise T2",
+        "access": "Badge ou application",
+        "solar": "Pilotage solaire en option"
+      }
+    },
+    "threePhase": {
+      "audience": "Maison · triphasé",
+      "title": "Borne 11 ou 22 kW",
+      "description": "Pour deux véhicules, un usage intensif ou une installation solaire triphasée. Recharge 3 fois plus rapide, gestion dynamique de la puissance.",
+      "features": {
+        "dualPoint": "Double point de charge possible",
+        "battery": "Compatible batterie domestique",
+        "solar": "Pilotage solaire recommandé"
+      }
+    },
+    "chargingPark": {
+      "audience": "Copropriété · entreprise",
+      "title": "Parc de bornes supervisé",
+      "description": "Plusieurs points de charge 22 kW sur potelet ou mural, supervision et facturation par opérateur de recharge, accès par badge, répartition de puissance entre bornes.",
+      "features": {
+        "powerStudy": "Étude de puissance disponible",
+        "operator": "Opérateur Freshmile ou équivalent",
+        "advenir": "Programme Advenir selon éligibilité"
+      }
+    }
+  },
+  "solarCharging": {
+    "eyebrow": "Borne + solaire + batterie",
+    "title": "Faites le plein avec votre toit.",
+    "body": "Avec un surplus racheté 0,01 € le kWh, chaque kilowattheure envoyé au réseau est perdu. La borne devient le meilleur consommateur de votre production : en mode solaire, elle module sa puissance sur le surplus et le véhicule se charge la journée sans rien acheter. Le soir, la batterie prend le relais.",
+    "discoverSolar": "Découvrir le photovoltaïque",
+    "simulate": "Simuler mon projet",
+    "example": {
+      "title": "Exemple : 12 000 km/an, borne 7 kW, 6 kWc solaires",
+      "stats": {
+        "energy": {
+          "value": "≈ 2 000 kWh",
+          "label": "de recharge par an"
+        },
+        "solarShare": {
+          "value": "≈ 60 %",
+          "label": "couverts par le solaire"
+        },
+        "savings": {
+          "value": "[X] €/an",
+          "label": "vs carburant"
+        }
+      },
+      "note": "Estimation indicative, affinée à l'étude."
+    }
+  },
+  "business": {
+    "eyebrow": "Copropriétés · flottes d'entreprise",
+    "title": "Du parking souterrain à la flotte de véhicules.",
+    "body": "Nous équipons les parkings collectifs en une seule infrastructure évolutive : colonne de puissance, bornes 22 kW sur potelet ou mural, supervision et facturation par badge. Pour les entreprises, la recharge de flotte se couple à l'ombrière ou à la toiture solaire pour rouler à l'énergie du site.",
+    "condominium": {
+      "imageAlt": "Bornes de recharge dans un parking souterrain de copropriété",
+      "title": "Copropriété · parking souterrain",
+      "description": "Infrastructure collective, places équipées à la demande, accès badge"
+    },
+    "fleet": {
+      "imageAlt": "Flotte d'utilitaires électriques en charge devant un siège d'entreprise",
+      "title": "Entreprise · flotte de véhicules",
+      "description": "Recharge de nuit ou sur surplus solaire, suivi par véhicule"
+    }
+  },
+  "aids": {
+    "title": "Aides et obligations",
+    "items": {
+      "taxCredit": {
+        "title": "Crédit d'impôt borne pilotable (particuliers)",
+        "description": "Pour une borne pilotable posée par un installateur qualifié IRVE dans la résidence principale ou secondaire. [Montant en vigueur, voir lexique]"
+      },
+      "reducedVat": {
+        "title": "TVA réduite",
+        "description": "Sur la pose dans un logement de plus de 2 ans."
+      },
+      "advenir": {
+        "title": "Programme Advenir (copropriétés, entreprises)",
+        "description": "Prime sur les infrastructures collectives et les parkings d'entreprise, selon les conditions du programme en vigueur."
+      },
+      "rightToPlug": {
+        "title": "Droit à la prise et obligations LOM",
+        "description": "Tout résident en copropriété peut faire installer une borne ; les parkings d'entreprise et de bâtiments neufs doivent être pré-équipés selon leur taille."
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "reinforcedSocket": {
+        "question": "Une prise renforcée ne suffit-elle pas ?",
+        "answer": "Elle charge 3 fois moins vite qu'une borne 7 kW et n'ouvre droit à aucune aide. La borne protège aussi votre installation."
+      },
+      "subscription": {
+        "question": "Dois-je changer d'abonnement électrique ?",
+        "answer": "Rarement : le délesteur adapte la charge à la puissance disponible. Nous vérifions à l'étude."
+      },
+      "timeline": {
+        "question": "Combien de temps pour être installé ?",
+        "answer": "Devis sous 48 h après la visite, pose sous 2 à 3 semaines, en une demi-journée à une journée. Pas de démarche mairie."
+      },
+      "compatibility": {
+        "question": "La borne est-elle compatible avec mon véhicule ?",
+        "answer": "Oui, toutes les bornes posées sont en prise Type 2, le standard européen."
+      },
+      "condominium": {
+        "question": "Et en copropriété ?",
+        "answer": "Nous nous chargeons de la notification au syndic et proposons une solution individuelle ou collective selon le parking."
+      }
+    }
+  },
+  "projects": {
+    "title": "Nos réalisations bornes de recharge",
+    "viewAll": "Voir toutes les réalisations",
+    "items": {
+      "pulsarPlus": {
+        "title": "[Commune] · Wallbox Pulsar Plus 7,4 kW",
+        "description": "Pose en façade, disjoncteur dédié, pilotage par application",
+        "imageAlt": "Wallbox Pulsar Plus posée en façade"
+      },
+      "flayosc": {
+        "title": "Flayosc · 2 Wallbox 11 kW sur potelet",
+        "description": "Dos à dos sur pied, couplées à 12 kWc + batterie 6 kWh",
+        "imageAlt": "Borne Wallbox sur potelet, véhicule branché"
+      },
+      "niceCondominium": {
+        "title": "Nice · copropriété, 4 places",
+        "description": "Solution collective avec badge · [X] € Advenir",
+        "photoPlaceholder": "[Photo réelle du chantier à fournir]"
+      }
+    }
+  },
+  "cta": {
+    "title": "Visite technique et devis fixe sous 48 h.",
+    "body": "Notre électricien vérifie le tableau, la puissance et le cheminement, puis vous remet un devis tout compris.",
+    "button": "Demander mon devis"
+  }
+}

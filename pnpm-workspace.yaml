@@ -1,0 +1,6 @@
+packages:
+  - apps/site
+
+# esbuild ships a native binary through an install script; vite and vitest need it.
+allowBuilds:
+  esbuild: true

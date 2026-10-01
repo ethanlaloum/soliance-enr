@@ -1,0 +1,81 @@
+{
+  "seo": {
+    "title": "Referral program: €300 to €600 per referral | Soliance",
+    "description": "Recommend Soliance to someone you know: a €300 to €600 bonus by bank transfer when their installation goes live, then a weekend for two at the 5th referral."
+  },
+  "hero": {
+    "eyebrow": "Referral program",
+    "title": "You recommend us. We thank you, in euros.",
+    "lead": "Someone close to you signs up for an installation with Soliance thanks to you? You receive a bonus as soon as it goes live, and it grows with every new referral. No time limit.",
+    "cta": "Refer someone",
+    "scaleLabel": "Referral rewards",
+    "scale": {
+      "first": { "reward": "€300", "rank": "1st referral" },
+      "second": { "reward": "€400", "rank": "2nd referral" },
+      "third": { "reward": "€500", "rank": "3rd referral" },
+      "fourth": { "reward": "€600", "rank": "4th referral" },
+      "fifth": { "reward": "Weekend for two", "rank": "5th referral" }
+    },
+    "imageAlt": "Two neighbors chat over a hedge, one pointing at the panels on his roof"
+  },
+  "steps": {
+    "title": "How it works",
+    "items": {
+      "shareContact": {
+        "title": "You send us a contact",
+        "description": "Through the form below, by phone or from your customer area. With their consent."
+      },
+      "callWithin48Hours": {
+        "title": "We call them within 48 hours",
+        "description": "Free assessment, appointment, quote: the same journey as yours."
+      },
+      "signAndInstall": {
+        "title": "They sign and get their installation",
+        "description": "Solar, heat pump or charging station: every installation counts."
+      },
+      "receiveReward": {
+        "title": "You receive your bonus",
+        "description": "By bank transfer, within 30 days of the installation going live."
+      }
+    }
+  },
+  "conditions": {
+    "title": "Terms",
+    "text": "Reserved for Soliance and Soliance Care customers. The referred person must not already be in contact with Soliance. The bonus is due when the referred person's installation goes live and is paid by bank transfer. The referral rank is calculated across all of the referrer's successful referrals, with no time limit. The weekend for two is given as a gift box, indicative value available on request. The program may change; the applicable terms are those in force on the date the contact is sent.",
+    "contact": {
+      "question": "Any questions?",
+      "phoneLabel": "Referral line:",
+      "phone": "06 08 62 84 71",
+      "email": "commercial@soliance-enr.fr"
+    }
+  },
+  "form": {
+    "title": "Refer someone",
+    "fields": {
+      "referrerFullName": "You — full name",
+      "referrerContact": "You — phone or email",
+      "refereeFullName": "Your referral — full name",
+      "refereePhone": "Your referral — phone",
+      "refereeProject": "Their project"
+    },
+    "projectOptions": {
+      "SOLAR_PANELS": "Solar panels",
+      "HEAT_PUMP": "Heat pump",
+      "EV_CHARGER": "EV charging station",
+      "UNDECIDED": "Not sure yet"
+    },
+    "consent": "I confirm that the person I am referring agrees to be contacted by Soliance about their project.",
+    "privacyLink": "Read the privacy policy",
+    "submit": "Send the referral",
+    "successTitle": "Referral sent",
+    "successDescription": "Thank you! We will call the person you referred within 48 hours. Your bonus is paid by bank transfer within 30 days of their installation going live.",
+    "referAnother": "Refer someone else",
+    "validation": {
+      "referrerFullNameRequired": "Enter your full name.",
+      "referrerContactInvalid": "Enter a valid French phone number or email address.",
+      "refereeFullNameRequired": "Enter the full name of the person you are referring.",
+      "refereePhoneInvalid": "Enter a valid French phone number, for example 06 12 34 56 78.",
+      "consentRequired": "Tick this box: we only call the person you refer with their consent."
+    }
+  }
+}
