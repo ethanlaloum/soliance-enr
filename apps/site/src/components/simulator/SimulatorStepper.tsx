@@ -23,7 +23,7 @@ export const SimulatorStepper = ({ step, className }: SimulatorStepperProps) => 
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'h-0.5 w-6 transition-colors duration-500 motion-reduce:transition-none lg:w-10',
+                    'h-px w-6 transition-colors duration-500 motion-reduce:transition-none lg:w-10',
                     isReached ? 'bg-solar' : 'bg-sand-border',
                   )}
                 />
@@ -31,8 +31,8 @@ export const SimulatorStepper = ({ step, className }: SimulatorStepperProps) => 
               <span
                 aria-hidden="true"
                 className={cn(
-                  'flex h-7 w-7 items-center justify-center rounded-full text-[13px] font-bold transition-colors duration-500 motion-reduce:transition-none',
-                  isReached ? 'bg-solar text-white' : 'border-2 border-sand-border text-slate',
+                  'flex h-7 w-7 items-center justify-center rounded-full text-[13px] font-medium transition-colors duration-500 motion-reduce:transition-none',
+                  isReached ? 'bg-solar text-white' : 'border border-sand-border text-slate',
                 )}
               >
                 {number}
@@ -42,7 +42,7 @@ export const SimulatorStepper = ({ step, className }: SimulatorStepperProps) => 
           );
         })}
       </ol>
-      <p className="text-sm font-semibold text-night lg:hidden">
+      <p className="text-sm font-medium text-night lg:hidden">
         {t('hero.currentStep', { current: currentNumber, total: simulatorSteps.length, label: t(`steps.${step}`) })}
       </p>
     </div>

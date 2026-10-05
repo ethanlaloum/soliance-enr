@@ -9,12 +9,12 @@ export const SolarChargeWidget = ({ className }: { className?: string }) => {
   const titleId = useId();
 
   return (
-    <div className={cn('flex flex-col gap-2.5 rounded-[14px] border border-charge-line bg-white px-[18px] py-4 text-night lg:px-[22px] lg:py-[18px]', className)}>
+    <div className={cn('flex flex-col gap-2.5 rounded-[4px] border border-charge-line bg-white px-[18px] py-4 text-night lg:px-[22px] lg:py-[18px]', className)}>
       <div className="flex items-center justify-between gap-4">
-        <p id={titleId} className="text-sm font-bold lg:text-[15px]">
+        <p id={titleId} className="text-sm font-medium lg:text-[15px]">
           {t('hero.widget.title')}
         </p>
-        <p className="shrink-0 text-xs font-bold text-charge">{t('hero.widget.power')}</p>
+        <p className="shrink-0 text-xs font-medium text-charge">{t('hero.widget.power')}</p>
       </div>
       <div
         role="progressbar"

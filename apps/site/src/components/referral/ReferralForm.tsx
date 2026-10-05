@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
@@ -7,6 +7,7 @@ import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
+import { HorizonSelect } from '@/components/ui/Select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { toReferralLeadFields } from '@/components/referral/referralLeadFields';
 import { referralDefaultValues, ReferralFormData, referralSchema, refereeProjects } from '@/components/referral/referralSchema';
@@ -20,7 +21,7 @@ const textFields: { name: TextFieldName; type: string; autoComplete?: string; in
   { name: 'refereePhone', type: 'tel', autoComplete: 'off', inputMode: 'tel' },
 ];
 
-const cardClassName = 'flex flex-col gap-3 rounded-2xl border border-sand-line bg-white p-[22px] lg:gap-4 lg:rounded-[20px] lg:p-9';
+const cardClassName = 'flex flex-col gap-6 rounded-md border border-sand-line bg-white/60 p-6 lg:gap-7 lg:p-10';
 
 export const ReferralForm = () => {
   const { t } = useTranslation('referral');
@@ -28,6 +29,7 @@ export const ReferralForm = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     getValues,
@@ -53,9 +55,9 @@ export const ReferralForm = () => {
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h2 className="text-xl font-bold lg:text-[22px]">{t('form.successTitle')}</h2>
+        <h2 className="text-[28px] font-medium leading-tight tracking-[-0.035em] lg:text-[34px]">{t('form.successTitle')}</h2>
         <p className="text-base leading-normal text-slate-ink">{t('form.successDescription')}</p>
-        <button type="button" onClick={referAnother} className="self-start text-[15px] font-semibold text-solar transition-colors hover:text-solar-dark">
+        <button type="button" onClick={referAnother} className="self-start text-[15px] font-medium text-solar transition-colors hover:text-solar-dark">
           {t('form.referAnother')}
         </button>
       </div>
@@ -64,7 +66,7 @@ export const ReferralForm = () => {
 
   return (
     <form noValidate aria-labelledby="referral-form-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
-      <h2 id="referral-form-title" className="text-xl font-bold lg:text-[22px]">
+      <h2 id="referral-form-title" className="text-[28px] font-medium leading-tight tracking-[-0.035em] lg:text-[34px]">
         {t('form.title')}
       </h2>
 
@@ -81,7 +83,7 @@ export const ReferralForm = () => {
                 inputMode={field.inputMode}
                 aria-invalid={error ? true : undefined}
                 aria-describedby={error ? `referral-${field.name}-error` : undefined}
-                className={fieldControlClassName}
+                className={cn(fieldControlClassName, 'rounded bg-transparent')}
                 {...register(field.name)}
               />
               {error && (
@@ -96,13 +98,25 @@ export const ReferralForm = () => {
 
       <div className={fieldLabelClassName}>
         <label htmlFor="referral-refereeProject">{t('form.fields.refereeProject')}</label>
-        <select id="referral-refereeProject" className={cn(fieldControlClassName, 'px-3')} {...register('refereeProject')}>
-          {refereeProjects.map((project) => (
-            <option key={project} value={project}>
-              {t(`form.projectOptions.${project}`)}
-            </option>
-          ))}
-        </select>
+        <Controller
+          name="refereeProject"
+          control={control}
+          render={({ field }) => (
+            <HorizonSelect
+              id="referral-refereeProject"
+              name={field.name}
+              value={field.value}
+              onValueChange={field.onChange}
+              onBlur={field.onBlur}
+              ref={field.ref}
+              className={cn(fieldControlClassName, 'rounded bg-transparent px-3')}
+              options={refereeProjects.map((project) => ({
+                value: project,
+                label: t(`form.projectOptions.${project}`),
+              }))}
+            />
+          )}
+        />
       </div>
 
       <div className="flex flex-col gap-1.5">
@@ -119,7 +133,7 @@ export const ReferralForm = () => {
             {t('form.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-solar-dark">
+        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-medium text-solar hover:text-solar-dark">
           {t('form.privacyLink')}
         </Link>
         {errors.callbackConsent && (
@@ -131,12 +145,12 @@ export const ReferralForm = () => {
 
       {errorCode && (
         <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-          <p className="font-bold">{t('common:leadForm.errorTitle')}</p>
+          <p className="font-medium">{t('common:leadForm.errorTitle')}</p>
           <p>{t(`common:leadForm.errors.${errorCode}`)}</p>
         </div>
       )}
 
-      <Button type="submit" size="block" disabled={isSubmitting}>
+      <Button type="submit" size="block" className="hz-page-button" disabled={isSubmitting}>
         {isSubmitting ? t('common:leadForm.submitting') : t('form.submit')}
       </Button>
     </form>

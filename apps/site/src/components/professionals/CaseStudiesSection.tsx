@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { projectPath } from '@/routes/paths';
-import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
+import { containerClassName, eyebrowClassName } from '@/components/solar/horizonSolutionStyles';
 
 type CaseStudyKey = 'solisInvest' | 'seranonSpar';
 
@@ -12,7 +12,7 @@ const statKeysByCaseStudy: Record<CaseStudyKey, readonly string[]> = {
 };
 
 const readMoreClassName =
-  'inline-flex items-center gap-1.5 self-start rounded-[10px] border-[1.5px] border-solar px-[18px] py-2.5 text-sm font-semibold transition-colors duration-200 motion-reduce:transition-none';
+  'inline-flex items-center gap-1.5 self-start rounded-[4px] border-[1.5px] border-solar px-[18px] py-2.5 text-sm font-medium transition-colors duration-200 motion-reduce:transition-none';
 
 const CaseStudyStats = ({ caseStudy, tone }: { caseStudy: CaseStudyKey; tone: 'dark' | 'light' }) => {
   const { t } = useTranslation('professionals');
@@ -20,11 +20,11 @@ const CaseStudyStats = ({ caseStudy, tone }: { caseStudy: CaseStudyKey; tone: 'd
   return (
     <dl aria-label={t(`caseStudies.${caseStudy}.statsLabel`)} className="mt-1 grid grid-cols-3 gap-2 lg:gap-3">
       {statKeysByCaseStudy[caseStudy].map((key) => (
-        <div key={key} className={cn('flex flex-col-reverse justify-end rounded-[10px] p-2.5 sm:p-3 lg:p-3.5', tone === 'dark' ? 'bg-night-soft' : 'bg-ivory')}>
+        <div key={key} className={cn('flex flex-col-reverse justify-end rounded-[4px] p-2.5 sm:p-3 lg:p-3.5', tone === 'dark' ? 'bg-night-soft' : 'bg-ivory')}>
           <dt className={cn('text-[11px] leading-snug lg:text-xs', tone === 'dark' ? 'text-slate-light' : 'text-slate-ink')}>
             {t(`caseStudies.${caseStudy}.stats.${key}.label`)}
           </dt>
-          <dd className="text-[19px] font-bold leading-tight text-solar sm:text-xl lg:text-2xl">{t(`caseStudies.${caseStudy}.stats.${key}.value`)}</dd>
+          <dd className="text-[19px] font-medium leading-tight text-solar sm:text-xl lg:text-2xl">{t(`caseStudies.${caseStudy}.stats.${key}.value`)}</dd>
         </div>
       ))}
     </dl>
@@ -53,7 +53,7 @@ const SolisInvestCaseStudy = () => {
     <section
       data-reveal
       aria-labelledby="solis-invest-title"
-      className="grid overflow-hidden rounded-2xl bg-night text-white lg:grid-cols-[1.15fr_1fr] lg:rounded-3xl"
+      className="grid overflow-hidden rounded-[4px] bg-night text-white lg:grid-cols-[1.15fr_1fr] lg:rounded-[4px]"
     >
       <div className="relative h-[240px] sm:h-[320px] lg:h-auto lg:min-h-[520px]">
         <img
@@ -67,7 +67,7 @@ const SolisInvestCaseStudy = () => {
       </div>
       <div className="flex flex-col justify-center gap-4 p-6 lg:p-12">
         <p className={eyebrowClassName}>{t('caseStudies.solisInvest.eyebrow')}</p>
-        <h2 id="solis-invest-title" className="text-2xl font-bold leading-tight tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="solis-invest-title" className="text-2xl font-medium leading-tight tracking-[-0.045em] lg:text-[32px]">
           {t('caseStudies.solisInvest.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-light">{t('caseStudies.solisInvest.description')}</p>
@@ -86,7 +86,7 @@ const SeranonSparCaseStudy = () => {
     <section
       data-reveal
       aria-labelledby="seranon-spar-title"
-      className="grid overflow-hidden rounded-2xl border border-sand-line bg-white lg:grid-cols-[1fr_1.15fr] lg:rounded-3xl"
+      className="grid overflow-hidden rounded-[4px] border border-sand-line bg-white lg:grid-cols-[1fr_1.15fr] lg:rounded-[4px]"
     >
       <div className="relative h-[260px] sm:h-[320px] lg:order-last lg:h-auto lg:min-h-[520px]">
         <img
@@ -100,7 +100,7 @@ const SeranonSparCaseStudy = () => {
       </div>
       <div className="flex flex-col justify-center gap-4 p-6 lg:p-12">
         <p className={eyebrowClassName}>{t('caseStudies.seranonSpar.eyebrow')}</p>
-        <h2 id="seranon-spar-title" className="text-2xl font-bold leading-tight tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="seranon-spar-title" className="text-2xl font-medium leading-tight tracking-[-0.045em] lg:text-[32px]">
           {t('caseStudies.seranonSpar.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-ink">{t('caseStudies.seranonSpar.description')}</p>
@@ -108,7 +108,7 @@ const SeranonSparCaseStudy = () => {
         <figure className="mt-1.5 flex items-center gap-3.5">
           <span
             aria-hidden="true"
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-night text-lg font-bold text-solar"
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-night text-lg font-medium text-solar"
           >
             {t('caseStudies.seranonSpar.testimonial.initial')}
           </span>

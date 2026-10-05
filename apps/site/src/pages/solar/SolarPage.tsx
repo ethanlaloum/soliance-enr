@@ -1,3 +1,4 @@
+import '@/components/solar/horizonSolutions.css';
 import '@/lib/i18n/namespaces/solar';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { SolarAidsAndFaqSection } from '@/components/solar/SolarAidsAndFaqSection';
@@ -14,7 +15,7 @@ export const SolarPage = () => {
   useScrollReveal();
 
   return (
-    <>
+    <div className="hz-solution-page">
       <SolarHeroSection />
       <SolarKeyFigures />
       <SolarSizesSection />
@@ -24,6 +25,6 @@ export const SolarPage = () => {
       <SolarCareSection />
       <SolarProjectsSection />
       <SolarCtaSection />
-    </>
+    </div>
   );
 };

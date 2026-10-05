@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { buttonVariants } from '@/components/ui/buttonVariants';
-import { containerClassName } from '@/components/home/containerClassName';
+import { containerClassName } from '@/components/solar/horizonSolutionStyles';
 import { aidSectionId } from '@/components/heat-pump/HeatPumpAidSection';
 
 const trustKeys = ['qualipac', 'daikin', 'installation'] as const;
@@ -27,21 +27,21 @@ export const HeatPumpHeroSection = () => {
   const { t } = useTranslation('heatPump');
 
   return (
-    <section aria-labelledby="heat-pump-hero-title" className="relative overflow-hidden bg-heat">
+    <section aria-labelledby="heat-pump-hero-title" className="hz-solution-hero relative overflow-hidden">
       <ConcentricCircles />
-      <div className={cn(containerClassName, 'relative grid items-center gap-9 pb-12 pt-8 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-24 lg:pt-20')}>
+      <div className={cn(containerClassName, 'hz-solution-hero-grid relative grid items-center gap-9 pb-12 pt-8 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-24 lg:pt-20')}>
         <div className="flex flex-col gap-4 lg:gap-[22px]">
-          <Breadcrumb items={[{ label: t('breadcrumb') }]} className="motion-safe:animate-fade-up" />
-          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/85 motion-safe:animate-fade-up lg:text-sm lg:tracking-[1.5px]">
+          <Breadcrumb tone="light" items={[{ label: t('breadcrumb') }]} className="motion-safe:animate-fade-up" />
+          <p className="text-xs font-medium uppercase tracking-[1.2px] text-white/85 motion-safe:animate-fade-up lg:text-sm lg:tracking-[1.5px]">
             {t('hero.eyebrow')}
           </p>
           <h1
             id="heat-pump-hero-title"
-            className="text-4xl font-bold leading-[1.08] tracking-[-0.02em] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[58px] lg:leading-[1.05]"
+            className="hz-page-title"
           >
             {t('hero.title')}
           </h1>
-          <p className="text-base leading-normal text-heat-sky motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-[19px] lg:leading-[1.55]">
+          <p className="hz-page-lead">
             {t('hero.lead')}
           </p>
           <div className="mt-1 flex flex-col gap-3.5 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap">
@@ -75,16 +75,16 @@ export const HeatPumpHeroSection = () => {
             width={960}
             height={1276}
             fetchPriority="high"
-            className="block h-[240px] w-full rounded-[18px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.25)] motion-safe:animate-zoom-in motion-safe:[animation-delay:120ms] lg:h-[340px] lg:rounded-[20px]"
+            className="hz-solution-hero-photo block h-[240px] w-full rounded-[4px] object-cover shadow-none motion-safe:animate-zoom-in motion-safe:[animation-delay:120ms] lg:h-[340px] lg:rounded-[4px]"
           />
           <dl
             aria-label={t('hero.statsLabel')}
-            className="grid grid-cols-3 gap-3 rounded-[14px] bg-white px-4 py-4 motion-safe:animate-fade-up motion-safe:[animation-delay:400ms] lg:px-[22px] lg:py-[18px]"
+            className="grid grid-cols-3 gap-3 rounded-[4px] bg-white px-4 py-4 motion-safe:animate-fade-up motion-safe:[animation-delay:400ms] lg:px-[22px] lg:py-[18px]"
           >
             {statKeys.map((key) => (
               <div key={key} className="flex flex-col-reverse justify-end gap-0.5">
                 <dt className="text-[11px] leading-snug text-slate-ink lg:text-xs">{t(`hero.stats.${key}.label`)}</dt>
-                <dd className="text-[22px] font-bold text-heat lg:text-[26px]">{t(`hero.stats.${key}.value`)}</dd>
+                <dd className="text-[22px] font-medium text-heat lg:text-[26px]">{t(`hero.stats.${key}.value`)}</dd>
               </div>
             ))}
           </dl>

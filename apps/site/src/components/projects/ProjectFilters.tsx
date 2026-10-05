@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
+import { HorizonSelect } from '@/components/ui/Select';
 import {
   projectCategories,
   toProjectCity,
@@ -20,8 +21,8 @@ const FilterChip = ({ label, pressed, onPress }: FilterChipProps) => (
     aria-pressed={pressed}
     onClick={onPress}
     className={cn(
-      'rounded-[20px] border px-3.5 py-2 text-[13px] font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar motion-reduce:transition-none lg:px-4 lg:py-2.5 lg:text-sm',
-      pressed ? 'border-night bg-night text-white' : 'border-sand-border bg-white text-night hover:border-night/50',
+      'rounded-md border px-3.5 py-2 text-[13px] font-medium transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar motion-reduce:transition-none lg:px-4 lg:py-2.5 lg:text-sm',
+      pressed ? 'border-solar bg-solar text-white' : 'border-sand-border bg-transparent text-night hover:border-night/50',
     )}
   >
     {label}
@@ -61,22 +62,19 @@ export const ProjectFilters = ({ category, city, counts, totalCount, cities, onC
       </div>
       <div aria-hidden="true" className="mx-1.5 hidden h-7 w-px bg-sand-border lg:block" />
       <div className="flex items-center gap-2">
-        <label htmlFor="projects-city-filter" className="text-sm font-semibold">
+        <label htmlFor="projects-city-filter" className="text-sm font-medium">
           {t('portfolio.filters.city')}
         </label>
-        <select
+        <HorizonSelect
           id="projects-city-filter"
           value={city ?? ''}
-          onChange={(event) => onCityChange(event.target.value === '' ? null : toProjectCity(event.target.value))}
-          className="h-10 min-w-0 flex-1 rounded-[20px] border border-sand-border bg-white px-3.5 font-sans text-sm text-night outline-none transition-colors focus:border-solar focus:ring-2 focus:ring-solar/30 sm:flex-none lg:min-w-[180px]"
-        >
-          <option value="">{t('portfolio.filters.allCities')}</option>
-          {cities.map((item) => (
-            <option key={item} value={item}>
-              {t(`cities.${item}`)}
-            </option>
-          ))}
-        </select>
+          onValueChange={(value) => onCityChange(value === '' ? null : toProjectCity(value))}
+          options={[
+            { value: '', label: t('portfolio.filters.allCities') },
+            ...cities.map((item) => ({ value: item, label: t(`cities.${item}`) })),
+          ]}
+          className="hz-city-select"
+        />
       </div>
     </div>
   );

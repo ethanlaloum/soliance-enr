@@ -1,5 +1,6 @@
 export const paths = {
   home: '/',
+  care: '/soliance-care',
   solar: '/panneaux-solaires',
   heatPump: '/pompe-a-chaleur',
   evCharger: '/borne-de-recharge',

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme colors inherit the scoped Horizon variables on internal pages. */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -38,5 +39,142 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+html.lenis,
+html.lenis body {
+  scroll-behavior: auto !important;
+}
+
+.hero-stage {
+  --band-h: 100%;
+  --band-gap: 0px;
+  --gutter: 0px;
+  --band-radius: 20px;
+}
+
+.hero-frame {
+  clip-path: inset(calc(100% - var(--band-h) - var(--band-gap)) var(--gutter) var(--band-gap) var(--gutter) round var(--band-radius));
+}
+
+.hero-frame-zoom {
+  transform-origin: 50% 100%;
+}
+
+.hero-band {
+  position: absolute;
+  top: calc(100% - var(--band-h) - var(--band-gap));
+  bottom: var(--band-gap);
+  left: var(--gutter);
+  right: var(--gutter);
+  pointer-events: none;
+}
+
+.hero-image {
+  object-position: 50% 50%;
+}
+
+.hero-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.08em 0.02em 0.14em;
+  margin: -0.08em -0.02em -0.14em;
+}
+
+.hero-word {
+  display: inline-block;
+}
+
+.reveal-line-mask {
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.steps-list[data-progress] [data-step] .step-number {
+  border-color: theme('colors.sand.border');
+  color: theme('colors.slate.ink');
+}
+
+.steps-list[data-progress] [data-step].is-reached .step-number {
+  border-color: theme('colors.solar.DEFAULT');
+  background-color: theme('colors.solar.DEFAULT');
+  color: theme('colors.night.DEFAULT');
+}
+
+@media (min-width: 1024px) {
+  .hero-stage {
+    --stage-h: max(100vh, 640px);
+    --band-h: clamp(200px, 34vh, 420px);
+    --band-gap: 32px;
+    --gutter: max(40px, calc((100% - 1440px) / 2 + 40px));
+    --band-radius: 28px;
+    min-height: var(--stage-h);
+  }
+
+  .hero-copy-region {
+    flex: 1;
+    padding-bottom: calc(var(--band-h) + var(--band-gap) * 2);
+  }
+
+  .hero-image {
+    transform-origin: 50% 37%;
+    transform: translate3d(0, calc(100% - var(--band-h) / 2 - var(--band-gap) - 37%), 0);
+  }
+
+  .hero-figures {
+    left: calc(var(--gutter) + 40px);
+    right: calc(var(--gutter) + 40px);
+    bottom: calc(var(--band-gap) + 56px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-frame {
+    animation: hero-band-rise 1.4s cubic-bezier(0.76, 0, 0.24, 1) 0.35s backwards;
+  }
+
+  .hero-frame-zoom {
+    animation: hero-frame-zoom 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards;
+  }
+
+  .hero-word {
+    animation: hero-word-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: calc(0.2s + var(--word-index, 0) * 0.07s);
+  }
+
+  .hero-fade {
+    animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--fade-delay, 0s);
+  }
+
+  .hero-figures {
+    animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.2s backwards;
+  }
+}
+
+@keyframes hero-band-rise {
+  from {
+    clip-path: inset(calc(100% - var(--band-gap)) var(--gutter) var(--band-gap) var(--gutter) round var(--band-radius));
+  }
+}
+
+@keyframes hero-frame-zoom {
+  from {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes hero-word-rise {
+  from {
+    transform: translate3d(0, 112%, 0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
   }
 }

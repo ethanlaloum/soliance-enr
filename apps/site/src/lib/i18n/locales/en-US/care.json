@@ -1,0 +1,283 @@
+{
+  "seo": {
+    "title": "Soliance Care — Solar monitoring, maintenance and repairs",
+    "description": "Soliance Care looks after your solar panels: AI monitoring around the clock, annual cleaning and local technicians in departments 06, 83 and 13. Care Connect throughout France.",
+    "serviceType": "Solar installation maintenance, monitoring and repairs"
+  },
+  "nav": {
+    "label": "Soliance Care navigation",
+    "home": "Soliance Care, top of page",
+    "service": "Our support",
+    "plans": "Plans",
+    "takeover": "Installer no longer available?",
+    "contact": "Talk about your installation",
+    "open": "Open menu",
+    "close": "Close menu",
+    "back": "Soliance ENR",
+    "skip": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Soliance Care · Looking after your solar",
+    "line1": "Your solar,",
+    "line2": "your peace",
+    "line3": "of mind.",
+    "lead": "Your panels produce. We look after them. Monitoring around the clock, annual maintenance and local technicians: your installation is in good hands.",
+    "cta": "Discuss my installation",
+    "note": "A free first conversation, with no commitment.",
+    "explore": "Discover Soliance Care",
+    "location": "A local team",
+    "caption": "Saint-Laurent-du-Var · 06",
+    "watch": "We keep watch over your solar.",
+    "artNote": "Sunshine. Care. Peace of mind.",
+    "pauseMotion": "Pause animations",
+    "resumeMotion": "Resume animations"
+  },
+  "proof": {
+    "intro": "Technology keeps watch.\nPeople take care of the rest.",
+    "label": "Soliance Care commitments",
+    "monitorValue": "24/7",
+    "monitor": "Intelligent monitoring",
+    "cleanValue": "Once/year",
+    "clean": "Cleaning included with Care",
+    "areaValue": "06 · 83 · 13",
+    "area": "A team near you"
+  },
+  "service": {
+    "eyebrow": "From monitoring to action",
+    "title": "The right care.",
+    "accent": "At the right time.",
+    "intro": "Your solar installation deserves ongoing attention. We take care of what comes next.",
+    "items": [
+      {
+        "number": "01",
+        "title": "We keep watch.",
+        "body": "Our AI compares your production with the weather and nearby installations. An unusual drop? An alert within 24 hours, and a report every month.",
+        "detail": "Monitoring · All brands"
+      },
+      {
+        "number": "02",
+        "title": "We look after it.",
+        "body": "Soliance Care includes one cleaning each year. Your panels are maintained, your installation monitored and your questions answered.",
+        "detail": "Maintenance · One cleaning a year"
+      },
+      {
+        "number": "03",
+        "title": "We are here.",
+        "body": "With Care, travel and on-site diagnosis are included when a fault occurs. A local technician visits within 2 working days, subject to parts availability.",
+        "detail": "Repairs · Departments 06, 83 and 13"
+      }
+    ],
+    "maintenanceAlt": "Cleaning photovoltaic panels with water",
+    "teamAlt": "The Soliance team outside the Saint-Laurent-du-Var showroom",
+    "note": "With Soliance Care: repair labour costs €120 including VAT; out-of-warranty parts are charged at cost. Phone, email and WhatsApp support 7 days a week."
+  },
+  "monitor": {
+    "eyebrow": "Monitoring you can leave to us",
+    "title": "Your production speaks.",
+    "accent": "We listen.",
+    "body": "You do not need to spend your day checking an app. We connect your inverter to our monitoring service, then follow your production through the day.",
+    "steps": [
+      {
+        "title": "We connect your installation.",
+        "body": "Using access to your manufacturer's app, with no extra equipment to install."
+      },
+      {
+        "title": "We identify unusual changes.",
+        "body": "Production is compared with the weather to detect faults and gradual drops."
+      },
+      {
+        "title": "We support you.",
+        "body": "An alert, a diagnosis, then a local visit if included in your plan."
+      }
+    ],
+    "example": "Monitoring example · illustrative data",
+    "chartTitle": "A day under observation",
+    "chartLabel": "Illustration of actual solar production compared with expected production over a day",
+    "actual": "Observed production",
+    "expected": "Expected production",
+    "report": "A clear view of your production every month.",
+    "brands": "Compatible with leading inverter brands",
+    "brandsNote": "SolaX · APsystems · Enphase · Huawei · SolarEdge · SMA · Fronius · and other brands, connected within 30 days."
+  },
+  "plans": {
+    "eyebrow": "Ongoing attention",
+    "title": "Your installation.",
+    "accent": "Your plan.",
+    "intro": "Remote monitoring throughout France, or maintenance and local support in the South.",
+    "billing": "Billing frequency",
+    "monthly": "Monthly",
+    "annual": "Yearly",
+    "annualHint": "1 month free with Care",
+    "monthUnit": "incl. VAT / month",
+    "yearUnit": "incl. VAT / year",
+    "founder": "Founding rate",
+    "founderNote": "Price guaranteed for 2 years when subscribing before 31 December 2026. Standard rate: €24.99 including VAT/month.",
+    "careZone": "On site · 06, 83, 13",
+    "careTitle": "Soliance Care",
+    "careLead": "Peace of mind, with a team by your side.",
+    "careFeatures": [
+      "24/7 AI monitoring and monthly report",
+      "One cleaning per year",
+      "Travel and on-site diagnosis included",
+      "Manufacturer warranty management",
+      "Support and administrative follow-up"
+    ],
+    "careExtra": "Repair labour: €120 including VAT. Out-of-warranty parts at cost.",
+    "careCta": "Choose Soliance Care",
+    "connectZone": "Remote · Throughout France",
+    "connectTitle": "Care Connect",
+    "connectLead": "Daily monitoring, wherever you are.",
+    "connectFeatures": [
+      "24/7 AI monitoring",
+      "Fault alerts",
+      "Monthly production report",
+      "Referral to a partner installer if a fault occurs"
+    ],
+    "connectExtra": "Cleaning and on-site visits are not included.",
+    "connectCta": "Choose Care Connect",
+    "terms": "12-month commitment. Soliance Care renews automatically; cancel online with one month's notice. Subscription billing starts on 1 January 2027.",
+    "annualCareNote": "One payment of €219.89 including VAT per year at the founding rate.",
+    "annualConnectNote": "One payment of €49 including VAT per year.",
+    "monthlyCareNote": "€19.99 including VAT charged monthly at the founding rate.",
+    "monthlyConnectNote": "€4.99 including VAT charged monthly.",
+    "compareTitle": "What about without a subscription?",
+    "compareIntro": "Our one-off prices, so you can compare clearly.",
+    "compareRows": [
+      {
+        "name": "Cleaning",
+        "price": "€240 incl. VAT"
+      },
+      {
+        "name": "Repair labour",
+        "price": "€480 incl. VAT"
+      },
+      {
+        "name": "Travel · 06 / 83 / 13",
+        "price": "€40 / €80 / €120 incl. VAT"
+      },
+      {
+        "name": "Manufacturer warranty claim",
+        "price": "€150 excl. VAT"
+      }
+    ],
+    "compareNote": "Additional cleaning for Care subscribers: €120 including VAT."
+  },
+  "takeover": {
+    "eyebrow": "We take over",
+    "title": "Your installer",
+    "accent": "is no longer there?",
+    "body": "Your installation still has years ahead of it. After a remote audit, Soliance Care can take over its monitoring, even if we did not install it.",
+    "audit": "€49.99 incl. VAT",
+    "auditLabel": "Takeover audit · 30-minute video call",
+    "subscription": "Then €24.99 including VAT/month · 12-month commitment · departments 06, 83, 13.",
+    "note": "Unfinished work and administrative procedures: quoted separately.",
+    "cta": "Request a takeover",
+    "photoAlt": "Solar panels and villa in Saint-Jeannet, Alpes-Maritimes"
+  },
+  "warranty": {
+    "eyebrow": "Warranty support, without the back and forth",
+    "title": "One point of contact.",
+    "accent": "Until you are running again.",
+    "body": "If your inverter fails, we manage the claim with the manufacturer. You keep the same contact, from diagnosis to restarting the system.",
+    "steps": [
+      "Remote diagnosis, followed by an on-site visit",
+      "Warranty claim sent to the manufacturer",
+      "Tracking the equipment exchange",
+      "Installation and production checks"
+    ],
+    "note": "Parts coverage depends on the manufacturer's warranty. With Care, repair labour is charged at €120 including VAT."
+  },
+  "business": {
+    "eyebrow": "For professionals too",
+    "proTitle": "Your solar portfolio, looked after.",
+    "proBody": "Soliance Care Pro for businesses and local authorities: €15 excluding VAT/kWp/year, or €12 above 250 kWp. Minimum €900 excluding VAT/year, 3-year commitment.",
+    "proCta": "Discuss my portfolio",
+    "partnerTitle": "Your brand. Our monitoring.",
+    "partnerBody": "A white-label platform for installers. Starter licence for up to 100 sites: €99 excluding VAT/month, with free setup. 12-month commitment.",
+    "partnerCta": "Request a demo"
+  },
+  "faq": {
+    "eyebrow": "Simply explained",
+    "title": "Your questions,",
+    "accent": "answered.",
+    "items": [
+      {
+        "question": "How does this differ from my inverter warranty?",
+        "answer": "The manufacturer's warranty may cover a defective part under its terms. Soliance Care monitors your installation, diagnoses faults, manages the warranty claim and tracks the exchange. Repair labour is charged separately at the subscriber rate of €120 including VAT."
+      },
+      {
+        "question": "Is my inverter compatible?",
+        "answer": "Soliance Care supports all brands, including SolaX, APsystems, Enphase, Huawei, Hoymiles, Deye, SMA, Fronius, SolarEdge, GoodWe, Growatt and Sungrow. A brand that has not yet been integrated is connected within 30 days. Connection uses your access to the manufacturer's app."
+      },
+      {
+        "question": "Do you operate in my region?",
+        "answer": "Soliance Care on-site visits cover Alpes-Maritimes (06), Var (83) and Bouches-du-Rhône (13). Care Connect provides remote monitoring throughout France. Any visits under this plan are provided separately by a partner, subject to availability."
+      },
+      {
+        "question": "My installer has closed. Can you take over?",
+        "answer": "Yes, within our service area, following a remote takeover audit costing €49.99 including VAT: a 30-minute video call with a technician. The takeover subscription then costs €24.99 including VAT/month with a 12-month commitment. Unfinished work or administrative procedures are quoted separately."
+      },
+      {
+        "question": "Are all repairs included?",
+        "answer": "No. Soliance Care includes travel, diagnosis and warranty claim management. Repair labour costs €120 including VAT and out-of-warranty parts are charged at cost. Visits within 2 working days are subject to parts availability."
+      },
+      {
+        "question": "How does the commitment work?",
+        "answer": "Soliance Care and Care Connect have a 12-month commitment. Soliance Care renews automatically; cancellation is online with one month's notice. The founding rate of €19.99 including VAT/month is guaranteed for 2 years for subscriptions before 31 December 2026. Subscription billing starts on 1 January 2027."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Let's start with your installation",
+    "title": "Shall we talk?",
+    "accent": "Simply.",
+    "body": "A question about production, a fault or a need for regular monitoring? Tell us about your installation. Our team will help you choose the next step.",
+    "phone": "06 33 25 11 79",
+    "team": "The Soliance technical team",
+    "address": "30 avenue du Général Leclerc\n06700 Saint-Laurent-du-Var"
+  },
+  "form": {
+    "title": "Request a call from our team",
+    "lead": "Fields marked * are required. This request is not a subscription.",
+    "fullName": "Full name *",
+    "phone": "Phone *",
+    "postalCode": "Installation postal code *",
+    "email": "Email (optional)",
+    "interest": "Your request",
+    "brand": "Inverter brand (optional)",
+    "situation": "Your situation (optional)",
+    "situationHint": "For example: lower production, installer no longer available…",
+    "options": {
+      "HEALTH_CHECK": "Discuss my installation",
+      "CARE": "Soliance Care",
+      "CONNECT": "Care Connect",
+      "TAKEOVER": "Takeover from another installer",
+      "PRO": "Soliance Care Pro",
+      "PARTNER": "Partner installer demo"
+    },
+    "consent": "I agree that Soliance may use this information and contact me by phone to respond to this request.",
+    "privacy": "Your details are used to handle this request. To exercise your data rights, email technique@soliance-enr.fr.",
+    "submit": "Request my callback",
+    "submitting": "Sending…",
+    "successTitle": "Your request has been sent.",
+    "successBody": "The Soliance team will contact you to discuss your installation.",
+    "another": "Make another request",
+    "error": "Your request could not be sent. You can contact our team directly on 06 33 25 11 79 or by email.",
+    "validation": {
+      "name": "Enter your full name.",
+      "phone": "Enter a valid French phone number.",
+      "postalCode": "Enter a 5-digit postal code.",
+      "email": "Check your email address.",
+      "consent": "Your consent is required for a callback.",
+      "tooLong": "This message is too long (1,000 characters maximum)."
+    }
+  },
+  "footer": {
+    "tagline": "Care for your solar.\nA team close by.",
+    "contact": "Keep in touch",
+    "back": "Planning an installation? Discover Soliance ENR",
+    "legal": "Soliance Care is a Solar Trade SAS brand · SIREN 949 576 946",
+    "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",
+    "top": "Back to top"
+  }
+}

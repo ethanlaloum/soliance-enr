@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
+import { containerClassName, eyebrowClassName } from '@/components/solar/horizonSolutionStyles';
 
 const pillarKeys = ['consumption', 'household', 'house'] as const;
 
@@ -13,12 +13,12 @@ export const SolarMethodSection = () => {
       <section
         data-reveal
         aria-labelledby="solar-method-title"
-        className="flex flex-col gap-6 rounded-2xl bg-night p-6 text-white lg:gap-7 lg:rounded-3xl lg:px-16 lg:py-14"
+        className="flex flex-col gap-6 rounded-[4px] bg-night p-6 text-white lg:gap-7 lg:rounded-[4px] lg:px-16 lg:py-14"
       >
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div>
             <p className={eyebrowClassName}>{t('method.eyebrow')}</p>
-            <h2 id="solar-method-title" className="mt-2 text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]">
+            <h2 id="solar-method-title" className="mt-2 text-[26px] font-medium leading-[1.15] tracking-[-0.045em] lg:text-[36px]">
               {t('method.title')}
             </h2>
           </div>
@@ -26,9 +26,9 @@ export const SolarMethodSection = () => {
         </div>
         <ol className="grid gap-3 lg:grid-cols-3 lg:gap-5">
           {pillarKeys.map((key, index) => (
-            <li key={key} data-reveal style={revealDelay(index + 1)} className="flex flex-col gap-2.5 rounded-2xl bg-night-soft p-5 lg:p-[26px]">
-              <p className="text-[13px] font-semibold uppercase tracking-[1px] text-solar">{t(`method.pillars.${key}.step`)}</p>
-              <h3 className="text-lg font-bold lg:text-xl">{t(`method.pillars.${key}.title`)}</h3>
+            <li key={key} data-reveal style={revealDelay(index + 1)} className="flex flex-col gap-2.5 rounded-[4px] bg-night-soft p-5 lg:p-[26px]">
+              <p className="text-[13px] font-medium uppercase tracking-[1px] text-solar">{t(`method.pillars.${key}.step`)}</p>
+              <h3 className="text-lg font-medium lg:text-xl">{t(`method.pillars.${key}.title`)}</h3>
               <p className="text-sm leading-[1.55] text-slate-light">{t(`method.pillars.${key}.description`)}</p>
             </li>
           ))}

@@ -56,8 +56,8 @@ export const Simulator = () => {
   return (
     <>
       <SimulatorHeader step={step} />
-      <div className={cn(containerClassName, 'pb-10 lg:pb-16')}>
-        <div className="grid items-start gap-5 motion-safe:animate-fade-up motion-safe:[animation-delay:320ms] lg:grid-cols-[1fr_1.1fr] lg:gap-10">
+      <div className={cn(containerClassName, 'hz-simulator-workspace pb-10 lg:pb-16')}>
+        <div className="hz-simulator-grid grid items-start gap-5 motion-safe:animate-fade-up motion-safe:[animation-delay:320ms] lg:grid-cols-[1fr_1fr] lg:gap-10">
           {isResultStep && preview ? (
             <SimulatorResultCard estimate={preview.estimate} onBack={goBack} />
           ) : (

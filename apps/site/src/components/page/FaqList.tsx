@@ -9,7 +9,7 @@ type FaqListProps = {
 };
 
 export const FaqList = ({ items, accentClassName = 'text-solar', className }: FaqListProps) => (
-  <div className={cn('flex flex-col divide-y divide-sand-line rounded-2xl border border-sand-line bg-white', className)}>
+  <div className={cn('site-faq flex flex-col divide-y divide-sand-line rounded-2xl border border-sand-line bg-white', className)}>
     {items.map((item) => (
       <details key={item.question} data-faq-item className="group px-5 py-4 lg:px-7 lg:py-5">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-base font-bold marker:hidden lg:text-lg [&::-webkit-details-marker]:hidden">

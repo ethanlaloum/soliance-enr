@@ -18,6 +18,7 @@ import {
   SimulatorValidatedField,
   toggleEquipment,
 } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { HorizonSelect } from '@/components/ui/Select';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
@@ -161,18 +162,13 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
 
           <div className={fieldLabelClassName}>
             <label htmlFor={fieldId('orientation')}>{t('wizard.fields.orientation')}</label>
-            <select
+            <HorizonSelect
               id={fieldId('orientation')}
               value={answers.orientation}
               className={cn(fieldControlClassName, 'px-3', isConsumptionStep && recapControlClassName)}
-              onChange={(event) => onChange({ orientation: event.target.value as RoofOrientation })}
-            >
-              {roofOrientations.map((orientation) => (
-                <option key={orientation} value={orientation}>
-                  {t(`wizard.orientations.${orientation}`)}
-                </option>
-              ))}
-            </select>
+              onValueChange={(value) => onChange({ orientation: value as RoofOrientation })}
+              options={roofOrientations.map((orientation) => ({ value: orientation, label: t(`wizard.orientations.${orientation}`) }))}
+            />
           </div>
         </div>
       )}
@@ -180,18 +176,13 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
       {isRoofStep && (
         <div className={fieldLabelClassName}>
           <label htmlFor={fieldId('roofCovering')}>{t('wizard.fields.roofCovering')}</label>
-          <select
+          <HorizonSelect
             id={fieldId('roofCovering')}
             value={answers.roofCovering}
             className={cn(fieldControlClassName, 'px-3')}
-            onChange={(event) => onChange({ roofCovering: event.target.value as RoofCovering })}
-          >
-            {roofCoverings.map((covering) => (
-              <option key={covering} value={covering}>
-                {t(`wizard.roofCoverings.${covering}`)}
-              </option>
-            ))}
-          </select>
+            onValueChange={(value) => onChange({ roofCovering: value as RoofCovering })}
+            options={roofCoverings.map((covering) => ({ value: covering, label: t(`wizard.roofCoverings.${covering}`) }))}
+          />
         </div>
       )}
 
@@ -234,18 +225,13 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
 
           <div className={fieldLabelClassName}>
             <label htmlFor={fieldId('daytimePresence')}>{t('wizard.fields.daytimePresence')}</label>
-            <select
+            <HorizonSelect
               id={fieldId('daytimePresence')}
               value={answers.daytimePresence}
               className={cn(fieldControlClassName, 'px-3')}
-              onChange={(event) => onChange({ daytimePresence: event.target.value as DaytimePresence })}
-            >
-              {daytimePresences.map((presence) => (
-                <option key={presence} value={presence}>
-                  {t(`wizard.presences.${presence}`)}
-                </option>
-              ))}
-            </select>
+              onValueChange={(value) => onChange({ daytimePresence: value as DaytimePresence })}
+              options={daytimePresences.map((presence) => ({ value: presence, label: t(`wizard.presences.${presence}`) }))}
+            />
           </div>
         </>
       )}

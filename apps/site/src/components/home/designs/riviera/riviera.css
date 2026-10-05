@@ -1,0 +1,217 @@
+.riviera {
+  --rv-outremer: #1b3fa0;
+  --rv-marine: #0b1f4d;
+  --rv-soleil: #e07b28;
+  --rv-ciel: #cfe0f5;
+  --rv-ecume: #f1f5fb;
+  --rv-nuit: #0b1120;
+  --rv-mer: #13327f;
+  font-family: 'Figtree Variable', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--rv-marine);
+  overflow-x: clip;
+}
+
+.riviera input,
+.riviera select,
+.riviera textarea,
+.riviera button {
+  font-family: inherit;
+}
+
+.riviera-display {
+  font-family: 'Unbounded Variable', 'Arial Black', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.riviera h1 .hero-word-mask {
+  padding-top: 0.24em;
+  margin-top: -0.24em;
+}
+
+.riviera .reveal-line-mask {
+  padding-top: 0.22em;
+  margin-top: -0.22em;
+}
+
+.riviera-stage {
+  --rv-sun: min(66vw, 330px);
+  --rv-sun-right: -10vw;
+  --rv-sea: 48px;
+}
+
+.riviera-sky {
+  padding-bottom: calc(var(--rv-sun) * 0.58 + 1.75rem);
+}
+
+.riviera-sun-pos {
+  width: var(--rv-sun);
+  aspect-ratio: 1;
+  right: var(--rv-sun-right);
+  bottom: calc(var(--rv-sun) * -0.42);
+}
+
+.riviera-glints {
+  position: absolute;
+  top: 0;
+  right: var(--rv-sun-right);
+  width: var(--rv-sun);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 7px;
+}
+
+.riviera-glint {
+  display: block;
+  height: 4px;
+}
+
+.riviera-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.riviera-tint-hue {
+  background: var(--rv-outremer);
+  mix-blend-mode: color;
+}
+
+.riviera-tint-floor {
+  background: var(--rv-marine);
+  mix-blend-mode: lighten;
+}
+
+.riviera-rail {
+  background: repeating-linear-gradient(180deg, var(--rv-marine) 0 14px, #fff 14px 28px);
+  box-shadow: 0 0 0 2px var(--rv-marine);
+}
+
+.riviera-rail-fill {
+  background: var(--rv-soleil);
+  transform-origin: 50% 0;
+}
+
+.riviera-station {
+  background: #fff;
+  color: var(--rv-marine);
+  transition:
+    background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.riviera-steps > li:first-child .riviera-station,
+.riviera-steps > li.is-reached .riviera-station {
+  background: var(--rv-soleil);
+  color: var(--rv-nuit);
+}
+
+.riviera-ticket {
+  --rv-stub: 72px;
+  position: relative;
+  -webkit-mask:
+    radial-gradient(circle at var(--rv-stub) 0, transparent 11px, #000 11.5px) top / 100% 51% no-repeat,
+    radial-gradient(circle at var(--rv-stub) 100%, transparent 11px, #000 11.5px) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle at var(--rv-stub) 0, transparent 11px, #000 11.5px) top / 100% 51% no-repeat,
+    radial-gradient(circle at var(--rv-stub) 100%, transparent 11px, #000 11.5px) bottom / 100% 51% no-repeat;
+}
+
+.riviera-ticket::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  border-radius: 9999px;
+  background: var(--rv-stamp, var(--rv-soleil));
+}
+
+.riviera-ticket::after {
+  content: '';
+  position: absolute;
+  left: var(--rv-stub);
+  top: 16px;
+  bottom: 16px;
+  border-left: 2px dashed currentColor;
+  opacity: 0.35;
+}
+
+@media (min-width: 1024px) {
+  .riviera-stage {
+    --rv-sun: clamp(320px, 34vw, 560px);
+    --rv-sun-right: max(2.5rem, calc((100% - 1440px) / 2 + 2.5rem));
+    --rv-sea: 64px;
+    --rv-photo: clamp(280px, 44vh, 500px);
+  }
+
+  .riviera-sky {
+    padding-bottom: 0;
+    min-height: calc(100svh - 84px - var(--rv-sea) - 5rem);
+  }
+
+  .riviera-sun-pos {
+    bottom: calc(var(--rv-sun) * -0.3);
+  }
+
+  .riviera-glints {
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .riviera-glint {
+    height: 5px;
+  }
+
+  .riviera-rail {
+    background: repeating-linear-gradient(90deg, var(--rv-marine) 0 22px, #fff 22px 44px);
+  }
+
+  .riviera-rail-fill {
+    transform-origin: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .riviera-sun-rise {
+    animation: riviera-sun-rise 2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+  }
+
+  .riviera-glint-in {
+    animation: riviera-glint-in 1.3s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: calc(0.9s + var(--glint-index, 0) * 0.09s);
+  }
+
+  .riviera-rail-fill {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  .riviera-rail-fill {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .riviera-steps .riviera-station {
+    background: var(--rv-soleil);
+    color: var(--rv-nuit);
+    transition: none;
+  }
+}
+
+@keyframes riviera-sun-rise {
+  from {
+    transform: translate3d(0, 40%, 0);
+  }
+}
+
+@keyframes riviera-glint-in {
+  from {
+    transform: scaleX(0);
+  }
+}

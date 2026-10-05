@@ -1,3 +1,4 @@
+import '@/components/solar/horizonSolutions.css';
 import '@/lib/i18n/namespaces/professionals';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { CaseStudiesSection } from '@/components/professionals/CaseStudiesSection';
@@ -12,7 +13,7 @@ export const ProfessionalsPage = () => {
   useScrollReveal();
 
   return (
-    <>
+    <div className="hz-solution-page">
       <ProfessionalsHeroSection />
       <OffersSection />
       <CaseStudiesSection />
@@ -20,6 +21,6 @@ export const ProfessionalsPage = () => {
       <SchemesSection />
       <MethodSection />
       <GuaranteesSection />
-    </>
+    </div>
   );
 };

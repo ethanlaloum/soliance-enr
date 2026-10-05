@@ -1,0 +1,197 @@
+.garrigue {
+  font-family: 'Work Sans Variable', 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.garrigue ::selection {
+  background-color: #e07b28;
+  color: #0b1120;
+}
+
+.g-display {
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    'SOFT' 100,
+    'WONK' 1;
+}
+
+.g-display-calm {
+  font-variation-settings:
+    'SOFT' 50,
+    'WONK' 0;
+}
+
+.g-arch {
+  clip-path: inset(0 0 0 0 round 999px 999px 0 0);
+}
+
+.g-dome {
+  clip-path: inset(0 0 0 0 round 50% 50% 0 0 / 44% 44% 0 0);
+}
+
+.g-frieze {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.g-frieze-row {
+  position: absolute;
+  left: calc(var(--g-tile) * -2);
+  right: calc(var(--g-tile) * -2);
+  height: calc(var(--g-tile) / 2);
+  background-repeat: repeat-x;
+}
+
+.g-frieze-genoise {
+  --g-tile: 26px;
+  --g-ring: 4.5px;
+  height: calc(var(--g-tile) + 5px);
+}
+
+.g-frieze-genoise .g-frieze-row {
+  background-size: var(--g-tile) calc(var(--g-tile) / 2);
+  background-image: radial-gradient(
+    circle at 50% 100%,
+    transparent calc(var(--g-tile) / 2 - var(--g-ring) - 2.5px),
+    var(--g-row-color) calc(var(--g-tile) / 2 - var(--g-ring) - 2px) calc(var(--g-tile) / 2 - 2px),
+    transparent calc(var(--g-tile) / 2 - 1.5px)
+  );
+}
+
+.g-frieze-genoise .g-frieze-row:first-child {
+  --g-row-color: #c4673a;
+  top: 0;
+}
+
+.g-frieze-genoise .g-frieze-row:last-child {
+  --g-row-color: #a4522b;
+  bottom: 0;
+  background-position: calc(var(--g-tile) / 2) 0;
+}
+
+.g-frieze-eave {
+  --g-tile: 28px;
+  height: calc(var(--g-tile) / 2);
+  background-color: #f4f6f1;
+}
+
+.g-frieze-eave .g-frieze-row {
+  top: 0;
+  background-size: calc(var(--g-tile) * 2) calc(var(--g-tile) / 2);
+  background-image:
+    radial-gradient(circle at 25% 100%, #c4673a calc(var(--g-tile) / 2 - 1.5px), transparent calc(var(--g-tile) / 2 - 1px)),
+    radial-gradient(circle at 75% 100%, #b35c33 calc(var(--g-tile) / 2 - 1.5px), transparent calc(var(--g-tile) / 2 - 1px));
+}
+
+.g-form-card {
+  border-radius: 50% 50% 20px 20px / 64px 64px 20px 20px;
+}
+
+.g-form-card input:not([type='checkbox']),
+.g-form-card select {
+  font-family: inherit;
+}
+
+.g-form-card a {
+  color: #a4522b;
+}
+
+.g-form-card a:hover {
+  color: #1e3a2f;
+}
+
+.g-form-card a:focus-visible {
+  outline: 2px solid #1e3a2f;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.g-steps[data-progress] .g-step-number {
+  color: #a9b8a0;
+}
+
+.g-steps[data-progress] .g-step-marker {
+  background-color: #b9c7b0;
+}
+
+.g-steps[data-progress] .is-reached .g-step-number {
+  color: #c4673a;
+}
+
+.g-steps[data-progress] .is-reached .g-step-marker {
+  background-color: #c4673a;
+}
+
+@media (min-width: 1024px) {
+  .g-frieze-genoise {
+    --g-tile: 40px;
+    --g-ring: 6.5px;
+  }
+
+  .g-frieze-eave {
+    --g-tile: 48px;
+  }
+
+  .g-form-card {
+    border-radius: 50% 50% 28px 28px / 112px 112px 28px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .g-step-number {
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .g-step-marker {
+    transition: background-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .g-hero-arch {
+    animation: g-arch-rise 1.6s cubic-bezier(0.76, 0, 0.24, 1) 0.25s backwards;
+  }
+
+  .g-hero-zoom {
+    animation: g-zoom-settle 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+  }
+
+  .g-hero-embrasure {
+    animation: g-fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.3s backwards;
+  }
+
+  .g-frieze-intro .g-frieze-row {
+    animation: g-tiles-lay 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.9s backwards;
+  }
+
+  .g-frieze-intro .g-frieze-row:last-child {
+    animation-delay: 1.08s;
+  }
+}
+
+@keyframes g-arch-rise {
+  from {
+    clip-path: inset(100% 0 0 0 round 999px 999px 0 0);
+  }
+}
+
+@keyframes g-zoom-settle {
+  from {
+    transform: scale(1.22);
+  }
+}
+
+@keyframes g-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes g-tiles-lay {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}

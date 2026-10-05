@@ -40,13 +40,13 @@ export const EstimatePanel = ({ preview, isFinal, className }: EstimatePanelProp
   return (
     <section
       aria-labelledby="simulator-estimate-title"
-      className={cn('flex flex-col gap-[18px] rounded-2xl bg-night p-5 text-white lg:rounded-[20px] lg:p-8', className)}
+      className={cn('hz-simulator-estimate flex flex-col gap-6 rounded-[6px] bg-night p-6 text-white lg:p-9', className)}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 id="simulator-estimate-title" className="text-lg font-bold lg:text-xl">
+        <h2 id="simulator-estimate-title" className="text-2xl font-normal tracking-[-0.04em] lg:text-[28px]">
           {t('estimate.title')}
         </h2>
-        <p className="rounded-[20px] border border-night-line px-2.5 py-1 text-xs text-slate-mist">
+        <p className="rounded-[4px] border border-night-line px-2.5 py-1 text-xs text-slate-mist">
           {isFinal ? t('estimate.resultBadge') : t('estimate.previewBadge')}
         </p>
       </div>
@@ -55,10 +55,10 @@ export const EstimatePanel = ({ preview, isFinal, className }: EstimatePanelProp
         {tiles.map((tile) => (
           <div
             key={tile.key}
-            className="flex flex-col-reverse justify-end gap-1 rounded-xl bg-night-soft p-4 first:col-span-2 sm:first:col-span-1 lg:p-[18px]"
+            className="flex flex-col-reverse justify-end gap-2 rounded-[4px] border border-night-line bg-night-soft p-4 first:col-span-2 sm:first:col-span-1 lg:p-[18px]"
           >
             <dt className="text-xs text-slate-light lg:text-[13px]">{tile.label}</dt>
-            <dd className={cn('text-[22px] font-bold leading-tight lg:text-[30px]', estimate ? 'text-solar' : 'text-slate-mist')}>{tile.value}</dd>
+            <dd className={cn('text-[22px] font-normal tracking-[-0.045em] leading-tight lg:text-[30px]', estimate ? 'text-solar' : 'text-slate-mist')}>{tile.value}</dd>
           </div>
         ))}
       </dl>

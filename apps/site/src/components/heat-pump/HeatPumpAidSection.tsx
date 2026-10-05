@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { FaqList } from '@/components/page/FaqList';
-import { containerClassName } from '@/components/home/containerClassName';
+import { containerClassName } from '@/components/solar/horizonSolutionStyles';
 
 export const aidSectionId = 'aides';
 
@@ -17,7 +17,7 @@ const aidRows = [
 
 const faqKeys = ['choice', 'cold', 'solar', 'maintenance', 'timeline'] as const;
 
-const headingClassName = 'text-[26px] font-bold tracking-[-0.02em] lg:text-4xl';
+const headingClassName = 'text-[26px] font-medium tracking-[-0.045em] lg:text-4xl';
 
 export const HeatPumpAidSection = () => {
   const { t } = useTranslation('heatPump');
@@ -30,7 +30,7 @@ export const HeatPumpAidSection = () => {
           {t('aid.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-ink lg:text-base">{t('aid.intro')}</p>
-        <div className="overflow-hidden rounded-[14px] border border-heat-line bg-white">
+        <div className="overflow-hidden rounded-[4px] border border-heat-line bg-white">
           <table aria-labelledby="heat-pump-aid-title" className="w-full table-fixed border-collapse text-left">
             <colgroup>
               <col className="w-[38%]" />
@@ -40,7 +40,7 @@ export const HeatPumpAidSection = () => {
             <thead className="bg-heat text-white">
               <tr>
                 {columnKeys.map((columnKey) => (
-                  <th key={columnKey} scope="col" className="px-3 py-3 text-[13px] font-bold lg:px-[18px] lg:text-sm">
+                  <th key={columnKey} scope="col" className="px-3 py-3 text-[13px] font-medium lg:px-[18px] lg:text-sm">
                     {t(`aid.columns.${columnKey}`)}
                   </th>
                 ))}
@@ -55,7 +55,7 @@ export const HeatPumpAidSection = () => {
                   {eligibilityColumnKeys.map((columnKey) => (
                     <td
                       key={columnKey}
-                      className={cn('px-3 py-3 text-sm lg:px-[18px] lg:text-[15px]', row.eligibility[columnKey] ? 'font-bold text-heat' : 'text-slate')}
+                      className={cn('px-3 py-3 text-sm lg:px-[18px] lg:text-[15px]', row.eligibility[columnKey] ? 'font-medium text-heat' : 'text-slate')}
                     >
                       {t(`aid.rows.${row.key}.${columnKey}`)}
                     </td>

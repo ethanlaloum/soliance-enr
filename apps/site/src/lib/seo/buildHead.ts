@@ -22,6 +22,7 @@ const jsonLdTag = (value: unknown) => `<script type="application/ld+json">${JSON
 
 const seoKeyPrefixByPath: Record<string, string> = {
   [paths.home]: 'home:seo',
+  [paths.care]: 'care:seo',
   [paths.solar]: 'solar:seo',
   [paths.heatPump]: 'heatPump:seo',
   [paths.evCharger]: 'evCharger:seo',
@@ -113,6 +114,14 @@ export const buildHead = (url: string, html: string): string => {
   }
 
   const faqEntries = extractFaqEntries(html);
+  if (url === paths.care) {
+    tags.push(jsonLdTag(serviceSchema({
+      name: 'Soliance Care',
+      serviceType: i18n.t('care:seo.serviceType'),
+      description,
+      path: paths.care,
+    }, config.siteUrl, ['Alpes-Maritimes', 'Var', 'Bouches-du-Rhône'])));
+  }
   if (faqEntries.length > 0) {
     tags.push(jsonLdTag(faqPageSchema(faqEntries)));
   }

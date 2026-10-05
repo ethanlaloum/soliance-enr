@@ -41,11 +41,21 @@
     "mobileContact": "commercial@soliance-enr.fr · 07 63 54 51 44"
   },
   "notFound": {
-    "seoTitle": "Page en préparation | Soliance",
-    "title": "Cette page arrive bientôt",
-    "description": "Nous préparons cette partie du site. En attendant, notre équipe répond à toutes vos questions.",
+    "seoTitle": "404 — Page introuvable | Soliance",
+    "eyebrow": "Erreur 404 · Page introuvable",
+    "title": "Cette page s’est",
+    "accent": "éclipsée.",
+    "description": "Le lien a peut-être changé, ou cette page n’existe plus. Reprenons le bon chemin : votre projet, lui, a de beaux jours devant lui.",
     "backHome": "Retour à l'accueil",
-    "seoDescription": "Cette page du site Soliance est en préparation. Découvrez nos solutions solaires, pompes à chaleur et bornes de recharge."
+    "contact": "Contacter l’équipe",
+    "sunshine": "Le soleil, lui, est toujours là.",
+    "findWay": "Et si on repartait d’ici ?",
+    "links": {
+      "solar": { "title": "Produire votre énergie", "description": "Panneaux solaires & batteries" },
+      "heatPump": { "title": "Se sentir bien chez soi", "description": "Pompes à chaleur & confort" },
+      "projects": { "title": "Trouver l’inspiration", "description": "Nos réalisations près de chez vous" }
+    },
+    "seoDescription": "Cette page est introuvable. Retrouvez l’accueil Soliance, nos solutions solaires, nos pompes à chaleur et nos réalisations."
   },
   "breadcrumb": {
     "home": "Accueil",

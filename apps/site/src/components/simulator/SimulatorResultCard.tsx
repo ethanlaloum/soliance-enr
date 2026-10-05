@@ -35,9 +35,9 @@ export const SimulatorResultCard = ({ estimate, onBack }: SimulatorResultCardPro
 
       <dl className="grid gap-3 sm:grid-cols-2">
         {details.map((detail) => (
-          <div key={detail.key} className="flex flex-col-reverse justify-end gap-1 rounded-xl border border-sand-line bg-ivory px-4 py-3.5">
+          <div key={detail.key} className="flex flex-col-reverse justify-end gap-1 rounded-[4px] border border-sand-line bg-ivory px-4 py-3.5">
             <dt className="text-[13px] text-slate-ink">{t(`result.details.${detail.key}.label`)}</dt>
-            <dd className="text-lg font-bold text-night">{detail.value}</dd>
+            <dd className="text-xl font-normal tracking-[-0.035em] text-night">{detail.value}</dd>
           </div>
         ))}
       </dl>

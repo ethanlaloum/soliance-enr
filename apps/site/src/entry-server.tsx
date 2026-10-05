@@ -12,6 +12,7 @@ import { projectDetailSlugs } from '@/app/projects/domain/entities/ProjectDetail
 
 export const prerenderRoutes: string[] = [
   paths.home,
+  paths.care,
   paths.solar,
   paths.heatPump,
   paths.evCharger,

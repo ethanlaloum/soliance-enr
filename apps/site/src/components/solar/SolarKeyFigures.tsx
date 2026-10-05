@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName } from '@/components/home/containerClassName';
+import { containerClassName } from '@/components/solar/horizonSolutionStyles';
 
 const figureKeys = ['autonomy', 'coverage', 'installation', 'paperwork'] as const;
 
@@ -15,10 +15,10 @@ export const SolarKeyFigures = () => {
             key={key}
             data-reveal
             style={revealDelay(index)}
-            className="flex flex-col-reverse justify-end gap-1.5 rounded-[14px] border border-sand-line bg-white p-4 lg:p-6"
+            className="flex flex-col-reverse justify-end gap-1.5 rounded-[4px] border border-sand-line bg-white p-4 lg:p-6"
           >
             <dt className="text-[13px] leading-snug text-slate-ink lg:text-sm">{t(`keyFigures.${key}.label`)}</dt>
-            <dd className="text-[22px] font-bold leading-tight text-solar lg:text-[32px]">{t(`keyFigures.${key}.value`)}</dd>
+            <dd className="text-[22px] font-medium leading-tight text-solar lg:text-[32px]">{t(`keyFigures.${key}.value`)}</dd>
           </div>
         ))}
       </dl>

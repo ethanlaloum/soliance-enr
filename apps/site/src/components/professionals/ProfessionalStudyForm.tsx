@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
@@ -7,6 +7,7 @@ import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
+import { HorizonSelect } from '@/components/ui/Select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
   professionalProjectTypes,
@@ -42,7 +43,7 @@ const siteFields: TextField[] = [
 const darkLabelClassName = cn(fieldLabelClassName, 'text-white');
 const darkControlClassName = cn(fieldControlClassName, 'border-night-line bg-night-soft text-white focus:border-solar aria-[invalid=true]:border-red-400');
 const darkErrorClassName = cn(fieldErrorClassName, 'text-red-300');
-const cardClassName = 'flex flex-col gap-3.5 rounded-2xl bg-night p-6 text-white lg:rounded-[20px] lg:p-9';
+const cardClassName = 'hz-professional-form flex flex-col gap-3.5 rounded-[4px] bg-night p-6 text-white lg:rounded-[4px] lg:p-9';
 
 export const ProfessionalStudyForm = () => {
   const { t } = useTranslation('professionals');
@@ -50,6 +51,7 @@ export const ProfessionalStudyForm = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<ProfessionalStudyFormData>({
@@ -89,7 +91,7 @@ export const ProfessionalStudyForm = () => {
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h2 id="pro-study-title" className="text-xl font-bold lg:text-[22px]">
+        <h2 id="pro-study-title" className="text-xl font-medium lg:text-[22px]">
           {t('form.successTitle')}
         </h2>
         <p className="text-base text-slate-light">{t('form.successDescription')}</p>
@@ -100,7 +102,7 @@ export const ProfessionalStudyForm = () => {
   return (
     <form noValidate aria-labelledby="pro-study-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <div className="flex flex-col gap-1.5">
-        <h2 id="pro-study-title" className="text-xl font-bold lg:text-[22px]">
+        <h2 id="pro-study-title" className="text-xl font-medium lg:text-[22px]">
           {t('form.title')}
         </h2>
         <p className="text-sm text-slate-light">{t('form.lead')}</p>
@@ -111,17 +113,25 @@ export const ProfessionalStudyForm = () => {
 
         <div className={cn(darkLabelClassName, 'sm:col-span-2')}>
           <label htmlFor="pro-study-projectType">{t('form.projectType')}</label>
-          <select
-            id="pro-study-projectType"
-            className={cn(darkControlClassName, 'px-3 [&>option]:bg-white [&>option]:text-night')}
-            {...register('projectType')}
-          >
-            {professionalProjectTypes.map((projectType) => (
-              <option key={projectType} value={projectType}>
-                {t(`form.projectOptions.${projectType}`)}
-              </option>
-            ))}
-          </select>
+          <Controller
+            name="projectType"
+            control={control}
+            render={({ field }) => (
+              <HorizonSelect
+                id="pro-study-projectType"
+                name={field.name}
+                value={field.value}
+                onValueChange={field.onChange}
+                onBlur={field.onBlur}
+                ref={field.ref}
+                className={cn(darkControlClassName, 'px-3')}
+                options={professionalProjectTypes.map((projectType) => ({
+                  value: projectType,
+                  label: t(`form.projectOptions.${projectType}`),
+                }))}
+              />
+            )}
+          />
         </div>
 
         {siteFields.map(renderTextField)}
@@ -141,7 +151,7 @@ export const ProfessionalStudyForm = () => {
             {t('form.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-white">
+        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-medium text-solar hover:text-white">
           {t('form.privacyLink')}
         </Link>
         {errors.callbackConsent && (
@@ -153,7 +163,7 @@ export const ProfessionalStudyForm = () => {
 
       {errorCode && (
         <div role="alert" className="rounded-lg border border-red-300/40 bg-red-950/40 px-4 py-3 text-sm text-red-100">
-          <p className="font-bold">{t('common:leadForm.errorTitle')}</p>
+          <p className="font-medium">{t('common:leadForm.errorTitle')}</p>
           <p>{t(`common:leadForm.errors.${errorCode}`)}</p>
         </div>
       )}

@@ -1,3 +1,4 @@
+import '@/components/solar/horizonSolutions.css';
 import '@/lib/i18n/namespaces/evCharger';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { AidsAndFaqSection } from '@/components/ev-charger/AidsAndFaqSection';
@@ -12,7 +13,7 @@ export const EvChargerPage = () => {
   useScrollReveal();
 
   return (
-    <div className="flex flex-1 flex-col bg-white">
+    <div className="hz-solution-page flex flex-1 flex-col">
       <EvChargerHeroSection />
       <ChargerUsagesSection />
       <SolarChargingSection />
