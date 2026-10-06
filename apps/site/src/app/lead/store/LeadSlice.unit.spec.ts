@@ -26,7 +26,7 @@ const form: StudyRequestForm = {
   monthlyBill: null,
   callbackConsent: true,
   consentText: 'consent-text-v1',
-  pageUri: 'https://soliance.fr/',
+  pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
 };
 
@@ -76,7 +76,7 @@ describe('Study request submission state', () => {
           fields: {},
           callbackConsent: true,
           consentText: 'consent-text-v1',
-          pageUri: 'https://soliance.fr/parrainage',
+          pageUri: 'https://soliance-enr.fr/parrainage',
           pageName: 'referral',
         },
       }),

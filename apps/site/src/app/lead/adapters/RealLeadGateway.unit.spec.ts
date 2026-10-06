@@ -28,7 +28,7 @@ const request: StudyRequest = {
   monthlyBill: '180 €',
   consentText: 'consent-text-v1',
   callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-  pageUri: 'https://soliance.fr/',
+  pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
 };
 
@@ -70,7 +70,7 @@ describe('HubSpot study request gateway', () => {
             { objectTypeId: '0-1', name: 'email', value: 'marie.dupont@example.com' },
             { objectTypeId: '0-1', name: 'monthly_electricity_bill', value: '180 €' },
           ],
-          context: { pageUri: 'https://soliance.fr/', pageName: 'home' },
+          context: { pageUri: 'https://soliance-enr.fr/', pageName: 'home' },
           legalConsentOptions: { consent: { consentToProcess: true, text: 'consent-text-v1' } },
         },
       },
@@ -93,7 +93,7 @@ describe('HubSpot study request gateway', () => {
           { objectTypeId: '0-1', name: 'project_type', value: 'SOLAR_PANELS' },
           { objectTypeId: '0-1', name: 'callback_consented_at', value: '2026-10-05T08:30:00.000Z' },
         ],
-        context: { pageUri: 'https://soliance.fr/', pageName: 'home' },
+        context: { pageUri: 'https://soliance-enr.fr/', pageName: 'home' },
         legalConsentOptions: { consent: { consentToProcess: true, text: 'consent-text-v1' } },
       },
     });
@@ -134,7 +134,7 @@ describe('HubSpot study request gateway', () => {
       fields: { referrer_name: 'Marie Dupont', referee_phone: '0612345678' },
       consentText: 'consent-text-v1',
       callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-      pageUri: 'https://soliance.fr/parrainage',
+      pageUri: 'https://soliance-enr.fr/parrainage',
       pageName: 'referral',
     };
 
@@ -150,7 +150,7 @@ describe('HubSpot study request gateway', () => {
             { objectTypeId: '0-1', name: 'referee_phone', value: '0612345678' },
             { objectTypeId: '0-1', name: 'callback_consented_at', value: '2026-10-05T08:30:00.000Z' },
           ],
-          context: { pageUri: 'https://soliance.fr/parrainage', pageName: 'referral' },
+          context: { pageUri: 'https://soliance-enr.fr/parrainage', pageName: 'referral' },
           legalConsentOptions: { consent: { consentToProcess: true, text: 'consent-text-v1' } },
         },
       },
@@ -163,7 +163,7 @@ describe('HubSpot study request gateway', () => {
       fields: { company: 'Acme' },
       consentText: 'consent-text-v1',
       callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-      pageUri: 'https://soliance.fr/professionnels',
+      pageUri: 'https://soliance-enr.fr/professionnels',
       pageName: 'professionals',
     };
 

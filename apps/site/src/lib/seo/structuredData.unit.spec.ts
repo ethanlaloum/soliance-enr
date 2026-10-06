@@ -73,14 +73,14 @@ describe('Structured data schemas', () => {
           { name: 'Accueil', path: '/' },
           { name: 'Ressources', path: '/ressources' },
         ],
-        'https://soliance.fr',
+        'https://soliance-enr.fr',
       ),
     ).toEqual({
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://soliance.fr/' },
-        { '@type': 'ListItem', position: 2, name: 'Ressources', item: 'https://soliance.fr/ressources' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://soliance-enr.fr/' },
+        { '@type': 'ListItem', position: 2, name: 'Ressources', item: 'https://soliance-enr.fr/ressources' },
       ],
     });
   });
@@ -89,7 +89,7 @@ describe('Structured data schemas', () => {
     expect(
       serviceSchema(
         { name: 'Pompe à chaleur', description: 'Air/eau et air/air.', serviceType: 'Installation de pompes à chaleur', path: '/pompe-a-chaleur' },
-        'https://soliance.fr',
+        'https://soliance-enr.fr',
         ['Alpes-Maritimes', 'Var'],
       ),
     ).toEqual({
@@ -98,8 +98,8 @@ describe('Structured data schemas', () => {
       name: 'Pompe à chaleur',
       serviceType: 'Installation de pompes à chaleur',
       description: 'Air/eau et air/air.',
-      url: 'https://soliance.fr/pompe-a-chaleur',
-      provider: { '@type': 'Electrician', '@id': 'https://soliance.fr/#business', name: 'Soliance', url: 'https://soliance.fr' },
+      url: 'https://soliance-enr.fr/pompe-a-chaleur',
+      provider: { '@type': 'Electrician', '@id': 'https://soliance-enr.fr/#business', name: 'Soliance', url: 'https://soliance-enr.fr' },
       areaServed: [
         { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
         { '@type': 'AdministrativeArea', name: 'Var' },

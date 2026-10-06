@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://soliance.fr/sitemap.xml
+Sitemap: https://soliance-enr.fr/sitemap.xml

@@ -9,7 +9,7 @@ const professionalForm: LeadSubmissionForm = {
   fields: { company: ' Acme Logistique ', role: 'Directeur', project_type: 'ROOFTOP', surface_m2: '', email: null },
   callbackConsent: true,
   consentText: 'consent-text-v1',
-  pageUri: 'https://soliance.fr/professionnels',
+  pageUri: 'https://soliance-enr.fr/professionnels',
   pageName: 'professionals',
 };
 
@@ -30,7 +30,7 @@ describe('Generic lead submission', () => {
         fields: { company: 'Acme Logistique', role: 'Directeur', project_type: 'ROOFTOP' },
         consentText: 'consent-text-v1',
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-        pageUri: 'https://soliance.fr/professionnels',
+        pageUri: 'https://soliance-enr.fr/professionnels',
         pageName: 'professionals',
       },
     ]);

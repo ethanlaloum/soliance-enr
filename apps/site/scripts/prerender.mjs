@@ -6,7 +6,7 @@ const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(appRoot, 'dist');
 const ssrDir = join(appRoot, 'dist-ssr');
 const notFoundFile = '404.html';
-const siteUrl = 'https://soliance.fr';
+const siteUrl = 'https://soliance-enr.fr';
 
 const { render, prerenderRoutes: routes } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
 const template = await readFile(join(distDir, 'index.html'), 'utf8');

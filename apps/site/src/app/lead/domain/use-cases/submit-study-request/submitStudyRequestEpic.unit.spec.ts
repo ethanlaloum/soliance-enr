@@ -13,7 +13,7 @@ const homeownerForm: StudyRequestForm = {
   monthlyBill: '180 €',
   callbackConsent: true,
   consentText: 'consent-text-v1',
-  pageUri: 'https://soliance.fr/',
+  pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
 };
 
@@ -38,7 +38,7 @@ describe('Study request submission', () => {
         monthlyBill: '180 €',
         consentText: 'consent-text-v1',
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-        pageUri: 'https://soliance.fr/',
+        pageUri: 'https://soliance-enr.fr/',
         pageName: 'home',
       },
     ]);
@@ -57,7 +57,7 @@ describe('Study request submission', () => {
         monthlyBill: null,
         consentText: 'consent-text-v1',
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
-        pageUri: 'https://soliance.fr/',
+        pageUri: 'https://soliance-enr.fr/',
         pageName: 'home',
       },
     ]);
