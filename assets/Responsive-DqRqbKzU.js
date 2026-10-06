@@ -1,1 +1,0 @@
-import{j as s}from"./index-BDY0IKtV.js";const a=({mobile:e,desktop:n})=>s.jsxs(s.Fragment,{children:[s.jsx("span",{className:"lg:hidden",children:e}),s.jsx("span",{className:"hidden lg:inline",children:n})]});export{a as R};
