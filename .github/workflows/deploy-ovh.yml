@@ -1,0 +1,59 @@
+name: Deploy site to OVH
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ovh
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: '0'
+      OVH_SFTP_HOST: ftp.cluster100.hosting.ovh.net
+      OVH_SFTP_USER: soliand
+      OVH_SITE_DIR: www
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Enable pnpm
+        run: npm install -g corepack@latest && corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm --filter soliance-site build
+        env:
+          VITE_HUBSPOT_PORTAL_ID: ${{ vars.VITE_HUBSPOT_PORTAL_ID }}
+          VITE_HUBSPOT_STUDY_REQUEST_FORM_ID: ${{ vars.VITE_HUBSPOT_STUDY_REQUEST_FORM_ID }}
+          VITE_HUBSPOT_PROFESSIONAL_FORM_ID: ${{ vars.VITE_HUBSPOT_PROFESSIONAL_FORM_ID }}
+          VITE_HUBSPOT_REFERRAL_FORM_ID: ${{ vars.VITE_HUBSPOT_REFERRAL_FORM_ID }}
+          VITE_HUBSPOT_SIMULATION_FORM_ID: ${{ vars.VITE_HUBSPOT_SIMULATION_FORM_ID }}
+          VITE_HUBSPOT_CARE_FORM_ID: ${{ vars.VITE_HUBSPOT_CARE_FORM_ID }}
+          VITE_GOOGLE_SITE_VERIFICATION: ${{ vars.VITE_GOOGLE_SITE_VERIFICATION }}
+
+      - name: Check the Apache config is in the build
+        run: test -f apps/site/dist/.htaccess
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload to the OVH web hosting
+        env:
+          LFTP_PASSWORD: ${{ secrets.OVH_SFTP_PASSWORD }}
+        run: |
+          lftp --env-password -u "$OVH_SFTP_USER" "sftp://$OVH_SFTP_HOST" -e "
+            set sftp:auto-confirm yes;
+            set net:max-retries 3;
+            mirror --reverse --delete --verbose --parallel=4 apps/site/dist/ $OVH_SITE_DIR/;
+            bye
+          "

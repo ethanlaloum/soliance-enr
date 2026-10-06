@@ -23,6 +23,15 @@ pnpm --filter soliance-site exec eslint <path>
 
 Never run `vitest` without `run`, `pnpm --filter soliance-site dev` or `preview` from an agent unless backgrounded on purpose.
 
+## Deploy
+
+The site is served by the client's OVH web hosting (PERSO, `soliand.cluster100.hosting.ovh.net`, folder `www`), the whole stack staying at OVH (domain, DNS zone, hosting, Let's Encrypt certificate). `.github/workflows/deploy-ovh.yml` builds on every push to `main` (or by hand) and mirrors `apps/site/dist/` to `www/` over SFTP with `lftp --delete`. It needs the repository secret `OVH_SFTP_PASSWORD`; the `VITE_*` build values come from repository variables of the same name.
+
+- `apps/site/public/.htaccess` replaces the old Caddyfile: `https://soliance-enr.fr` is the canonical host (`www` and `http` get a 301), `/route` is served from `route/index.html` without a trailing-slash redirect, `404.html` answers unknown paths, `/assets/*` is cached for a year.
+- HTTPS is detected through `HTTPS`, `X-Forwarded-Proto` or port 443; `SERVER_PORT` alone is not reliable behind a proxy.
+- OVH's own domain redirection (`213.186.33.5`) never serves HTTPS: the apex must point to the hosting IP, not to a redirection.
+- `Dockerfile` and `Caddyfile` are the former Railway setup, kept until the Railway service is deleted.
+
 ## Traps
 
 - Never move this repository back under `~/Desktop` or `~/Documents`: both are synced by iCloud Drive with « Optimize Mac Storage », which evicts files (node_modules included) and makes `tsc`, `vitest`, `eslint` and the Vite servers block forever on a file read. iCloud also produced conflict copies such as `ProjectsPage 2.tsx`.
