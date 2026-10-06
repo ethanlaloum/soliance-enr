@@ -1,0 +1,1 @@
+const e={desktop:"(min-width: 1024px)",reduceMotion:"(prefers-reduced-motion: reduce)",allowMotion:"(prefers-reduced-motion: no-preference)",finePointer:"(hover: hover) and (pointer: fine)"};export{e as m};
