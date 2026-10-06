@@ -40,9 +40,9 @@ export const SiteHeader = () => {
               {t(item.labelKey)}
             </NavLink>
           ))}
-          <a href={config.careUrl} className={careLinkClassName}>
+          <NavLink to={paths.care} className={careLinkClassName}>
             {t('nav.care')}
-          </a>
+          </NavLink>
         </nav>
 
         <div className="hidden shrink-0 items-center gap-3 desktop:flex">
@@ -86,9 +86,9 @@ export const SiteHeader = () => {
               {t(item.labelKey)}
             </NavLink>
           ))}
-          <a href={config.careUrl} className="py-3.5 text-care-mint">
+          <Link to={paths.care} onClick={closeMenu} className="py-3.5 text-care-mint hover:text-care-mint">
             {t('nav.care')}
-          </a>
+          </Link>
         </nav>
         <Link to={paths.simulator} onClick={closeMenu} className={cn(buttonVariants({ size: 'md' }), 'mt-3 w-full')}>
           {t('header.simulate')}

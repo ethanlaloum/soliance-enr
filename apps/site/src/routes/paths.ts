@@ -9,6 +9,7 @@ export const paths = {
   simulator: '/simulateur',
   projectDetail: '/realisations/:slug',
   referral: '/parrainage',
+  care: '/soliance-care',
   renovation: '/renovation-globale',
   about: '/a-propos',
   contact: '/contact',

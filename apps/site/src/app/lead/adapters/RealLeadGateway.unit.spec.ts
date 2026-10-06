@@ -16,6 +16,7 @@ const settings = {
     [LeadFormKind.PROFESSIONAL_STUDY]: null,
     [LeadFormKind.REFERRAL]: 'referral-form-1',
     [LeadFormKind.SIMULATION]: 'simulation-form-1',
+    [LeadFormKind.CARE_REQUEST]: 'care-form-1',
   },
 };
 
@@ -171,5 +172,37 @@ describe('HubSpot study request gateway', () => {
 
     expect(error).toEqual(new LeadError(LeadErrorType.NOT_CONFIGURED, 'HubSpot portal id or PROFESSIONAL_STUDY lead form id is missing'));
     expect(httpClient.postCalls).toEqual([]);
+  });
+
+  it('posts a Soliance Care request to the Care form with the requested service', async () => {
+    const careUrl = 'https://api.hsforms.com/submissions/v3/integration/submit/portal-1/care-form-1';
+    httpClient.willRespond(careUrl, {});
+    const submission: LeadSubmission = {
+      kind: LeadFormKind.CARE_REQUEST,
+      fields: { full_name: 'Camille Martin', zip: '06700', care_request_type: 'TAKEOVER' },
+      consentText: 'care-consent-v1',
+      callbackConsentedAt: '2026-10-05T08:30:00.000Z',
+      pageUri: 'https://soliance-enr.fr/soliance-care',
+      pageName: 'care',
+    };
+
+    await firstValueFrom(gateway.submitLead(submission));
+
+    expect(httpClient.postCalls).toEqual([
+      {
+        url: careUrl,
+        body: {
+          submittedAt: '1791189000000',
+          fields: [
+            { objectTypeId: '0-1', name: 'full_name', value: 'Camille Martin' },
+            { objectTypeId: '0-1', name: 'zip', value: '06700' },
+            { objectTypeId: '0-1', name: 'care_request_type', value: 'TAKEOVER' },
+            { objectTypeId: '0-1', name: 'callback_consented_at', value: '2026-10-05T08:30:00.000Z' },
+          ],
+          context: { pageUri: 'https://soliance-enr.fr/soliance-care', pageName: 'care' },
+          legalConsentOptions: { consent: { consentToProcess: true, text: 'care-consent-v1' } },
+        },
+      },
+    ]);
   });
 });

@@ -30,6 +30,7 @@ const seoKeyPrefixByPath: Record<string, string> = {
   [paths.referral]: 'referral:seo',
   [paths.projects]: 'projects:seo',
   [paths.resources]: 'resources:seo',
+  [paths.care]: 'care:seo',
 };
 
 const serviceKeyByPath: Record<string, string> = {
@@ -37,6 +38,7 @@ const serviceKeyByPath: Record<string, string> = {
   [paths.heatPump]: 'heatPump',
   [paths.evCharger]: 'evCharger',
   [paths.professionals]: 'professionals',
+  [paths.care]: 'care',
 };
 
 const projectDetailPrefix = `${paths.projects}/`;

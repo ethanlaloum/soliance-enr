@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
-import { config } from '@/config';
 import { contactAnchor, paths } from '@/routes/paths';
 import { SolianceLogo } from '@/components/brand/SolianceLogo';
 
-type FooterLink = { labelKey: string; to?: string; href?: string };
+type FooterLink = { labelKey: string; to: string };
 
 const columns: { titleKey: string; links: FooterLink[] }[] = [
   {
@@ -22,7 +21,7 @@ const columns: { titleKey: string; links: FooterLink[] }[] = [
     links: [
       { labelKey: 'footer.about', to: paths.about },
       { labelKey: 'footer.referral', to: paths.referral },
-      { labelKey: 'nav.care', href: config.careUrl },
+      { labelKey: 'nav.care', to: paths.care },
       { labelKey: 'footer.blog', to: paths.resources },
       { labelKey: 'footer.contact', to: `${paths.home}#${contactAnchor}` },
     ],
@@ -59,15 +58,9 @@ export const SiteFooter = () => {
             <ul className="flex flex-col gap-2">
               {column.links.map((link) => (
                 <li key={link.labelKey}>
-                  {link.href ? (
-                    <a href={link.href} className={linkClassName}>
-                      {t(link.labelKey)}
-                    </a>
-                  ) : (
-                    <Link to={link.to ?? paths.home} className={linkClassName}>
-                      {t(link.labelKey)}
-                    </Link>
-                  )}
+                  <Link to={link.to} className={linkClassName}>
+                    {t(link.labelKey)}
+                  </Link>
                 </li>
               ))}
             </ul>

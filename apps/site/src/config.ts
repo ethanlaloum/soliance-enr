@@ -4,7 +4,8 @@ const readEnv = (value: string | undefined): string | null => (value && value.tr
 
 export const config = {
   siteUrl: 'https://soliance-enr.fr',
-  careUrl: 'https://care.soliance.fr',
+  carePhoneHref: 'tel:+33633251179',
+  careEmail: 'technique@soliance-enr.fr',
   simulatorUrl: 'https://vesta.eco/simulateur/soliance',
   showroomMapUrl: 'https://www.google.com/maps/search/?api=1&query=30+avenue+du+G%C3%A9n%C3%A9ral+Leclerc+06700+Saint-Laurent-du-Var',
   salesPhoneHref: 'tel:+33763545144',
@@ -18,6 +19,7 @@ export const config = {
       [LeadFormKind.PROFESSIONAL_STUDY]: readEnv(import.meta.env.VITE_HUBSPOT_PROFESSIONAL_FORM_ID),
       [LeadFormKind.REFERRAL]: readEnv(import.meta.env.VITE_HUBSPOT_REFERRAL_FORM_ID),
       [LeadFormKind.SIMULATION]: readEnv(import.meta.env.VITE_HUBSPOT_SIMULATION_FORM_ID),
+      [LeadFormKind.CARE_REQUEST]: readEnv(import.meta.env.VITE_HUBSPOT_CARE_FORM_ID),
     },
   },
 };

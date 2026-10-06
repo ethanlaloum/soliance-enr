@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { Link } from 'react-router';
-import { config } from '@/config';
 import { paths } from '@/routes/paths';
 
 const tileClassName = 'group relative flex min-h-[180px] flex-col justify-end gap-2.5 overflow-hidden rounded-[14px] p-5 text-white lg:min-h-[260px] lg:rounded-[20px] lg:p-10';
@@ -25,7 +24,7 @@ export const PromoTilesSection = () => {
         <span className="relative text-[19px] font-bold lg:text-[28px]">{t('tiles.referral.title')}</span>
         <span className="relative text-[15px] opacity-[0.92]">{t('tiles.referral.description')}</span>
       </Link>
-      <a href={config.careUrl} data-reveal style={revealDelay(1)} className={`${tileClassName} bg-care-night hover:text-white lg:bg-night`}>
+      <Link to={paths.care} data-reveal style={revealDelay(1)} className={`${tileClassName} bg-care-night hover:text-white lg:bg-night`}>
         <img
           src="/images/care-supervision.webp"
           alt={t('tiles.care.imageAlt')}
@@ -38,7 +37,7 @@ export const PromoTilesSection = () => {
         <span className="relative text-xs font-semibold uppercase tracking-[1.5px] text-care-mint lg:text-[13px]">{t('tiles.care.eyebrow')}</span>
         <span className="relative text-[19px] font-bold lg:text-[28px]">{t('tiles.care.title')}</span>
         <span className="relative text-[15px] text-slate-light">{t('tiles.care.description')}</span>
-      </a>
+      </Link>
     </div>
   );
 };

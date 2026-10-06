@@ -20,6 +20,7 @@ export const prerenderRoutes: string[] = [
   paths.referral,
   paths.projects,
   paths.resources,
+  paths.care,
   ...projectDetailSlugs.map(projectPath),
 ];
 

@@ -6,7 +6,7 @@ Vite 7 · React 19 · TypeScript strict · React Router 7 · Redux Toolkit 2 + r
 
 ## Pages
 
-Home, `/panneaux-solaires`, `/pompe-a-chaleur` (`heat` blue tokens), `/borne-de-recharge` (`charge` green tokens), `/professionnels`, `/simulateur`, `/parrainage`, `/realisations` and `/realisations/:slug` (10 fiches, slugs in `src/app/projects/domain/entities/ProjectDetail.ts`), `/ressources`. One page folder in `src/pages/`, its sections in `src/components/<page>/`, its copy in the `<page>` i18n namespace. Shared blocks: `src/components/page/` (`Breadcrumb`, `FaqList`), `src/components/home/containerClassName.ts`, `src/components/ui/`.
+Home, `/panneaux-solaires`, `/pompe-a-chaleur` (`heat` blue tokens), `/borne-de-recharge` (`charge` green tokens), `/professionnels`, `/simulateur`, `/parrainage`, `/realisations` and `/realisations/:slug` (10 fiches, slugs in `src/app/projects/domain/entities/ProjectDetail.ts`), `/ressources`, `/soliance-care` (`care` green tokens, rendered outside `SiteLayout` with its own `CareHeader` / `CareFooter`, see below). One page folder in `src/pages/`, its sections in `src/components/<page>/`, its copy in the `<page>` i18n namespace. Shared blocks: `src/components/page/` (`Breadcrumb`, `FaqList`), `src/components/home/containerClassName.ts`, `src/components/ui/`.
 
 ## Rendering and SEO
 
@@ -30,9 +30,10 @@ Hexagon per jp-way `frontend-conventions`: `src/app/lead/` (entities `StudyReque
 ## Lead forms
 
 - All forms post to the HubSpot Forms API (`api.hsforms.com/submissions/v3/integration/submit/<portal>/<form>`), portal `VITE_HUBSPOT_PORTAL_ID`; form ids per form in `.env.example` (study request, professional, referral, simulation). Without them the gateway fails with `NOT_CONFIGURED` and nothing leaves the browser.
+- The Soliance Care page has one request form (`LeadFormKind.CARE_REQUEST`, `VITE_HUBSPOT_CARE_FORM_ID`); every Care call to action is a `CareRequestLink` that preselects its `care_request_type` through `CareRequestContext` and jumps to `#demande`. Online subscription with a SEPA mandate is not built: « Je souscris » leads to this callback form.
 - Generic forms go through `useLeadSubmission(LeadFormKind.X)`; field names are English snake_case and become HubSpot contact properties (postal code is always `zip`). Custom properties must exist in the HubSpot portal.
 - Callback consent is mandatory (law of 11 August 2026): refused in the zod schema and again in the epics (`CONSENT_REQUIRED`); the consent time comes from the injected `Clock` and the displayed consent text is sent with the submission.
 
 ## External links
 
-Simulate buttons go to the in-site `/simulateur` (option B of the specification); `config.simulatorUrl` still holds the Vesta URL (option A). Soliance Care links go to `config.careUrl`.
+Simulate buttons go to the in-site `/simulateur` (option B of the specification); `config.simulatorUrl` still holds the Vesta URL (option A). Soliance Care links go to the in-site `/soliance-care` landing page (`paths.care`), which mirrors the validated Care mockup `01_Accueil_particuliers_desktop` plus the takeover, claim and B2B blocks of the brief (§5). The page is meant to move to its own domain (care.soliance.fr or soliance-care.fr, still open with the client); `src/components/care/` only depends on shared UI, the lead hexagon and `config`.

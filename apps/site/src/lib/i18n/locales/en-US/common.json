@@ -79,6 +79,10 @@
       "professionals": {
         "name": "Solar plants for businesses",
         "serviceType": "Commercial solar PV installation"
+      },
+      "care": {
+        "name": "Soliance Care, solar monitoring and maintenance",
+        "serviceType": "Solar PV maintenance"
       }
     },
     "areaServed": [

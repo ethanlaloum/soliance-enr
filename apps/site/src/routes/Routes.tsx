@@ -13,11 +13,13 @@ const ReferralPage = lazy(() => import('@/pages/referral/ReferralPage').then((mo
 const ProjectsPage = lazy(() => import('@/pages/projects/ProjectsPage').then((module) => ({ default: module.ProjectsPage })));
 const ProjectDetailPage = lazy(() => import('@/pages/projects/ProjectDetailPage').then((module) => ({ default: module.ProjectDetailPage })));
 const ResourcesPage = lazy(() => import('@/pages/resources/ResourcesPage').then((module) => ({ default: module.ResourcesPage })));
+const CarePage = lazy(() => import('@/pages/care/CarePage').then((module) => ({ default: module.CarePage })));
 const NotFoundPage = lazy(() => import('@/pages/not-found/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
 
 export const AppRoutes = () => (
   <Suspense fallback={null}>
     <Routes>
+      <Route path={paths.care} element={<CarePage />} />
       <Route element={<SiteLayout />}>
         <Route path={paths.home} element={<HomePage />} />
         <Route path={paths.solar} element={<SolarPage />} />

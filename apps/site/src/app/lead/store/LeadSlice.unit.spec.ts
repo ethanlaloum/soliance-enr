@@ -15,7 +15,7 @@ import {
   submitStudyRequestSucceeded,
 } from '@/app/lead/domain/use-cases/submit-study-request/submitStudyRequestEpic';
 
-const idleLeads = { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: null } };
+const idleLeads = { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: null }, CARE_REQUEST: { state: null } };
 
 const form: StudyRequestForm = {
   fullName: 'Marie Dupont',
@@ -90,6 +90,7 @@ describe('Study request submission state', () => {
         PROFESSIONAL_STUDY: { state: null },
         REFERRAL: { state: 'pending' },
         SIMULATION: { state: 'failed', errorCode: 'SUBMISSION_FAILED' },
+        CARE_REQUEST: { state: null },
       },
     });
   });
@@ -102,7 +103,7 @@ describe('Study request submission state', () => {
 
     expect(state).toEqual({
       submitStudyRequest: { state: null },
-      submitLead: { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: 'succeeded' } },
+      submitLead: { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: 'succeeded' }, CARE_REQUEST: { state: null } },
     });
   });
 });

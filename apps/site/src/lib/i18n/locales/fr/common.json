@@ -79,6 +79,10 @@
       "professionals": {
         "name": "Centrales photovoltaïques pour les professionnels",
         "serviceType": "Installation photovoltaïque professionnelle"
+      },
+      "care": {
+        "name": "Soliance Care, supervision et maintenance d'installations solaires",
+        "serviceType": "Maintenance photovoltaïque"
       }
     },
     "areaServed": [

@@ -1,0 +1,292 @@
+{
+  "seo": {
+    "title": "Soliance Care : supervision et entretien de panneaux solaires | Soliance",
+    "description": "Votre installation solaire surveillée 24 h/24 par IA et dépannée en 2 jours par un technicien local (06, 83, 13). Nettoyage annuel, garantie fabricant gérée. Dès 19,99 €/mois."
+  },
+  "brand": {
+    "name": "Soliance",
+    "suffix": "Care",
+    "homeLink": "Soliance Care, haut de page"
+  },
+  "nav": {
+    "label": "Navigation Soliance Care",
+    "howItWorks": "Comment ça marche",
+    "plans": "Formules",
+    "takeover": "Installateur disparu ?",
+    "business": "Professionnels",
+    "subscribe": "Je souscris",
+    "backToEnr": "Retour au site Soliance ENR",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "eyebrow": "L'assurance du solaire · Alpes-Maritimes, Var, Bouches-du-Rhône",
+    "title": "Votre installation solaire, surveillée 24 h/24. Dépannée en 2 jours.",
+    "lead": "Notre intelligence artificielle surveille votre production chaque jour. Au moindre défaut, on vous prévient, on se déplace gratuitement et on gère la garantie du fabricant à votre place.",
+    "subscribe": "Je souscris — 19,99 €/mois",
+    "healthCheck": "Bilan de santé gratuit",
+    "note": "Tarif fondateur garanti 2 ans · Engagement 12 mois · Résiliation en ligne"
+  },
+  "dashboard": {
+    "title": "Ma production — septembre",
+    "status": "Installation suivie",
+    "chartLabel": "Courbe de production quotidienne : la production réelle chute brutalement en milieu de mois alors que la production attendue reste stable.",
+    "actual": "Production réelle",
+    "expected": "Production attendue",
+    "alertEyebrow": "Alerte détectée",
+    "alertTitle": "Baisse de 40 % sur une chaîne de panneaux",
+    "alertBody": "Diagnostic à distance fait. Technicien planifié jeudi à 10 h, déplacement offert. Dossier de garantie ouvert auprès du fabricant."
+  },
+  "brands": {
+    "label": "Toutes les marques",
+    "listLabel": "Marques d'onduleurs prises en charge",
+    "list": ["SMA", "Fronius", "SolarEdge", "Huawei", "Enphase", "SolaX", "APsystems", "Hoymiles", "Deye", "GoodWe", "Growatt", "Sungrow"],
+    "more": "+ toute autre marque sous 30 jours"
+  },
+  "steps": {
+    "title": "Comment ça marche",
+    "intro": "On voit la panne avant vous. Avec la seule application du fabricant, on la découvre souvent sur la facture.",
+    "items": [
+      {
+        "title": "On se connecte à votre onduleur",
+        "body": "Quelle que soit sa marque, sans matériel à installer dans la plupart des cas. Vous nous donnez simplement l'accès à votre application fabricant."
+      },
+      {
+        "title": "L'IA surveille chaque jour",
+        "body": "Elle compare votre production à la météo et aux installations voisines, et repère les pannes comme les baisses lentes."
+      },
+      {
+        "title": "On intervient sous 2 jours",
+        "body": "Un technicien de Saint-Laurent-du-Var se déplace gratuitement, pose le diagnostic et répare. Vous suivez tout sur WhatsApp."
+      }
+    ]
+  },
+  "warranty": {
+    "eyebrow": "Garantie fabricant (RMA)",
+    "title": "Votre onduleur tombe en panne ? Vous n'avez rien à faire.",
+    "body": "Un onduleur sur trois connaît une panne dans ses 15 premières années. Faire jouer la garantie prend souvent des semaines d'échanges avec le fabricant. Nous nous en chargeons de bout en bout.",
+    "source": "Source : Haute école spécialisée bernoise, étude sur 2 121 onduleurs résidentiels (pv magazine, 2023).",
+    "stepsLabel": "Les étapes de la prise en charge",
+    "steps": [
+      "<strong>Diagnostic</strong> à distance puis sur place, offert",
+      "<strong>Dossier de garantie</strong> monté et envoyé au fabricant",
+      "<strong>Suivi de l'échange</strong> jusqu'à la livraison du matériel",
+      "<strong>Pose et remise en service</strong>, contrôle de la production"
+    ],
+    "motto": "La garantie paie la pièce. Nous faisons tout le reste."
+  },
+  "plans": {
+    "title": "Deux formules, zéro surprise",
+    "care": {
+      "name": "Soliance Care",
+      "badge": "Tarif fondateur",
+      "price": "19,99 €",
+      "unit": "TTC/mois",
+      "publicPrice": "24,99 €",
+      "publicPriceLabel": "Prix public : 24,99 € TTC/mois",
+      "note": "Garanti 2 ans en souscrivant avant le 31/12/2026 · 06, 83 et 13 · 1 mois offert en paiement annuel",
+      "features": [
+        "Supervision IA 24 h/24 et rapport mensuel",
+        "1 nettoyage par an",
+        "Déplacement et diagnostic offerts à chaque panne",
+        "Intervention sous 2 jours ouvrés",
+        "Garantie fabricant gérée de A à Z",
+        "Main-d'œuvre au tarif abonné, pièces au prix coûtant",
+        "WhatsApp 7j/7 avec l'équipe technique"
+      ],
+      "cta": "Je souscris"
+    },
+    "connect": {
+      "name": "Care Connect",
+      "price": "4,99 €",
+      "unit": "TTC/mois",
+      "note": "Partout en France · ou 49 € par an",
+      "features": [
+        "Supervision IA 24 h/24 et alertes",
+        "Rapport mensuel de production",
+        "En cas de panne : un installateur partenaire près de chez vous"
+      ],
+      "cta": "Choisir Care Connect"
+    },
+    "savings": {
+      "without": "Un nettoyage et une panne réparée dans l'année, sans abonnement : <strong>environ 760 €</strong>.",
+      "with": "Avec Soliance Care : <strong>environ 360 €</strong>, supervision comprise."
+    },
+    "compare": {
+      "title": "Avec ou sans abonnement, ce que vous payez",
+      "service": "Prestation",
+      "without": "Sans abonnement",
+      "with": "Avec Soliance Care",
+      "rows": [
+        { "service": "Supervision IA 24 h/24 et rapport mensuel", "without": "Non disponible", "with": "Incluse" },
+        { "service": "Nettoyage annuel", "without": "240 €", "with": "Inclus, puis 120 € le nettoyage supplémentaire" },
+        { "service": "Déplacement en cas de panne (06 / 83 / 13)", "without": "40 € / 80 € / 120 €", "with": "Offert, diagnostic compris" },
+        { "service": "Main-d'œuvre de réparation", "without": "480 €", "with": "120 €" },
+        { "service": "Dossier de garantie fabricant (RMA)", "without": "150 € HT", "with": "Inclus" },
+        { "service": "Pièces hors garantie", "without": "Au tarif en vigueur", "with": "Au prix coûtant" }
+      ]
+    },
+    "terms": "Prix TTC sauf mention. Engagement 12 mois, reconduction tacite, résiliation en ligne avec 1 mois de préavis. Intervention sous 2 jours ouvrés, sous réserve de disponibilité des pièces. Abonnements facturés à partir du 1er janvier 2027."
+  },
+  "takeover": {
+    "eyebrow": "Installateur disparu ?",
+    "title": "Votre installateur a disparu ? Nous prenons le relais.",
+    "body": "Entreprise fermée, numéro qui ne répond plus, garantie impossible à faire jouer : vous n'êtes pas seul. Nous reprenons le suivi de votre installation, quelle que soit la marque de vos panneaux et de votre onduleur.",
+    "steps": [
+      {
+        "title": "Audit de reprise en visio — 49,99 € TTC",
+        "body": "30 minutes avec un technicien : il examine votre installation, ses données et vos documents. Vous recevez un compte rendu écrit."
+      },
+      {
+        "title": "Connexion et supervision",
+        "body": "Nous connectons votre onduleur à notre plateforme et récupérons vos garanties fabricant."
+      },
+      {
+        "title": "Soliance Care, comme si nous l'avions installée",
+        "body": "24,99 € TTC/mois dans le 06, le 83 et le 13. Ailleurs en France, un installateur partenaire proche de chez vous."
+      }
+    ],
+    "guaranteesTitle": "Vos garanties existent toujours",
+    "guaranteesBody": "La garantie des fabricants de panneaux et d'onduleurs ne disparaît pas avec l'installateur. Nous la faisons jouer pour vous.",
+    "unfinishedTitle": "Chantier inachevé ou jamais mis en service ?",
+    "unfinishedBody": "Nous reprenons l'installation et les démarches restées en suspens : Consuel, raccordement Enedis, contrat de rachat de l'électricité, déclaration en mairie. Sur devis.",
+    "cta": "Je demande une reprise"
+  },
+  "claim": {
+    "title": "Foudre, surtension, grêle ? Nous travaillons avec votre assureur.",
+    "body": "Rapport technique, devis, remplacement du matériel : nous constituons le dossier et réalisons la réparation prise en charge par votre assurance habitation.",
+    "cta": "Déclarer un sinistre"
+  },
+  "business": {
+    "eyebrow": "Professionnels et installateurs",
+    "title": "La même supervision, pour les parcs plus grands.",
+    "pro": {
+      "eyebrow": "Soliance Care Pro",
+      "title": "Entreprises, collectivités, développeurs",
+      "body": "Vos toitures et ombrières photovoltaïques supervisées par la même IA, et la même équipe d'intervention en Provence-Alpes-Côte d'Azur.",
+      "price": "15 € HT",
+      "unit": "par kWc et par an",
+      "note": "12 € HT/kWc au-delà de 250 kWc · minimum 900 € HT/an · engagement 3 ans",
+      "cta": "Audit de performance gratuit"
+    },
+    "partner": {
+      "eyebrow": "Installateurs partenaires",
+      "title": "Offrez la supervision IA à vos clients, sous votre marque.",
+      "body": "Supervision toutes marques, diagnostic par IA avant chaque déplacement, garanties fabricant gérées automatiquement. Sous votre marque, chaque jour.",
+      "modules": ["Supervision toutes marques", "Diagnostic par IA", "RMA automatisé", "Portail client à vos couleurs", "Contrats de maintenance", "Nouveaux clients"],
+      "price": "Dès 99 € HT",
+      "unit": "par mois",
+      "note": "Starter jusqu'à 100 sites · 200 € HT/mois jusqu'à 300 sites · mise en place offerte en paiement annuel",
+      "cta": "Réserver une démo"
+    }
+  },
+  "team": {
+    "eyebrow": "Une équipe de proximité",
+    "title": "Des techniciens près de chez vous, joignables 7 jours sur 7.",
+    "body": "Soliance Care, c'est l'équipe technique de Soliance, installateur photovoltaïque à Saint-Laurent-du-Var. La même équipe depuis 2022, qui intervient dans les Alpes-Maritimes, le Var et les Bouches-du-Rhône.",
+    "imageAlt": "L'équipe technique Soliance devant son showroom de Saint-Laurent-du-Var",
+    "points": [
+      { "title": "Basés à Saint-Laurent-du-Var", "body": "Showroom au 30 avenue du Général Leclerc." },
+      { "title": "Techniciens certifiés RGE", "body": "Ceux qui posent les installations Soliance." },
+      { "title": "Toutes marques", "body": "Panneaux et onduleurs, installés par nous ou par d'autres." },
+      { "title": "WhatsApp 7j/7", "body": "Vous suivez chaque intervention avec l'équipe." }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "more": "Une autre question ? Le service technique vous répond au",
+    "items": [
+      {
+        "question": "Puis-je résilier quand je veux ?",
+        "answer": "Après 12 mois, à tout moment avec un mois de préavis, directement depuis votre espace client."
+      },
+      {
+        "question": "Mon onduleur est-il compatible ?",
+        "answer": "Toutes les marques sont prises en charge. Si la vôtre n'est pas encore connectée, nous le faisons sous 30 jours."
+      },
+      {
+        "question": "Faut-il installer du matériel chez moi ?",
+        "answer": "Dans la plupart des cas, non. Vous nous donnez l'accès à l'application de votre fabricant et nous nous connectons à votre onduleur à distance."
+      },
+      {
+        "question": "Mon installateur a disparu. Pouvez-vous reprendre ?",
+        "answer": "Oui. Un audit de 30 minutes en visio avec un technicien (49,99 €), puis nous reprenons le suivi. Nous terminons aussi les démarches en suspens : Consuel, raccordement."
+      },
+      {
+        "question": "Quelle différence avec la garantie du fabricant ?",
+        "answer": "La garantie paie la pièce. Nous faisons tout le reste : diagnostic, dossier, déplacement et pose."
+      },
+      {
+        "question": "Je n'habite pas dans le 06, le 83 ou le 13.",
+        "answer": "Care Connect vous suit partout en France : supervision IA 24 h/24, alertes et rapport mensuel. En cas de panne, un installateur partenaire proche de chez vous intervient."
+      },
+      {
+        "question": "Jusqu'à quand le tarif fondateur est-il proposé ?",
+        "answer": "En souscrivant avant le 31 décembre 2026, vous payez 19,99 € TTC par mois au lieu de 24,99 €, prix garanti pendant 2 ans. Les abonnements sont facturés à partir du 1er janvier 2027."
+      }
+    ]
+  },
+  "request": {
+    "eyebrow": "Parlons de votre installation",
+    "title": "Souscription, bilan de santé, reprise : on vous rappelle.",
+    "body": "Indiquez l'objet de votre demande. Un technicien vous rappelle sous 48 heures ouvrées pour finaliser votre abonnement ou répondre à votre question.",
+    "contactTitle": "Service technique",
+    "phone": "06 33 25 11 79",
+    "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var"
+  },
+  "form": {
+    "title": "Votre demande",
+    "lead": "Réponse sous 48 heures ouvrées.",
+    "interest": "Objet de la demande",
+    "interests": {
+      "SUBSCRIBE_CARE": "Souscrire à Soliance Care (19,99 €/mois)",
+      "SUBSCRIBE_CONNECT": "Souscrire à Care Connect (4,99 €/mois)",
+      "HEALTH_CHECK": "Bilan de santé gratuit de mon installation",
+      "TAKEOVER": "Mon installateur a disparu : demande de reprise",
+      "CLAIM": "Déclarer un sinistre (foudre, surtension, grêle)",
+      "PRO": "Soliance Care Pro : audit de performance gratuit",
+      "PARTNER": "Installateur : réserver une démo"
+    },
+    "fullName": "Nom et prénom",
+    "phone": "Téléphone",
+    "postalCode": "Code postal de l'installation",
+    "email": "E-mail (facultatif)",
+    "inverterBrand": "Marque de l'onduleur (si vous la connaissez)",
+    "situation": "Votre situation (facultatif)",
+    "situationHint": "Ex. : production en baisse, onduleur en défaut, installateur injoignable…",
+    "consent": "J'accepte d'être rappelé par Soliance Care ou par un installateur partenaire au sujet de ma demande.",
+    "privacyLink": "Lire la politique de confidentialité",
+    "submit": "Envoyer ma demande",
+    "submitting": "Envoi en cours…",
+    "successTitle": "Demande envoyée",
+    "successDescription": "Merci ! Un technicien Soliance Care vous rappelle sous 48 heures ouvrées.",
+    "another": "Faire une autre demande",
+    "validation": {
+      "fullNameRequired": "Indiquez votre nom et votre prénom.",
+      "phoneInvalid": "Indiquez un numéro de téléphone français valide, par exemple 06 12 34 56 78.",
+      "postalCodeInvalid": "Indiquez le code postal de l'installation à 5 chiffres.",
+      "emailInvalid": "Indiquez une adresse e-mail valide, ou laissez le champ vide.",
+      "situationTooLong": "1 000 caractères au maximum.",
+      "consentRequired": "Cochez cette case pour que nous puissions vous rappeler."
+    },
+    "errorTitle": "Envoi impossible",
+    "errors": {
+      "CONSENT_REQUIRED": "Nous ne pouvons pas vous rappeler sans votre accord. Cochez la case de consentement.",
+      "INVALID_REQUEST": "Certaines informations n'ont pas été acceptées. Vérifiez le formulaire et réessayez.",
+      "SUBMISSION_FAILED": "Votre demande n'a pas pu être envoyée. Réessayez dans un instant ou appelez le service technique au 06 33 25 11 79.",
+      "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez le service technique au 06 33 25 11 79.",
+      "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez le service technique au 06 33 25 11 79."
+    }
+  },
+  "footer": {
+    "tagline": "L'assurance du solaire.",
+    "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",
+    "phone": "Service technique : 06 33 25 11 79",
+    "company": "Solar Trade SAS · SIREN 949 576 946",
+    "linksLabel": "Liens utiles",
+    "enr": "Soliance ENR, l'installateur solaire",
+    "legalNotice": "Mentions légales",
+    "privacy": "Confidentialité",
+    "cookies": "Gestion des cookies"
+  }
+}

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
-import { config } from '@/config';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
@@ -14,9 +13,10 @@ const internalLinkPaths = {
   professionals: paths.professionals,
   referral: paths.referral,
   simulator: paths.simulator,
+  care: paths.care,
 } as const;
 
-type GlossaryLinkKey = keyof typeof internalLinkPaths | 'care';
+type GlossaryLinkKey = keyof typeof internalLinkPaths;
 
 type GlossaryCard = { key: string; category: string; link: GlossaryLinkKey };
 
@@ -59,11 +59,7 @@ const GlossaryLink = ({ link, className }: { link: GlossaryLinkKey; className?: 
     </>
   );
 
-  return link === 'care' ? (
-    <a href={config.careUrl} className={linkClassName}>
-      {content}
-    </a>
-  ) : (
+  return (
     <Link to={internalLinkPaths[link]} className={linkClassName}>
       {content}
     </Link>
