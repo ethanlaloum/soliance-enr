@@ -1,9 +1,0 @@
-**/node_modules
-**/dist
-**/dist-ssr
-.git
-.husky
-docs
-apps/e2e
-**/.env
-**/.env.local

@@ -9,6 +9,7 @@
     "site": "pnpm --filter soliance-site",
     "build:all": "pnpm -r build",
     "lint:all": "pnpm -r lint:check",
+    "deploy:ovh": "sh scripts/deploy-ovh.sh",
     "prepare": "husky"
   },
   "devDependencies": {

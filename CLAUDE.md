@@ -1,6 +1,6 @@
 # Soliance ENR — workspace
 
-Website of Soliance ENR (soliance.fr), a solar / heat pump / EV charger installer in Saint-Laurent-du-Var. Driven by the jp-way cycle (`jp-way.config.json`, product artifacts under `docs/`). Client reference material (brief, specification, mockups, photo bank) lives outside the repo in `/Users/ethanlaloum/Desktop/Freelance/Ruben Darmon/Soliance/`.
+Website of Soliance ENR (soliance-enr.fr), a solar / heat pump / EV charger installer in Saint-Laurent-du-Var. Driven by the jp-way cycle (`jp-way.config.json`, product artifacts under `docs/`). Client reference material (brief, specification, mockups, photo bank) lives outside the repo in `/Users/ethanlaloum/Desktop/Freelance/Ruben Darmon/Soliance/`.
 
 ## Layout
 
@@ -25,12 +25,14 @@ Never run `vitest` without `run`, `pnpm --filter soliance-site dev` or `preview`
 
 ## Deploy
 
-The site is served by the client's OVH web hosting (PERSO, `soliand.cluster100.hosting.ovh.net`, folder `www`), the whole stack staying at OVH (domain, DNS zone, hosting, Let's Encrypt certificate). `.github/workflows/deploy-ovh.yml` builds on every push to `main` (or by hand) and mirrors `apps/site/dist/` to `www/` over SFTP with `lftp --delete`. It needs the repository secret `OVH_SFTP_PASSWORD`; the `VITE_*` build values come from repository variables of the same name.
+The site is served by the client's OVH web hosting (PERSO, `soliand.cluster100.hosting.ovh.net`), the whole stack staying at OVH (domain, DNS zone, hosting, Let's Encrypt certificates). The multisite entry « Soliance site » serves `soliance-enr.fr` and `www.soliance-enr.fr` from the folder `site`, which OVH's Git integration keeps in sync with the branch `ovh-deploy` (read-only deploy key, GitHub push webhook). That branch holds only built files: `pnpm deploy:ovh` builds the current commit and pushes `apps/site/dist/` as a new commit on `ovh-deploy`. Production follows `main`; the `VITE_*` values come from `apps/site/.env` at build time (not committed, see `.env.example`; without it the forms answer `NOT_CONFIGURED`).
 
 - `apps/site/public/.htaccess` replaces the old Caddyfile: `https://soliance-enr.fr` is the canonical host (`www` and `http` get a 301), `/route` is served from `route/index.html` without a trailing-slash redirect, `404.html` answers unknown paths, `/assets/*` is cached for a year.
 - HTTPS is detected through `HTTPS`, `X-Forwarded-Proto` or port 443; `SERVER_PORT` alone is not reliable behind a proxy.
-- OVH's own domain redirection (`213.186.33.5`) never serves HTTPS: the apex must point to the hosting IP, not to a redirection.
-- `Dockerfile` and `Caddyfile` are the former Railway setup, kept until the Railway service is deleted.
+- OVH's own domain redirection (`213.186.33.5`) never serves HTTPS: the apex must point to the hosting IP (A and AAAA), `www` is a CNAME to the apex.
+- OVH's Git integration only clones into an empty folder, and the root folder of a multisite entry cannot be changed afterwards: to move a domain, detach it and add it to a new site with « Configuration manuelle » for DNS, or OVH rewrites the zone.
+- Detaching or adding a domain drops its Let's Encrypt certificate; OVH issues a new one per domain only once the domain points to the hosting, and a pending certificate holds back the others. Rolling it out to every front server takes about 20 minutes.
+- The redesign (`94f9f4a`) was reverted on `main` because the client wants the design of the mockups; it lives on the branch `refonte-design`.
 
 ## Traps
 
