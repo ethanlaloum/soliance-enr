@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { cn } from '@/lib/utils';
-import { containerClassName, sectionTitleClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName, sectionTitleClassName } from '@/components/home/containerClassName';
 
 type Solution = {
   key: 'airToAir' | 'airToWater' | 'waterHeater';
@@ -60,7 +60,7 @@ export const HeatPumpSolutionsSection = () => {
             <article
               aria-labelledby={`heat-pump-solution-${solution.key}`}
               className={cn(
-                'hz-solution-offer flex h-full flex-col gap-3.5 rounded-[4px] p-6 lg:p-8',
+                'flex h-full flex-col gap-3.5 rounded-[20px] p-6 lg:p-8',
                 solution.highlighted ? 'bg-heat text-white' : 'bg-heat-soft text-night',
               )}
             >
@@ -71,17 +71,17 @@ export const HeatPumpSolutionsSection = () => {
                 height={solution.height}
                 loading="lazy"
                 style={{ objectPosition: solution.objectPosition }}
-                className="block h-[210px] w-full rounded-[4px] object-cover lg:h-[210px]"
+                className="block h-[170px] w-full rounded-xl object-cover lg:h-[150px]"
               />
               <p
                 className={cn(
-                  'text-xs font-medium uppercase tracking-[1px] lg:text-[13px]',
+                  'text-xs font-semibold uppercase tracking-[1px] lg:text-[13px]',
                   solution.highlighted ? 'text-heat-mist' : 'text-heat',
                 )}
               >
                 {t(`solutions.${solution.key}.eyebrow`)}
               </p>
-              <h3 id={`heat-pump-solution-${solution.key}`} className="text-[22px] font-medium lg:text-[26px]">
+              <h3 id={`heat-pump-solution-${solution.key}`} className="text-[22px] font-bold lg:text-[26px]">
                 {t(`solutions.${solution.key}.title`)}
               </h3>
               <p className={cn('text-[15px] leading-[1.55]', solution.highlighted ? 'text-heat-sky' : 'text-slate-text')}>

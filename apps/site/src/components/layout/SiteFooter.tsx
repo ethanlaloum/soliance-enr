@@ -45,7 +45,7 @@ export const SiteFooter = () => {
   const { t } = useTranslation('common');
 
   return (
-    <footer className="site-footer mt-auto bg-night text-[13px] text-slate-light lg:text-sm">
+    <footer className="mt-auto bg-night text-[13px] text-slate-light lg:text-sm">
       <div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-7 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-10 lg:px-10 lg:py-12">
         <div className="flex flex-col gap-2.5">
           <SolianceLogo name={t('brand.name')} size="footer" />

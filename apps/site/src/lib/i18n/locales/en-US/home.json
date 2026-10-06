@@ -18,24 +18,12 @@
       "installation": "Installed in 1 to 3 days",
       "localTeam": "Local team since 2022"
     },
-    "imageAlt": "Contemporary villa with solar panels, photographed for the Soliance project library",
+    "imageAlt": "Villa in Vence equipped by Soliance: 16 kWp and a 15 kWh battery",
     "statsLabel": "Soliance in figures",
     "stats": {
-      "installations": {
-        "value": "280+",
-        "label": "installations monitored in PACA",
-        "labelShort": "installations monitored"
-      },
-      "signature": {
-        "value": "10 days",
-        "label": "from first contact to signature",
-        "labelShort": "to signature"
-      },
-      "maintenance": {
-        "value": "1 year",
-        "label": "of maintenance included",
-        "labelShort": "maintenance included"
-      }
+      "installations": { "value": "280+", "label": "installations monitored in PACA", "labelShort": "installations monitored" },
+      "signature": { "value": "10 days", "label": "from first contact to signature", "labelShort": "to signature" },
+      "maintenance": { "value": "1 year", "label": "of maintenance included", "labelShort": "maintenance included" }
     }
   },
   "partners": {
@@ -77,18 +65,9 @@
     "imageAlt": "Roof fitted with solar panels at sunset, French Riviera",
     "estimateLabel": "Sample estimate for a typical house",
     "estimate": {
-      "power": {
-        "value": "6 kWp + 10 kWh",
-        "label": "recommended for a typical house"
-      },
-      "production": {
-        "value": "≈ 7,800 kWh",
-        "label": "produced per year (1,300 kWh/kWp)"
-      },
-      "autonomy": {
-        "value": "≈ 75%",
-        "label": "self-sufficiency · no bonus, surplus at €0.01"
-      }
+      "power": { "value": "6 kWp + 10 kWh", "label": "recommended for a typical house" },
+      "production": { "value": "≈ 7,800 kWh", "label": "produced per year (1,300 kWh/kWp)" },
+      "autonomy": { "value": "≈ 75%", "label": "self-sufficiency · no bonus, surplus at €0.01" }
     }
   },
   "steps": {
@@ -129,49 +108,22 @@
     "title": "A local team that stays after the installation.",
     "body": "We have been installers on the French Riviera since 2022. Our technicians do the installation themselves, our showroom is open in Saint-Laurent-du-Var, and every installation is monitored by Soliance Care, our supervision and maintenance service.",
     "values": {
-      "trust": {
-        "title": "Trust",
-        "description": "A fixed price, no surprises, before you sign."
-      },
-      "transparency": {
-        "title": "Transparency",
-        "description": "Surplus buy-back is close to zero: we say so, and we size for self-consumption."
-      },
-      "expertise": {
-        "title": "Expertise",
-        "description": "RGE-certified technicians, carefully selected equipment."
-      },
-      "proximity": {
-        "title": "Proximity",
-        "description": "Showroom, local technician, answer within 48 hours."
-      }
+      "trust": { "title": "Trust", "description": "A fixed price, no surprises, before you sign." },
+      "transparency": { "title": "Transparency", "description": "Surplus buy-back is close to zero: we say so, and we size for self-consumption." },
+      "expertise": { "title": "Expertise", "description": "RGE-certified technicians, carefully selected equipment." },
+      "proximity": { "title": "Proximity", "description": "Showroom, local technician, answer within 48 hours." }
     },
     "imageAlt": "The Soliance team in front of the showroom",
-    "insurance": {
-      "label": "Insurance",
-      "value": "Professional liability & ten-year cover by MMA"
-    },
-    "financing": {
-      "label": "Financing",
-      "value": "Sofinco · BPCE Lease"
-    }
+    "insurance": { "label": "Insurance", "value": "Professional liability & ten-year cover by MMA" },
+    "financing": { "label": "Financing", "value": "Sofinco · BPCE Lease" }
   },
   "testimonials": {
     "title": "They trust us",
     "rating": "[Google rating] · [Number] reviews",
     "starsLabel": "5 out of 5 stars",
-    "solar": {
-      "quote": "[Real customer testimonial — solar installation, town, year]",
-      "author": "[First name L.] · [Town]"
-    },
-    "heatPump": {
-      "quote": "[Real customer testimonial — heat pump]",
-      "author": "[First name L.] · [Town]"
-    },
-    "evCharger": {
-      "quote": "[Real customer testimonial — EV charger or business project]",
-      "author": "[First name L.] · [Town]"
-    }
+    "solar": { "quote": "[Real customer testimonial — solar installation, town, year]", "author": "[First name L.] · [Town]" },
+    "heatPump": { "quote": "[Real customer testimonial — heat pump]", "author": "[First name L.] · [Town]" },
+    "evCharger": { "quote": "[Real customer testimonial — EV charger or business project]", "author": "[First name L.] · [Town]" }
   },
   "tiles": {
     "referral": {
@@ -189,24 +141,10 @@
   "contact": {
     "title": "Let's talk about your project",
     "lead": "An advisor calls you back within 48 business hours for a first free study. You can also drop by the showroom.",
-    "showroom": {
-      "label": "Showroom",
-      "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var"
-    },
-    "sales": {
-      "label": "Sales",
-      "email": "commercial@soliance-enr.fr",
-      "phone": "+33 7 63 54 51 44"
-    },
-    "admin": {
-      "label": "Administration",
-      "email": "adv@soliance-enr.fr",
-      "phone": "+33 6 59 40 38 88"
-    },
-    "hours": {
-      "label": "Opening hours",
-      "value": "Monday to Friday, 9 am – 6 pm"
-    },
+    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "sales": { "label": "Sales", "email": "commercial@soliance-enr.fr", "phone": "+33 7 63 54 51 44" },
+    "admin": { "label": "Administration", "email": "adv@soliance-enr.fr", "phone": "+33 6 59 40 38 88" },
+    "hours": { "label": "Opening hours", "value": "Monday to Friday, 9 am – 6 pm" },
     "mapLink": "See the showroom on Google Maps",
     "form": {
       "title": "Request a free study",
@@ -246,116 +184,6 @@
         "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 7 63 54 51 44.",
         "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 7 63 54 51 44."
       }
-    }
-  },
-  "horizon": {
-    "hero": {
-      "eyebrow": "Southern energy, designed for you.",
-      "line1": "The sun,",
-      "line2": "your greatest",
-      "line3": "ally.",
-      "lead": "Generate your electricity. Rethink your comfort. With a local team that takes care of everything.",
-      "cta": "Let’s talk about your project",
-      "secondary": "Explore our solutions",
-      "note": "Free study · No commitment",
-      "location": "French Riviera & Provence",
-      "photoLabel": "Making room for energy, at home.",
-      "photoAlt": "Contemporary villa with solar panels, photographed for the Soliance project library",
-      "scroll": "Let’s build what comes next",
-      "territory": "ALPES-MARITIMES · VAR · BOUCHES-DU-RHÔNE"
-    },
-    "proof": {
-      "intro": "In good hands,\nfrom day one.",
-      "installations": "installations monitored in PACA",
-      "teamValue": "100%",
-      "teamLabel": "installed by our technicians",
-      "careValue": "1 year",
-      "careLabel": "of maintenance included"
-    },
-    "solutions": {
-      "eyebrow": "01 / Feel better at home",
-      "title": "A home full",
-      "accent": "of energy.",
-      "intro": "From roof to garage, we design your equipment together. A coherent installation that fits the way you live.",
-      "discover": "Explore this solution",
-      "solar": {
-        "title": "Generate",
-        "subtitle": "Solar & battery",
-        "description": "Sun during the day. Your energy in the evening. Panels and a battery sized for your home, habits and ambitions.",
-        "detail": "Personalised study · Paperwork included"
-      },
-      "heatPump": {
-        "title": "Feel good",
-        "subtitle": "Heat pump",
-        "description": "The right temperature in every season. We assess your home to find the heating and cooling system that suits it.",
-        "detail": "Air-to-air · Air-to-water · Grant support"
-      },
-      "evCharger": {
-        "title": "Go further",
-        "subtitle": "EV charger",
-        "description": "Plug in at home and leave with peace of mind. A charger for your vehicle, which can be managed by your solar production.",
-        "detail": "Homes & businesses · IRVE installation"
-      }
-    },
-    "projects": {
-      "eyebrow": "02 / Real projects, close to home",
-      "title": "Change is",
-      "accent": "already visible.",
-      "all": "All our projects",
-      "firstTitle": "A villa, a new horizon.",
-      "firstLocation": "Saint-Jeannet · Alpes-Maritimes",
-      "firstTag": "Solar · 6 kWp",
-      "secondTitle": "Energy that fits the place.",
-      "secondLocation": "Roquebrune-sur-Argens · Var",
-      "secondTag": "Solar · 10 kWp",
-      "firstAlt": "Saint-Jeannet villa with solar panels, a swimming pool and palm trees",
-      "secondAlt": "Poolside solar panels overlooking the Mediterranean in Roquebrune-sur-Argens",
-      "view": "View project"
-    },
-    "simulator": {
-      "eyebrow": "What if we started with your roof?",
-      "title": "Your next source of energy",
-      "accent": "is right above you.",
-      "lead": "Your roof, your consumption, your habits. A few details are all it takes to get an initial estimate for your solar project.",
-      "cta": "Estimate my project",
-      "note": "Free · About 2 minutes · No commitment",
-      "diagramLabel": "From sunshine to everyday life",
-      "sun": "Generate",
-      "battery": "Store",
-      "home": "Enjoy",
-      "diagramNote": "Your energy. Your rhythm."
-    },
-    "team": {
-      "eyebrow": "03 / Local people",
-      "title": "A project for your home.",
-      "accent": "A human story.",
-      "lead": "A team in Saint-Laurent-du-Var, a showroom to meet in, and our own technicians on your roof. At Soliance, being local means being there.",
-      "imageAlt": "The Soliance team outside the Saint-Laurent-du-Var showroom",
-      "caption": "Your team, in person.",
-      "since": "By your side since 2022",
-      "commitment": "Our commitment",
-      "statement": "There before.\nDuring. And long after.",
-      "visit": "Meet us at the showroom"
-    },
-    "steps": {
-      "title": "You have a project.\nWe know the way.",
-      "intro": "One point of contact, a fixed price and five steps to move forward with confidence."
-    },
-    "care": {
-      "label": "Soliance Care",
-      "title": "And after installation?",
-      "body": "We stay by your side. Monitoring, maintenance and support: your installation deserves lasting care.",
-      "cta": "Discover Soliance Care"
-    },
-    "contact": {
-      "eyebrow": "What comes next starts with you.",
-      "title": "Bring energy",
-      "accent": "to your project.",
-      "lead": "Tell us about your home and your plans. We will call you within two working days for a free initial study.",
-      "phoneLabel": "Or let’s talk",
-      "addressLabel": "Come and see us",
-      "formNote": "A first conversation. No obligation.",
-      "signature": "Energy starts here."
     }
   }
 }

@@ -16,7 +16,6 @@ const settings = {
     [LeadFormKind.PROFESSIONAL_STUDY]: null,
     [LeadFormKind.REFERRAL]: 'referral-form-1',
     [LeadFormKind.SIMULATION]: 'simulation-form-1',
-    [LeadFormKind.CARE_REQUEST]: 'care-form-1',
   },
 };
 
@@ -171,39 +170,6 @@ describe('HubSpot study request gateway', () => {
     const error = await captureError(firstValueFrom(gateway.submitLead(submission)));
 
     expect(error).toEqual(new LeadError(LeadErrorType.NOT_CONFIGURED, 'HubSpot portal id or PROFESSIONAL_STUDY lead form id is missing'));
-    expect(httpClient.postCalls).toEqual([]);
-  });
-
-  it('routes Care requests to their dedicated form with the selected offer and consent', async () => {
-    const url = 'https://api.hsforms.com/submissions/v3/integration/submit/portal-1/care-form-1';
-    httpClient.willRespond(url, {});
-    await firstValueFrom(gateway.submitLead({
-      kind: LeadFormKind.CARE_REQUEST,
-      fields: { full_name: 'Camille Test', care_request_type: 'TAKEOVER', zip: '06700' },
-      consentText: 'care-consent', callbackConsentedAt: request.callbackConsentedAt,
-      pageUri: 'https://soliance.fr/soliance-care', pageName: 'Soliance Care',
-    }));
-    expect(httpClient.postCalls).toEqual([{ url, body: {
-      submittedAt: '1791189000000',
-      fields: [
-        { objectTypeId: '0-1', name: 'full_name', value: 'Camille Test' },
-        { objectTypeId: '0-1', name: 'care_request_type', value: 'TAKEOVER' },
-        { objectTypeId: '0-1', name: 'zip', value: '06700' },
-        { objectTypeId: '0-1', name: 'callback_consented_at', value: request.callbackConsentedAt },
-      ],
-      context: { pageUri: 'https://soliance.fr/soliance-care', pageName: 'Soliance Care' },
-      legalConsentOptions: { consent: { consentToProcess: true, text: 'care-consent' } },
-    } }]);
-  });
-
-  it('does not send Care requests to another form when its form ID is missing', async () => {
-    const unconfigured = new SolianceRxLeadGateway(httpClient, { ...settings, leadFormIds: { ...settings.leadFormIds, [LeadFormKind.CARE_REQUEST]: null } });
-    const error = await captureError(firstValueFrom(unconfigured.submitLead({
-      kind: LeadFormKind.CARE_REQUEST, fields: { full_name: 'Camille Test' },
-      consentText: 'care-consent', callbackConsentedAt: request.callbackConsentedAt,
-      pageUri: 'https://soliance.fr/soliance-care', pageName: 'Soliance Care',
-    })));
-    expect((error as LeadError).type).toBe(LeadErrorType.NOT_CONFIGURED);
     expect(httpClient.postCalls).toEqual([]);
   });
 });

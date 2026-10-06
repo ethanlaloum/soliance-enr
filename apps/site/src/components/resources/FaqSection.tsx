@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { FaqList } from '@/components/page/FaqList';
+import { containerClassName } from '@/components/home/containerClassName';
 import { sectionScrollMarginClassName } from '@/components/resources/resourceSectionIds';
 import { useActiveSection } from '@/components/resources/useActiveSection';
 
@@ -20,19 +21,19 @@ const themeAnchorId = (themeKey: string) => `faq-${themeKey}`;
 const themeAnchorIds = faqThemes.map((theme) => themeAnchorId(theme.key));
 
 const faqListClassName =
-  'gap-2.5 divide-y-0 rounded-none border-0 bg-transparent [&>details]:rounded-none [&>details]:border-b [&>details]:border-sand-line [&>details]:bg-transparent lg:[&>details]:px-[22px] lg:[&>details]:py-[18px]';
+  'gap-2.5 divide-y-0 rounded-none border-0 bg-transparent [&>details]:rounded-xl [&>details]:border [&>details]:border-sand-line [&>details]:bg-white lg:[&>details]:px-[22px] lg:[&>details]:py-[18px]';
 
 export const FaqSection = () => {
   const { t } = useTranslation('resources');
   const activeThemeId = useActiveSection(themeAnchorIds);
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className={cn('hz-page-container', sectionScrollMarginClassName, 'flex flex-col gap-8 border-t border-sand-line pb-16 pt-12 lg:gap-12 lg:pb-20 lg:pt-20')}>
-      <h2 id="faq-title" data-reveal className="text-[34px] font-medium leading-[1.12] tracking-[-0.045em] lg:text-[48px]">
+    <section id="faq" aria-labelledby="faq-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-8 lg:gap-6 lg:pb-12 lg:pt-10')}>
+      <h2 id="faq-title" data-reveal className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
         {t('faq.title')}
       </h2>
       <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start lg:gap-8">
-        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[calc(var(--hz-header-height)+88px)]">
+        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[76px]">
           <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-1.5">
             {faqThemes.map((theme) => {
               const anchorId = themeAnchorId(theme.key);
@@ -43,9 +44,9 @@ export const FaqSection = () => {
                     href={`#${anchorId}`}
                     aria-current={isActive ? 'true' : undefined}
                     className={cn(
-                      'block rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors lg:border-transparent lg:py-2.5 lg:text-[15px]',
+                      'block rounded-lg border px-3.5 py-2 text-sm font-semibold transition-colors lg:border-transparent lg:py-2.5 lg:text-[15px]',
                       isActive
-                        ? 'border-solar bg-solar text-white hover:text-white lg:border-solar'
+                        ? 'border-night bg-night text-white hover:text-white lg:border-night'
                         : 'border-sand-border bg-white text-night hover:text-night lg:bg-transparent lg:hover:bg-white',
                     )}
                   >
@@ -58,8 +59,8 @@ export const FaqSection = () => {
         </nav>
         <div className="flex flex-col gap-8 lg:gap-10">
           {faqThemes.map((theme) => (
-            <div key={theme.key} id={themeAnchorId(theme.key)} data-reveal className="flex scroll-mt-[calc(var(--hz-header-height)+84px)] flex-col gap-3">
-              <h3 className="text-[13px] font-medium uppercase tracking-[1px] text-solar">
+            <div key={theme.key} id={themeAnchorId(theme.key)} data-reveal className="flex scroll-mt-16 flex-col gap-3 lg:scroll-mt-[76px]">
+              <h3 className="text-[13px] font-semibold uppercase tracking-[1px] text-solar">
                 {t(`faq.themes.${theme.key}.label`)}
               </h3>
               <FaqList

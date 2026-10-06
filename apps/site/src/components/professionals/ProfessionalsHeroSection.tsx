@@ -4,25 +4,25 @@ import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { DiamondPattern } from '@/components/icons/Icons';
-import { containerClassName, eyebrowClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 import { professionalStudyAnchor } from '@/components/professionals/professionalStudyAnchor';
 
 export const ProfessionalsHeroSection = () => {
   const { t } = useTranslation('professionals');
 
   return (
-    <section aria-labelledby="professionals-hero-title" className="hz-solution-hero relative overflow-hidden">
+    <section aria-labelledby="professionals-hero-title" className="relative overflow-hidden bg-night">
       <DiamondPattern />
-      <div className={cn(containerClassName, 'hz-solution-hero-grid relative grid items-center gap-8 pb-10 pt-8 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-24 lg:pt-20')}>
+      <div className={cn(containerClassName, 'relative grid items-center gap-8 pb-10 pt-8 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-24 lg:pt-20')}>
         <div className="flex flex-col gap-4 lg:gap-[22px]">
           <p className={cn(eyebrowClassName, 'motion-safe:animate-fade-up')}>{t('hero.eyebrow')}</p>
           <h1
             id="professionals-hero-title"
-            className="hz-page-title"
+            className="text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.06]"
           >
             {t('hero.title')}
           </h1>
-          <p className="hz-page-lead">
+          <p className="text-base leading-normal text-slate-light motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-[19px] lg:leading-[1.55]">
             {t('hero.lead')}
           </p>
           <div className="mt-1 flex flex-col gap-3.5 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap">
@@ -40,7 +40,7 @@ export const ProfessionalsHeroSection = () => {
           width={1024}
           height={1024}
           fetchPriority="high"
-          className="hz-solution-hero-photo relative block h-[220px] w-full rounded-[4px] object-cover shadow-none motion-safe:animate-zoom-in motion-safe:[animation-delay:120ms] sm:h-[300px] lg:h-[380px] lg:rounded-[4px]"
+          className="relative block h-[220px] w-full rounded-2xl object-cover shadow-float motion-safe:animate-zoom-in motion-safe:[animation-delay:120ms] sm:h-[300px] lg:h-[380px] lg:rounded-[20px]"
         />
       </div>
     </section>

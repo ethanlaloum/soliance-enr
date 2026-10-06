@@ -1,4 +1,3 @@
-import '@/components/solar/horizonSolutions.css';
 import '@/lib/i18n/namespaces/heatPump';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { DaikinSection } from '@/components/heat-pump/DaikinSection';
@@ -13,7 +12,7 @@ export const HeatPumpPage = () => {
   useScrollReveal();
 
   return (
-    <div className="hz-solution-page flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col bg-white">
       <HeatPumpHeroSection />
       <HeatPumpSolutionsSection />
       <DaikinSection />

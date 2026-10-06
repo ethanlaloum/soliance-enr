@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { cn } from '@/lib/utils';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 const steps = [
   { key: 'outdoorUnit', image: '/images/heat-pump/outdoor-unit.webp', width: 960, height: 1276, objectPosition: '50% 50%' },
@@ -15,7 +15,7 @@ export const HeatPumpStepsSection = () => {
   return (
     <section aria-labelledby="heat-pump-steps-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-4 pt-8 lg:gap-6 lg:pb-16 lg:pt-0')}>
       <div data-reveal className="flex flex-col gap-2">
-        <h2 id="heat-pump-steps-title" className="text-[26px] font-medium tracking-[-0.045em] lg:text-[32px]">
+        <h2 id="heat-pump-steps-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
           {t('steps.title')}
         </h2>
         <p className="max-w-[760px] text-[15px] leading-normal text-slate-ink">{t('steps.intro')}</p>
@@ -26,7 +26,7 @@ export const HeatPumpStepsSection = () => {
             key={step.key}
             data-reveal
             style={revealDelay(index)}
-            className="flex flex-col overflow-hidden rounded-[4px] border border-heat-line bg-heat-surface"
+            className="flex flex-col overflow-hidden rounded-2xl border border-heat-line bg-heat-surface"
           >
             <div className="relative">
               <img
@@ -40,13 +40,13 @@ export const HeatPumpStepsSection = () => {
               />
               <span
                 aria-hidden="true"
-                className="absolute left-3.5 top-3.5 flex h-9 w-9 items-center justify-center rounded-full bg-heat font-medium text-white"
+                className="absolute left-3.5 top-3.5 flex h-9 w-9 items-center justify-center rounded-full bg-heat font-bold text-white"
               >
                 {index + 1}
               </span>
             </div>
             <div className="flex flex-col gap-1.5 p-5">
-              <h3 className="text-lg font-medium">{t(`steps.${step.key}.title`)}</h3>
+              <h3 className="text-lg font-bold">{t(`steps.${step.key}.title`)}</h3>
               <p className="text-sm leading-normal text-slate-ink">{t(`steps.${step.key}.description`)}</p>
             </div>
           </li>

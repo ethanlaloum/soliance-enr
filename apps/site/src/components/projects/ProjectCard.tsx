@@ -1,4 +1,3 @@
-import './projectCard.css';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
@@ -22,9 +21,8 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
   return (
     <article
-      id={`project-${project.id}`}
       className={cn(
-        'hz-project-card relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[18px] border border-sand-line bg-white text-night',
+        'relative flex h-full flex-col overflow-hidden rounded-[18px] border border-sand-line bg-white text-night',
         hasDetail &&
           'group transition-[transform,box-shadow] duration-300 ease-out-expo has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-solar has-[a:focus-visible]:ring-offset-2 has-[a:focus-visible]:ring-offset-ivory hover:-translate-y-1 hover:shadow-lift motion-reduce:transition-none motion-reduce:hover:translate-y-0',
       )}

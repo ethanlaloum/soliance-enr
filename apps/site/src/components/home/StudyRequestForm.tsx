@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
@@ -13,7 +13,6 @@ import {
   selectSubmitStudyRequestSuccess,
 } from '@/selectors/lead/leadSelectors';
 import { Button } from '@/components/ui/button';
-import { HorizonSelect } from '@/components/ui/Select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { studyRequestDefaultValues, StudyRequestFormData, studyRequestSchema } from '@/components/home/studyRequestSchema';
 
@@ -26,21 +25,7 @@ const textFields: { name: TextFieldName; type: string; autoComplete: string; inp
   { name: 'postalCode', type: 'text', autoComplete: 'postal-code', inputMode: 'numeric' },
 ];
 
-type StudyRequestFormProps = {
-  cardClassName?: string;
-  titleClassName?: string;
-  submitClassName?: string;
-};
-
-const defaultCardClassName = 'flex flex-col gap-4 rounded-[20px] border border-sand-line bg-white p-6 lg:gap-5 lg:rounded-[28px] lg:p-12';
-const defaultTitleClassName = 'text-2xl font-bold tracking-[-0.02em] lg:text-[28px]';
-const defaultSubmitClassName = 'mt-1 text-night hover:bg-night hover:text-white';
-
-export const StudyRequestForm = ({
-  cardClassName = defaultCardClassName,
-  titleClassName = defaultTitleClassName,
-  submitClassName = defaultSubmitClassName,
-}: StudyRequestFormProps) => {
+export const StudyRequestForm = () => {
   const { t } = useTranslation('home');
   const dispatch = useAppDispatch();
   const isSubmitting = useAppSelector(selectSubmitStudyRequestLoading);
@@ -49,7 +34,6 @@ export const StudyRequestForm = ({
 
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
   } = useForm<StudyRequestFormData>({
@@ -76,10 +60,12 @@ export const StudyRequestForm = ({
     );
   };
 
+  const cardClassName = 'flex flex-col gap-3 rounded-2xl border border-sand-line bg-white p-[22px] lg:gap-4 lg:rounded-[20px] lg:p-9';
+
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h3 className={titleClassName}>{t('contact.form.successTitle')}</h3>
+        <h3 className="text-xl font-bold lg:text-[22px]">{t('contact.form.successTitle')}</h3>
         <p className="text-base text-slate-ink">{t('contact.form.successDescription')}</p>
       </div>
     );
@@ -87,7 +73,7 @@ export const StudyRequestForm = ({
 
   return (
     <form noValidate aria-labelledby="study-request-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
-      <h3 id="study-request-title" className={titleClassName}>
+      <h3 id="study-request-title" className="text-xl font-bold lg:text-[22px]">
         {t('contact.form.title')}
       </h3>
 
@@ -119,22 +105,13 @@ export const StudyRequestForm = ({
 
       <div className={fieldLabelClassName}>
         <label htmlFor="study-projectType">{t('contact.form.projectType')}</label>
-        <Controller
-          name="projectType"
-          control={control}
-          render={({ field }) => (
-            <HorizonSelect
-              id="study-projectType"
-              name={field.name}
-              ref={field.ref}
-              value={field.value}
-              onValueChange={field.onChange}
-              onBlur={field.onBlur}
-              className={cn(fieldControlClassName, 'px-3')}
-              options={projectTypes.map((projectType) => ({ value: projectType, label: t(`contact.form.projectOptions.${projectType}`) }))}
-            />
-          )}
-        />
+        <select id="study-projectType" className={cn(fieldControlClassName, 'px-3')} {...register('projectType')}>
+          {projectTypes.map((projectType) => (
+            <option key={projectType} value={projectType}>
+              {t(`contact.form.projectOptions.${projectType}`)}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className={fieldLabelClassName}>
@@ -187,7 +164,7 @@ export const StudyRequestForm = ({
         </div>
       )}
 
-      <Button type="submit" size="block" disabled={isSubmitting} className={submitClassName}>
+      <Button type="submit" size="block" disabled={isSubmitting}>
         {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
       </Button>
     </form>

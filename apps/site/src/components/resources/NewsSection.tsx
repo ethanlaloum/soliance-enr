@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
+import { containerClassName } from '@/components/home/containerClassName';
 import { sectionScrollMarginClassName } from '@/components/resources/resourceSectionIds';
 
 const newsCategories = ['aids', 'regulation', 'advice', 'soliance'] as const;
@@ -37,7 +38,7 @@ const briefArticles: NewsArticle[] = [
 
 const filters: NewsFilter[] = ['all', ...newsCategories];
 
-const cardEyebrowClassName = 'text-xs font-medium uppercase tracking-[1px] text-solar';
+const cardEyebrowClassName = 'text-xs font-semibold uppercase tracking-[1px] text-solar';
 
 export const NewsSection = () => {
   const { t } = useTranslation('resources');
@@ -50,9 +51,9 @@ export const NewsSection = () => {
   const hasBriefs = briefArticles.some(isShown);
 
   return (
-    <section id="news" aria-labelledby="news-title" className={cn('hz-page-container', sectionScrollMarginClassName, 'flex flex-col gap-8 pb-16 pt-10 lg:gap-10 lg:pb-20 lg:pt-14')}>
+    <section id="news" aria-labelledby="news-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-7 lg:gap-6 lg:pb-12 lg:pt-8')}>
       <div data-reveal className="flex flex-col gap-3.5 lg:flex-row lg:items-end lg:justify-between">
-        <h2 id="news-title" className="text-[34px] font-medium leading-[1.12] tracking-[-0.045em] lg:text-[48px]">
+        <h2 id="news-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
           {t('news.title')}
         </h2>
         <div role="group" aria-label={t('news.filters.label')} className="flex flex-wrap gap-2 text-[13px]">
@@ -65,8 +66,8 @@ export const NewsSection = () => {
                 aria-pressed={isActive}
                 onClick={() => setActiveFilter(filter)}
                 className={cn(
-                  'rounded border px-3.5 py-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar',
-                  isActive ? 'border-solar bg-solar text-white' : 'border-sand-border bg-transparent text-night hover:border-night',
+                  'rounded-[14px] border px-3 py-[7px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar',
+                  isActive ? 'border-night bg-night text-white' : 'border-sand-border bg-white text-night hover:border-night',
                 )}
               >
                 {filter === 'all' ? t('news.filters.all') : t(`news.categories.${filter}`)}
@@ -77,38 +78,38 @@ export const NewsSection = () => {
       </div>
 
       <div hidden={!hasHighlights}>
-        <ul className="grid gap-4 lg:grid-cols-[1.6fr_1fr_1fr] lg:gap-6">
+        <ul className="grid gap-4 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-5">
           <li hidden={!isShown(featuredArticle)} data-reveal style={revealDelay(0)}>
-            <article className="relative flex h-full min-h-[360px] flex-col justify-end overflow-hidden rounded-md bg-night p-6 text-white lg:min-h-[420px] lg:p-7">
+            <article className="relative flex h-full min-h-[280px] flex-col justify-end overflow-hidden rounded-[18px] bg-night p-6 text-white lg:min-h-[300px] lg:p-7">
               <img
                 src={featuredArticle.image.src}
                 alt=""
                 width={featuredArticle.image.width}
                 height={featuredArticle.image.height}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-80"
+                className="absolute inset-0 h-full w-full object-cover opacity-[0.45]"
               />
-              <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(39,37,34,0)_10%,rgba(39,37,34,0.94)_100%)]" />
+              <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,17,32,0)_20%,rgba(11,17,32,0.95)_100%)]" />
               <div className="relative flex flex-col gap-2.5">
-                <p className="text-xs font-medium uppercase tracking-[1px] text-white/80">{meta(featuredArticle)}</p>
-                <h3 className="text-[28px] font-medium leading-[1.15] tracking-[-0.025em] lg:text-[34px]">{t(`news.articles.${featuredArticle.key}.title`)}</h3>
+                <p className={cardEyebrowClassName}>{meta(featuredArticle)}</p>
+                <h3 className="text-[22px] font-bold leading-[1.2] lg:text-[26px]">{t(`news.articles.${featuredArticle.key}.title`)}</h3>
                 <p className="text-sm text-slate-light">{t(`news.articles.${featuredArticle.key}.summary`)}</p>
               </div>
             </article>
           </li>
           {mediaArticles.map((article, index) => (
             <li key={article.key} hidden={!isShown(article)} data-reveal style={revealDelay(index + 1)}>
-              <article className="flex h-full flex-col gap-4 border-b border-sand-line pb-6">
+              <article className="flex h-full flex-col gap-2.5 rounded-[18px] border border-sand-line bg-white p-5 lg:p-6">
                 <img
                   src={article.image.src}
                   alt={t(`news.articles.${article.key}.imageAlt`)}
                   width={article.image.width}
                   height={article.image.height}
                   loading="lazy"
-                  className="block h-[230px] w-full rounded-md object-cover lg:h-[260px]"
+                  className="block h-[150px] w-full rounded-[10px] object-cover lg:h-[110px]"
                 />
                 <p className={cardEyebrowClassName}>{meta(article)}</p>
-                <h3 className="text-[23px] font-medium leading-[1.25] tracking-[-0.025em]">{t(`news.articles.${article.key}.title`)}</h3>
+                <h3 className="text-lg font-bold leading-[1.25] lg:text-[19px]">{t(`news.articles.${article.key}.title`)}</h3>
               </article>
             </li>
           ))}
@@ -119,9 +120,9 @@ export const NewsSection = () => {
         <ul className="grid gap-3 lg:grid-cols-3 lg:gap-5">
           {briefArticles.map((article, index) => (
             <li key={article.key} hidden={!isShown(article)} data-reveal style={revealDelay(index)}>
-              <article className="flex h-full flex-col gap-3 border-t border-sand-line py-6">
+              <article className="flex h-full flex-col gap-1.5 rounded-[14px] border border-sand-line bg-white p-5">
                 <p className="text-xs text-slate">{meta(article)}</p>
-                <h3 className="text-base font-medium lg:text-[17px]">{t(`news.articles.${article.key}.title`)}</h3>
+                <h3 className="text-base font-bold lg:text-[17px]">{t(`news.articles.${article.key}.title`)}</h3>
               </article>
             </li>
           ))}

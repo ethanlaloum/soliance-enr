@@ -1,61 +1,43 @@
-import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { revealDelay } from '@/components/motion/revealDelay';
 import { Link } from 'react-router';
 import { config } from '@/config';
 import { paths } from '@/routes/paths';
-import { motionQueries } from '@/lib/motion/motionQueries';
-import { MotionSetup, useLazyMotion } from '@/lib/motion/useLazyMotion';
-import { containerClassName } from '@/components/home/containerClassName';
 
-const tileClassName =
-  'group flex flex-col overflow-hidden rounded-[20px] lg:rounded-[28px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar';
-const mediaClassName = 'relative block aspect-[16/11] overflow-hidden lg:aspect-[16/10]';
-const imageClassName =
-  'absolute inset-x-0 -top-[10%] h-[120%] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100';
-const bodyClassName = 'flex flex-1 flex-col gap-3 p-7 lg:gap-4 lg:p-12';
-const titleClassName = '[text-wrap:balance] max-w-[560px] text-2xl font-bold leading-[1.15] tracking-[-0.02em] lg:text-[clamp(1.75rem,2.4vw,2.25rem)]';
-
-const tilesMotion: MotionSetup = ({ gsap }, root) => {
-  const mm = gsap.matchMedia();
-  mm.add(motionQueries.allowMotion, () => {
-    gsap.utils.toArray<HTMLElement>('[data-tile-media]', root).forEach((media) => {
-      gsap.fromTo(media, { yPercent: -7 }, { yPercent: 7, ease: 'none', scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true } });
-    });
-  });
-};
+const tileClassName = 'group relative flex min-h-[180px] flex-col justify-end gap-2.5 overflow-hidden rounded-[14px] p-5 text-white lg:min-h-[260px] lg:rounded-[20px] lg:p-10';
 
 export const PromoTilesSection = () => {
   const { t } = useTranslation('home');
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useLazyMotion(sectionRef, tilesMotion);
 
   return (
-    <div ref={sectionRef} className={`${containerClassName} grid gap-4 lg:grid-cols-2 lg:gap-6`}>
-      <Link to={paths.referral} className={`${tileClassName} bg-solar text-night hover:text-night`}>
-        <span className={mediaClassName}>
-          <span data-tile-media className="absolute inset-0 block">
-            <img src="/images/referral-tile.webp" alt="" width={1000} height={1000} loading="lazy" className={`${imageClassName} [object-position:50%_35%]`} />
-          </span>
-        </span>
-        <span className={bodyClassName}>
-          <span className="text-sm font-semibold lg:text-[15px]">{t('tiles.referral.eyebrow')}</span>
-          <span className={titleClassName}>{t('tiles.referral.title')}</span>
-          <span className="text-[15px] lg:text-base">{t('tiles.referral.description')}</span>
-        </span>
+    <div className="mx-auto grid w-full max-w-[1440px] gap-3 px-4 pt-6 lg:grid-cols-2 lg:gap-6 lg:px-10 lg:pt-0">
+      <Link to={paths.referral} data-reveal className={`${tileClassName} bg-solar hover:text-white`}>
+        <img
+          src="/images/referral-tile.webp"
+          alt=""
+          width={1000}
+          height={260}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover [object-position:50%_35%] transition-transform duration-500 ease-out-expo group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        />
+        <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(224,123,40,0.05)_0%,rgba(120,55,10,0.92)_75%)]" />
+        <span className="relative text-xs font-semibold uppercase tracking-[1.5px] opacity-90 lg:text-[13px]">{t('tiles.referral.eyebrow')}</span>
+        <span className="relative text-[19px] font-bold lg:text-[28px]">{t('tiles.referral.title')}</span>
+        <span className="relative text-[15px] opacity-[0.92]">{t('tiles.referral.description')}</span>
       </Link>
-      <a href={config.careUrl} className={`${tileClassName} bg-care-night text-white hover:text-white`}>
-        <span className={mediaClassName}>
-          <span data-tile-media className="absolute inset-0 block">
-            <img src="/images/care-supervision.webp" alt={t('tiles.care.imageAlt')} width={1000} height={1000} loading="lazy" className={`${imageClassName} opacity-80`} />
-          </span>
-          <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-care-night to-transparent" />
-        </span>
-        <span className={bodyClassName}>
-          <span className="text-sm font-semibold text-care-mint lg:text-[15px]">{t('tiles.care.eyebrow')}</span>
-          <span className={titleClassName}>{t('tiles.care.title')}</span>
-          <span className="text-[15px] text-slate-light lg:text-base">{t('tiles.care.description')}</span>
-        </span>
+      <a href={config.careUrl} data-reveal style={revealDelay(1)} className={`${tileClassName} bg-care-night hover:text-white lg:bg-night`}>
+        <img
+          src="/images/care-supervision.webp"
+          alt={t('tiles.care.imageAlt')}
+          width={1000}
+          height={260}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.55] transition-transform duration-500 ease-out-expo group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        />
+        <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,17,32,0.15)_0%,rgba(11,17,32,0.92)_70%)]" />
+        <span className="relative text-xs font-semibold uppercase tracking-[1.5px] text-care-mint lg:text-[13px]">{t('tiles.care.eyebrow')}</span>
+        <span className="relative text-[19px] font-bold lg:text-[28px]">{t('tiles.care.title')}</span>
+        <span className="relative text-[15px] text-slate-light">{t('tiles.care.description')}</span>
       </a>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 const sizes = [
   {
@@ -32,7 +32,7 @@ export const SolarSizesSection = () => {
 
   return (
     <section aria-labelledby="solar-sizes-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-10 pt-12 lg:gap-8 lg:pb-16 lg:pt-20')}>
-      <h2 id="solar-sizes-title" data-reveal className="text-[28px] font-medium leading-[1.15] tracking-[-0.045em] lg:text-[40px]">
+      <h2 id="solar-sizes-title" data-reveal className="text-[28px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[40px]">
         {t('sizes.title')}
       </h2>
       <ul className="grid gap-4 lg:grid-cols-3 lg:gap-6">
@@ -42,7 +42,7 @@ export const SolarSizesSection = () => {
             data-reveal
             style={revealDelay(index)}
             className={cn(
-              'hz-solution-offer flex flex-col gap-3 rounded-[4px] p-6 lg:p-8',
+              'flex flex-col gap-3 rounded-[18px] p-6 lg:p-8',
               size.featured ? 'bg-night text-white' : 'border border-sand-line bg-white',
             )}
           >
@@ -53,10 +53,10 @@ export const SolarSizesSection = () => {
               height={450}
               loading="lazy"
               style={{ objectPosition: size.objectPosition }}
-              className="block h-[210px] w-full rounded-[4px] object-cover"
+              className="block h-[150px] w-full rounded-xl object-cover"
             />
-            <p className="text-[13px] font-medium uppercase tracking-[1px] text-solar">{t(`sizes.${size.key}.tag`)}</p>
-            <h3 className="text-[22px] font-medium leading-tight lg:text-2xl">{t(`sizes.${size.key}.title`)}</h3>
+            <p className="text-[13px] font-semibold uppercase tracking-[1px] text-solar">{t(`sizes.${size.key}.tag`)}</p>
+            <h3 className="text-[22px] font-bold leading-tight lg:text-2xl">{t(`sizes.${size.key}.title`)}</h3>
             <p className={cn('text-[15px] leading-[1.55]', size.featured ? 'text-slate-light' : 'text-slate-ink')}>
               {t(`sizes.${size.key}.description`)}
             </p>

@@ -29,7 +29,6 @@ const initialState: LeadState = {
     [LeadFormKind.PROFESSIONAL_STUDY]: { state: null },
     [LeadFormKind.REFERRAL]: { state: null },
     [LeadFormKind.SIMULATION]: { state: null },
-    [LeadFormKind.CARE_REQUEST]: { state: null },
   },
 };
 

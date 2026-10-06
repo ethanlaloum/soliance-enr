@@ -18,7 +18,7 @@ export const createSubmitLeadEpicSUT = () => {
     dependencies: fakeDependencies({ leadGateway, clock }),
     state: stateWithLead({
       submitStudyRequest: { state: null },
-      submitLead: { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: null }, CARE_REQUEST: { state: null } },
+      submitLead: { PROFESSIONAL_STUDY: { state: null }, REFERRAL: { state: null }, SIMULATION: { state: null } },
     }),
   };
 

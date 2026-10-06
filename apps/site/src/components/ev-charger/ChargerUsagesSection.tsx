@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName, sectionTitleClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName, sectionTitleClassName } from '@/components/home/containerClassName';
 import { BoltIcon, ChargingParkIcon, HouseIcon } from '@/components/ev-charger/EvChargerIcons';
 
 const usages = [
@@ -52,19 +52,19 @@ export const ChargerUsagesSection = () => {
             data-reveal
             style={revealDelay(index)}
             className={cn(
-              'hz-solution-offer flex flex-col gap-3 rounded-[4px] p-6 lg:rounded-[4px] lg:p-8',
+              'flex flex-col gap-3 rounded-2xl p-6 lg:rounded-[20px] lg:p-8',
               highlighted ? 'bg-charge text-white' : 'border-2 border-charge-surface bg-white text-night',
             )}
           >
             <span
               className={cn(
-                'flex h-12 w-12 items-center justify-center rounded-[4px]',
+                'flex h-12 w-12 items-center justify-center rounded-xl',
                 highlighted ? 'bg-white/15 text-white' : 'bg-charge-surface text-charge',
               )}
             >
               <Icon />
             </span>
-            <p className={cn('text-[13px] font-medium uppercase tracking-[1px]', highlighted ? 'text-[#bfeed5]' : 'text-charge')}>
+            <p className={cn('text-[13px] font-semibold uppercase tracking-[1px]', highlighted ? 'text-[#bfeed5]' : 'text-charge')}>
               {t(`usages.${key}.audience`)}
             </p>
             <img
@@ -74,9 +74,9 @@ export const ChargerUsagesSection = () => {
               height={height}
               loading="lazy"
               style={{ objectPosition }}
-              className="block h-[210px] w-full rounded-[4px] object-cover"
+              className="block h-[150px] w-full rounded-xl object-cover"
             />
-            <h3 className="text-[22px] font-medium lg:text-[26px]">{t(`usages.${key}.title`)}</h3>
+            <h3 className="text-[22px] font-bold lg:text-[26px]">{t(`usages.${key}.title`)}</h3>
             <p className={cn('text-[15px] leading-[1.55]', highlighted ? 'text-charge-soft' : 'text-slate-text')}>{t(`usages.${key}.description`)}</p>
             <ul className={cn('text-sm leading-[1.7]', highlighted ? 'text-charge-soft' : 'text-slate-ink')}>
               {featureKeys.map((featureKey) => (

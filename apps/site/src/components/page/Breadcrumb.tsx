@@ -19,7 +19,7 @@ export const Breadcrumb = ({ items, tone = 'dark', className }: BreadcrumbProps)
   const currentClassName = tone === 'dark' ? 'text-white' : 'text-night';
 
   return (
-    <nav aria-label={t('breadcrumb.label')} className={cn('site-breadcrumb text-[13px] font-medium lg:text-sm', className)}>
+    <nav aria-label={t('breadcrumb.label')} className={cn('text-[13px] font-medium lg:text-sm', className)}>
       <ol className="flex flex-wrap items-center gap-1.5">
         {trail.map((item, index) => {
           const isLast = index === trail.length - 1;

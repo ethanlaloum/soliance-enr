@@ -53,10 +53,10 @@ export const FicheMetricTiles = ({ keyPrefix, tone, className }: FicheMetricTile
       {metricKeys.map((key) => (
         <div
           key={key}
-          className={cn('flex flex-col-reverse justify-end gap-0.5 rounded-md p-3 lg:p-3.5', tone === 'dark' ? 'bg-night-soft' : 'bg-ivory')}
+          className={cn('flex flex-col-reverse justify-end gap-0.5 rounded-[10px] p-3 lg:p-3.5', tone === 'dark' ? 'bg-night-soft' : 'bg-ivory')}
         >
           <dt className={cn('text-xs leading-snug', tone === 'dark' ? 'text-slate-light' : 'text-slate-ink')}>{t(`${keyPrefix}.${key}.label`)}</dt>
-          <dd className="text-lg font-medium leading-tight text-solar lg:text-[22px]">{t(`${keyPrefix}.${key}.value`)}</dd>
+          <dd className="text-lg font-bold leading-tight text-solar lg:text-[22px]">{t(`${keyPrefix}.${key}.value`)}</dd>
         </div>
       ))}
     </dl>
@@ -85,8 +85,8 @@ export const FicheTechnicalSheet = ({ slug, rows, theme }: FicheTechnicalSheetPr
   const titleId = `${slug}-technical-sheet`;
 
   return (
-    <section data-reveal aria-labelledby={titleId} className={cn('flex flex-col gap-2 rounded-md p-[18px] text-sm', ficheThemeClassNames[theme].surface)}>
-      <h2 id={titleId} className="text-base font-medium">
+    <section data-reveal aria-labelledby={titleId} className={cn('flex flex-col gap-2 rounded-xl p-[18px] text-sm', ficheThemeClassNames[theme].surface)}>
+      <h2 id={titleId} className="text-base font-bold">
         {t('fiche.technicalSheet.title')}
       </h2>
       <dl>
@@ -94,12 +94,12 @@ export const FicheTechnicalSheet = ({ slug, rows, theme }: FicheTechnicalSheetPr
           <div
             key={row}
             className={cn(
-              'flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 py-3',
+              'flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 py-1.5',
               index < rows.length - 1 && cn('border-b', ficheThemeClassNames[theme].line),
             )}
           >
             <dt className="text-slate-ink">{t(`fiche.technicalSheet.rows.${row}`)}</dt>
-            <dd className="text-right font-medium">{t(`fiches.${slug}.technicalSheet.${row}`)}</dd>
+            <dd className="text-right font-bold">{t(`fiches.${slug}.technicalSheet.${row}`)}</dd>
           </div>
         ))}
       </dl>
@@ -118,7 +118,7 @@ export const FicheTestimonial = ({ slug, hasAuthor, theme }: FicheTestimonialPro
 
   return (
     <figure data-reveal className={cn('border-l-[3px] py-1 pl-[18px]', ficheThemeClassNames[theme].quoteBorder)}>
-      <blockquote className="font-['Fraunces_Variable'] text-[23px] italic leading-[1.5] tracking-[-0.02em] text-slate-text">{t(`fiches.${slug}.testimonial.quote`)}</blockquote>
+      <blockquote className="text-base leading-[1.55] text-slate-text">{t(`fiches.${slug}.testimonial.quote`)}</blockquote>
       {hasAuthor && <figcaption className="mt-1 text-[13px] text-slate">{t(`fiches.${slug}.testimonial.author`)}</figcaption>}
     </figure>
   );
@@ -140,7 +140,7 @@ export const FicheCallToAction = ({ slug, callToAction, theme = ProjectDetailThe
         to={callToActionTargets[callToAction]}
         className={cn(
           buttonVariants({ size: 'md' }),
-          'hz-page-button whitespace-normal text-center',
+          'whitespace-normal text-center',
           compact ? 'px-[22px] py-[13px] text-[15px]' : 'px-6 py-3.5 text-base',
           ficheThemeClassNames[theme].button,
         )}

@@ -79,9 +79,9 @@ const SideImages = ({ slug, images, priority }: SideImagesProps) => {
     const [main, ...others] = images;
     return (
       <div className="grid h-[240px] grid-cols-[minmax(0,2fr)_minmax(0,1fr)] grid-rows-2 gap-2 motion-safe:animate-zoom-in lg:h-[260px]">
-        <FicheImage slug={slug} image={main} priority={priority} className="row-span-2 h-full rounded-md" />
+        <FicheImage slug={slug} image={main} priority={priority} className="row-span-2 h-full rounded-xl" />
         {others.map((image) => (
-          <FicheImage key={image.key} slug={slug} image={image} className="h-full rounded-md" />
+          <FicheImage key={image.key} slug={slug} image={image} className="h-full rounded-xl" />
         ))}
       </div>
     );
@@ -94,7 +94,7 @@ const SideImages = ({ slug, images, priority }: SideImagesProps) => {
           key={image.key}
           slug={slug}
           image={image}
-          className={cn('rounded-md', images.length > 1 ? 'h-[140px] lg:h-[170px]' : 'h-[220px] lg:h-[260px]')}
+          className={cn('rounded-xl', images.length > 1 ? 'h-[140px] lg:h-[170px]' : 'h-[220px] lg:h-[260px]')}
         />
       ))}
     </div>
@@ -112,17 +112,17 @@ const FichePanel = ({ slug, panel }: FichePanelProps) => {
   const isExpectedResults = panel.kind === ProjectPanelKind.EXPECTED_RESULTS;
 
   return (
-    <section data-reveal aria-labelledby={titleId} className="flex flex-col gap-3 rounded-md bg-night p-5 text-white lg:p-[22px]">
+    <section data-reveal aria-labelledby={titleId} className="flex flex-col gap-3 rounded-2xl bg-night p-5 text-white lg:p-[22px]">
       {isExpectedResults ? (
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-          <h2 id={titleId} className="text-base font-medium">
+          <h2 id={titleId} className="text-base font-bold">
             {t('fiche.expectedResults.title')}
           </h2>
           <p className="text-xs text-care-mint">{t('fiche.expectedResults.measurement')}</p>
         </div>
       ) : (
         <>
-          <h2 id={titleId} className="text-base font-medium">
+          <h2 id={titleId} className="text-base font-bold">
             {t(`fiches.${slug}.panel.title`)}
           </h2>
           <p className="text-sm leading-[1.55] text-slate-light">{t(`fiches.${slug}.panel.text`)}</p>
@@ -143,22 +143,22 @@ export const ProjectStoryFiche = ({ detail }: { detail: ProjectStoryDetail }) =>
     <article
       aria-labelledby="project-title"
       className={cn(
-        'overflow-hidden rounded-md border bg-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:rounded-md',
+        'overflow-hidden rounded-[20px] border bg-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:rounded-[24px]',
         theme.border,
       )}
     >
-      <p className={cn('px-5 py-3 text-xs font-medium uppercase tracking-[1px] lg:px-10 lg:py-3.5 lg:text-[13px]', theme.band)}>{t(`${prefix}.band`)}</p>
+      <p className={cn('px-5 py-3 text-xs font-semibold uppercase tracking-[1px] lg:px-10 lg:py-3.5 lg:text-[13px]', theme.band)}>{t(`${prefix}.band`)}</p>
       {detail.heroImages.length > 0 && <HeroStrip slug={detail.slug} images={detail.heroImages} videoImageKey={detail.videoImageKey} />}
-      <div className="grid gap-8 p-5 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14 lg:px-12 lg:py-14">
-        <div className="flex flex-col gap-6 lg:gap-7">
-          <p className={cn('text-xs font-medium uppercase tracking-[1px] lg:text-[13px]', theme.accent)}>{t(`${prefix}.eyebrow`)}</p>
-          <h1 id="project-title" className="text-[34px] font-medium leading-[1.12] tracking-[-0.045em] lg:text-[48px]">
+      <div className="grid gap-8 p-5 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12 lg:px-12 lg:py-11">
+        <div className="flex flex-col gap-4 lg:gap-[18px]">
+          <p className={cn('text-xs font-semibold uppercase tracking-[1px] lg:text-[13px]', theme.accent)}>{t(`${prefix}.eyebrow`)}</p>
+          <h1 id="project-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[34px]">
             {t(`${prefix}.title`)}
           </h1>
           <div className="grid gap-3 sm:grid-cols-2 lg:gap-3.5">
             {detail.storyBlocks.map((block, index) => (
-              <div key={block} data-reveal style={revealDelay(index)} className={cn('border-t border-sand-line py-5', theme.surface)}>
-                <h2 className="text-xs font-medium uppercase text-slate">{t(`fiche.blocks.${block}`)}</h2>
+              <div key={block} data-reveal style={revealDelay(index)} className={cn('rounded-xl p-4', theme.surface)}>
+                <h2 className="text-xs font-semibold uppercase text-slate">{t(`fiche.blocks.${block}`)}</h2>
                 <p className="mt-1 text-sm leading-normal">{t(`${prefix}.blocks.${block}`)}</p>
               </div>
             ))}

@@ -4,7 +4,6 @@ import { SiteLayout } from '@/layout/SiteLayout';
 import { paths } from '@/routes/paths';
 
 const HomePage = lazy(() => import('@/pages/home/HomePage').then((module) => ({ default: module.HomePage })));
-const CarePage = lazy(() => import('@/pages/care/CarePage').then((module) => ({ default: module.CarePage })));
 const SolarPage = lazy(() => import('@/pages/solar/SolarPage').then((module) => ({ default: module.SolarPage })));
 const HeatPumpPage = lazy(() => import('@/pages/heat-pump/HeatPumpPage').then((module) => ({ default: module.HeatPumpPage })));
 const EvChargerPage = lazy(() => import('@/pages/ev-charger/EvChargerPage').then((module) => ({ default: module.EvChargerPage })));
@@ -19,7 +18,6 @@ const NotFoundPage = lazy(() => import('@/pages/not-found/NotFoundPage').then((m
 export const AppRoutes = () => (
   <Suspense fallback={null}>
     <Routes>
-      <Route path={paths.care} element={<CarePage />} />
       <Route element={<SiteLayout />}>
         <Route path={paths.home} element={<HomePage />} />
         <Route path={paths.solar} element={<SolarPage />} />

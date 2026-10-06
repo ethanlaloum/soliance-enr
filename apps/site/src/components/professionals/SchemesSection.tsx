@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName, eyebrowClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 import { SchemeDiagram } from '@/components/professionals/SchemeDiagram';
 import {
   BankIcon,
@@ -72,7 +72,7 @@ export const SchemesSection = () => {
       <div data-reveal className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
         <div className="flex flex-col gap-2">
           <p className={eyebrowClassName}>{t('schemes.eyebrow')}</p>
-          <h2 id="schemes-title" className="text-[28px] font-medium leading-tight tracking-[-0.045em] lg:text-[40px]">
+          <h2 id="schemes-title" className="text-[28px] font-bold leading-tight tracking-[-0.02em] lg:text-[40px]">
             {t('schemes.title')}
           </h2>
         </div>
@@ -87,9 +87,9 @@ export const SchemesSection = () => {
               key={scheme.key}
               data-reveal
               style={revealDelay(index % 2)}
-              className="flex flex-col gap-3.5 rounded-[4px] border border-sand-line bg-white p-4 lg:rounded-[4px] lg:p-6"
+              className="flex flex-col gap-3.5 rounded-2xl border border-sand-line bg-white p-4 lg:rounded-[20px] lg:p-6"
             >
-              <div className="relative overflow-hidden rounded-[4px]">
+              <div className="relative overflow-hidden rounded-xl">
                 <img
                   src={scheme.image}
                   alt={t(`schemes.items.${scheme.key}.imageAlt`)}
@@ -108,11 +108,11 @@ export const SchemesSection = () => {
                   }))}
                 />
               </div>
-              <h3 className="text-lg font-medium lg:text-xl">{title}</h3>
+              <h3 className="text-lg font-bold lg:text-xl">{title}</h3>
               <dl className="text-sm leading-[1.55] text-slate-ink">
                 {definitionKeys.map((definitionKey) => (
                   <div key={definitionKey} className="inline">
-                    <dt className="inline font-medium">{t(`schemes.labels.${definitionKey}`)}</dt>{' '}
+                    <dt className="inline font-bold">{t(`schemes.labels.${definitionKey}`)}</dt>{' '}
                     <dd className="inline">{t(`schemes.items.${scheme.key}.${definitionKey}`)}</dd>{' '}
                   </div>
                 ))}
@@ -124,15 +124,15 @@ export const SchemesSection = () => {
 
       <ul className="grid gap-3 lg:grid-cols-3 lg:gap-4">
         {insetKeys.map((key, index) => (
-          <li key={key} data-reveal style={revealDelay(index)} className="rounded-[4px] border border-sand-line p-[18px]">
-            <h3 className="font-medium">{t(`schemes.insets.${key}.title`)}</h3>
+          <li key={key} data-reveal style={revealDelay(index)} className="rounded-xl border border-sand-line p-[18px]">
+            <h3 className="font-bold">{t(`schemes.insets.${key}.title`)}</h3>
             <p className="mt-1 text-[13px] leading-normal text-slate-ink">{t(`schemes.insets.${key}.description`)}</p>
           </li>
         ))}
       </ul>
 
       <p className="text-xs text-slate">
-        <Trans t={t} i18nKey="schemes.footnote" components={{ glossaryLink: <Link to={paths.resources} className="font-medium text-solar hover:text-solar-dark" /> }} />
+        <Trans t={t} i18nKey="schemes.footnote" components={{ glossaryLink: <Link to={paths.resources} className="font-semibold text-solar hover:text-solar-dark" /> }} />
       </p>
     </section>
   );

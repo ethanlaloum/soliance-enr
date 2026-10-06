@@ -29,7 +29,7 @@ type SimulationCaptureFormProps = {
   estimate: SolarEstimate;
 };
 
-const cardClassName = 'hz-simulator-capture flex scroll-mt-32 flex-col gap-4 rounded-[6px] border border-sand-line p-6 lg:p-8';
+const cardClassName = 'flex scroll-mt-24 flex-col gap-2.5 rounded-2xl border border-sand-line bg-white p-5 lg:p-6';
 
 export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFormProps) => {
   const { t } = useTranslation('simulator');
@@ -55,7 +55,7 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
   if (isSubmitted) {
     return (
       <div id={simulatorCaptureId} role="status" className={cardClassName}>
-        <h2 className="text-[23px] font-normal tracking-[-0.04em]">{t('capture.successTitle')}</h2>
+        <h2 className="text-[17px] font-bold">{t('capture.successTitle')}</h2>
         <p className="text-sm leading-normal text-slate-ink">{t('capture.successDescription')}</p>
       </div>
     );
@@ -63,12 +63,12 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
 
   return (
     <form id={simulatorCaptureId} noValidate aria-labelledby="simulator-capture-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
-      <h2 id="simulator-capture-title" className="text-[23px] font-normal tracking-[-0.04em]">
+      <h2 id="simulator-capture-title" className="text-[17px] font-bold">
         {t('capture.title')}
       </h2>
       <p className="text-sm leading-normal text-slate-ink">{t('capture.description')}</p>
 
-      <div className="grid gap-2.5 sm:grid-cols-2">
+      <div className="grid gap-2.5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto]">
         {contactFields.map((field) => {
           const error = errors[field.name];
           return (
@@ -95,7 +95,7 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="mt-1 h-[50px] rounded-[4px] bg-night px-[18px] py-0 text-[14px] font-medium hover:bg-night-soft sm:col-span-2"
+          className="mt-1 h-[46px] rounded-lg bg-night px-[18px] py-0 text-[15px] hover:bg-night-soft hover:shadow-soft sm:mt-[26px] sm:h-12"
         >
           {isSubmitting ? t('common:leadForm.submitting') : t('capture.submit')}
         </Button>

@@ -22,13 +22,13 @@ export const ficheThemeClassNames: Record<ProjectDetailTheme, FicheThemeClassNam
     button: '',
   },
   [ProjectDetailTheme.HEAT]: {
-    border: 'border-sand-line',
-    band: 'bg-night text-slate-mist',
-    accent: 'text-solar',
-    surface: 'bg-ivory',
-    line: 'border-sand-line',
-    quoteBorder: 'border-solar',
-    button: '',
+    border: 'border-heat-line',
+    band: 'bg-heat text-heat-mist',
+    accent: 'text-heat',
+    surface: 'bg-heat-surface',
+    line: 'border-heat-line',
+    quoteBorder: 'border-heat',
+    button: 'bg-heat hover:bg-[#083d82] hover:shadow-[0_12px_24px_-10px_rgba(10,77,162,0.6)]',
   },
 };
 

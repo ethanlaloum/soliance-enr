@@ -2,10 +2,9 @@ export enum LeadFormKind {
   PROFESSIONAL_STUDY = 'PROFESSIONAL_STUDY',
   REFERRAL = 'REFERRAL',
   SIMULATION = 'SIMULATION',
-  CARE_REQUEST = 'CARE_REQUEST',
 }
 
-export const leadFormKinds: LeadFormKind[] = [LeadFormKind.PROFESSIONAL_STUDY, LeadFormKind.REFERRAL, LeadFormKind.SIMULATION, LeadFormKind.CARE_REQUEST];
+export const leadFormKinds: LeadFormKind[] = [LeadFormKind.PROFESSIONAL_STUDY, LeadFormKind.REFERRAL, LeadFormKind.SIMULATION];
 
 export type LeadFields = Record<string, string | null>;
 

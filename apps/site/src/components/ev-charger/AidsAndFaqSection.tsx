@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { FaqList } from '@/components/page/FaqList';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 const aidKeys = ['taxCredit', 'reducedVat', 'advenir', 'rightToPlug'] as const;
 const faqKeys = ['reinforcedSocket', 'subscription', 'timeline', 'compatibility', 'condominium'] as const;
 
-const titleClassName = 'text-[26px] font-medium tracking-[-0.045em] lg:text-[36px]';
+const titleClassName = 'text-[26px] font-bold tracking-[-0.02em] lg:text-[36px]';
 
 export const AidsAndFaqSection = () => {
   const { t } = useTranslation('evCharger');
@@ -24,8 +24,8 @@ export const AidsAndFaqSection = () => {
         </h2>
         <ul className="flex flex-col gap-3">
           {aidKeys.map((key, index) => (
-            <li key={key} data-reveal style={revealDelay(index)} className="rounded-[4px] bg-charge-surface px-5 py-[18px]">
-              <h3 className="font-medium text-charge-dark">{t(`aids.items.${key}.title`)}</h3>
+            <li key={key} data-reveal style={revealDelay(index)} className="rounded-xl bg-charge-surface px-5 py-[18px]">
+              <h3 className="font-bold text-charge-dark">{t(`aids.items.${key}.title`)}</h3>
               <p className="mt-1 text-sm leading-normal text-slate-text">{t(`aids.items.${key}.description`)}</p>
             </li>
           ))}

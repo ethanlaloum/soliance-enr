@@ -8,17 +8,17 @@ export default {
         desktop: '1440px',
       },
       fontFamily: {
-        sans: ['var(--font-sans, "Bai Jamjuree")', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['"Bai Jamjuree"', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
-        night: { DEFAULT: 'rgb(var(--color-night, 11 17 32) / <alpha-value>)', soft: 'rgb(var(--color-night-soft, 22 33 58) / <alpha-value>)', line: 'rgb(var(--color-night-line, 58 74 99) / <alpha-value>)' },
-        solar: { DEFAULT: 'rgb(var(--color-solar, 224 123 40) / <alpha-value>)', dark: 'rgb(var(--color-solar-dark, 184 95 23) / <alpha-value>)' },
-        ivory: 'rgb(var(--color-ivory, 247 244 239) / <alpha-value>)',
-        slate: { DEFAULT: 'rgb(var(--color-slate, 122 138 154) / <alpha-value>)', ink: 'rgb(var(--color-slate-ink, 85 98 112) / <alpha-value>)', text: 'rgb(var(--color-slate-text, 51 64 79) / <alpha-value>)', mist: 'rgb(var(--color-slate-mist, 143 154 166) / <alpha-value>)', light: 'rgb(var(--color-slate-light, 201 208 216) / <alpha-value>)' },
-        sand: { line: 'rgb(var(--color-sand-line, 230 225 216) / <alpha-value>)', border: 'rgb(var(--color-sand-border, 213 207 196) / <alpha-value>)' },
-        care: { DEFAULT: 'rgb(var(--color-care, 26 122 82) / <alpha-value>)', night: 'rgb(var(--color-care-night, 7 26 18) / <alpha-value>)', mint: 'rgb(var(--color-care-mint, 78 207 160) / <alpha-value>)' },
-        heat: { DEFAULT: 'rgb(var(--color-heat, 10 77 162) / <alpha-value>)', surface: 'rgb(var(--color-heat-surface, 243 247 252) / <alpha-value>)', soft: 'rgb(var(--color-heat-soft, 230 238 248) / <alpha-value>)', sky: 'rgb(var(--color-heat-sky, 219 232 250) / <alpha-value>)', line: 'rgb(var(--color-heat-line, 215 228 244) / <alpha-value>)', mist: 'rgb(var(--color-heat-mist, 191 214 245) / <alpha-value>)' },
-        charge: { DEFAULT: 'rgb(var(--color-charge, 18 140 79) / <alpha-value>)', dark: 'rgb(var(--color-charge-dark, 13 107 60) / <alpha-value>)', surface: 'rgb(var(--color-charge-surface, 233 247 239) / <alpha-value>)', soft: 'rgb(var(--color-charge-soft, 230 247 238) / <alpha-value>)', line: 'rgb(var(--color-charge-line, 207 233 219) / <alpha-value>)' },
+        night: { DEFAULT: '#0B1120', soft: '#16213a', line: '#3a4a63' },
+        solar: { DEFAULT: '#E07B28', dark: '#b85f17' },
+        ivory: '#F7F4EF',
+        slate: { DEFAULT: '#7A8A9A', ink: '#556270', text: '#33404f', mist: '#8f9aa6', light: '#c9d0d8' },
+        sand: { line: '#e6e1d8', border: '#d5cfc4' },
+        care: { DEFAULT: '#1A7A52', night: '#071A12', mint: '#4ECFA0' },
+        heat: { DEFAULT: '#0A4DA2', surface: '#F3F7FC', soft: '#e6eef8', sky: '#dbe8fa', line: '#d7e4f4', mist: '#bfd6f5' },
+        charge: { DEFAULT: '#128C4F', dark: '#0d6b3c', surface: '#E9F7EF', soft: '#e6f7ee', line: '#cfe9db' },
       },
       keyframes: {
         'fade-up': {

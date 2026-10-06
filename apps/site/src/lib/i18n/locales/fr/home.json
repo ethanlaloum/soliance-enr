@@ -18,24 +18,12 @@
       "installation": "Pose en 1 à 3 jours",
       "localTeam": "Équipe locale depuis 2022"
     },
-    "imageAlt": "Villa contemporaine équipée de panneaux solaires, photographie de la banque de réalisations Soliance",
+    "imageAlt": "Villa à Vence équipée par Soliance : 16 kWc et batterie 15 kWh",
     "statsLabel": "Soliance en chiffres",
     "stats": {
-      "installations": {
-        "value": "280+",
-        "label": "installations suivies en PACA",
-        "labelShort": "installations suivies"
-      },
-      "signature": {
-        "value": "10 j",
-        "label": "du premier contact à la signature",
-        "labelShort": "jusqu'à la signature"
-      },
-      "maintenance": {
-        "value": "1 an",
-        "label": "de maintenance incluse",
-        "labelShort": "maintenance incluse"
-      }
+      "installations": { "value": "280+", "label": "installations suivies en PACA", "labelShort": "installations suivies" },
+      "signature": { "value": "10 j", "label": "du premier contact à la signature", "labelShort": "jusqu'à la signature" },
+      "maintenance": { "value": "1 an", "label": "de maintenance incluse", "labelShort": "maintenance incluse" }
     }
   },
   "partners": {
@@ -77,18 +65,9 @@
     "imageAlt": "Toiture équipée de panneaux solaires au coucher du soleil, Côte d'Azur",
     "estimateLabel": "Exemple d'estimation pour une maison type",
     "estimate": {
-      "power": {
-        "value": "6 kWc + 10 kWh",
-        "label": "conseillés pour une maison type"
-      },
-      "production": {
-        "value": "≈ 7 800 kWh",
-        "label": "produits par an (1 300 kWh/kWc)"
-      },
-      "autonomy": {
-        "value": "≈ 75 %",
-        "label": "d'autonomie · aucune prime, surplus 0,01 €"
-      }
+      "power": { "value": "6 kWc + 10 kWh", "label": "conseillés pour une maison type" },
+      "production": { "value": "≈ 7 800 kWh", "label": "produits par an (1 300 kWh/kWc)" },
+      "autonomy": { "value": "≈ 75 %", "label": "d'autonomie · aucune prime, surplus 0,01 €" }
     }
   },
   "steps": {
@@ -129,49 +108,22 @@
     "title": "Une équipe de la région, qui reste après la pose.",
     "body": "Nous sommes installateurs depuis 2022 sur la Côte d'Azur. Nos techniciens posent eux-mêmes, notre showroom est ouvert à Saint-Laurent-du-Var, et chaque installation est suivie par Soliance Care, notre service de supervision et de maintenance.",
     "values": {
-      "trust": {
-        "title": "Confiance",
-        "description": "Un prix fixe, sans surprise, avant la signature."
-      },
-      "transparency": {
-        "title": "Transparence",
-        "description": "Le rachat du surplus est quasi nul : nous le disons, et nous dimensionnons pour l'autoconsommation."
-      },
-      "expertise": {
-        "title": "Expertise",
-        "description": "Techniciens certifiés RGE, matériel sélectionné."
-      },
-      "proximity": {
-        "title": "Proximité",
-        "description": "Showroom, technicien local, réponse sous 48 h."
-      }
+      "trust": { "title": "Confiance", "description": "Un prix fixe, sans surprise, avant la signature." },
+      "transparency": { "title": "Transparence", "description": "Le rachat du surplus est quasi nul : nous le disons, et nous dimensionnons pour l'autoconsommation." },
+      "expertise": { "title": "Expertise", "description": "Techniciens certifiés RGE, matériel sélectionné." },
+      "proximity": { "title": "Proximité", "description": "Showroom, technicien local, réponse sous 48 h." }
     },
     "imageAlt": "L'équipe Soliance devant le showroom",
-    "insurance": {
-      "label": "Assurance",
-      "value": "RC pro & décennale MMA"
-    },
-    "financing": {
-      "label": "Financement",
-      "value": "Sofinco · BPCE Lease"
-    }
+    "insurance": { "label": "Assurance", "value": "RC pro & décennale MMA" },
+    "financing": { "label": "Financement", "value": "Sofinco · BPCE Lease" }
   },
   "testimonials": {
     "title": "Ils nous font confiance",
     "rating": "[Note Google] · [Nombre] avis",
     "starsLabel": "5 étoiles sur 5",
-    "solar": {
-      "quote": "[Témoignage client réel — installation photovoltaïque, commune, année]",
-      "author": "[Prénom N.] · [Commune]"
-    },
-    "heatPump": {
-      "quote": "[Témoignage client réel — pompe à chaleur]",
-      "author": "[Prénom N.] · [Commune]"
-    },
-    "evCharger": {
-      "quote": "[Témoignage client réel — borne de recharge ou projet pro]",
-      "author": "[Prénom N.] · [Commune]"
-    }
+    "solar": { "quote": "[Témoignage client réel — installation photovoltaïque, commune, année]", "author": "[Prénom N.] · [Commune]" },
+    "heatPump": { "quote": "[Témoignage client réel — pompe à chaleur]", "author": "[Prénom N.] · [Commune]" },
+    "evCharger": { "quote": "[Témoignage client réel — borne de recharge ou projet pro]", "author": "[Prénom N.] · [Commune]" }
   },
   "tiles": {
     "referral": {
@@ -189,24 +141,10 @@
   "contact": {
     "title": "Parlons de votre projet",
     "lead": "Un conseiller vous rappelle sous 48 h ouvrées pour une première étude gratuite. Vous pouvez aussi passer au showroom.",
-    "showroom": {
-      "label": "Showroom",
-      "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var"
-    },
-    "sales": {
-      "label": "Commercial",
-      "email": "commercial@soliance-enr.fr",
-      "phone": "07 63 54 51 44"
-    },
-    "admin": {
-      "label": "Administratif",
-      "email": "adv@soliance-enr.fr",
-      "phone": "06 59 40 38 88"
-    },
-    "hours": {
-      "label": "Horaires",
-      "value": "lundi au vendredi, 9 h – 18 h"
-    },
+    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "sales": { "label": "Commercial", "email": "commercial@soliance-enr.fr", "phone": "07 63 54 51 44" },
+    "admin": { "label": "Administratif", "email": "adv@soliance-enr.fr", "phone": "06 59 40 38 88" },
+    "hours": { "label": "Horaires", "value": "lundi au vendredi, 9 h – 18 h" },
     "mapLink": "Voir le showroom sur Google Maps",
     "form": {
       "title": "Demander une étude gratuite",
@@ -246,116 +184,6 @@
         "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 07 63 54 51 44.",
         "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
       }
-    }
-  },
-  "horizon": {
-    "hero": {
-      "eyebrow": "L’énergie du Sud, pensée pour vous.",
-      "line1": "Le soleil,",
-      "line2": "votre plus",
-      "line3": "bel allié.",
-      "lead": "Produisez votre électricité. Repensez votre confort. Avec une équipe d’ici, qui s’occupe de tout.",
-      "cta": "Parlons de votre projet",
-      "secondary": "Explorer nos solutions",
-      "note": "Étude gratuite · Sans engagement",
-      "location": "Côte d’Azur & Provence",
-      "photoLabel": "L’énergie prend sa place, chez vous.",
-      "photoAlt": "Villa contemporaine équipée de panneaux solaires, photographie de la banque de réalisations Soliance",
-      "scroll": "La suite se construit ensemble",
-      "territory": "ALPES-MARITIMES · VAR · BOUCHES-DU-RHÔNE"
-    },
-    "proof": {
-      "intro": "Bien entouré,\ndès le premier jour.",
-      "installations": "installations suivies en PACA",
-      "teamValue": "100 %",
-      "teamLabel": "pose par nos techniciens",
-      "careValue": "1 an",
-      "careLabel": "de maintenance incluse"
-    },
-    "solutions": {
-      "eyebrow": "01 / Mieux vivre chez vous",
-      "title": "Une maison qui fait",
-      "accent": "le plein d’énergie.",
-      "intro": "Du toit au garage, nous pensons vos équipements ensemble. Pour une installation cohérente, adaptée à votre façon de vivre.",
-      "discover": "Découvrir la solution",
-      "solar": {
-        "title": "Produire",
-        "subtitle": "Solaire & batterie",
-        "description": "Le soleil dans la journée. Votre énergie le soir. Des panneaux et une batterie dimensionnés pour votre maison, vos habitudes et vos envies.",
-        "detail": "Étude personnalisée · Démarches incluses"
-      },
-      "heatPump": {
-        "title": "Se sentir bien",
-        "subtitle": "Pompe à chaleur",
-        "description": "La bonne température, en toute saison. Nous étudions votre logement pour choisir le chauffage et la climatisation qui lui conviennent.",
-        "detail": "Air / air · Air / eau · Accompagnement aux aides"
-      },
-      "evCharger": {
-        "title": "Aller plus loin",
-        "subtitle": "Borne de recharge",
-        "description": "Branchez-vous à la maison, repartez l’esprit libre. Une borne adaptée à votre véhicule, qui peut être pilotée par votre production solaire.",
-        "detail": "Maison & entreprise · Installation IRVE"
-      }
-    },
-    "projects": {
-      "eyebrow": "02 / Du concret, près de chez vous",
-      "title": "Le changement",
-      "accent": "se voit déjà.",
-      "all": "Toutes nos réalisations",
-      "firstTitle": "Une villa, un nouvel horizon.",
-      "firstLocation": "Saint-Jeannet · Alpes-Maritimes",
-      "firstTag": "Solaire · 6 kWc",
-      "secondTitle": "L’énergie à la hauteur du lieu.",
-      "secondLocation": "Roquebrune-sur-Argens · Var",
-      "secondTag": "Solaire · 10 kWc",
-      "firstAlt": "Villa à Saint-Jeannet avec panneaux solaires, piscine et palmiers",
-      "secondAlt": "Panneaux solaires en bordure de piscine et vue sur la Méditerranée à Roquebrune-sur-Argens",
-      "view": "Voir le projet"
-    },
-    "simulator": {
-      "eyebrow": "Et si on commençait par votre toit ?",
-      "title": "Votre prochaine énergie",
-      "accent": "est juste au-dessus.",
-      "lead": "Votre toiture, votre consommation, vos habitudes. Quelques informations suffisent pour obtenir une première estimation de votre projet solaire.",
-      "cta": "Simuler mon projet",
-      "note": "Gratuit · Environ 2 minutes · Sans engagement",
-      "diagramLabel": "Du soleil à votre quotidien",
-      "sun": "Produire",
-      "battery": "Stocker",
-      "home": "Profiter",
-      "diagramNote": "Votre énergie. À votre rythme."
-    },
-    "team": {
-      "eyebrow": "03 / Des gens d’ici",
-      "title": "Un projet de maison.",
-      "accent": "Une histoire humaine.",
-      "lead": "Une équipe à Saint-Laurent-du-Var, un showroom où se rencontrer et nos propres techniciens sur votre toit. Chez Soliance, la proximité se vit sur le terrain.",
-      "imageAlt": "L’équipe Soliance devant le showroom de Saint-Laurent-du-Var",
-      "caption": "Vos interlocuteurs, tout simplement.",
-      "since": "À vos côtés depuis 2022",
-      "commitment": "Notre engagement",
-      "statement": "Présents avant.\nPendant. Et longtemps après.",
-      "visit": "Rencontrons-nous au showroom"
-    },
-    "steps": {
-      "title": "Vous avez un projet.\nOn connaît le chemin.",
-      "intro": "Un interlocuteur, un prix fixe et cinq étapes pour avancer sereinement."
-    },
-    "care": {
-      "label": "Soliance Care",
-      "title": "Et après la pose ?",
-      "body": "On reste à vos côtés. Supervision, entretien et accompagnement : votre installation mérite un suivi dans la durée.",
-      "cta": "Découvrir Soliance Care"
-    },
-    "contact": {
-      "eyebrow": "La suite, c’est avec vous.",
-      "title": "Donnons de l’énergie",
-      "accent": "à votre projet.",
-      "lead": "Parlez-nous de votre maison et de vos envies. Nous vous rappelons sous 48 h ouvrées pour une première étude gratuite.",
-      "phoneLabel": "Ou échangeons de vive voix",
-      "addressLabel": "Passez nous voir",
-      "formNote": "Un premier échange. Aucune obligation.",
-      "signature": "L’énergie commence ici."
     }
   }
 }

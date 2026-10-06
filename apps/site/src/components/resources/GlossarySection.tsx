@@ -4,6 +4,7 @@ import { config } from '@/config';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
+import { containerClassName } from '@/components/home/containerClassName';
 import { sectionScrollMarginClassName } from '@/components/resources/resourceSectionIds';
 
 const internalLinkPaths = {
@@ -48,7 +49,7 @@ const moreEntries: GlossaryEntry[] = [
 
 const GlossaryLink = ({ link, className }: { link: GlossaryLinkKey; className?: string }) => {
   const { t } = useTranslation('resources');
-  const linkClassName = cn('group/link inline-flex items-center gap-1 self-start text-sm font-medium', className);
+  const linkClassName = cn('group/link inline-flex items-center gap-1 self-start text-sm font-semibold', className);
   const content = (
     <>
       {t(`glossary.links.${link}`)}
@@ -78,21 +79,21 @@ export const GlossarySection = () => {
     <section
       id="glossary"
       aria-labelledby="glossary-title"
-      className={cn('hz-page-container', sectionScrollMarginClassName, 'flex flex-col gap-8 border-t border-sand-line pb-20 pt-12 lg:gap-12 lg:pb-28 lg:pt-20')}
+      className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-14 pt-8 lg:gap-6 lg:pb-20 lg:pt-10')}
     >
       <div data-reveal className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
-        <h2 id="glossary-title" className="text-[34px] font-medium leading-[1.12] tracking-[-0.045em] lg:text-[48px]">
+        <h2 id="glossary-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
           {t('glossary.title')}
         </h2>
         <p className="text-[13px] text-slate">{t('glossary.updated')}</p>
       </div>
 
-      <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
         {glossaryCards.map((card, index) => (
           <li key={card.key} data-reveal style={revealDelay(index % 3)}>
-            <article className="flex h-full flex-col gap-4 rounded-md border border-sand-line bg-white/50 p-6 lg:p-8">
-              <p className="text-xs font-medium uppercase tracking-[1px] text-solar">{t(`glossary.categories.${card.category}`)}</p>
-              <h3 className="text-[23px] font-medium leading-tight tracking-[-0.025em]">{t(`glossary.entries.${card.key}.term`)}</h3>
+            <article className="flex h-full flex-col gap-1.5 rounded-[14px] border border-sand-line bg-white p-5 lg:p-[22px]">
+              <p className="text-xs font-semibold uppercase tracking-[1px] text-solar">{t(`glossary.categories.${card.category}`)}</p>
+              <h3 className="text-[17px] font-bold lg:text-lg">{t(`glossary.entries.${card.key}.term`)}</h3>
               <p className="text-sm leading-normal text-slate-ink">{t(`glossary.entries.${card.key}.definition`)}</p>
               <GlossaryLink link={card.link} />
             </article>
@@ -100,13 +101,13 @@ export const GlossarySection = () => {
         ))}
       </ul>
 
-      <div data-reveal className="flex flex-col gap-6">
-        <h3 className="text-[15px] font-medium text-slate-ink">{t('glossary.moreTitle')}</h3>
+      <div data-reveal className="flex flex-col gap-3">
+        <h3 className="text-[15px] font-semibold text-slate-ink">{t('glossary.moreTitle')}</h3>
         <ul className="grid gap-2.5 lg:grid-cols-2 lg:items-start">
           {sortedMoreEntries.map((entry) => (
             <li key={entry.key}>
-              <details className="group/entry border-b border-sand-line bg-transparent px-1 py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium marker:hidden [&::-webkit-details-marker]:hidden">
+              <details className="group/entry rounded-xl border border-sand-line bg-white px-5 py-3.5 lg:px-[22px]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold marker:hidden [&::-webkit-details-marker]:hidden">
                   <span>{moreTerm(entry)}</span>
                   <span
                     aria-hidden="true"

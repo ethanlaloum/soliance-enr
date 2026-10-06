@@ -14,7 +14,7 @@ type SchemeDiagramProps = {
 };
 
 export const SchemeDiagram = ({ label, steps, className }: SchemeDiagramProps) => (
-  <ol aria-label={label} className={cn('flex items-start justify-between gap-1 rounded-[4px] bg-white/95 px-2.5 py-2.5 shadow-soft backdrop-blur-sm lg:px-4 lg:py-3', className)}>
+  <ol aria-label={label} className={cn('flex items-start justify-between gap-1 rounded-xl bg-white/95 px-2.5 py-2.5 shadow-soft backdrop-blur-sm lg:px-4 lg:py-3', className)}>
     {steps.map(({ key, label: stepLabel, Icon }, index) => (
       <Fragment key={key}>
         {index > 0 && (
@@ -33,7 +33,7 @@ export const SchemeDiagram = ({ label, steps, className }: SchemeDiagramProps) =
           >
             <Icon className="h-[18px] w-[18px] lg:h-5 lg:w-5" />
           </span>
-          <span className="text-[11px] font-medium leading-tight text-night lg:text-xs">{stepLabel}</span>
+          <span className="text-[11px] font-semibold leading-tight text-night lg:text-xs">{stepLabel}</span>
         </li>
       </Fragment>
     ))}

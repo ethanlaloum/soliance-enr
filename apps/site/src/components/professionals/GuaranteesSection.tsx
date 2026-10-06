@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 const guaranteeKeys = ['financing', 'insurance', 'partners'] as const;
 
@@ -19,10 +19,10 @@ export const GuaranteesSection = () => {
             key={key}
             data-reveal
             style={revealDelay(index)}
-            className="flex flex-col gap-1.5 rounded-[4px] border border-sand-line bg-white p-5 lg:p-[22px]"
+            className="flex flex-col gap-1.5 rounded-[14px] border border-sand-line bg-white p-5 lg:p-[22px]"
           >
-            <dt className="text-xs font-medium uppercase tracking-[1px] text-slate lg:text-[13px]">{t(`guarantees.${key}.label`)}</dt>
-            <dd className="text-base font-medium lg:text-[17px]">{t(`guarantees.${key}.value`)}</dd>
+            <dt className="text-xs font-semibold uppercase tracking-[1px] text-slate lg:text-[13px]">{t(`guarantees.${key}.label`)}</dt>
+            <dd className="text-base font-bold lg:text-[17px]">{t(`guarantees.${key}.value`)}</dd>
           </div>
         ))}
       </dl>

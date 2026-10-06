@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { projectPath } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 type Offer = {
   key: 'industrialRoofs' | 'carports' | 'evCharging' | 'collectives';
@@ -35,23 +35,23 @@ const offers: Offer[] = [
   },
 ];
 
-const exampleLinkClassName = 'font-medium text-solar underline decoration-solar/40 underline-offset-2 hover:text-solar-dark';
+const exampleLinkClassName = 'font-semibold text-solar underline decoration-solar/40 underline-offset-2 hover:text-solar-dark';
 
 export const OffersSection = () => {
   const { t } = useTranslation('professionals');
 
   return (
     <section aria-labelledby="offers-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-2 pt-10 lg:gap-8 lg:pb-16 lg:pt-20')}>
-      <h2 id="offers-title" data-reveal className="text-[28px] font-medium tracking-[-0.045em] lg:text-[40px]">
+      <h2 id="offers-title" data-reveal className="text-[28px] font-bold tracking-[-0.02em] lg:text-[40px]">
         {t('offers.title')}
       </h2>
-      <ul className="grid gap-4 sm:grid-cols-2 lg:gap-5">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
         {offers.map((offer, index) => (
           <li
             key={offer.key}
             data-reveal
             style={revealDelay(index)}
-            className="flex flex-col gap-2 overflow-hidden rounded-[4px] border border-sand-line bg-white pb-6 lg:pb-[26px]"
+            className="flex flex-col gap-2 overflow-hidden rounded-2xl border border-sand-line bg-white pb-6 lg:pb-[26px]"
           >
             <img
               src={offer.image}
@@ -60,9 +60,9 @@ export const OffersSection = () => {
               height={offer.height}
               loading="lazy"
               style={{ objectPosition: offer.objectPosition }}
-              className="mb-3 block h-[260px] lg:h-[320px] w-full object-cover"
+              className="mb-3 block h-[170px] w-full object-cover"
             />
-            <h3 className="px-5 text-lg font-medium lg:px-[26px] lg:text-xl">{t(`offers.items.${offer.key}.title`)}</h3>
+            <h3 className="px-5 text-lg font-bold lg:px-[26px] lg:text-xl">{t(`offers.items.${offer.key}.title`)}</h3>
             <p className="px-5 text-sm leading-normal text-slate-ink lg:px-[26px]">
               {offer.exampleSlug ? (
                 <Trans

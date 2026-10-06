@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
-import { containerClassName } from '@/components/solar/horizonSolutionStyles';
+import { containerClassName } from '@/components/home/containerClassName';
 
 export const SolarCtaSection = () => {
   const { t } = useTranslation('solar');
@@ -13,10 +13,10 @@ export const SolarCtaSection = () => {
       <section
         data-reveal
         aria-labelledby="solar-cta-title"
-        className="flex flex-col gap-5 rounded-[4px] bg-night p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:rounded-[4px] lg:px-[52px] lg:py-11"
+        className="flex flex-col gap-5 rounded-2xl bg-night p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:rounded-[20px] lg:px-[52px] lg:py-11"
       >
         <div>
-          <h2 id="solar-cta-title" className="text-[22px] font-medium leading-[1.2] text-white lg:text-[30px]">
+          <h2 id="solar-cta-title" className="text-[22px] font-bold leading-[1.2] text-white lg:text-[30px]">
             {t('cta.title')}
           </h2>
           <p className="mt-1.5 text-[15px] text-slate-light lg:text-base">{t('cta.description')}</p>

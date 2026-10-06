@@ -41,21 +41,11 @@
     "mobileContact": "commercial@soliance-enr.fr · +33 7 63 54 51 44"
   },
   "notFound": {
-    "seoTitle": "404 — Page not found | Soliance",
-    "eyebrow": "Error 404 · Page not found",
-    "title": "This page has been",
-    "accent": "eclipsed.",
-    "description": "The link may have changed, or this page may no longer exist. Let’s get back on track: your project still has bright days ahead.",
+    "seoTitle": "Page in progress | Soliance",
+    "title": "This page is coming soon",
+    "description": "We are preparing this part of the site. In the meantime, our team is happy to answer all your questions.",
     "backHome": "Back to home",
-    "contact": "Contact the team",
-    "sunshine": "The sun is still shining.",
-    "findWay": "Let’s start from here.",
-    "links": {
-      "solar": { "title": "Produce your own energy", "description": "Solar panels & batteries" },
-      "heatPump": { "title": "Feel at home", "description": "Heat pumps & comfort" },
-      "projects": { "title": "Find inspiration", "description": "Our installations near you" }
-    },
-    "seoDescription": "This page could not be found. Explore the Soliance homepage, solar solutions, heat pumps and installations."
+    "seoDescription": "This page of the Soliance website is being prepared. Discover our solar, heat pump and EV charger solutions."
   },
   "breadcrumb": {
     "home": "Home",
