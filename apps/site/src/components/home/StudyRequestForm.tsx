@@ -13,6 +13,8 @@ import {
   selectSubmitStudyRequestSuccess,
 } from '@/selectors/lead/leadSelectors';
 import { Button } from '@/components/ui/button';
+import { useSpamTrap } from '@/hooks/useSpamTrap';
+import { HoneypotField } from '@/components/ui/honeypot-field';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { studyRequestDefaultValues, StudyRequestFormData, studyRequestSchema } from '@/components/home/studyRequestSchema';
 
@@ -31,6 +33,7 @@ export const StudyRequestForm = () => {
   const isSubmitting = useAppSelector(selectSubmitStudyRequestLoading);
   const isSubmitted = useAppSelector(selectSubmitStudyRequestSuccess);
   const errorCode = useAppSelector(selectSubmitStudyRequestError);
+  const { honeypotRef, readSpamTrap } = useSpamTrap();
 
   const {
     register,
@@ -55,6 +58,7 @@ export const StudyRequestForm = () => {
           consentText: t('contact.form.consent'),
           pageUri: window.location.href,
           pageName: document.title,
+          spamTrap: readSpamTrap(),
         },
       }),
     );
@@ -73,6 +77,7 @@ export const StudyRequestForm = () => {
 
   return (
     <form noValidate aria-labelledby="study-request-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+      <HoneypotField ref={honeypotRef} />
       <h3 id="study-request-title" className="text-xl font-bold lg:text-[22px]">
         {t('contact.form.title')}
       </h3>

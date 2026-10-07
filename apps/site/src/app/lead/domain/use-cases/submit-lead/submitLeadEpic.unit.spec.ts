@@ -11,6 +11,7 @@ const professionalForm: LeadSubmissionForm = {
   consentText: 'consent-text-v1',
   pageUri: 'https://soliance-enr.fr/professionnels',
   pageName: 'professionals',
+  spamTrap: { honeypot: '', formStartedAt: Date.parse('2026-10-05T08:29:48.000Z') },
 };
 
 describe('Generic lead submission', () => {
@@ -32,6 +33,7 @@ describe('Generic lead submission', () => {
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
         pageUri: 'https://soliance-enr.fr/professionnels',
         pageName: 'professionals',
+        spamSignals: { honeypot: '', fillDurationMs: 12000 },
       },
     ]);
   });

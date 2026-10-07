@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { useSpamTrap } from '@/hooks/useSpamTrap';
+import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
@@ -47,6 +49,7 @@ const cardClassName = 'flex flex-col gap-3.5 rounded-2xl bg-night p-6 text-white
 export const ProfessionalStudyForm = () => {
   const { t } = useTranslation('professionals');
   const { submit, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.PROFESSIONAL_STUDY);
+  const { honeypotRef, readSpamTrap } = useSpamTrap();
 
   const {
     register,
@@ -58,7 +61,7 @@ export const ProfessionalStudyForm = () => {
   });
 
   const onSubmit = (values: ProfessionalStudyFormData) => {
-    submit(buildProfessionalLeadFields(values), values.callbackConsent, t('form.consent'));
+    submit(buildProfessionalLeadFields(values), values.callbackConsent, t('form.consent'), readSpamTrap());
   };
 
   const renderTextField = (field: TextField) => {
@@ -99,6 +102,7 @@ export const ProfessionalStudyForm = () => {
 
   return (
     <form noValidate aria-labelledby="pro-study-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+      <HoneypotField ref={honeypotRef} />
       <div className="flex flex-col gap-1.5">
         <h2 id="pro-study-title" className="text-xl font-bold lg:text-[22px]">
           {t('form.title')}

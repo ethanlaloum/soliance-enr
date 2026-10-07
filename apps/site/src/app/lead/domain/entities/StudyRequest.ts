@@ -1,3 +1,5 @@
+import { SpamSignals, spamSignalsOf, SpamTrap } from '@/app/lead/domain/entities/SpamTrap';
+
 export enum ProjectType {
   SOLAR_PANELS = 'SOLAR_PANELS',
   HEAT_PUMP = 'HEAT_PUMP',
@@ -25,6 +27,7 @@ export interface StudyRequestForm {
   consentText: string;
   pageUri: string;
   pageName: string;
+  spamTrap: SpamTrap;
 }
 
 export interface StudyRequest {
@@ -38,6 +41,7 @@ export interface StudyRequest {
   callbackConsentedAt: string;
   pageUri: string;
   pageName: string;
+  spamSignals: SpamSignals;
 }
 
 const optionalText = (value: string | null): string | null => {
@@ -56,4 +60,5 @@ export const buildStudyRequest = (form: StudyRequestForm, consentedAt: Date): St
   callbackConsentedAt: consentedAt.toISOString(),
   pageUri: form.pageUri,
   pageName: form.pageName,
+  spamSignals: spamSignalsOf(form.spamTrap, consentedAt),
 });

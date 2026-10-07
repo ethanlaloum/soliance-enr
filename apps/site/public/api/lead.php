@@ -9,6 +9,10 @@ const MAX_FIELDS = 30;
 const MAX_VALUE_BYTES = 4000;
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_SECONDS = 600;
+const MIN_FILL_MILLISECONDS = 2500;
+const SPAM_DROP = 'drop';
+const SPAM_SUSPECT = 'suspect';
+const SPAM_CLEAN = 'clean';
 const ALLOWED_ORIGINS = ['https://soliance-enr.fr', 'https://www.soliance-enr.fr'];
 const LEAD_RECIPIENTS = [
     'adv@soliance-enr.fr',
@@ -168,6 +172,7 @@ function readLead($payload): ?array
     $consentedAt = $payload['callbackConsentedAt'] ?? null;
     $pageUri = $payload['pageUri'] ?? null;
     $pageName = $payload['pageName'] ?? null;
+    $website = $payload['website'] ?? null;
     if (!isBoundedString($consentText, MAX_VALUE_BYTES) || !isBoundedString($consentedAt, 40) || strtotime($consentedAt) === false) {
         return null;
     }
@@ -181,7 +186,38 @@ function readLead($payload): ?array
         'consentedAt' => $consentedAt,
         'pageUri' => $pageUri,
         'pageName' => trim($pageName),
+        'honeypot' => is_string($website) && strlen($website) <= MAX_VALUE_BYTES ? $website : null,
+        'fillDurationMs' => readDuration($payload['fillDurationMs'] ?? null),
+        'suspect' => false,
     ];
+}
+
+function readDuration($value): ?int
+{
+    if (is_int($value) && $value >= 0) {
+        return $value;
+    }
+    if (is_float($value) && is_finite($value) && $value >= 0) {
+        return (int) round($value);
+    }
+    return null;
+}
+
+function spamVerdict(array $lead): string
+{
+    if ($lead['honeypot'] === null || trim($lead['honeypot']) !== '' || $lead['fillDurationMs'] === null) {
+        return SPAM_DROP;
+    }
+    return $lead['fillDurationMs'] < MIN_FILL_MILLISECONDS ? SPAM_SUSPECT : SPAM_CLEAN;
+}
+
+function suspectNotice(array $lead): ?string
+{
+    if (!$lead['suspect']) {
+        return null;
+    }
+    $seconds = number_format($lead['fillDurationMs'] / 1000, 1, ',', '');
+    return 'Envoi suspect : formulaire rempli en ' . $seconds . ' s, peut-être par un robot. Vérifiez la demande avant de rappeler.';
 }
 
 function isRateLimited(string $clientIp): bool
@@ -265,7 +301,7 @@ function firstFilled(array $fields, array $names): ?string
 
 function buildSubject(array $lead): string
 {
-    $parts = [LEAD_KINDS[$lead['kind']]['title']];
+    $parts = [($lead['suspect'] ? '[Envoi suspect] ' : '') . LEAD_KINDS[$lead['kind']]['title']];
     $identity = firstFilled($lead['fields'], IDENTITY_FIELDS);
     if ($identity !== null) {
         $parts[] = $identity;
@@ -284,12 +320,14 @@ function buildHtml(array $lead): string
             . escapeHtml(fieldLabel($name)) . '</th><td style="padding:6px 0">' . htmlValue($name, $value) . '</td></tr>';
     }
     $page = escapeHtml($lead['pageName'] !== '' ? $lead['pageName'] : $lead['pageUri']);
+    $notice = suspectNotice($lead);
     $pageLink = strpos($lead['pageUri'], 'https://') === 0
         ? '<a href="' . escapeHtml($lead['pageUri']) . '">' . $page . '</a>'
         : $page;
 
     return '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#0f172a;line-height:1.5">'
         . '<h2 style="margin:0 0 16px">' . escapeHtml(LEAD_KINDS[$lead['kind']]['title']) . '</h2>'
+        . ($notice === null ? '' : '<p style="margin:0 0 16px;padding:10px 14px;border-radius:8px;background:#fff4ea;color:#7a3a0c;font-size:14px">' . escapeHtml($notice) . '</p>')
         . '<table cellspacing="0" cellpadding="0" style="border-collapse:collapse">' . $rows . '</table>'
         . '<p style="margin:24px 0 4px;color:#475569;font-size:13px">Rappel accepté le ' . escapeHtml(formatConsentDate($lead['consentedAt'])) . ' (heure de Paris).</p>'
         . '<p style="margin:0 0 4px;color:#475569;font-size:13px">Consentement affiché : « ' . escapeHtml($lead['consentText']) . ' »</p>'
@@ -300,6 +338,10 @@ function buildHtml(array $lead): string
 function buildText(array $lead): string
 {
     $lines = [LEAD_KINDS[$lead['kind']]['title'], ''];
+    $notice = suspectNotice($lead);
+    if ($notice !== null) {
+        array_push($lines, $notice, '');
+    }
     foreach (orderedFields($lead['fields']) as $name => $value) {
         $lines[] = fieldLabel($name) . ' : ' . displayValue($name, $value);
     }
@@ -363,7 +405,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 }
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? null;
-if ($origin !== null && !in_array($origin, ALLOWED_ORIGINS, true)) {
+if ($origin === null || !in_array($origin, ALLOWED_ORIGINS, true)) {
     respond(403, ['error' => 'FORBIDDEN_ORIGIN']);
 }
 
@@ -385,6 +427,13 @@ if ($lead === null) {
 if (isRateLimited((string) ($_SERVER['REMOTE_ADDR'] ?? 'unknown'))) {
     respond(429, ['error' => 'TOO_MANY_REQUESTS']);
 }
+
+$verdict = spamVerdict($lead);
+if ($verdict === SPAM_DROP) {
+    error_log('soliance lead mail: dropped a ' . $lead['kind'] . ' submission caught by the spam trap');
+    respond(200, ['status' => 'sent']);
+}
+$lead['suspect'] = $verdict === SPAM_SUSPECT;
 
 if (!sendWithResend($config['apiKey'], buildMessage($lead, $config['from']))) {
     respond(502, ['error' => 'SUBMISSION_FAILED']);

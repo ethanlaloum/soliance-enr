@@ -15,6 +15,7 @@ const homeownerForm: StudyRequestForm = {
   consentText: 'consent-text-v1',
   pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
+  spamTrap: { honeypot: '', formStartedAt: Date.parse('2026-10-05T08:29:48.000Z') },
 };
 
 describe('Study request submission', () => {
@@ -40,6 +41,7 @@ describe('Study request submission', () => {
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
         pageUri: 'https://soliance-enr.fr/',
         pageName: 'home',
+        spamSignals: { honeypot: '', fillDurationMs: 12000 },
       },
     ]);
   });
@@ -59,7 +61,19 @@ describe('Study request submission', () => {
         callbackConsentedAt: '2026-10-05T08:30:00.000Z',
         pageUri: 'https://soliance-enr.fr/',
         pageName: 'home',
+        spamSignals: { honeypot: '', fillDurationMs: 12000 },
       },
+    ]);
+  });
+
+  it('passes on the honeypot value and the time spent filling the form', async () => {
+    await sut.whenStudyRequestIsSubmitted({
+      ...homeownerForm,
+      spamTrap: { honeypot: 'https://spam.example', formStartedAt: Date.parse('2026-10-05T08:29:59.200Z') },
+    });
+
+    expect(sut.thenSubmittedStudyRequestsAre().map((submitted) => submitted.spamSignals)).toEqual([
+      { honeypot: 'https://spam.example', fillDurationMs: 800 },
     ]);
   });
 

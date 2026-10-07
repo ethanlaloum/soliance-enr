@@ -28,6 +28,7 @@ const form: StudyRequestForm = {
   consentText: 'consent-text-v1',
   pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
+  spamTrap: { honeypot: '', formStartedAt: null },
 };
 
 describe('Study request submission state', () => {
@@ -78,6 +79,7 @@ describe('Study request submission state', () => {
           consentText: 'consent-text-v1',
           pageUri: 'https://soliance-enr.fr/parrainage',
           pageName: 'referral',
+          spamTrap: { honeypot: '', formStartedAt: null },
         },
       }),
     );

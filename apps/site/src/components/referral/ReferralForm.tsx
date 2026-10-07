@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { useSpamTrap } from '@/hooks/useSpamTrap';
+import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
@@ -25,6 +27,7 @@ const cardClassName = 'flex flex-col gap-3 rounded-2xl border border-sand-line b
 export const ReferralForm = () => {
   const { t } = useTranslation('referral');
   const { submit, reset: resetSubmission, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.REFERRAL);
+  const { honeypotRef, readSpamTrap } = useSpamTrap();
 
   const {
     register,
@@ -38,7 +41,7 @@ export const ReferralForm = () => {
   });
 
   const onSubmit = (values: ReferralFormData) => {
-    submit(toReferralLeadFields(values), values.callbackConsent, t('form.consent'));
+    submit(toReferralLeadFields(values), values.callbackConsent, t('form.consent'), readSpamTrap());
   };
 
   const referAnother = () => {
@@ -64,6 +67,7 @@ export const ReferralForm = () => {
 
   return (
     <form noValidate aria-labelledby="referral-form-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+      <HoneypotField ref={honeypotRef} />
       <h2 id="referral-form-title" className="text-xl font-bold lg:text-[22px]">
         {t('form.title')}
       </h2>

@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/redux';
 import { LeadFields, LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
+import { SpamTrap } from '@/app/lead/domain/entities/SpamTrap';
 import { resetSubmitLeadState, submitLeadRequested } from '@/app/lead/domain/use-cases/submit-lead/submitLeadEpic';
 import { selectSubmitLeadError, selectSubmitLeadLoading, selectSubmitLeadSuccess } from '@/selectors/lead/leadSelectors';
 
@@ -11,10 +12,10 @@ export const useLeadSubmission = (kind: LeadFormKind) => {
   const errorCode = useAppSelector((state) => selectSubmitLeadError(state, kind));
 
   const submit = useCallback(
-    (fields: LeadFields, callbackConsent: boolean, consentText: string) => {
+    (fields: LeadFields, callbackConsent: boolean, consentText: string, spamTrap: SpamTrap) => {
       dispatch(
         submitLeadRequested({
-          form: { kind, fields, callbackConsent, consentText, pageUri: window.location.href, pageName: document.title },
+          form: { kind, fields, callbackConsent, consentText, pageUri: window.location.href, pageName: document.title, spamTrap },
         }),
       );
     },

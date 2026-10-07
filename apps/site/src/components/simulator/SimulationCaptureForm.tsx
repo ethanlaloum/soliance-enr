@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { useSpamTrap } from '@/hooks/useSpamTrap';
+import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { SolarEstimate } from '@/app/simulator/domain/entities/SolarEstimate';
 import { SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
@@ -34,6 +36,7 @@ const cardClassName = 'flex scroll-mt-24 flex-col gap-2.5 rounded-2xl border bor
 export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFormProps) => {
   const { t } = useTranslation('simulator');
   const { submit, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.SIMULATION);
+  const { honeypotRef, readSpamTrap } = useSpamTrap();
 
   const {
     register,
@@ -49,6 +52,7 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
       buildSimulationLeadFields(answers, estimate, { email: values.email, phone: values.phone }),
       values.callbackConsent,
       t('capture.consent'),
+      readSpamTrap(),
     );
   };
 
@@ -63,6 +67,7 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
 
   return (
     <form id={simulatorCaptureId} noValidate aria-labelledby="simulator-capture-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+      <HoneypotField ref={honeypotRef} />
       <h2 id="simulator-capture-title" className="text-[17px] font-bold">
         {t('capture.title')}
       </h2>

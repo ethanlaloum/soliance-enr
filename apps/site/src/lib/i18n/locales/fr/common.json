@@ -58,6 +58,9 @@
       "referral": { "title": "Parrainage", "description": "De 300 € à 600 € par proche équipé grâce à vous." }
     }
   },
+  "form": {
+    "honeypotLabel": "Laissez ce champ vide"
+  },
   "consent": {
     "banner": {
       "title": "Vos cookies, votre choix",

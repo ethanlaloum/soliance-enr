@@ -6,6 +6,8 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { useSpamTrap } from '@/hooks/useSpamTrap';
+import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
@@ -47,6 +49,7 @@ type CareRequestFormProps = {
 export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareRequestFormProps) => {
   const { t } = useTranslation('care');
   const { submit, reset: resetSubmission, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.CARE_REQUEST);
+  const { honeypotRef, readSpamTrap } = useSpamTrap();
 
   const {
     register,
@@ -65,7 +68,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
   }, [requestType, setValue, resetSubmission]);
 
   const onSubmit = (values: CareRequestFormData) => {
-    submit(buildCareLeadFields(values), values.callbackConsent, t('form.consent'));
+    submit(buildCareLeadFields(values), values.callbackConsent, t('form.consent'), readSpamTrap());
   };
 
   const startAnotherRequest = () => {
@@ -114,6 +117,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
 
   return (
     <form noValidate aria-labelledby="care-request-form-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+      <HoneypotField ref={honeypotRef} />
       <div className="flex flex-col gap-1">
         <h3 id="care-request-form-title" className="text-xl font-bold lg:text-2xl">
           {t('form.title')}

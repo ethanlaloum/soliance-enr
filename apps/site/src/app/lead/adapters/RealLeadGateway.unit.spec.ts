@@ -19,6 +19,7 @@ const request: StudyRequest = {
   callbackConsentedAt: '2026-10-05T08:30:00.000Z',
   pageUri: 'https://soliance-enr.fr/',
   pageName: 'home',
+  spamSignals: { honeypot: '', fillDurationMs: 12000 },
 };
 
 const captureError = async (promise: Promise<unknown>): Promise<unknown> => {
@@ -62,6 +63,8 @@ describe('Lead mail gateway', () => {
           callbackConsentedAt: '2026-10-05T08:30:00.000Z',
           pageUri: 'https://soliance-enr.fr/',
           pageName: 'home',
+          website: '',
+          fillDurationMs: 12000,
         },
       },
     ]);
@@ -82,6 +85,30 @@ describe('Lead mail gateway', () => {
           callbackConsentedAt: '2026-10-05T08:30:00.000Z',
           pageUri: 'https://soliance-enr.fr/',
           pageName: 'home',
+          website: '',
+          fillDurationMs: 12000,
+        },
+      },
+    ]);
+  });
+
+  it('sends the honeypot value and the fill time outside the mailed fields', async () => {
+    httpClient.willRespond(endpoint, { status: 'sent' });
+
+    await firstValueFrom(gateway.submitStudyRequest({ ...request, email: null, monthlyBill: null, spamSignals: { honeypot: 'bot-value', fillDurationMs: null } }));
+
+    expect(httpClient.postCalls).toEqual([
+      {
+        url: endpoint,
+        body: {
+          kind: 'STUDY_REQUEST',
+          fields: { full_name: 'Marie Dupont', phone: '0612345678', zip: '06700', project_type: 'SOLAR_PANELS' },
+          consentText: 'consent-text-v1',
+          callbackConsentedAt: '2026-10-05T08:30:00.000Z',
+          pageUri: 'https://soliance-enr.fr/',
+          pageName: 'home',
+          website: 'bot-value',
+          fillDurationMs: null,
         },
       },
     ]);
@@ -131,6 +158,7 @@ describe('Lead mail gateway', () => {
       callbackConsentedAt: '2026-10-05T08:30:00.000Z',
       pageUri: 'https://soliance-enr.fr/parrainage',
       pageName: 'referral',
+      spamSignals: { honeypot: '', fillDurationMs: 12000 },
     };
 
     await firstValueFrom(gateway.submitLead(submission));
@@ -145,6 +173,8 @@ describe('Lead mail gateway', () => {
           callbackConsentedAt: '2026-10-05T08:30:00.000Z',
           pageUri: 'https://soliance-enr.fr/parrainage',
           pageName: 'referral',
+          website: '',
+          fillDurationMs: 12000,
         },
       },
     ]);
@@ -159,6 +189,7 @@ describe('Lead mail gateway', () => {
       callbackConsentedAt: '2026-10-05T08:30:00.000Z',
       pageUri: 'https://soliance-enr.fr/soliance-care',
       pageName: 'care',
+      spamSignals: { honeypot: '', fillDurationMs: 12000 },
     };
 
     const error = await captureError(firstValueFrom(gateway.submitLead(submission)));

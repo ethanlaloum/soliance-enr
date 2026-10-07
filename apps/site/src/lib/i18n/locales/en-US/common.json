@@ -58,6 +58,9 @@
       "referral": { "title": "Referral", "description": "€300 to €600 for each friend who goes solar thanks to you." }
     }
   },
+  "form": {
+    "honeypotLabel": "Leave this field empty"
+  },
   "consent": {
     "banner": {
       "title": "Your cookies, your choice",

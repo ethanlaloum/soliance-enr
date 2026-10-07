@@ -2,16 +2,19 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 import { StudyRequest } from '@/app/lead/domain/entities/StudyRequest';
 import { LeadSubmission } from '@/app/lead/domain/entities/LeadSubmission';
 import { LeadError, LeadErrorType, LeadGateway } from '@/app/lead/domain/ports/LeadGateway';
+import { SpamSignals } from '@/app/lead/domain/entities/SpamTrap';
 import { LeadMailDto, LeadMailErrorDto, studyRequestMailKind } from '@/app/lead/adapters/dtos/LeadMailDto';
 import { HttpClient, isApiError } from '@/app/shared/domain/ports/HttpClient';
 
-type SubmissionContext = Pick<LeadMailDto, 'consentText' | 'callbackConsentedAt' | 'pageUri' | 'pageName'>;
+type SubmissionContext = Pick<LeadMailDto, 'consentText' | 'callbackConsentedAt' | 'pageUri' | 'pageName' | 'website' | 'fillDurationMs'>;
 
-const toContext = (source: SubmissionContext): SubmissionContext => ({
+const toContext = (source: Omit<SubmissionContext, 'website' | 'fillDurationMs'> & { spamSignals: SpamSignals }): SubmissionContext => ({
   consentText: source.consentText,
   callbackConsentedAt: source.callbackConsentedAt,
   pageUri: source.pageUri,
   pageName: source.pageName,
+  website: source.spamSignals.honeypot,
+  fillDurationMs: source.spamSignals.fillDurationMs,
 });
 
 const notConfiguredCode = 'NOT_CONFIGURED';

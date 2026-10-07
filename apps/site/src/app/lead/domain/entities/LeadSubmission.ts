@@ -1,3 +1,5 @@
+import { SpamSignals, spamSignalsOf, SpamTrap } from '@/app/lead/domain/entities/SpamTrap';
+
 export enum LeadFormKind {
   PROFESSIONAL_STUDY = 'PROFESSIONAL_STUDY',
   REFERRAL = 'REFERRAL',
@@ -16,6 +18,7 @@ export interface LeadSubmissionForm {
   consentText: string;
   pageUri: string;
   pageName: string;
+  spamTrap: SpamTrap;
 }
 
 export interface LeadSubmission {
@@ -25,6 +28,7 @@ export interface LeadSubmission {
   callbackConsentedAt: string;
   pageUri: string;
   pageName: string;
+  spamSignals: SpamSignals;
 }
 
 const keepFilledFields = (fields: LeadFields): Record<string, string> =>
@@ -41,4 +45,5 @@ export const buildLeadSubmission = (form: LeadSubmissionForm, consentedAt: Date)
   callbackConsentedAt: consentedAt.toISOString(),
   pageUri: form.pageUri,
   pageName: form.pageName,
+  spamSignals: spamSignalsOf(form.spamTrap, consentedAt),
 });

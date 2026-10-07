@@ -9,6 +9,8 @@ export interface LeadMailDto {
   callbackConsentedAt: string;
   pageUri: string;
   pageName: string;
+  website: string;
+  fillDurationMs: number | null;
 }
 
 export interface LeadMailErrorDto {
