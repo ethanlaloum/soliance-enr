@@ -68,16 +68,22 @@ export const ReferralHeroSection = () => {
           </ol>
         </div>
       </section>
-      <div className="overflow-hidden">
-        <img
-          src="/images/referral/neighbours-talking.webp"
-          alt={t('hero.imageAlt')}
-          width={1024}
-          height={1024}
-          fetchPriority="high"
-          className="block h-[220px] w-full object-cover [object-position:50%_40%] motion-safe:animate-zoom-in sm:h-[320px] lg:h-[420px]"
+      <picture className="block overflow-hidden">
+        <source
+          media="(min-width: 768px)"
+          srcSet="/images/referral/neighbours-talking-landscape.webp"
+          width={1983}
+          height={793}
         />
-      </div>
+        <img
+          src="/images/referral/neighbours-talking-enhanced.webp"
+          alt={t('hero.imageAlt')}
+          width={1254}
+          height={1254}
+          fetchPriority="high"
+          className="block h-auto w-full motion-safe:animate-zoom-in"
+        />
+      </picture>
     </>
   );
 };
