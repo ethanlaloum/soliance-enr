@@ -17,10 +17,12 @@ export type LocalSolarTextValues = {
   july: number;
 };
 
+const nonBreakingSpace = '\u00a0';
+
 export const formatTravelTime = (minutes: number): string =>
   minutes < minutesPerHour
-    ? `${minutes} min`
-    : `${Math.floor(minutes / minutesPerHour)} h ${String(minutes % minutesPerHour).padStart(2, '0')}`;
+    ? `${minutes}${nonBreakingSpace}min`
+    : `${Math.floor(minutes / minutesPerHour)}${nonBreakingSpace}h${nonBreakingSpace}${String(minutes % minutesPerHour).padStart(2, '0')}`;
 
 export const localSolarTextValues = (area: ServiceArea, city: string): LocalSolarTextValues => {
   const estimate = estimateAreaProduction(area, typicalPeakPowerKwc);
