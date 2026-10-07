@@ -8,7 +8,10 @@ import {
   extractFaqEntries,
   extractHeroImage,
   faqPageSchema,
+  parseEuroAmount,
   serviceSchema,
+  webSiteSchema,
+  type MonthlyOffer,
 } from '@/lib/seo/structuredData';
 
 const defaultShareImage = '/images/hero-vence-villa.webp';
@@ -42,6 +45,14 @@ const serviceKeyByPath: Record<string, string> = {
   [paths.care]: 'care',
 };
 
+const careOfferPlanKeys = ['care', 'connect'];
+
+const careOffers = (): MonthlyOffer[] =>
+  careOfferPlanKeys.flatMap((planKey) => {
+    const price = parseEuroAmount(i18n.t(`care:plans.${planKey}.price`));
+    return price === null ? [] : [{ name: i18n.t(`care:plans.${planKey}.name`), price }];
+  });
+
 const projectDetailPrefix = `${paths.projects}/`;
 
 const resolveSeoKeyPrefix = (url: string): string | null => {
@@ -62,7 +73,7 @@ export const buildHead = (url: string, html: string): string => {
   const description = isIndexable ? i18n.t(`${seoKeyPrefix}.description`) : i18n.t('common:notFound.seoDescription');
   const canonical = absoluteUrl(url);
   const heroImage = extractHeroImage(html);
-  const shareImage = absoluteUrl(heroImage ?? defaultShareImage);
+  const shareImage = absoluteUrl(heroImage?.src ?? defaultShareImage);
   const areaServed = i18n.t('common:seo.areaServed', { returnObjects: true }) as string[];
 
   const tags = [
@@ -76,6 +87,13 @@ export const buildHead = (url: string, html: string): string => {
     `<meta property="og:description" content="${escapeAttribute(description)}" />`,
     `<meta property="og:url" content="${escapeAttribute(canonical)}" />`,
     `<meta property="og:image" content="${escapeAttribute(shareImage)}" />`,
+    ...(heroImage?.width && heroImage.height
+      ? [
+          `<meta property="og:image:width" content="${heroImage.width}" />`,
+          `<meta property="og:image:height" content="${heroImage.height}" />`,
+        ]
+      : []),
+    ...(heroImage?.alt ? [`<meta property="og:image:alt" content="${escapeAttribute(heroImage.alt)}" />`] : []),
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeAttribute(title)}" />`,
     `<meta name="twitter:description" content="${escapeAttribute(description)}" />`,
@@ -83,7 +101,8 @@ export const buildHead = (url: string, html: string): string => {
   ];
 
   if (heroImage) {
-    tags.push(`<link rel="preload" as="image" href="${escapeAttribute(heroImage)}" fetchpriority="high" />`);
+    const media = heroImage.preloadMedia ? ` media="${escapeAttribute(heroImage.preloadMedia)}"` : '';
+    tags.push(`<link rel="preload" as="image" href="${escapeAttribute(heroImage.src)}" fetchpriority="high"${media} />`);
   }
   if (config.googleSiteVerification && url === paths.home) {
     tags.push(`<meta name="google-site-verification" content="${escapeAttribute(config.googleSiteVerification)}" />`);
@@ -94,6 +113,7 @@ export const buildHead = (url: string, html: string): string => {
   }
 
   if (url === paths.home) {
+    tags.push(jsonLdTag(webSiteSchema(config.siteUrl, 'Soliance', 'Soliance ENR')));
     tags.push(jsonLdTag(localBusinessSchema(description)));
   }
 
@@ -107,6 +127,7 @@ export const buildHead = (url: string, html: string): string => {
             serviceType: i18n.t(`common:seo.services.${serviceKey}.serviceType`),
             description,
             path: url,
+            offers: url === paths.care ? careOffers() : undefined,
           },
           config.siteUrl,
           areaServed,

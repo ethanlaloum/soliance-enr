@@ -6,7 +6,9 @@ import {
   extractFaqEntries,
   extractHeroImage,
   faqPageSchema,
+  parseEuroAmount,
   serviceSchema,
+  webSiteSchema,
 } from '@/lib/seo/structuredData';
 
 const faqHtml = [
@@ -50,10 +52,23 @@ describe('Structured data extraction from prerendered HTML', () => {
   });
 
   it('finds the high-priority hero image whatever the attribute case', () => {
-    const html = '<img src="/images/a.webp" loading="lazy"/><img src="/images/solar/hero.webp" alt="x" fetchPriority="high"/>';
+    const html = '<img src="/images/a.webp" loading="lazy"/><img src="/images/solar/hero.webp" alt="Villa d&#x27;Antibes" fetchPriority="high"/>';
 
-    expect(extractHeroImage(html)).toEqual('/images/solar/hero.webp');
+    expect(extractHeroImage(html)).toEqual({ src: '/images/solar/hero.webp', alt: "Villa d'Antibes", width: null, height: null, preloadMedia: null });
     expect(extractHeroImage('<img src="/images/a.webp"/>')).toEqual(null);
+  });
+
+  it('reads the hero image dimensions and the media its preload is limited to', () => {
+    const html = '<img src="/images/hero.webp" alt="" width="1280" height="720" fetchPriority="high" data-preload-media="(min-width: 1024px)"/>';
+
+    expect(extractHeroImage(html)).toEqual({ src: '/images/hero.webp', alt: null, width: 1280, height: 720, preloadMedia: '(min-width: 1024px)' });
+  });
+
+  it('reads a French euro amount', () => {
+    expect(parseEuroAmount('19,99 €')).toEqual(19.99);
+    expect(parseEuroAmount('Dès 99 € HT')).toEqual(99);
+    expect(parseEuroAmount('1 200 €')).toEqual(1200);
+    expect(parseEuroAmount('Sur devis')).toEqual(null);
   });
 });
 
@@ -104,6 +119,48 @@ describe('Structured data schemas', () => {
         { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
         { '@type': 'AdministrativeArea', name: 'Var' },
       ],
+    });
+  });
+
+  it('lists the monthly subscriptions of a Service as offers, VAT included', () => {
+    expect(
+      serviceSchema(
+        { name: 'Soliance Care', description: 'Supervision.', serviceType: 'Maintenance photovoltaïque', path: '/soliance-care', offers: [{ name: 'Care Connect', price: 4.99 }] },
+        'https://soliance-enr.fr',
+        ['Var'],
+      ),
+    ).toEqual({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Soliance Care',
+      serviceType: 'Maintenance photovoltaïque',
+      description: 'Supervision.',
+      url: 'https://soliance-enr.fr/soliance-care',
+      provider: { '@type': 'Electrician', '@id': 'https://soliance-enr.fr/#business', name: 'Soliance', url: 'https://soliance-enr.fr' },
+      areaServed: [{ '@type': 'AdministrativeArea', name: 'Var' }],
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Care Connect',
+          price: 4.99,
+          priceCurrency: 'EUR',
+          url: 'https://soliance-enr.fr/soliance-care',
+          priceSpecification: { '@type': 'UnitPriceSpecification', price: 4.99, priceCurrency: 'EUR', unitCode: 'MON', valueAddedTaxIncluded: true },
+        },
+      ],
+    });
+  });
+
+  it('builds the WebSite that names the site in search results', () => {
+    expect(webSiteSchema('https://soliance-enr.fr', 'Soliance', 'Soliance ENR')).toEqual({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': 'https://soliance-enr.fr/#website',
+      name: 'Soliance',
+      alternateName: 'Soliance ENR',
+      url: 'https://soliance-enr.fr/',
+      inLanguage: 'fr-FR',
+      publisher: { '@id': 'https://soliance-enr.fr/#business' },
     });
   });
 });

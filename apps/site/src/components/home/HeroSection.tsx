@@ -67,7 +67,9 @@ export const HeroSection = () => {
               alt={t('hero.imageAlt')}
               width={1280}
               height={720}
+              loading="lazy"
               fetchPriority="high"
+              data-preload-media="(min-width: 1024px)"
               className="block h-[360px] w-full rounded-[18px] object-cover shadow-hero motion-safe:animate-zoom-in motion-safe:[animation-delay:120ms]"
             />
             <KeyFigures className="gap-4 px-6 py-5 shadow-float motion-safe:animate-fade-up motion-safe:[animation-delay:400ms]" />

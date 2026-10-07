@@ -2,7 +2,11 @@ export type FaqEntry = { question: string; answer: string };
 
 export type BreadcrumbEntry = { name: string; path: string };
 
-export type ServiceDescription = { name: string; description: string; serviceType: string; path: string };
+export type MonthlyOffer = { name: string; price: number };
+
+export type ServiceDescription = { name: string; description: string; serviceType: string; path: string; offers?: MonthlyOffer[] };
+
+export type HeroImage = { src: string; alt: string | null; width: number | null; height: number | null; preloadMedia: string | null };
 
 const namedEntities: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
 
@@ -37,12 +41,41 @@ export const extractBreadcrumb = (html: string, currentPath: string): Breadcrumb
     path: readAttribute(attributes, 'data-breadcrumb-path') ?? readAttribute(attributes, 'href') ?? currentPath,
   }));
 
-export const extractHeroImage = (html: string): string | null => {
-  const tag = html.match(/<img\b[^>]*\bfetchpriority="high"[^>]*>/i);
-  return tag ? readAttribute(tag[0], 'src') : null;
+const readDimension = (tag: string, name: string): number | null => {
+  const value = Number(readAttribute(tag, name));
+  return Number.isInteger(value) && value > 0 ? value : null;
+};
+
+export const extractHeroImage = (html: string): HeroImage | null => {
+  const tag = html.match(/<img\b[^>]*\bfetchpriority="high"[^>]*>/i)?.[0];
+  const src = tag ? readAttribute(tag, 'src') : null;
+  if (!tag || !src) return null;
+  return {
+    src,
+    alt: readAttribute(tag, 'alt') || null,
+    width: readDimension(tag, 'width'),
+    height: readDimension(tag, 'height'),
+    preloadMedia: readAttribute(tag, 'data-preload-media'),
+  };
+};
+
+export const parseEuroAmount = (value: string): number | null => {
+  const match = value.replace(/\s/g, '').match(/\d+(?:,\d{1,2})?/);
+  return match ? Number(match[0].replace(',', '.')) : null;
 };
 
 export const businessId = (siteUrl: string) => `${siteUrl}/#business`;
+
+export const webSiteSchema = (siteUrl: string, name: string, alternateName: string) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name,
+  alternateName,
+  url: `${siteUrl}/`,
+  inLanguage: 'fr-FR',
+  publisher: { '@id': businessId(siteUrl) },
+});
 
 export const faqPageSchema = (entries: FaqEntry[]) => ({
   '@context': 'https://schema.org',
@@ -74,4 +107,22 @@ export const serviceSchema = (service: ServiceDescription, siteUrl: string, area
   url: `${siteUrl}${service.path}`,
   provider: { '@type': 'Electrician', '@id': businessId(siteUrl), name: 'Soliance', url: siteUrl },
   areaServed: areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
+  ...(service.offers && service.offers.length > 0
+    ? {
+        offers: service.offers.map((offer) => ({
+          '@type': 'Offer',
+          name: offer.name,
+          price: offer.price,
+          priceCurrency: 'EUR',
+          url: `${siteUrl}${service.path}`,
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: offer.price,
+            priceCurrency: 'EUR',
+            unitCode: 'MON',
+            valueAddedTaxIncluded: true,
+          },
+        })),
+      }
+    : {}),
 });

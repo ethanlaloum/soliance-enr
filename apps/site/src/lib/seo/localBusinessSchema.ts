@@ -21,6 +21,8 @@ export const localBusinessSchema = (description: string) => ({
     addressRegion: 'Provence-Alpes-Côte d’Azur',
     addressCountry: 'FR',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 43.672097, longitude: 7.190202 },
+  hasMap: config.showroomMapUrl,
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
     { '@type': 'AdministrativeArea', name: 'Var' },

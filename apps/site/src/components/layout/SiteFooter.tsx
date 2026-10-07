@@ -13,13 +13,11 @@ const columns: { titleKey: string; links: FooterLink[] }[] = [
       { labelKey: 'nav.heatPump', to: paths.heatPump },
       { labelKey: 'nav.evCharger', to: paths.evCharger },
       { labelKey: 'nav.professionals', to: paths.professionals },
-      { labelKey: 'footer.renovation', to: paths.renovation },
     ],
   },
   {
     titleKey: 'footer.solianceTitle',
     links: [
-      { labelKey: 'footer.about', to: paths.about },
       { labelKey: 'footer.referral', to: paths.referral },
       { labelKey: 'nav.care', to: paths.care },
       { labelKey: 'footer.blog', to: paths.resources },
@@ -30,8 +28,6 @@ const columns: { titleKey: string; links: FooterLink[] }[] = [
     titleKey: 'footer.legalTitle',
     links: [
       { labelKey: 'footer.legalNotice', to: paths.legalNotice },
-      { labelKey: 'footer.termsIndividuals', to: paths.termsIndividuals },
-      { labelKey: 'footer.termsProfessionals', to: paths.termsProfessionals },
       { labelKey: 'footer.privacy', to: paths.privacy },
       { labelKey: 'footer.cookies', to: paths.cookies },
     ],
