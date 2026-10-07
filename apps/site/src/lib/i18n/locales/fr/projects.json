@@ -214,8 +214,7 @@
       "imageAlt": "Wallbox sur potelet, véhicule électrique en charge devant un mur en pierre",
       "metrics": {
         "first": { "value": "12 kWc", "label": "de solaire couplé" },
-        "second": { "value": "½ j", "label": "de pose" },
-        "third": { "value": "[X] €", "label": "économisés / an" }
+        "second": { "value": "½ j", "label": "de pose" }
       }
     },
     "pertuis-gymnase-163-kwc": {

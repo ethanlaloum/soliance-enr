@@ -214,8 +214,7 @@
       "imageAlt": "Wallbox on a post, electric car charging in front of a stone wall",
       "metrics": {
         "first": { "value": "12 kWp", "label": "of paired solar" },
-        "second": { "value": "½ day", "label": "of fitting" },
-        "third": { "value": "€[X]", "label": "saved / year" }
+        "second": { "value": "½ day", "label": "of fitting" }
       }
     },
     "pertuis-gymnase-163-kwc": {

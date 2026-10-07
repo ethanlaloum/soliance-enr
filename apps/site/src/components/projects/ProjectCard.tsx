@@ -19,10 +19,11 @@ type ProjectCardProps = {
 };
 
 export const ProjectCard = ({ project, titleAs: Title = 'h2' }: ProjectCardProps) => {
-  const { t } = useTranslation('projects');
+  const { t, i18n } = useTranslation('projects');
   const prefix = `items.${project.id}`;
   const { slug } = project;
   const hasDetail = slug !== null;
+  const shownMetricKeys = metricKeys.filter((key) => i18n.exists(`projects:${prefix}.metrics.${key}.value`));
 
   return (
     <article
@@ -77,7 +78,7 @@ export const ProjectCard = ({ project, titleAs: Title = 'h2' }: ProjectCardProps
         </Title>
         <p className="text-sm leading-normal text-slate-ink">{t(`${prefix}.description`)}</p>
         <dl className="mt-1.5 flex flex-wrap gap-x-3 gap-y-2 text-[13px] leading-snug sm:gap-x-4">
-          {metricKeys.map((key) => (
+          {shownMetricKeys.map((key) => (
             <div key={key} className="flex min-w-0 flex-col-reverse justify-end">
               <dt>{t(`${prefix}.metrics.${key}.label`)}</dt>
               <dd className="whitespace-nowrap text-base font-bold text-solar lg:text-lg">{t(`${prefix}.metrics.${key}.value`)}</dd>
