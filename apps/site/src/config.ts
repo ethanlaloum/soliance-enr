@@ -10,5 +10,7 @@ export const config = {
   adminPhoneHref: 'tel:+33659403888',
   referralPhoneHref: 'tel:+33608628471',
   googleSiteVerification: readEnv(import.meta.env.VITE_GOOGLE_SITE_VERIFICATION),
+  analyticsMeasurementId: readEnv(import.meta.env.VITE_GA_MEASUREMENT_ID),
+  consentStorageKey: 'soliance-consent',
   leadEndpoint: '/api/lead.php',
 };

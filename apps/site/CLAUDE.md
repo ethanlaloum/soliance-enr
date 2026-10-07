@@ -6,7 +6,7 @@ Vite 7 · React 19 · TypeScript strict · React Router 7 · Redux Toolkit 2 + r
 
 ## Pages
 
-Home, `/panneaux-solaires`, `/pompe-a-chaleur` (`heat` blue tokens), `/borne-de-recharge` (`charge` green tokens), `/professionnels`, `/simulateur`, `/parrainage`, `/realisations` and `/realisations/:slug` (10 fiches, slugs in `src/app/projects/domain/entities/ProjectDetail.ts`), `/ressources`, `/soliance-care` (`care` green tokens, rendered outside `SiteLayout` with its own `CareHeader` / `CareFooter`, see below). One page folder in `src/pages/`, its sections in `src/components/<page>/`, its copy in the `<page>` i18n namespace. Shared blocks: `src/components/page/` (`Breadcrumb`, `FaqList`), `src/components/home/containerClassName.ts`, `src/components/ui/`.
+Home, `/panneaux-solaires`, `/pompe-a-chaleur` (`heat` blue tokens), `/borne-de-recharge` (`charge` green tokens), `/professionnels`, `/simulateur`, `/parrainage`, `/realisations` and `/realisations/:slug` (10 fiches, slugs in `src/app/projects/domain/entities/ProjectDetail.ts`), `/ressources`, `/cookies` (cookie policy and the « Modifier mes choix » button), `/soliance-care` (`care` green tokens, rendered outside `SiteLayout` with its own `CareHeader` / `CareFooter`, see below). One page folder in `src/pages/`, its sections in `src/components/<page>/`, its copy in the `<page>` i18n namespace. Every route sits under `RootLayout` (`src/layout/RootLayout.tsx`), which mounts the cookie consent and the phone click tracking for the whole site, the Care page included. The home page reviews block (`TestimonialsSection`) is unplugged until Soliance has a Google Business profile with reviews; the component and its `home:testimonials` keys are kept. Shared blocks: `src/components/page/` (`Breadcrumb`, `FaqList`), `src/components/home/containerClassName.ts`, `src/components/ui/`.
 
 ## Rendering and SEO
 
@@ -37,6 +37,16 @@ Hexagon per jp-way `frontend-conventions`: `src/app/lead/` (entities `StudyReque
 - The Soliance Care page has one request form (`LeadFormKind.CARE_REQUEST`); every Care call to action is a `CareRequestLink` that preselects its `care_request_type` through `CareRequestContext` and jumps to `#demande`. Online subscription with a SEPA mandate is not built: « Je souscris » leads to this callback form.
 - Generic forms go through `useLeadSubmission(LeadFormKind.X)`.
 - Callback consent is mandatory (law of 11 August 2026): refused in the zod schema and again in the epics (`CONSENT_REQUIRED`); the consent time comes from the injected `Clock` and the displayed consent text is sent with the submission.
+
+## Cookie consent and analytics
+
+- `src/app/consent/` keeps the visitor's choice (`ConsentChoice`: analytics yes or no, decision time, `CONSENT_VERSION`) in `localStorage` under `soliance-consent` (`LocalStorageConsentGateway`). A choice older than 182 days or saved under another version is dropped and the banner shows again: bump `CONSENT_VERSION` whenever a tracker or a purpose is added. When the storage cannot be written, `saveConsentFailed` still carries the choice and the reducer applies it for the visit.
+- `CookieConsent` dispatches `loadConsentRequested` on mount, so the banner and the preferences `<dialog>` only exist on the client and never in the prerendered HTML. Closing the dialog (Escape or the cross) records nothing; the banner comes back while no choice exists.
+- Accept and refuse share `consentButtonClassName` on purpose: the CNIL wants refusing to be as easy and as visible as accepting. Do not turn « Tout accepter » into the orange primary button.
+- `src/app/analytics/`: `GoogleTagAnalyticsGateway` injects gtag.js only after consent and only when `VITE_GA_MEASUREMENT_ID` is set at build time; nothing loads without it. GA cookies are capped at 13 months and not renewed on each visit (`cookie_expires`, `cookie_update: false`, CNIL rule). Withdrawing sets `ga-disable-<id>` and expires every `_ga*` cookie on the host and its parent domains.
+- `trackConversionEpic` sends `generate_lead` (`form_kind`, `STUDY_REQUEST` for the home form) after every successful form and `click_to_call` (`phone_number`) on any `tel:` link click caught by `usePhoneCallTracking`, only while analytics is accepted. Both must be marked as key events in GA4.
+- A new tracker means: its row in `cookies.json` (`list.rows`), the banner and dialog texts in `common:consent`, and a `CONSENT_VERSION` bump.
+- `vite preview` serves `/route` with the home HTML (React hydration error #418); open `/route/` with the trailing slash to check a prerendered page locally. OVH serves `/route` correctly.
 
 ## External links
 

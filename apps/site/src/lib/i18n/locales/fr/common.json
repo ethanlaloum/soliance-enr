@@ -58,6 +58,29 @@
       "referral": { "title": "Parrainage", "description": "De 300 € à 600 € par proche équipé grâce à vous." }
     }
   },
+  "consent": {
+    "banner": {
+      "title": "Vos cookies, votre choix",
+      "text": "Avec votre accord, nous utilisons Google Analytics pour mesurer la fréquentation du site et l'améliorer. Rien n'est déposé si vous refusez, et vous pouvez changer d'avis à tout moment depuis « Gestion des cookies » en bas de page.",
+      "learnMore": "En savoir plus",
+      "acceptAll": "Tout accepter",
+      "refuseAll": "Tout refuser",
+      "customize": "Personnaliser"
+    },
+    "dialog": {
+      "title": "Gestion des cookies",
+      "intro": "Choisissez les cookies que vous acceptez. Votre choix est conservé 6 mois.",
+      "close": "Fermer",
+      "necessaryTitle": "Cookies nécessaires",
+      "necessaryDescription": "Mémorisent votre choix sur les cookies. Ils ne servent à rien d'autre.",
+      "alwaysOn": "Toujours actifs",
+      "analyticsTitle": "Mesure d'audience",
+      "analyticsDescription": "Google Analytics compte les pages vues, les formulaires envoyés et les clics sur nos numéros de téléphone, de façon statistique.",
+      "acceptAll": "Tout accepter",
+      "refuseAll": "Tout refuser",
+      "save": "Enregistrer mes choix"
+    }
+  },
   "breadcrumb": {
     "home": "Accueil",
     "label": "Fil d'Ariane"

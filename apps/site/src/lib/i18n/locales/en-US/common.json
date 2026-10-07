@@ -58,6 +58,29 @@
       "referral": { "title": "Referral", "description": "€300 to €600 for each friend who goes solar thanks to you." }
     }
   },
+  "consent": {
+    "banner": {
+      "title": "Your cookies, your choice",
+      "text": "With your consent, we use Google Analytics to measure traffic on the site and improve it. Nothing is stored if you refuse, and you can change your mind at any time from « Cookie settings » at the bottom of the page.",
+      "learnMore": "Learn more",
+      "acceptAll": "Accept all",
+      "refuseAll": "Refuse all",
+      "customize": "Customise"
+    },
+    "dialog": {
+      "title": "Cookie settings",
+      "intro": "Choose the cookies you accept. Your choice is kept for 6 months.",
+      "close": "Close",
+      "necessaryTitle": "Necessary cookies",
+      "necessaryDescription": "Remember your cookie choice. They serve no other purpose.",
+      "alwaysOn": "Always on",
+      "analyticsTitle": "Audience measurement",
+      "analyticsDescription": "Google Analytics counts page views, sent forms and clicks on our phone numbers, as statistics.",
+      "acceptAll": "Accept all",
+      "refuseAll": "Refuse all",
+      "save": "Save my choices"
+    }
+  },
   "breadcrumb": {
     "home": "Home",
     "label": "Breadcrumb"

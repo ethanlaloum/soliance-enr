@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Cookie settings | Soliance",
+    "description": "The cookies of soliance-enr.fr, their purpose, their lifetime, and how to accept, refuse or change your choice at any time."
+  },
+  "breadcrumb": "Cookie settings",
+  "title": "Cookie settings",
+  "updatedAt": "Updated on 7 October 2026",
+  "intro": "This page explains which cookies soliance-enr.fr stores, what they are for, how long they are kept, and how to change your choice at any time.",
+  "status": {
+    "label": "Your current choice:",
+    "UNDECIDED": "you have not made a choice yet.",
+    "ANALYTICS_GRANTED": "audience measurement accepted.",
+    "ANALYTICS_REFUSED": "audience measurement refused."
+  },
+  "manage": "Change my choices",
+  "what": {
+    "title": "What is a cookie?",
+    "body": "A cookie is a small file stored on your device when you visit a website. It lets the site, or a third-party service, recognise your browser on your next visits."
+  },
+  "necessary": {
+    "title": "What is stored without your consent",
+    "body": "Only your cookie choice is stored, in your browser's local storage, so that we do not ask again on every page. It serves no other purpose and is shared with no one."
+  },
+  "analytics": {
+    "title": "Audience measurement, only with your consent",
+    "body": "If you accept it, we use Google Analytics to learn which pages are viewed, how many requests are sent from our forms and how many visitors click on our phone numbers. These statistics help us improve the site. No measurement cookie is stored until you accept.",
+    "provider": "Google Analytics is provided by Google Ireland Limited. Data may be transferred to the United States under the EU–US Data Privacy Framework."
+  },
+  "list": {
+    "title": "Cookie list",
+    "caption": "Cookies and trackers used on soliance-enr.fr",
+    "headers": {
+      "name": "Name",
+      "purpose": "Purpose",
+      "duration": "Lifetime",
+      "provider": "Provider",
+      "consent": "Consent required"
+    },
+    "rows": {
+      "consent": {
+        "name": "soliance-consent",
+        "purpose": "Remembers your cookie choice (browser local storage)",
+        "duration": "6 months",
+        "provider": "Soliance",
+        "consent": "No"
+      },
+      "ga": {
+        "name": "_ga",
+        "purpose": "Distinguishes visitors for audience measurement",
+        "duration": "13 months",
+        "provider": "Google Analytics",
+        "consent": "Yes"
+      },
+      "gaSession": {
+        "name": "_ga_<id>",
+        "purpose": "Keeps the state of the visit for audience measurement",
+        "duration": "13 months",
+        "provider": "Google Analytics",
+        "consent": "Yes"
+      }
+    }
+  },
+  "duration": {
+    "title": "How long your choice is kept",
+    "body": "Your choice is kept for 6 months. After that, we ask you again."
+  },
+  "withdraw": {
+    "title": "Changing your mind",
+    "body": "You can accept, refuse or withdraw your consent at any time with the « Change my choices » button on this page, reachable from the « Cookie settings » link at the bottom of every page. If you withdraw your consent, the audience measurement cookies are deleted. You can also block or clear cookies from your browser settings."
+  },
+  "contact": {
+    "title": "Contact us",
+    "body": "The site is published by Solar Trade SAS, 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var. For any question about cookies, write to adv@soliance-enr.fr. You can also lodge a complaint with the CNIL (cnil.fr)."
+  }
+}

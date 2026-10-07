@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Gestion des cookies | Soliance",
+    "description": "Les cookies du site soliance-enr.fr, leur finalité, leur durée, et comment accepter, refuser ou modifier votre choix à tout moment."
+  },
+  "breadcrumb": "Gestion des cookies",
+  "title": "Gestion des cookies",
+  "updatedAt": "Mise à jour le 7 octobre 2026",
+  "intro": "Cette page explique quels cookies le site soliance-enr.fr dépose, à quoi ils servent, combien de temps ils sont conservés, et comment modifier votre choix à tout moment.",
+  "status": {
+    "label": "Votre choix actuel :",
+    "UNDECIDED": "vous n'avez pas encore fait de choix.",
+    "ANALYTICS_GRANTED": "mesure d'audience acceptée.",
+    "ANALYTICS_REFUSED": "mesure d'audience refusée."
+  },
+  "manage": "Modifier mes choix",
+  "what": {
+    "title": "Qu'est-ce qu'un cookie ?",
+    "body": "Un cookie est un petit fichier déposé sur votre appareil quand vous consultez un site. Il permet au site, ou à un service tiers, de reconnaître votre navigateur lors de vos visites suivantes."
+  },
+  "necessary": {
+    "title": "Ce qui est enregistré sans votre accord",
+    "body": "Seul votre choix sur les cookies est enregistré, dans le stockage local de votre navigateur, pour ne pas vous reposer la question à chaque page. Il ne sert à rien d'autre et n'est transmis à personne."
+  },
+  "analytics": {
+    "title": "La mesure d'audience, uniquement avec votre accord",
+    "body": "Si vous l'acceptez, nous utilisons Google Analytics pour savoir quelles pages sont consultées, combien de demandes sont envoyées depuis nos formulaires et combien de visiteurs cliquent sur nos numéros de téléphone. Ces statistiques nous servent à améliorer le site. Aucun cookie de mesure n'est déposé tant que vous n'avez pas accepté.",
+    "provider": "Google Analytics est fourni par Google Ireland Limited. Des données peuvent être transférées aux États-Unis, dans le cadre du Data Privacy Framework UE–États-Unis."
+  },
+  "list": {
+    "title": "Liste des cookies",
+    "caption": "Cookies et traceurs utilisés sur soliance-enr.fr",
+    "headers": {
+      "name": "Nom",
+      "purpose": "Finalité",
+      "duration": "Durée",
+      "provider": "Émetteur",
+      "consent": "Accord requis"
+    },
+    "rows": {
+      "consent": {
+        "name": "soliance-consent",
+        "purpose": "Mémorise votre choix sur les cookies (stockage local du navigateur)",
+        "duration": "6 mois",
+        "provider": "Soliance",
+        "consent": "Non"
+      },
+      "ga": {
+        "name": "_ga",
+        "purpose": "Distingue les visiteurs pour la mesure d'audience",
+        "duration": "13 mois",
+        "provider": "Google Analytics",
+        "consent": "Oui"
+      },
+      "gaSession": {
+        "name": "_ga_<identifiant>",
+        "purpose": "Conserve l'état de la visite pour la mesure d'audience",
+        "duration": "13 mois",
+        "provider": "Google Analytics",
+        "consent": "Oui"
+      }
+    }
+  },
+  "duration": {
+    "title": "Combien de temps votre choix est conservé",
+    "body": "Votre choix est conservé 6 mois. Passé ce délai, nous vous le redemandons."
+  },
+  "withdraw": {
+    "title": "Changer d'avis",
+    "body": "Vous pouvez accepter, refuser ou retirer votre accord à tout moment avec le bouton « Modifier mes choix » de cette page, accessible depuis le lien « Gestion des cookies » en bas de chaque page. Si vous retirez votre accord, les cookies de mesure d'audience sont supprimés. Vous pouvez aussi bloquer ou effacer les cookies depuis les réglages de votre navigateur."
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "body": "Le site est édité par Solar Trade SAS, 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var. Pour toute question sur les cookies, écrivez-nous à adv@soliance-enr.fr. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr)."
+  }
+}

@@ -31,6 +31,7 @@ const seoKeyPrefixByPath: Record<string, string> = {
   [paths.projects]: 'projects:seo',
   [paths.resources]: 'resources:seo',
   [paths.care]: 'care:seo',
+  [paths.cookies]: 'cookies:seo',
 };
 
 const serviceKeyByPath: Record<string, string> = {

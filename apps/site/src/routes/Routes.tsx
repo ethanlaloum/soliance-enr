@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router';
+import { RootLayout } from '@/layout/RootLayout';
 import { SiteLayout } from '@/layout/SiteLayout';
 import { paths } from '@/routes/paths';
 
@@ -14,24 +15,28 @@ const ProjectsPage = lazy(() => import('@/pages/projects/ProjectsPage').then((mo
 const ProjectDetailPage = lazy(() => import('@/pages/projects/ProjectDetailPage').then((module) => ({ default: module.ProjectDetailPage })));
 const ResourcesPage = lazy(() => import('@/pages/resources/ResourcesPage').then((module) => ({ default: module.ResourcesPage })));
 const CarePage = lazy(() => import('@/pages/care/CarePage').then((module) => ({ default: module.CarePage })));
+const CookiesPage = lazy(() => import('@/pages/cookies/CookiesPage').then((module) => ({ default: module.CookiesPage })));
 const NotFoundPage = lazy(() => import('@/pages/not-found/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
 
 export const AppRoutes = () => (
   <Suspense fallback={null}>
     <Routes>
-      <Route path={paths.care} element={<CarePage />} />
-      <Route element={<SiteLayout />}>
-        <Route path={paths.home} element={<HomePage />} />
-        <Route path={paths.solar} element={<SolarPage />} />
-        <Route path={paths.heatPump} element={<HeatPumpPage />} />
-        <Route path={paths.evCharger} element={<EvChargerPage />} />
-        <Route path={paths.professionals} element={<ProfessionalsPage />} />
-        <Route path={paths.simulator} element={<SimulatorPage />} />
-        <Route path={paths.referral} element={<ReferralPage />} />
-        <Route path={paths.projects} element={<ProjectsPage />} />
-        <Route path={paths.projectDetail} element={<ProjectDetailPage />} />
-        <Route path={paths.resources} element={<ResourcesPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+      <Route element={<RootLayout />}>
+        <Route path={paths.care} element={<CarePage />} />
+        <Route element={<SiteLayout />}>
+          <Route path={paths.home} element={<HomePage />} />
+          <Route path={paths.solar} element={<SolarPage />} />
+          <Route path={paths.heatPump} element={<HeatPumpPage />} />
+          <Route path={paths.evCharger} element={<EvChargerPage />} />
+          <Route path={paths.professionals} element={<ProfessionalsPage />} />
+          <Route path={paths.simulator} element={<SimulatorPage />} />
+          <Route path={paths.referral} element={<ReferralPage />} />
+          <Route path={paths.projects} element={<ProjectsPage />} />
+          <Route path={paths.projectDetail} element={<ProjectDetailPage />} />
+          <Route path={paths.resources} element={<ResourcesPage />} />
+          <Route path={paths.cookies} element={<CookiesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Route>
     </Routes>
   </Suspense>
