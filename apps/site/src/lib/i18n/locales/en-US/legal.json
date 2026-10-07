@@ -93,7 +93,7 @@
               "Solar simulator: address or town of the home, type of home, status (owner / tenant), surface area, roof orientation and pitch, electricity bill or consumption, related projects (battery, heat pump, charger), contact details for sending the results.",
               "Referral programme: last name, first name, email address and phone of the referrer; last name, first name, phone and town of the referee. The referrer guarantees having informed the referee and obtained their agreement before sending us their details; the referee is told where their data came from at the first contact and may object to any processing.",
               "Customer relationship (quote, contract, installation, after-sales): identity, contact details, data on the home and the installation, consumption and production data, billing and payment data, documents needed for administrative procedures (title deed, proofs, bank details, tax notice for subsidy files), exchanges with our teams.",
-              "Browsing data: IP address, browser and device type, pages viewed, traffic source, cookie identifiers, under the conditions of the Cookie settings page.",
+              "Browsing data: IP address, browser and device type, pages viewed, traffic source, cookie identifiers, under the conditions of the Cookie policy.",
               "Job applications: CV, cover letter, contact details, when a \"careers\" section is offered."
             ]
           },
@@ -130,7 +130,7 @@
           { "p": "Your data is intended for the authorised teams of SOLIANCE (sales, sales administration, technical, after-sales) and of its sister company SOLIANCE CARE for the maintenance services you subscribe to. It may be shared, strictly as needed, with the following categories of recipients:" },
           {
             "ul": [
-              "Technical processors: the Site's host (OVH, France), the email service for our forms (Resend), our CRM provider (HubSpot), e-signature, messaging, accounting and installation monitoring tools.",
+              "Technical processors: the Site's host (OVH, France), the provider of our CRM and forms (HubSpot), the email service for our forms (Resend), e-signature, messaging, accounting and installation monitoring tools.",
               "Equipment manufacturers, to register warranties and activate monitoring apps.",
               "Bodies whose involvement your project requires: town hall and planning authority, Consuel, grid operator (Enedis), electricity buyer (EDF OA), subsidy bodies (ANAH, CEE obligated parties, ADVENIR programme).",
               "Financial partners and insurers, only at your request.",
@@ -144,7 +144,7 @@
       {
         "title": "5. Transfers outside the European Union",
         "blocks": [
-          { "p": "Your data is hosted in France or in the European Union. Some of our providers (Resend, HubSpot, Google, Meta) are established in the United States or have servers there; the corresponding transfers are governed by the adequacy decision on the EU–US Data Privacy Framework when the provider is certified, and otherwise by the European Commission's standard contractual clauses, supplemented by appropriate measures. You can obtain a copy of these safeguards by writing to us." }
+          { "p": "Your data is hosted in France or in the European Union. Some of our providers (HubSpot, Google, Meta, Resend) are established in the United States or have servers there; the corresponding transfers are governed by the adequacy decision on the EU–US Data Privacy Framework when the provider is certified, and otherwise by the European Commission's standard contractual clauses, supplemented by appropriate measures. You can obtain a copy of these safeguards by writing to us." }
         ]
       },
       {

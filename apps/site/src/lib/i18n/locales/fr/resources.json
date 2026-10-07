@@ -172,7 +172,7 @@
           },
           "coverage": {
             "question": "Quelles garanties couvrent mon installation ?",
-            "answer": "La garantie décennale de Soliance, assurée chez MMA, et les garanties fabricant du matériel, dont une garantie produit de 25 ans sur les panneaux Francilienne."
+            "answer": "La garantie décennale de Soliance, assurée chez MIC Insurance Company, et les garanties fabricant du matériel, dont une garantie produit de 25 ans sur les panneaux Francilienne."
           },
           "manufacturerWarranty": {
             "question": "Qui gère les garanties fabricant ?",
@@ -277,7 +277,7 @@
     "more": {
       "decennialWarranty": {
         "term": "Garantie décennale",
-        "definition": "Assurance obligatoire de l'installateur : pendant 10 ans après la réception des travaux, elle couvre les dommages qui compromettent la solidité de l'installation ou la rendent impropre à son usage. Soliance est assurée en décennale chez MMA."
+        "definition": "Assurance obligatoire de l'installateur : pendant 10 ans après la réception des travaux, elle couvre les dommages qui compromettent la solidité de l'installation ou la rendent impropre à son usage. Soliance est assurée en décennale chez MIC Insurance Company."
       },
       "performanceWarranty": {
         "term": "Garantie de performance",

@@ -93,7 +93,7 @@
               "Simulateur solaire : adresse ou commune du logement, type de logement, statut (propriétaire / locataire), surface, orientation et inclinaison de la toiture, montant ou volume de consommation d'électricité, projets associés (batterie, pompe à chaleur, borne de recharge), coordonnées pour la transmission des résultats.",
               "Programme de parrainage : nom, prénom, adresse électronique et téléphone du parrain ; nom, prénom, téléphone et commune du filleul. Le parrain garantit avoir informé le filleul et obtenu son accord avant de nous communiquer ses coordonnées ; le filleul est informé de l'origine de ses données dès le premier contact et peut s'opposer à tout traitement.",
               "Relation client (devis, contrat, installation, SAV) : identité, coordonnées, données relatives au logement et à l'installation, données de consommation et de production, données de facturation et de paiement, pièces nécessaires aux démarches administratives (titre de propriété, justificatifs, relevé d'identité bancaire, avis d'imposition pour les dossiers d'aides), échanges avec nos équipes.",
-              "Données de navigation : adresse IP, type de navigateur et d'appareil, pages consultées, source de trafic, identifiants de cookies, dans les conditions de la page Gestion des cookies.",
+              "Données de navigation : adresse IP, type de navigateur et d'appareil, pages consultées, source de trafic, identifiants de cookies, dans les conditions de la Politique cookies.",
               "Candidatures : CV, lettre de motivation, coordonnées, lorsqu'une rubrique « recrutement » est proposée."
             ]
           },
@@ -130,7 +130,7 @@
           { "p": "Vos données sont destinées aux équipes habilitées de SOLIANCE (commerce, administration des ventes, technique, SAV) et de sa société sœur SOLIANCE CARE pour les prestations de maintenance que vous souscrivez. Elles peuvent être communiquées, dans la stricte mesure nécessaire, aux catégories de destinataires suivantes :" },
           {
             "ul": [
-              "Sous-traitants techniques : hébergeur du Site (OVH, France), service d'envoi des e-mails de nos formulaires (Resend), éditeur de notre CRM (HubSpot), outils de signature électronique, de messagerie, de comptabilité et de supervision des installations.",
+              "Sous-traitants techniques : hébergeur du Site (OVH, France), éditeur de notre CRM et de nos formulaires (HubSpot), service d'envoi des e-mails de nos formulaires (Resend), outils de signature électronique, de messagerie, de comptabilité et de supervision des installations.",
               "Fabricants des équipements, pour l'enregistrement des garanties et l'activation des applications de supervision.",
               "Organismes dont l'intervention est nécessaire à votre projet : mairie et autorité d'urbanisme, Consuel, gestionnaire de réseau (Enedis), acheteur d'électricité (EDF OA), organismes gestionnaires des aides (ANAH, obligés CEE, programme ADVENIR).",
               "Partenaires financiers et assureurs, uniquement à votre demande.",
@@ -144,7 +144,7 @@
       {
         "title": "5. Transferts hors de l'Union européenne",
         "blocks": [
-          { "p": "Vos données sont hébergées en France ou dans l'Union européenne. Certains de nos prestataires (Resend, HubSpot, Google, Meta) sont établis aux États-Unis ou y disposent de serveurs ; les transferts correspondants sont encadrés par la décision d'adéquation relative au cadre de protection des données UE–États-Unis (Data Privacy Framework) lorsque le prestataire y est certifié, et à défaut par les clauses contractuelles types de la Commission européenne, complétées par des mesures appropriées. Vous pouvez obtenir une copie de ces garanties en nous écrivant." }
+          { "p": "Vos données sont hébergées en France ou dans l'Union européenne. Certains de nos prestataires (HubSpot, Google, Meta, Resend) sont établis aux États-Unis ou y disposent de serveurs ; les transferts correspondants sont encadrés par la décision d'adéquation relative au cadre de protection des données UE–États-Unis (Data Privacy Framework) lorsque le prestataire y est certifié, et à défaut par les clauses contractuelles types de la Commission européenne, complétées par des mesures appropriées. Vous pouvez obtenir une copie de ces garanties en nous écrivant." }
         ]
       },
       {

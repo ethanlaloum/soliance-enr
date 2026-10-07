@@ -172,7 +172,7 @@
           },
           "coverage": {
             "question": "Which warranties cover my installation?",
-            "answer": "Soliance's ten-year liability insurance, with MMA, and the manufacturer warranties on the equipment, including a 25-year product warranty on Francilienne panels."
+            "answer": "Soliance's ten-year liability insurance, with MIC Insurance Company, and the manufacturer warranties on the equipment, including a 25-year product warranty on Francilienne panels."
           },
           "manufacturerWarranty": {
             "question": "Who handles manufacturer warranties?",
@@ -277,7 +277,7 @@
     "more": {
       "decennialWarranty": {
         "term": "Ten-year liability insurance",
-        "definition": "The installer's mandatory insurance: for 10 years after the work is accepted, it covers damage that undermines the installation's soundness or makes it unfit for use. Soliance holds ten-year cover with MMA."
+        "definition": "The installer's mandatory insurance: for 10 years after the work is accepted, it covers damage that undermines the installation's soundness or makes it unfit for use. Soliance holds ten-year cover with MIC Insurance Company."
       },
       "performanceWarranty": {
         "term": "Performance warranty",
