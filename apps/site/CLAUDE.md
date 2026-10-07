@@ -17,6 +17,7 @@ Home, `/panneaux-solaires`, `/panneaux-solaires/:area` (8 local SEO pages, see b
 - The hero `<img>` also gives `og:image:width` / `og:image:height` / `og:image:alt`. React 19 emits its own `<link rel="preload">` (inside `#root`, no `media`) for every non-lazy `fetchPriority="high"` image. A hero shown on desktop only (home) is therefore `loading="lazy"` with `data-preload-media="(min-width: 1024px)"`: React skips it, `buildHead` preloads it for desktop only, and mobile never downloads it.
 - Footer links only point to pages that exist; `/renovation-globale`, `/a-propos`, `/cgv` and `/cgv-professionnels` are unlinked until built. `/mentions-legales` and `/confidentialite` stay linked (footers and every form's consent line) and answer 404 until Soliance sends the texts.
 - `VITE_GOOGLE_SITE_VERIFICATION` adds the Search Console meta tag on the home page.
+- Search Console is verified with the HTML file method: `public/google06b0b68d38b884d1.html` must stay served at the site root, or Google drops the verification.
 
 ## Local solar pages
 
