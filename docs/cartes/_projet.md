@@ -24,4 +24,4 @@ Aucun.
 
 ## Contrats inter-apps
 
-Aucune app backend dans le périmètre : pas de route, pas de gateway. Les formulaires du site visent HubSpot (ou l'e-mail) et non une api du dépôt.
+Aucune app backend dans le périmètre : pas de route, pas de gateway. Les formulaires du site postent sur `apps/site/public/api/lead.php`, un script PHP servi par l'hébergement OVH qui envoie chaque demande par e-mail via Resend ; il n'y a pas d'api Node dans le dépôt.

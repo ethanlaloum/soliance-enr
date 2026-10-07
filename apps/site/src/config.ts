@@ -1,5 +1,3 @@
-import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
-
 const readEnv = (value: string | undefined): string | null => (value && value.trim().length > 0 ? value.trim() : null);
 
 export const config = {
@@ -12,14 +10,5 @@ export const config = {
   adminPhoneHref: 'tel:+33659403888',
   referralPhoneHref: 'tel:+33608628471',
   googleSiteVerification: readEnv(import.meta.env.VITE_GOOGLE_SITE_VERIFICATION),
-  hubspot: {
-    portalId: readEnv(import.meta.env.VITE_HUBSPOT_PORTAL_ID),
-    studyRequestFormId: readEnv(import.meta.env.VITE_HUBSPOT_STUDY_REQUEST_FORM_ID),
-    leadFormIds: {
-      [LeadFormKind.PROFESSIONAL_STUDY]: readEnv(import.meta.env.VITE_HUBSPOT_PROFESSIONAL_FORM_ID),
-      [LeadFormKind.REFERRAL]: readEnv(import.meta.env.VITE_HUBSPOT_REFERRAL_FORM_ID),
-      [LeadFormKind.SIMULATION]: readEnv(import.meta.env.VITE_HUBSPOT_SIMULATION_FORM_ID),
-      [LeadFormKind.CARE_REQUEST]: readEnv(import.meta.env.VITE_HUBSPOT_CARE_FORM_ID),
-    },
-  },
+  leadEndpoint: '/api/lead.php',
 };

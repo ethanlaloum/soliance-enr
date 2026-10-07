@@ -10,6 +10,7 @@
     "build:all": "pnpm -r build",
     "lint:all": "pnpm -r lint:check",
     "deploy:ovh": "sh scripts/deploy-ovh.sh",
+    "deploy:mail-config": "sh scripts/push-mail-config.sh",
     "prepare": "husky"
   },
   "devDependencies": {

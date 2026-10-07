@@ -29,9 +29,13 @@ Hexagon per jp-way `frontend-conventions`: `src/app/lead/` (entities `StudyReque
 
 ## Lead forms
 
-- All forms post to the HubSpot Forms API (`api.hsforms.com/submissions/v3/integration/submit/<portal>/<form>`), portal `VITE_HUBSPOT_PORTAL_ID`; form ids per form in `.env.example` (study request, professional, referral, simulation). Without them the gateway fails with `NOT_CONFIGURED` and nothing leaves the browser.
-- The Soliance Care page has one request form (`LeadFormKind.CARE_REQUEST`, `VITE_HUBSPOT_CARE_FORM_ID`); every Care call to action is a `CareRequestLink` that preselects its `care_request_type` through `CareRequestContext` and jumps to `#demande`. Online subscription with a SEPA mandate is not built: « Je souscris » leads to this callback form.
-- Generic forms go through `useLeadSubmission(LeadFormKind.X)`; field names are English snake_case and become HubSpot contact properties (postal code is always `zip`). Custom properties must exist in the HubSpot portal.
+- All forms post JSON (`kind`, `fields`, consent text and time, page) to `/api/lead.php` (`config.leadEndpoint`). The script is `public/api/lead.php`, copied as is into `dist/` and run by the OVH PHP; it validates the payload, mails the request through the Resend API and answers `400 INVALID_REQUEST`, `429`, `502 SUBMISSION_FAILED` or `503 NOT_CONFIGURED` (mapped to `LeadErrorType` by `SolianceRxLeadGateway`). The study request is sent with the kind `STUDY_REQUEST`, which is not a `LeadFormKind`.
+- Recipients are fixed in the PHP (`LEAD_RECIPIENTS`), never taken from the request: every kind goes to `adv@soliance-enr.fr`, `commercial@soliance-enr.fr` and `ruben.darmon@soliance-enr.fr`. The lead's own e-mail (`email` or `referrer_email`) becomes the Reply-To.
+- Field names are English snake_case (postal code is always `zip`); `FIELD_LABELS` and `VALUE_LABELS` in the PHP turn them and their enum values into French for the mail. A new field or enum value shows raw until it is added there.
+- The Resend key and sender live in `soliance-mail.php` in the OVH home, one level above the web root, read through `dirname(__DIR__, 2)`; `pnpm deploy:mail-config` writes it from `RESEND_API_KEY` / `RESEND_FROM` in the root `.env`. Never put them under a `VITE_` name or in `public/`: the repository and the `ovh-deploy` branch are public.
+- `vite dev` and `vite preview` do not run PHP: a submission there fails with `SUBMISSION_FAILED`.
+- The Soliance Care page has one request form (`LeadFormKind.CARE_REQUEST`); every Care call to action is a `CareRequestLink` that preselects its `care_request_type` through `CareRequestContext` and jumps to `#demande`. Online subscription with a SEPA mandate is not built: « Je souscris » leads to this callback form.
+- Generic forms go through `useLeadSubmission(LeadFormKind.X)`.
 - Callback consent is mandatory (law of 11 August 2026): refused in the zod schema and again in the epics (`CONSENT_REQUIRED`); the consent time comes from the injected `Clock` and the displayed consent text is sent with the submission.
 
 ## External links

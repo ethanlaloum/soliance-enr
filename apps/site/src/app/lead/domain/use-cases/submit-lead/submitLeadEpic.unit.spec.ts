@@ -44,7 +44,7 @@ describe('Generic lead submission', () => {
   });
 
   it('propagates the gateway error code for the submitted form', async () => {
-    sut.givenGatewayFails(new LeadError(LeadErrorType.NOT_CONFIGURED, 'HubSpot portal id or SIMULATION lead form id is missing'));
+    sut.givenGatewayFails(new LeadError(LeadErrorType.NOT_CONFIGURED, 'Lead mail is not configured on the server'));
 
     const actions = await sut.whenLeadIsSubmitted({ ...professionalForm, kind: LeadFormKind.SIMULATION });
 

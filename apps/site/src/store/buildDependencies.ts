@@ -8,7 +8,7 @@ export const buildRealDependencies = (): Dependencies => {
   const httpClient = new FetchHttpClient();
 
   return {
-    leadGateway: new SolianceRxLeadGateway(httpClient, config.hubspot),
+    leadGateway: new SolianceRxLeadGateway(httpClient, config.leadEndpoint),
     clock: new SystemClock(),
   };
 };

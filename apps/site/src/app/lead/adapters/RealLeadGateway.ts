@@ -1,74 +1,60 @@
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { StudyRequest } from '@/app/lead/domain/entities/StudyRequest';
-import { LeadFormKind, LeadSubmission } from '@/app/lead/domain/entities/LeadSubmission';
+import { LeadSubmission } from '@/app/lead/domain/entities/LeadSubmission';
 import { LeadError, LeadErrorType, LeadGateway } from '@/app/lead/domain/ports/LeadGateway';
-import { HubSpotFieldDto, HubSpotSubmissionDto } from '@/app/lead/adapters/dtos/HubSpotSubmissionDto';
+import { LeadMailDto, LeadMailErrorDto, studyRequestMailKind } from '@/app/lead/adapters/dtos/LeadMailDto';
 import { HttpClient, isApiError } from '@/app/shared/domain/ports/HttpClient';
 
-export interface HubSpotFormSettings {
-  portalId: string | null;
-  studyRequestFormId: string | null;
-  leadFormIds: Record<LeadFormKind, string | null>;
-}
+type SubmissionContext = Pick<LeadMailDto, 'consentText' | 'callbackConsentedAt' | 'pageUri' | 'pageName'>;
 
-const contactField = (name: string, value: string): HubSpotFieldDto => ({ objectTypeId: '0-1', name, value });
+const toContext = (source: SubmissionContext): SubmissionContext => ({
+  consentText: source.consentText,
+  callbackConsentedAt: source.callbackConsentedAt,
+  pageUri: source.pageUri,
+  pageName: source.pageName,
+});
+
+const notConfiguredCode = 'NOT_CONFIGURED';
+
+const isNotConfigured = (data: unknown): boolean =>
+  typeof data === 'object' && data !== null && (data as Partial<LeadMailErrorDto>).error === notConfiguredCode;
+
+const toLeadError = (error: unknown, label: string): LeadError => {
+  const status = isApiError(error) ? error.status : null;
+  if (isApiError(error) && error.status === 503 && isNotConfigured(error.data)) {
+    return new LeadError(LeadErrorType.NOT_CONFIGURED, 'Lead mail is not configured on the server');
+  }
+  const type = status === 400 ? LeadErrorType.INVALID_REQUEST : LeadErrorType.SUBMISSION_FAILED;
+  return new LeadError(type, `${label[0].toUpperCase()}${label.slice(1)} submission failed with status ${status ?? 'unknown'}`);
+};
 
 export class SolianceRxLeadGateway implements LeadGateway {
-  private readonly baseUrl = 'https://api.hsforms.com/submissions/v3/integration/submit';
-
   constructor(
     private httpClient: HttpClient,
-    private settings: HubSpotFormSettings,
+    private endpoint: string,
   ) {}
 
   submitStudyRequest(request: StudyRequest): Observable<void> {
-    const fields: HubSpotFieldDto[] = [
-      contactField('full_name', request.fullName),
-      contactField('phone', request.phone),
-      contactField('zip', request.postalCode),
-      contactField('project_type', request.projectType),
-      contactField('callback_consented_at', request.callbackConsentedAt),
-    ];
-    if (request.email) fields.push(contactField('email', request.email));
-    if (request.monthlyBill) fields.push(contactField('monthly_electricity_bill', request.monthlyBill));
+    const fields: Record<string, string> = {
+      full_name: request.fullName,
+      phone: request.phone,
+      zip: request.postalCode,
+      project_type: request.projectType,
+    };
+    if (request.email) fields.email = request.email;
+    if (request.monthlyBill) fields.monthly_electricity_bill = request.monthlyBill;
 
-    return this.send(this.settings.studyRequestFormId, 'study request', this.toDto(fields, request));
+    return this.send('study request', { kind: studyRequestMailKind, fields, ...toContext(request) });
   }
 
   submitLead(submission: LeadSubmission): Observable<void> {
-    const fields = [
-      ...Object.entries(submission.fields).map(([name, value]) => contactField(name, value)),
-      contactField('callback_consented_at', submission.callbackConsentedAt),
-    ];
-
-    return this.send(this.settings.leadFormIds[submission.kind], `${submission.kind} lead`, this.toDto(fields, submission));
+    return this.send(`${submission.kind} lead`, { kind: submission.kind, fields: submission.fields, ...toContext(submission) });
   }
 
-  private send(formId: string | null, label: string, dto: HubSpotSubmissionDto): Observable<void> {
-    const { portalId } = this.settings;
-    if (!portalId || !formId) {
-      return throwError(() => new LeadError(LeadErrorType.NOT_CONFIGURED, `HubSpot portal id or ${label} form id is missing`));
-    }
-
-    return this.httpClient.post<HubSpotSubmissionDto, unknown>(`${this.baseUrl}/${portalId}/${formId}`, dto).pipe(
+  private send(label: string, dto: LeadMailDto): Observable<void> {
+    return this.httpClient.post<LeadMailDto, unknown>(this.endpoint, dto).pipe(
       map(() => undefined),
-      catchError((error: unknown) => {
-        const status = isApiError(error) ? error.status : null;
-        const type = status === 400 ? LeadErrorType.INVALID_REQUEST : LeadErrorType.SUBMISSION_FAILED;
-        return throwError(() => new LeadError(type, `${label[0].toUpperCase()}${label.slice(1)} submission failed with status ${status ?? 'unknown'}`));
-      }),
+      catchError((error: unknown) => throwError(() => toLeadError(error, label))),
     );
-  }
-
-  private toDto(
-    fields: HubSpotFieldDto[],
-    context: { callbackConsentedAt: string; pageUri: string; pageName: string; consentText: string },
-  ): HubSpotSubmissionDto {
-    return {
-      submittedAt: String(Date.parse(context.callbackConsentedAt)),
-      fields,
-      context: { pageUri: context.pageUri, pageName: context.pageName },
-      legalConsentOptions: { consent: { consentToProcess: true, text: context.consentText } },
-    };
   }
 }
