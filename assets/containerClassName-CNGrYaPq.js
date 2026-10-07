@@ -1,0 +1,1 @@
+const t="mx-auto w-full max-w-[1440px] px-5 lg:px-10",e="text-xs font-semibold uppercase tracking-[1.2px] text-solar lg:text-sm lg:tracking-[1.5px]",s="text-[28px] font-bold tracking-[-0.02em] lg:text-[44px]";export{t as c,e,s};
