@@ -16,6 +16,8 @@ const ProjectsPage = lazy(() => import('@/pages/projects/ProjectsPage').then((mo
 const ProjectDetailPage = lazy(() => import('@/pages/projects/ProjectDetailPage').then((module) => ({ default: module.ProjectDetailPage })));
 const ResourcesPage = lazy(() => import('@/pages/resources/ResourcesPage').then((module) => ({ default: module.ResourcesPage })));
 const CarePage = lazy(() => import('@/pages/care/CarePage').then((module) => ({ default: module.CarePage })));
+const LegalNoticePage = lazy(() => import('@/pages/legal/LegalNoticePage').then((module) => ({ default: module.LegalNoticePage })));
+const PrivacyPage = lazy(() => import('@/pages/legal/PrivacyPage').then((module) => ({ default: module.PrivacyPage })));
 const CookiesPage = lazy(() => import('@/pages/cookies/CookiesPage').then((module) => ({ default: module.CookiesPage })));
 const NotFoundPage = lazy(() => import('@/pages/not-found/NotFoundPage').then((module) => ({ default: module.NotFoundPage })));
 
@@ -36,6 +38,8 @@ export const AppRoutes = () => (
           <Route path={paths.projects} element={<ProjectsPage />} />
           <Route path={paths.projectDetail} element={<ProjectDetailPage />} />
           <Route path={paths.resources} element={<ResourcesPage />} />
+          <Route path={paths.legalNotice} element={<LegalNoticePage />} />
+          <Route path={paths.privacy} element={<PrivacyPage />} />
           <Route path={paths.cookies} element={<CookiesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

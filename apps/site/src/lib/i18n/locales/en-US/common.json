@@ -37,6 +37,7 @@
     "termsProfessionals": "Terms for businesses",
     "privacy": "Privacy",
     "cookies": "Cookie settings",
+    "manageCookies": "Manage my cookies",
     "mobileAddress": "30 avenue du Général Leclerc, Saint-Laurent-du-Var",
     "mobileContact": "commercial@soliance-enr.fr · +33 7 63 54 51 44"
   },
@@ -89,6 +90,8 @@
     "label": "Breadcrumb"
   },
   "leadForm": {
+    "privacyNotice": "The information collected is processed by Soliance (Solar Trade SAS) to answer your request and prepare a personalised study. It is kept for 3 years from our last exchange. You have rights of access, rectification, erasure and objection, which you can exercise at adv@soliance-enr.fr. Learn more:",
+    "privacyLink": "privacy policy",
     "submitting": "Sending…",
     "errorTitle": "Unable to send",
     "errors": {

@@ -4,6 +4,7 @@ import { config } from '@/config';
 import { paths } from '@/routes/paths';
 import { CareDiamondPattern } from '@/components/care/CareIcons';
 import { CareLogo } from '@/components/care/CareLogo';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 const footerLinks = [
   { labelKey: 'footer.enr', to: paths.home },
@@ -14,6 +15,7 @@ const footerLinks = [
 
 export const CareFooter = () => {
   const { t } = useTranslation('care');
+  const { openEdition } = useCookieConsent();
 
   return (
     <footer className="relative mt-auto overflow-hidden bg-care-forest text-sm text-care-pale lg:text-[15px]">
@@ -39,6 +41,11 @@ export const CareFooter = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              <button type="button" onClick={openEdition} className="text-care-pale hover:text-white">
+                {t('footer.manageCookies')}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

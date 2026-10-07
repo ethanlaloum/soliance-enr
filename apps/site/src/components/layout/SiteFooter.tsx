@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { contactAnchor, paths } from '@/routes/paths';
 import { SolianceLogo } from '@/components/brand/SolianceLogo';
+import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 type FooterLink = { labelKey: string; to: string };
 
@@ -38,6 +39,7 @@ const linkClassName = 'text-slate-light transition-colors hover:text-white';
 
 export const SiteFooter = () => {
   const { t } = useTranslation('common');
+  const { openEdition } = useCookieConsent();
 
   return (
     <footer className="mt-auto bg-night text-[13px] text-slate-light lg:text-sm">
@@ -59,6 +61,13 @@ export const SiteFooter = () => {
                   </Link>
                 </li>
               ))}
+              {column.titleKey === 'footer.legalTitle' && (
+                <li>
+                  <button type="button" onClick={openEdition} className={linkClassName}>
+                    {t('footer.manageCookies')}
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         ))}

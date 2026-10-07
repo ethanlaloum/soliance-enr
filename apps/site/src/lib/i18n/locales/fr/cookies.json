@@ -67,7 +67,7 @@
   },
   "withdraw": {
     "title": "Changer d'avis",
-    "body": "Vous pouvez accepter, refuser ou retirer votre accord à tout moment avec le bouton « Modifier mes choix » de cette page, accessible depuis le lien « Gestion des cookies » en bas de chaque page. Si vous retirez votre accord, les cookies de mesure d'audience sont supprimés. Vous pouvez aussi bloquer ou effacer les cookies depuis les réglages de votre navigateur."
+    "body": "Vous pouvez accepter, refuser ou retirer votre accord à tout moment avec le lien « Gérer mes cookies » en bas de chaque page, ou avec le bouton « Modifier mes choix » de cette page. Si vous retirez votre accord, les cookies de mesure d'audience sont supprimés. Vous pouvez aussi bloquer ou effacer les cookies depuis les réglages de votre navigateur."
   },
   "contact": {
     "title": "Nous contacter",

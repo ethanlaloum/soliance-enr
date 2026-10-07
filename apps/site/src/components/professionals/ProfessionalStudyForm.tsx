@@ -1,9 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
-import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
@@ -17,6 +15,7 @@ import {
   professionalStudySchema,
 } from '@/components/professionals/professionalStudySchema';
 import { buildProfessionalLeadFields } from '@/components/professionals/professionalLeadFields';
+import { LeadPrivacyNotice } from '@/components/page/LeadPrivacyNotice';
 
 type TextFieldName = 'company' | 'fullName' | 'jobTitle' | 'email' | 'phone' | 'surface' | 'postalCode';
 
@@ -145,14 +144,12 @@ export const ProfessionalStudyForm = () => {
             {t('form.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-white">
-          {t('form.privacyLink')}
-        </Link>
         {errors.callbackConsent && (
           <p id="pro-study-callbackConsent-error" className={darkErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}
+        <LeadPrivacyNotice tone="dark" />
       </div>
 
       {errorCode && (

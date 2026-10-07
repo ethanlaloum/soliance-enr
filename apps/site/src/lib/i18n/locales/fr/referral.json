@@ -65,7 +65,7 @@
       "UNDECIDED": "Je ne sais pas encore"
     },
     "consent": "Je confirme que mon filleul accepte d'être contacté par Soliance au sujet de son projet.",
-    "privacyLink": "Lire la politique de confidentialité",
+    "refereeNotice": "En renseignant les coordonnées d'un proche, vous confirmez l'avoir informé de ce parrainage et avoir obtenu son accord pour qu'il soit contacté par Soliance.",
     "submit": "Envoyer le parrainage",
     "successTitle": "Parrainage envoyé",
     "successDescription": "Merci ! Nous appelons votre filleul sous 48 h. Votre prime vous est versée par virement dans les 30 jours suivant la mise en service de son installation.",

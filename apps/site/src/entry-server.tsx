@@ -23,6 +23,8 @@ export const prerenderRoutes: string[] = [
   paths.projects,
   paths.resources,
   paths.care,
+  paths.legalNotice,
+  paths.privacy,
   paths.cookies,
   ...projectDetailSlugs.map(projectPath),
 ];

@@ -65,7 +65,7 @@
       "UNDECIDED": "Not sure yet"
     },
     "consent": "I confirm that the person I am referring agrees to be contacted by Soliance about their project.",
-    "privacyLink": "Read the privacy policy",
+    "refereeNotice": "By entering the details of someone close to you, you confirm that you have told them about this referral and obtained their agreement to be contacted by Soliance.",
     "submit": "Send the referral",
     "successTitle": "Referral sent",
     "successDescription": "Thank you! We will call the person you referred within 48 hours. Your bonus is paid by bank transfer within 30 days of their installation going live.",

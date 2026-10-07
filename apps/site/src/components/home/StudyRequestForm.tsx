@@ -1,9 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
-import { paths } from '@/routes/paths';
 import { useAppDispatch, useAppSelector } from '@/store/redux';
 import { projectTypes } from '@/app/lead/domain/entities/StudyRequest';
 import { submitStudyRequestRequested } from '@/app/lead/domain/use-cases/submit-study-request/submitStudyRequestEpic';
@@ -17,6 +15,7 @@ import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { studyRequestDefaultValues, StudyRequestFormData, studyRequestSchema } from '@/components/home/studyRequestSchema';
+import { LeadPrivacyNotice } from '@/components/page/LeadPrivacyNotice';
 
 type TextFieldName = 'fullName' | 'phone' | 'email' | 'postalCode';
 
@@ -152,14 +151,12 @@ export const StudyRequestForm = () => {
             {t('contact.form.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-solar-dark">
-          {t('contact.form.privacyLink')}
-        </Link>
         {errors.callbackConsent && (
           <p id="study-callbackConsent-error" className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}
+        <LeadPrivacyNotice />
       </div>
 
       {errorCode && (

@@ -142,8 +142,7 @@
     "email": "Email",
     "phone": "Phone",
     "submit": "Get it",
-    "consent": "I agree to be contacted by Soliance about my project.",
-    "privacyLink": "Read the privacy policy",
+    "consent": "I agree to be contacted by Soliance by phone or email about my request.",
     "successTitle": "Request sent",
     "successDescription": "Thank you! An advisor reviews your estimate and calls you back within 2 business days to prepare the precise study.",
     "validation": {

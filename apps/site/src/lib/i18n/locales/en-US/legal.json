@@ -1,0 +1,194 @@
+{
+  "legalNotice": {
+    "seo": {
+      "title": "Legal notice | Soliance",
+      "description": "Publisher, host, insurance, consumer mediation and intellectual property of soliance-enr.fr, published by Solar Trade SAS (Soliance)."
+    },
+    "breadcrumb": "Legal notice",
+    "title": "Legal notice",
+    "updatedAt": "Version 1.0 — October 2026",
+    "sections": [
+      {
+        "title": "Site publisher",
+        "blocks": [
+          { "p": "The website soliance-enr.fr (the \"Site\") is published by SOLAR TRADE, a simplified joint-stock company (SAS) with a share capital of €10,000, registered with the Antibes Trade and Companies Register under number 949 576 946, whose registered office is at 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var, trading under the name SOLIANCE." },
+          {
+            "ul": [
+              "SIRET: 949 576 946 00014",
+              "EU VAT number: FR27 949 576 946",
+              "Phone: 04 93 19 50 31",
+              "Email: adv@soliance-enr.fr",
+              "Publication director: Ruben Darmon, President"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Regulated activity and insurance",
+        "blocks": [
+          { "p": "SOLIANCE installs solar PV equipment, heat pumps and electric vehicle charging infrastructure. It holds the mandatory ten-year liability insurance and professional liability insurance with MIC Insurance Company (29 rue de Bassano, 75008 Paris), policy no. LUN2604601, covering work sites in mainland France. The insurance certificate is available on request." }
+        ]
+      },
+      {
+        "title": "Hosting",
+        "blocks": [
+          { "p": "The Site is hosted by OVH SAS, with a share capital of €50,000,000, registered with the Lille Métropole Trade and Companies Register under number 424 761 419, whose registered office is at 2 rue Kellermann, 59100 Roubaix, France — phone: 1007 — www.ovhcloud.com." }
+        ]
+      },
+      {
+        "title": "Intellectual property",
+        "blocks": [
+          { "p": "All the elements of the Site (texts, photographs, illustrations, logos, the SOLIANCE brand, visual identity, simulator, databases, code) are protected by the French Intellectual Property Code and remain the exclusive property of SOLAR TRADE or its partners. Any reproduction, representation, modification, adaptation or use, in whole or in part, by any means whatsoever, without prior written authorisation, is prohibited and constitutes an infringement punishable under articles L. 335-2 et seq. of the Intellectual Property Code. The brands and logos of manufacturers and partners mentioned on the Site belong to their respective owners." }
+        ]
+      },
+      {
+        "title": "Liability",
+        "blocks": [
+          { "p": "SOLIANCE strives to keep the information published on the Site accurate and up to date, but cannot guarantee that it is complete or free of errors. Information on public subsidies, electricity feed-in tariffs and regulations is given for information only and may change. The results of the solar simulator are non-binding estimates, based on the data entered by the user and on average sunshine data; only a technical survey carried out by SOLIANCE is binding on it. SOLIANCE cannot be held liable for direct or indirect damage resulting from access to the Site, its use or the inability to access it, nor for the content of third-party sites the Site links to." }
+        ]
+      },
+      {
+        "title": "Consumer mediation and complaints",
+        "blocks": [
+          { "p": "In accordance with articles L. 611-1 et seq. of the French Consumer Code, any consumer may, after a written complaint to SOLIANCE (adv@soliance-enr.fr or registered office) has remained unsuccessful, refer the matter free of charge to the Médiateur national de l'énergie — online at www.sollen.fr or by post: Médiateur national de l'énergie, Libre réponse n° 59252, 75443 Paris Cedex 09. The European online dispute resolution platform is available at https://ec.europa.eu/consumers/odr." }
+        ]
+      },
+      {
+        "title": "Telephone canvassing",
+        "blocks": [
+          { "p": "SOLIANCE does not make unsolicited sales calls. Every call made by SOLIANCE follows a request from the user (contact form, simulator, callback request, referral) or a consent obtained beforehand, in accordance with articles L. 223-1 et seq. of the French Consumer Code." }
+        ]
+      },
+      {
+        "title": "Governing law",
+        "blocks": [
+          { "p": "The Site and this legal notice are governed by French law. For any question about the Site: adv@soliance-enr.fr." }
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "seo": {
+      "title": "Privacy policy | Soliance",
+      "description": "Data collected by Soliance, purposes, legal bases, recipients, retention periods and how to exercise your rights (GDPR, French Data Protection Act)."
+    },
+    "breadcrumb": "Privacy policy",
+    "title": "Privacy policy",
+    "updatedAt": "Last updated: October 2026",
+    "intro": "SOLIANCE attaches great importance to the protection of your personal data. This policy describes the data we collect when you use the Site or our services, why we process it, how long we keep it, who receives it, and the rights you have, in accordance with Regulation (EU) 2016/679 (\"GDPR\") and the amended French law no. 78-17 of 6 January 1978 (\"Informatique et Libertés\").",
+    "sections": [
+      {
+        "title": "1. Data controller",
+        "blocks": [
+          { "p": "The data controller is SOLAR TRADE (trading name SOLIANCE), an SAS with a share capital of €10,000, RCS Antibes 949 576 946, 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var. Data protection contact: adv@soliance-enr.fr — subject \"Personal data\"." }
+        ]
+      },
+      {
+        "title": "2. Data collected",
+        "blocks": [
+          { "p": "We only collect the data needed for the purposes described below." },
+          {
+            "ul": [
+              "Contact form and callback request: title, last name, first name, email address, phone number, postcode or town, subject of the request, message, preferred callback slot.",
+              "Solar simulator: address or town of the home, type of home, status (owner / tenant), surface area, roof orientation and pitch, electricity bill or consumption, related projects (battery, heat pump, charger), contact details for sending the results.",
+              "Referral programme: last name, first name, email address and phone of the referrer; last name, first name, phone and town of the referee. The referrer guarantees having informed the referee and obtained their agreement before sending us their details; the referee is told where their data came from at the first contact and may object to any processing.",
+              "Customer relationship (quote, contract, installation, after-sales): identity, contact details, data on the home and the installation, consumption and production data, billing and payment data, documents needed for administrative procedures (title deed, proofs, bank details, tax notice for subsidy files), exchanges with our teams.",
+              "Browsing data: IP address, browser and device type, pages viewed, traffic source, cookie identifiers, under the conditions of the Cookie settings page.",
+              "Job applications: CV, cover letter, contact details, when a \"careers\" section is offered."
+            ]
+          },
+          { "p": "Fields marked as mandatory in the forms are needed to process your request; without them we cannot answer it." }
+        ]
+      },
+      {
+        "title": "3. Purposes and legal bases",
+        "blocks": [
+          {
+            "table": {
+              "caption": "Processing purposes and their legal bases",
+              "head": ["Purpose", "Legal basis"],
+              "rows": [
+                ["Answer your contact, callback and simulation requests; prepare a survey and a quote", "Pre-contractual measures taken at your request (art. 6.1.b GDPR)"],
+                ["Perform the contract: installation, commissioning, administrative procedures (town hall, Consuel, Enedis, EDF OA, subsidy bodies), billing, warranties and after-sales", "Performance of the contract (art. 6.1.b) and legal obligations (art. 6.1.c)"],
+                ["Run the referral programme and pay the bonuses", "Performance of the contract with the referrer; legitimate interest for the first contact with the referee (art. 6.1.f), with an immediate right to object"],
+                ["Manage the customer relationship in our CRM, follow exchanges, improve our services", "Legitimate interest (art. 6.1.f)"],
+                ["Send you marketing information by email or SMS about our offers (customers)", "Legitimate interest for similar products, with the option to unsubscribe at any time"],
+                ["Send marketing information (prospects who are not customers), contact you by phone for canvassing", "Consent (art. 6.1.a)"],
+                ["Measure the Site's audience and personalise advertising", "Consent through the cookie banner (art. 6.1.a and art. 82 of the French Data Protection Act)"],
+                ["Send a file to a financial partner (credit) or an insurer", "Pre-contractual measures at your request (art. 6.1.b)"],
+                ["Meet accounting, tax and warranty document retention obligations", "Legal obligation (art. 6.1.c)"],
+                ["Handle complaints and disputes", "Legitimate interest (art. 6.1.f)"]
+              ]
+            }
+          },
+          { "p": "We make no decision producing legal effects concerning you based solely on automated processing. The simulator's results are indicative estimates that do not bind SOLIANCE." }
+        ]
+      },
+      {
+        "title": "4. Recipients of the data",
+        "blocks": [
+          { "p": "Your data is intended for the authorised teams of SOLIANCE (sales, sales administration, technical, after-sales) and of its sister company SOLIANCE CARE for the maintenance services you subscribe to. It may be shared, strictly as needed, with the following categories of recipients:" },
+          {
+            "ul": [
+              "Technical processors: the Site's host (OVH, France), the email service for our forms (Resend), our CRM provider (HubSpot), e-signature, messaging, accounting and installation monitoring tools.",
+              "Equipment manufacturers, to register warranties and activate monitoring apps.",
+              "Bodies whose involvement your project requires: town hall and planning authority, Consuel, grid operator (Enedis), electricity buyer (EDF OA), subsidy bodies (ANAH, CEE obligated parties, ADVENIR programme).",
+              "Financial partners and insurers, only at your request.",
+              "Partner installers working under SOLIANCE's responsibility.",
+              "Advisers, accountants, auditors, lawyers, and administrative or judicial authorities when the law requires it."
+            ]
+          },
+          { "p": "We neither sell nor rent your data to third parties." }
+        ]
+      },
+      {
+        "title": "5. Transfers outside the European Union",
+        "blocks": [
+          { "p": "Your data is hosted in France or in the European Union. Some of our providers (Resend, HubSpot, Google, Meta) are established in the United States or have servers there; the corresponding transfers are governed by the adequacy decision on the EU–US Data Privacy Framework when the provider is certified, and otherwise by the European Commission's standard contractual clauses, supplemented by appropriate measures. You can obtain a copy of these safeguards by writing to us." }
+        ]
+      },
+      {
+        "title": "6. Retention periods",
+        "blocks": [
+          {
+            "ul": [
+              "Prospects (contact, simulator, referral not followed up): 3 years from your last contact, then deletion.",
+              "Customers: for the whole term of the contract and the warranties, then archived for the applicable limitation period (10 years from acceptance of the works for documents relating to the ten-year warranty; 10 years for accounting records).",
+              "Bank data: until full payment, then deletion (except mandatory accounting records).",
+              "Subsidy file data: the period required by the processing body.",
+              "Cookies and trackers: 13 months maximum; the choice made in the banner is kept for 6 months.",
+              "Unsuccessful job applications: 2 years after the last contact, unless you object.",
+              "Proof of identity sent to exercise a right: 1 year (3 years in case of objection)."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "7. Security",
+        "blocks": [
+          { "p": "SOLIANCE implements appropriate technical and organisational measures to protect your data against loss, alteration, disclosure or unauthorised access: encrypted exchanges (HTTPS), strong authentication on our tools, access management, backups, choice of providers offering sufficient guarantees and bound by processing agreements compliant with article 28 GDPR. In the event of a data breach likely to result in a high risk to your rights, we will inform you under the conditions set by the regulations." }
+        ]
+      },
+      {
+        "title": "8. Your rights",
+        "blocks": [
+          { "p": "You have the following rights over your data: access, rectification, erasure, restriction of processing, portability, objection (including at any time and without reason to marketing), withdrawal of your consent at any time, and setting instructions on what happens to your data after your death." },
+          { "p": "To exercise these rights, write to us at adv@soliance-enr.fr or by post to SOLIANCE — Données personnelles, 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var, stating the right you wish to exercise. A copy of an identity document may be requested if there is reasonable doubt about your identity. We will answer within one month, which may be extended by two months for complex requests." },
+          { "p": "You can also register on the opt-out list for telephone canvassing and, if you believe your rights are not respected, lodge a complaint with the Commission nationale de l'informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 — www.cnil.fr." }
+        ]
+      },
+      {
+        "title": "9. Minors",
+        "blocks": [
+          { "p": "The Site and SOLIANCE's services are intended for adults. We do not knowingly collect data about minors." }
+        ]
+      },
+      {
+        "title": "10. Changes",
+        "blocks": [
+          { "p": "This policy may be updated to reflect changes in our services or in the regulations. The version in force is the one published on the Site, with its update date." }
+        ]
+      }
+    ]
+  }
+}

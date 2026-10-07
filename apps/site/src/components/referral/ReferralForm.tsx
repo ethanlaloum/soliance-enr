@@ -1,9 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
-import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
@@ -12,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { toReferralLeadFields } from '@/components/referral/referralLeadFields';
 import { referralDefaultValues, ReferralFormData, referralSchema, refereeProjects } from '@/components/referral/referralSchema';
+import { LeadPrivacyNotice } from '@/components/page/LeadPrivacyNotice';
 
 type TextFieldName = 'referrerFullName' | 'referrerContact' | 'refereeFullName' | 'refereePhone';
 
@@ -123,14 +122,12 @@ export const ReferralForm = () => {
             {t('form.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-solar-dark">
-          {t('form.privacyLink')}
-        </Link>
         {errors.callbackConsent && (
           <p id="referral-callbackConsent-error" className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}
+        <LeadPrivacyNotice lead={t('form.refereeNotice')} />
       </div>
 
       {errorCode && (

@@ -1,8 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
-import { paths } from '@/routes/paths';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
@@ -13,6 +11,7 @@ import { buildSimulationLeadFields } from '@/app/simulator/domain/entities/Simul
 import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { simulatorCaptureId } from '@/components/simulator/simulatorStyles';
+import { LeadPrivacyNotice } from '@/components/page/LeadPrivacyNotice';
 import {
   SimulationCaptureFormData,
   simulationCaptureDefaultValues,
@@ -120,14 +119,12 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
             {t('capture.consent')}
           </label>
         </div>
-        <Link to={paths.privacy} className="ml-[30px] text-[13px] font-semibold text-solar hover:text-solar-dark">
-          {t('capture.privacyLink')}
-        </Link>
         {errors.callbackConsent && (
           <p id="simulator-capture-callbackConsent-error" className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}
+        <LeadPrivacyNotice />
       </div>
 
       {errorCode && (

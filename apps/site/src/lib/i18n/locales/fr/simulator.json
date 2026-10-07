@@ -142,8 +142,7 @@
     "email": "E-mail",
     "phone": "Téléphone",
     "submit": "Recevoir",
-    "consent": "J'accepte d'être recontacté par Soliance au sujet de mon projet.",
-    "privacyLink": "Lire la politique de confidentialité",
+    "consent": "J'accepte d'être recontacté(e) par Soliance par téléphone ou courriel au sujet de ma demande.",
     "successTitle": "Demande envoyée",
     "successDescription": "Merci ! Un conseiller reprend votre estimation et vous rappelle sous 48 h ouvrées pour préparer l'étude précise.",
     "validation": {

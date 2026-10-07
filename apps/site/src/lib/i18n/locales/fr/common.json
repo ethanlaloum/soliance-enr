@@ -37,6 +37,7 @@
     "termsProfessionals": "CGV professionnels",
     "privacy": "Confidentialité",
     "cookies": "Gestion des cookies",
+    "manageCookies": "Gérer mes cookies",
     "mobileAddress": "30 avenue du Général Leclerc, Saint-Laurent-du-Var",
     "mobileContact": "commercial@soliance-enr.fr · 07 63 54 51 44"
   },
@@ -89,6 +90,8 @@
     "label": "Fil d'Ariane"
   },
   "leadForm": {
+    "privacyNotice": "Les informations recueillies sont traitées par Soliance (Solar Trade SAS) pour répondre à votre demande et établir une étude personnalisée. Elles sont conservées 3 ans à compter de notre dernier échange. Vous disposez de droits d'accès, de rectification, d'effacement et d'opposition, exerçables à adv@soliance-enr.fr. En savoir plus :",
+    "privacyLink": "politique de confidentialité",
     "submitting": "Envoi en cours…",
     "errorTitle": "Envoi impossible",
     "errors": {
