@@ -42,9 +42,10 @@ export const ProjectCard = ({ project }: { project: Project }) => {
             )}
           />
         ) : (
-          <div className="relative flex h-full items-center justify-center bg-night px-8 text-center text-sm font-semibold text-slate-light">
+          <div aria-hidden="true" className="relative flex h-full flex-col items-center justify-center gap-5 overflow-hidden bg-night px-8 text-center text-white">
             <DiamondPattern />
-            <span className="relative">{t(`${prefix}.imagePlaceholder`)}</span>
+            <span className="relative block h-11 w-11 rotate-45 rounded-[6px] bg-solar shadow-[0_0_60px_rgba(224,123,40,0.55)]" />
+            <span className="relative text-lg font-bold">{t(`${prefix}.coverLabel`)}</span>
           </div>
         )}
         <span

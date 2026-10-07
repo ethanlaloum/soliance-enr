@@ -161,7 +161,7 @@
       "niceCondominium": {
         "title": "Nice · copropriété, 4 places",
         "description": "Solution collective avec badge · [X] € Advenir",
-        "photoPlaceholder": "[Photo réelle du chantier à fournir]"
+        "coverLabel": "4 places équipées"
       }
     }
   },

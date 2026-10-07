@@ -189,7 +189,7 @@
       "badge": "Professionnels",
       "title": "Villeneuve-Loubet · Le Kern · 145 kWc",
       "description": "Toiture tertiaire et 6 points de charge 22 kW.",
-      "imagePlaceholder": "[Photo réelle du Kern à fournir]",
+      "coverLabel": "145 kWc · 6 bornes 22 kW",
       "metrics": {
         "first": { "value": "170 MWh", "label": "produits par an" },
         "second": { "value": "6", "label": "points de charge" },

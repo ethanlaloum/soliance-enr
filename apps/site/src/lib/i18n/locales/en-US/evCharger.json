@@ -161,7 +161,7 @@
       "niceCondominium": {
         "title": "Nice · condominium, 4 spaces",
         "description": "Shared solution with badge · €[X] Advenir",
-        "photoPlaceholder": "[Real site photo to be supplied]"
+        "coverLabel": "4 equipped spaces"
       }
     }
   },

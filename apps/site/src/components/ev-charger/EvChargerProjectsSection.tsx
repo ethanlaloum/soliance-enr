@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { containerClassName } from '@/components/home/containerClassName';
-import { ChargingParkIcon } from '@/components/ev-charger/EvChargerIcons';
+import { BoltIcon, LightningShape } from '@/components/ev-charger/EvChargerIcons';
 
 type ProjectCard = {
   key: string;
@@ -52,9 +52,17 @@ export const EvChargerProjectsSection = () => {
                     className="block h-full w-full object-cover transition-transform duration-500 ease-out-expo group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 ) : (
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-charge-line/70 px-4 text-center text-charge">
-                    <ChargingParkIcon className="h-8 w-8" />
-                    <p className="text-[13px] font-semibold text-charge-dark">{t(`projects.items.${project.key}.photoPlaceholder`)}</p>
+                  <div
+                    aria-hidden="true"
+                    className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[linear-gradient(135deg,#128C4F_0%,#0d6b3c_100%)] text-white"
+                  >
+                    <LightningShape className="absolute -right-8 -top-6 h-52 w-52 text-white/10" />
+                    <span className="relative flex items-center gap-3">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-charge shadow-soft">
+                        <BoltIcon className="h-6 w-6" />
+                      </span>
+                      <span className="text-xl font-bold">{t(`projects.items.${project.key}.coverLabel`)}</span>
+                    </span>
                   </div>
                 )}
               </div>
