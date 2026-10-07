@@ -74,10 +74,6 @@
         "solarShare": {
           "value": "≈ 60 %",
           "label": "couverts par le solaire"
-        },
-        "savings": {
-          "value": "[X] €/an",
-          "label": "vs carburant"
         }
       },
       "note": "Estimation indicative, affinée à l'étude."
@@ -160,7 +156,7 @@
       },
       "niceCondominium": {
         "title": "Nice · copropriété, 4 places",
-        "description": "Solution collective avec badge · [X] € Advenir",
+        "description": "Solution collective avec badge · prime Advenir",
         "coverLabel": "4 places équipées"
       }
     }

@@ -74,10 +74,6 @@
         "solarShare": {
           "value": "≈ 60%",
           "label": "covered by solar"
-        },
-        "savings": {
-          "value": "€[X]/year",
-          "label": "vs fuel"
         }
       },
       "note": "Indicative estimate, refined during the study."
@@ -160,7 +156,7 @@
       },
       "niceCondominium": {
         "title": "Nice · condominium, 4 spaces",
-        "description": "Shared solution with badge · €[X] Advenir",
+        "description": "Shared solution with badge · Advenir grant",
         "coverLabel": "4 equipped spaces"
       }
     }

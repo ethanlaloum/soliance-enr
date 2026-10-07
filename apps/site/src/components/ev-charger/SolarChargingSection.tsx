@@ -5,7 +5,7 @@ import { paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 
-const statKeys = ['energy', 'solarShare', 'savings'] as const;
+const statKeys = ['energy', 'solarShare'] as const;
 
 export const SolarChargingSection = () => {
   const { t } = useTranslation('evCharger');
@@ -37,7 +37,7 @@ export const SolarChargingSection = () => {
         </div>
         <div className="flex flex-col gap-3.5 rounded-[18px] bg-night-soft p-5 lg:rounded-[20px] lg:p-7">
           <p className="text-[15px] font-bold lg:text-base">{t('solarCharging.example.title')}</p>
-          <dl className="grid grid-cols-3 gap-2 lg:gap-3">
+          <dl className="grid grid-cols-2 gap-2 lg:gap-3">
             {statKeys.map((key) => (
               <div key={key} className="flex flex-col-reverse justify-end gap-0.5 rounded-[10px] bg-night p-3 lg:p-3.5">
                 <dt className="text-[11px] leading-snug text-slate-light lg:text-xs">{t(`solarCharging.example.stats.${key}.label`)}</dt>
