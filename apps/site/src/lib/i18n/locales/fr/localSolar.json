@@ -1,0 +1,157 @@
+{
+  "seo": {
+    "title": "Installateur panneaux solaires à {{city}} | Soliance",
+    "description": "Panneaux solaires avec batterie à {{city}} : étude précise, devis fixe, pose par nos propres techniciens. {{yield, number}} kWh/kWc/an selon PVGIS."
+  },
+  "service": {
+    "name": "Installation de panneaux solaires à {{city}}",
+    "serviceType": "Installation photovoltaïque"
+  },
+  "departments": {
+    "06": "Alpes-Maritimes (06)",
+    "83": "Var (83)"
+  },
+  "hero": {
+    "eyebrow": "Photovoltaïque · {{department}}",
+    "title": "Installateur de panneaux solaires à {{city}}",
+    "requestStudy": "Demander une étude gratuite",
+    "simulate": "Simuler mes économies"
+  },
+  "facts": {
+    "label": "Le solaire à {{city}} en chiffres",
+    "yield": {
+      "value": "{{value, number}} kWh",
+      "label": "produits par an et par kWc installé à {{city}}, selon PVGIS"
+    },
+    "typical": {
+      "value": "≈ {{value, number}} kWh",
+      "label": "par an pour une installation de {{power}} kWc bien orientée"
+    },
+    "distance": {
+      "value": "{{travel}}",
+      "label": "de route depuis notre showroom de Saint-Laurent-du-Var ({{km}} km), hors heures de pointe"
+    },
+    "repair": {
+      "value": "2 jours",
+      "label": "ouvrés pour intervenir en cas de panne avec Soliance Care"
+    }
+  },
+  "production": {
+    "eyebrow": "Le soleil à {{city}}",
+    "title": "Combien produisent des panneaux solaires à {{city}} ?",
+    "body": "À {{city}}, un kilowatt-crête orienté plein sud et incliné à 30° produit en moyenne {{yield, number}} kWh par an. Une installation de {{power}} kWc, taille fréquente pour une maison familiale, fournit donc environ {{yearly, number}} kWh par an : {{december, number}} kWh en décembre, {{july, number}} kWh en juillet.",
+    "battery": "Le soleil est là toute l'année, mais pas le soir. C'est pourquoi chaque installation résidentielle Soliance comporte une batterie, dimensionnée sur votre consommation réelle : le surplus de midi alimente la soirée.",
+    "chartTitle": "Production mois par mois d'une installation de {{power}} kWc à {{city}}",
+    "monthValue": "{{month}} : {{value, number}} kWh",
+    "source": "Source : PVGIS-SARAH3, Commission européenne (plein sud, inclinaison 30°, 14 % de pertes). Nos estimations publiées retiennent une hypothèse plus prudente de 1 300 kWh/kWc/an ; l'étude de votre toit (orientation, pente, ombres) donne le chiffre réel.",
+    "months": {
+      "january": { "short": "J", "long": "Janvier" },
+      "february": { "short": "F", "long": "Février" },
+      "march": { "short": "M", "long": "Mars" },
+      "april": { "short": "A", "long": "Avril" },
+      "may": { "short": "M", "long": "Mai" },
+      "june": { "short": "J", "long": "Juin" },
+      "july": { "short": "J", "long": "Juillet" },
+      "august": { "short": "A", "long": "Août" },
+      "september": { "short": "S", "long": "Septembre" },
+      "october": { "short": "O", "long": "Octobre" },
+      "november": { "short": "N", "long": "Novembre" },
+      "december": { "short": "D", "long": "Décembre" }
+    }
+  },
+  "context": {
+    "title": "Panneaux solaires à {{city}} : ce qu'il faut savoir",
+    "permit": {
+      "title": "Une déclaration préalable en mairie",
+      "description": "Toute pose en toiture passe par une déclaration préalable de travaux à la mairie de {{city}}, instruite en un mois. Nous la préparons et la déposons pour vous, comme le raccordement Enedis et le Consuel."
+    },
+    "heritage": {
+      "title": "Secteurs protégés : l'avis de l'ABF"
+    },
+    "team": {
+      "title": "Nos propres techniciens",
+      "description": "Visite technique, pose et dépannage partent de Saint-Laurent-du-Var, à {{km}} km de {{city}} ({{travel}} de route). Nous ne sous-traitons pas la pose : ce sont nos équipes qui viennent chez vous."
+    }
+  },
+  "projects": {
+    "title": "Nos réalisations près de {{city}}",
+    "seeAll": "Voir toutes les réalisations"
+  },
+  "faq": {
+    "title": "Questions fréquentes à {{city}}",
+    "items": {
+      "production": {
+        "question": "Combien produisent des panneaux solaires à {{city}} ?",
+        "answer": "En moyenne {{yield, number}} kWh par an et par kWc installé plein sud et incliné à 30°, selon PVGIS (Commission européenne). Une installation de {{power}} kWc produit donc environ {{yearly, number}} kWh par an ; l'étude de votre toit donne le chiffre exact."
+      },
+      "permit": {
+        "question": "Faut-il une autorisation pour poser des panneaux solaires à {{city}} ?",
+        "answer": "Oui, une déclaration préalable de travaux à la mairie de {{city}}, instruite en un mois, deux mois aux abords d'un monument historique. Nous la préparons et la déposons pour vous."
+      },
+      "coverage": {
+        "question": "Intervenez-vous à {{city}} ?",
+        "answer": "Oui. Nos techniciens partent de Saint-Laurent-du-Var, à {{km}} km de {{city}} ({{travel}} de route). Nous ne sous-traitons pas la pose, et Soliance Care intervient sous 2 jours ouvrés en cas de panne."
+      },
+      "aids": {
+        "question": "Quelles aides pour des panneaux solaires à {{city}} ?",
+        "answer": "Aucune prime à l'autoconsommation n'est active à ce jour et le surplus est racheté 0,01 € le kWh : la rentabilité vient de ce que vous consommez vous-même, d'où la batterie. Au-delà de 3 kWc, nous montons le dossier de récupération de TVA sur demande. MaPrimeRénov' et les CEE ne concernent pas le photovoltaïque."
+      }
+    }
+  },
+  "around": {
+    "title": "Autour de {{city}}",
+    "body": "Nous intervenons aussi à {{communes}}.",
+    "otherAreasTitle": "Nos autres villes",
+    "allSolar": "Tout sur nos installations photovoltaïques"
+  },
+  "areas": {
+    "nice": {
+      "lead": "De la plaine du Var aux collines de Cimiez, Gairaut ou Saint-Pancrace, nos techniciens posent des panneaux solaires avec batterie sur les maisons et les toitures professionnelles niçoises. Notre showroom est juste de l'autre côté du Var : étude précise de votre consommation, devis fixe, démarches incluses.",
+      "imageAlt": "Toiture des boxes d'un centre équestre à Nice, équipée de 18 panneaux solaires par Soliance",
+      "heritage": "Dans le Vieux-Nice, à Cimiez et autour des nombreux monuments historiques de la ville, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Saint-Laurent-du-Var, Villefranche-sur-Mer, La Trinité, Saint-André-de-la-Roche, Falicon et Colomars"
+    },
+    "antibes": {
+      "lead": "Du Vieil Antibes à Juan-les-Pins et aux quartiers des hauteurs, nous installons des panneaux solaires avec batterie sur des villas souvent exposées plein sud, face à la mer. En 2026, nous y avons équipé une villa de 20 panneaux et 10 kWh de batterie, avec l'accord de l'Architecte des Bâtiments de France.",
+      "imageAlt": "Villa avec piscine à Antibes, panneaux solaires posés par Soliance sur deux pans de toiture",
+      "heritage": "Dans le Vieil Antibes, autour du fort Carré et des autres monuments historiques, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous avons obtenu son accord pour une villa d'Antibes en mai 2026.",
+      "communes": "Vallauris, Biot, Valbonne et Villeneuve-Loubet"
+    },
+    "cagnes-sur-mer": {
+      "lead": "Du Cros-de-Cagnes au Haut-de-Cagnes, Cagnes-sur-Mer est la commune voisine de notre showroom : nos techniciens y sont en 10 minutes. Villas des collines, maisons de ville ou toitures d'entreprise, chaque installation est dimensionnée sur votre consommation réelle, batterie comprise.",
+      "imageAlt": "Maison équipée de panneaux solaires par Soliance à Villeneuve-Loubet, commune voisine de Cagnes-sur-Mer, la mer en fond",
+      "heritage": "Au Haut-de-Cagnes, autour du château Grimaldi, et aux abords des autres monuments historiques, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Saint-Laurent-du-Var, Villeneuve-Loubet, La Colle-sur-Loup, Saint-Paul-de-Vence et La Gaude"
+    },
+    "cannes": {
+      "lead": "De La Bocca à la Californie, en passant par le Suquet, nous installons des panneaux solaires avec batterie sur les villas et les toitures professionnelles cannoises. Nos techniciens sont à une demi-heure : visite technique, pose et dépannage sans sous-traitance.",
+      "imageAlt": "Maison à Mandelieu-la-Napoule, à côté de Cannes, équipée de 16 panneaux solaires par Soliance",
+      "heritage": "Aux abords des monuments historiques de Cannes, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Le Cannet, Mandelieu-la-Napoule, Mougins et Vallauris"
+    },
+    "grasse": {
+      "lead": "De la ville haute aux hameaux de Magagnosc, Plascassier ou Saint-Jacques, nous posons des panneaux solaires avec batterie sur des maisons souvent bâties en restanques. Sur ces hauteurs, le soleil produit un peu plus qu'en bord de mer : {{yield, number}} kWh par kWc et par an selon PVGIS.",
+      "imageAlt": "Maison avec piscine à Auribeau-sur-Siagne, près de Grasse, équipée de 14 panneaux solaires par Soliance",
+      "heritage": "Dans le centre historique de Grasse et aux abords de ses monuments historiques, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Mouans-Sartoux, Peymeinade, Châteauneuf-Grasse, Auribeau-sur-Siagne et Cabris"
+    },
+    "menton": {
+      "lead": "De Garavan à la vallée du Careï, nous installons des panneaux solaires avec batterie sur les maisons et les villas mentonnaises. Menton est la ville la plus à l'est de notre zone : nos techniciens y sont en moins d'une heure, pour la visite technique, la pose et le dépannage.",
+      "imageAlt": "Villa à La Gaude équipée de 15 panneaux solaires par Soliance",
+      "heritage": "Dans la vieille ville, autour de la basilique Saint-Michel, et aux abords des autres monuments historiques, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Roquebrune-Cap-Martin, Sainte-Agnès, Gorbio et Castellar"
+    },
+    "toulon": {
+      "lead": "Du Mourillon au Cap Brun, de Pont-du-Las aux pentes du Faron, nous installons des panneaux solaires avec batterie dans l'aire toulonnaise, qui a l'un des meilleurs potentiels solaires de la côte : {{yield, number}} kWh par kWc et par an selon PVGIS. Visite technique et pose sont planifiées avec vous à l'avance.",
+      "imageAlt": "Villa du Plan-de-la-Tour, dans le Var, équipée de 40 panneaux solaires par Soliance",
+      "heritage": "Autour de la cathédrale Notre-Dame-de-la-Seds et des autres monuments historiques de Toulon, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "La Seyne-sur-Mer, La Valette-du-Var, La Garde et Ollioules"
+    },
+    "frejus": {
+      "lead": "De Saint-Aygulf à Fréjus-Plage et à la Tour de Mare, nous installons des panneaux solaires avec batterie dans l'Est-Varois, où nous avons déjà équipé plusieurs villas, dont une à Roquebrune-sur-Argens, juste à côté.",
+      "imageAlt": "Villa avec piscine à Roquebrune-sur-Argens, voisine de Fréjus, équipée de panneaux solaires par Soliance",
+      "heritage": "Dans le centre historique, autour de la cathédrale et des vestiges romains, l'Architecte des Bâtiments de France donne son avis et l'instruction passe à deux mois. Nous adaptons l'implantation des panneaux et le matériel à ses exigences.",
+      "communes": "Saint-Raphaël, Puget-sur-Argens et Roquebrune-sur-Argens"
+    }
+  }
+}

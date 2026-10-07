@@ -99,6 +99,16 @@
       "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
     }
   },
+  "serviceAreas": {
+    "nice": "Nice",
+    "antibes": "Antibes",
+    "cagnes-sur-mer": "Cagnes-sur-Mer",
+    "cannes": "Cannes",
+    "grasse": "Grasse",
+    "menton": "Menton",
+    "toulon": "Toulon",
+    "frejus": "Fréjus"
+  },
   "seo": {
     "services": {
       "solar": {

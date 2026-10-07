@@ -151,6 +151,26 @@ describe('Structured data schemas', () => {
     });
   });
 
+  it('serves a local Service in a city', () => {
+    expect(
+      serviceSchema(
+        { name: 'Installation de panneaux solaires à Nice', description: 'Pose à Nice.', serviceType: 'Installation photovoltaïque', path: '/panneaux-solaires/nice' },
+        'https://soliance-enr.fr',
+        ['Nice'],
+        'City',
+      ),
+    ).toEqual({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Installation de panneaux solaires à Nice',
+      serviceType: 'Installation photovoltaïque',
+      description: 'Pose à Nice.',
+      url: 'https://soliance-enr.fr/panneaux-solaires/nice',
+      provider: { '@type': 'Electrician', '@id': 'https://soliance-enr.fr/#business', name: 'Soliance', url: 'https://soliance-enr.fr' },
+      areaServed: [{ '@type': 'City', name: 'Nice' }],
+    });
+  });
+
   it('builds the WebSite that names the site in search results', () => {
     expect(webSiteSchema('https://soliance-enr.fr', 'Soliance', 'Soliance ENR')).toEqual({
       '@context': 'https://schema.org',

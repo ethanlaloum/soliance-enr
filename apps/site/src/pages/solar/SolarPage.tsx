@@ -1,6 +1,7 @@
 import '@/lib/i18n/namespaces/solar';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { SolarAidsAndFaqSection } from '@/components/solar/SolarAidsAndFaqSection';
+import { SolarAreasSection } from '@/components/solar/SolarAreasSection';
 import { SolarCareSection } from '@/components/solar/SolarCareSection';
 import { SolarCtaSection } from '@/components/solar/SolarCtaSection';
 import { SolarHardwareSection } from '@/components/solar/SolarHardwareSection';
@@ -23,6 +24,7 @@ export const SolarPage = () => {
       <SolarAidsAndFaqSection />
       <SolarCareSection />
       <SolarProjectsSection />
+      <SolarAreasSection />
       <SolarCtaSection />
     </>
   );

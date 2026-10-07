@@ -1,0 +1,157 @@
+{
+  "seo": {
+    "title": "Solar panel installer in {{city}} | Soliance",
+    "description": "Solar panels with batteries in {{city}}: precise survey, fixed quote, installed by our own technicians. {{yield, number}} kWh/kWp/yr per PVGIS."
+  },
+  "service": {
+    "name": "Solar panel installation in {{city}}",
+    "serviceType": "Solar PV installation"
+  },
+  "departments": {
+    "06": "Alpes-Maritimes (06)",
+    "83": "Var (83)"
+  },
+  "hero": {
+    "eyebrow": "Solar PV · {{department}}",
+    "title": "Solar panel installer in {{city}}",
+    "requestStudy": "Request a free study",
+    "simulate": "Simulate my savings"
+  },
+  "facts": {
+    "label": "Solar in {{city}} in figures",
+    "yield": {
+      "value": "{{value, number}} kWh",
+      "label": "produced per year and per installed kWp in {{city}}, according to PVGIS"
+    },
+    "typical": {
+      "value": "≈ {{value, number}} kWh",
+      "label": "per year for a well-oriented {{power}} kWp installation"
+    },
+    "distance": {
+      "value": "{{travel}}",
+      "label": "drive from our Saint-Laurent-du-Var showroom ({{km}} km), outside rush hour"
+    },
+    "repair": {
+      "value": "2 days",
+      "label": "working days to come out for a breakdown with Soliance Care"
+    }
+  },
+  "production": {
+    "eyebrow": "Sunshine in {{city}}",
+    "title": "How much do solar panels produce in {{city}}?",
+    "body": "In {{city}}, one kilowatt-peak facing due south and tilted at 30° produces on average {{yield, number}} kWh a year. A {{power}} kWp installation, a common size for a family home, therefore supplies about {{yearly, number}} kWh a year: {{december, number}} kWh in December, {{july, number}} kWh in July.",
+    "battery": "The sun shines all year round, but not in the evening. That is why every Soliance residential installation includes a battery, sized on your real consumption: the midday surplus powers the evening.",
+    "chartTitle": "Month-by-month production of a {{power}} kWp installation in {{city}}",
+    "monthValue": "{{month}}: {{value, number}} kWh",
+    "source": "Source: PVGIS-SARAH3, European Commission (due south, 30° tilt, 14% losses). Our published estimates use a more cautious 1,300 kWh/kWp/yr; the survey of your roof (orientation, pitch, shading) gives the real figure.",
+    "months": {
+      "january": { "short": "J", "long": "January" },
+      "february": { "short": "F", "long": "February" },
+      "march": { "short": "M", "long": "March" },
+      "april": { "short": "A", "long": "April" },
+      "may": { "short": "M", "long": "May" },
+      "june": { "short": "J", "long": "June" },
+      "july": { "short": "J", "long": "July" },
+      "august": { "short": "A", "long": "August" },
+      "september": { "short": "S", "long": "September" },
+      "october": { "short": "O", "long": "October" },
+      "november": { "short": "N", "long": "November" },
+      "december": { "short": "D", "long": "December" }
+    }
+  },
+  "context": {
+    "title": "Solar panels in {{city}}: what you need to know",
+    "permit": {
+      "title": "A prior declaration at the town hall",
+      "description": "Any roof installation requires a prior declaration of works at the {{city}} town hall, processed within one month. We prepare and file it for you, along with the Enedis connection and the Consuel."
+    },
+    "heritage": {
+      "title": "Protected areas: the ABF's opinion"
+    },
+    "team": {
+      "title": "Our own technicians",
+      "description": "Technical visits, installation and repairs leave from Saint-Laurent-du-Var, {{km}} km from {{city}} ({{travel}} drive). We never subcontract the installation: our own teams come to your home."
+    }
+  },
+  "projects": {
+    "title": "Our projects near {{city}}",
+    "seeAll": "See all projects"
+  },
+  "faq": {
+    "title": "Frequently asked questions in {{city}}",
+    "items": {
+      "production": {
+        "question": "How much do solar panels produce in {{city}}?",
+        "answer": "On average {{yield, number}} kWh a year per kWp installed facing due south and tilted at 30°, according to PVGIS (European Commission). A {{power}} kWp installation therefore produces about {{yearly, number}} kWh a year; the survey of your roof gives the exact figure."
+      },
+      "permit": {
+        "question": "Do I need a permit to install solar panels in {{city}}?",
+        "answer": "Yes, a prior declaration of works at the {{city}} town hall, processed within one month, two months near a listed historic monument. We prepare and file it for you."
+      },
+      "coverage": {
+        "question": "Do you work in {{city}}?",
+        "answer": "Yes. Our technicians leave from Saint-Laurent-du-Var, {{km}} km from {{city}} ({{travel}} drive). We never subcontract the installation, and Soliance Care comes out within 2 working days in case of a breakdown."
+      },
+      "aids": {
+        "question": "What subsidies are there for solar panels in {{city}}?",
+        "answer": "No self-consumption bonus is active today and the surplus is bought back at €0.01 per kWh: the return comes from what you consume yourself, hence the battery. Above 3 kWp, we file the VAT recovery application on request. MaPrimeRénov' and CEE do not apply to solar PV."
+      }
+    }
+  },
+  "around": {
+    "title": "Around {{city}}",
+    "body": "We also work in {{communes}}.",
+    "otherAreasTitle": "Our other towns",
+    "allSolar": "Everything about our solar installations"
+  },
+  "areas": {
+    "nice": {
+      "lead": "From the Var plain to the hills of Cimiez, Gairaut or Saint-Pancrace, our technicians install solar panels with batteries on homes and business roofs across Nice. Our showroom is just across the Var: a precise study of your consumption, a fixed quote, paperwork included.",
+      "imageAlt": "Stable roof of an equestrian centre in Nice, fitted with 18 solar panels by Soliance",
+      "heritage": "In Old Nice, in Cimiez and around the city's many historic monuments, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Saint-Laurent-du-Var, Villefranche-sur-Mer, La Trinité, Saint-André-de-la-Roche, Falicon and Colomars"
+    },
+    "antibes": {
+      "lead": "From Old Antibes to Juan-les-Pins and the hillside neighbourhoods, we install solar panels with batteries on villas that often face due south, towards the sea. In 2026 we fitted a villa there with 20 panels and a 10 kWh battery, with the approval of the Architecte des Bâtiments de France.",
+      "imageAlt": "Villa with a pool in Antibes, solar panels installed by Soliance on two roof slopes",
+      "heritage": "In Old Antibes, around Fort Carré and the other historic monuments, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We obtained its approval for a villa in Antibes in May 2026.",
+      "communes": "Vallauris, Biot, Valbonne and Villeneuve-Loubet"
+    },
+    "cagnes-sur-mer": {
+      "lead": "From Cros-de-Cagnes to Haut-de-Cagnes, Cagnes-sur-Mer is the town next to our showroom: our technicians are there in 10 minutes. Hillside villas, town houses or business roofs, each installation is sized on your real consumption, battery included.",
+      "imageAlt": "House fitted with solar panels by Soliance in Villeneuve-Loubet, next to Cagnes-sur-Mer, with the sea in the background",
+      "heritage": "In Haut-de-Cagnes, around the Château Grimaldi, and near the other historic monuments, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Saint-Laurent-du-Var, Villeneuve-Loubet, La Colle-sur-Loup, Saint-Paul-de-Vence and La Gaude"
+    },
+    "cannes": {
+      "lead": "From La Bocca to La Californie, by way of Le Suquet, we install solar panels with batteries on villas and business roofs across Cannes. Our technicians are half an hour away: technical visit, installation and repairs without subcontracting.",
+      "imageAlt": "House in Mandelieu-la-Napoule, next to Cannes, fitted with 16 solar panels by Soliance",
+      "heritage": "Near the historic monuments of Cannes, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Le Cannet, Mandelieu-la-Napoule, Mougins and Vallauris"
+    },
+    "grasse": {
+      "lead": "From the upper town to the hamlets of Magagnosc, Plascassier or Saint-Jacques, we install solar panels with batteries on homes often built on terraces. On these heights the sun produces a little more than by the sea: {{yield, number}} kWh per kWp a year according to PVGIS.",
+      "imageAlt": "House with a pool in Auribeau-sur-Siagne, near Grasse, fitted with 14 solar panels by Soliance",
+      "heritage": "In the historic centre of Grasse and near its historic monuments, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Mouans-Sartoux, Peymeinade, Châteauneuf-Grasse, Auribeau-sur-Siagne and Cabris"
+    },
+    "menton": {
+      "lead": "From Garavan to the Careï valley, we install solar panels with batteries on homes and villas across Menton. Menton is the easternmost town of our area: our technicians are there in under an hour for the technical visit, the installation and repairs.",
+      "imageAlt": "Villa in La Gaude fitted with 15 solar panels by Soliance",
+      "heritage": "In the old town, around the Saint-Michel basilica, and near the other historic monuments, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Roquebrune-Cap-Martin, Sainte-Agnès, Gorbio and Castellar"
+    },
+    "toulon": {
+      "lead": "From Le Mourillon to Cap Brun, from Pont-du-Las to the slopes of Mont Faron, we install solar panels with batteries around Toulon, one of the best solar potentials on the coast: {{yield, number}} kWh per kWp a year according to PVGIS. Technical visits and installation are scheduled with you in advance.",
+      "imageAlt": "Villa in Le Plan-de-la-Tour, in the Var, fitted with 40 solar panels by Soliance",
+      "heritage": "Around the Notre-Dame-de-la-Seds cathedral and the other historic monuments of Toulon, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "La Seyne-sur-Mer, La Valette-du-Var, La Garde and Ollioules"
+    },
+    "frejus": {
+      "lead": "From Saint-Aygulf to Fréjus-Plage and La Tour de Mare, we install solar panels with batteries in the eastern Var, where we have already fitted several villas, including one in Roquebrune-sur-Argens, right next door.",
+      "imageAlt": "Villa with a pool in Roquebrune-sur-Argens, next to Fréjus, fitted with solar panels by Soliance",
+      "heritage": "In the historic centre, around the cathedral and the Roman remains, the Architecte des Bâtiments de France gives an opinion and processing takes two months. We adapt the panel layout and the equipment to its requirements.",
+      "communes": "Saint-Raphaël, Puget-sur-Argens and Roquebrune-sur-Argens"
+    }
+  }
+}

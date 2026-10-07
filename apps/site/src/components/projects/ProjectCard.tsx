@@ -13,7 +13,12 @@ const badgeToneClassName: Record<ProjectBadgeTone, string> = {
   [ProjectBadgeTone.HEAT]: 'bg-heat',
 };
 
-export const ProjectCard = ({ project }: { project: Project }) => {
+type ProjectCardProps = {
+  project: Project;
+  titleAs?: 'h2' | 'h3';
+};
+
+export const ProjectCard = ({ project, titleAs: Title = 'h2' }: ProjectCardProps) => {
   const { t } = useTranslation('projects');
   const prefix = `items.${project.id}`;
   const { slug } = project;
@@ -58,7 +63,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5 lg:p-[22px]">
-        <h2 className="text-lg font-bold leading-snug lg:text-xl">
+        <Title className="text-lg font-bold leading-snug lg:text-xl">
           {slug ? (
             <Link
               to={projectPath(slug)}
@@ -69,7 +74,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
           ) : (
             t(`${prefix}.title`)
           )}
-        </h2>
+        </Title>
         <p className="text-sm leading-normal text-slate-ink">{t(`${prefix}.description`)}</p>
         <dl className="mt-1.5 flex flex-wrap gap-x-3 gap-y-2 text-[13px] leading-snug sm:gap-x-4">
           {metricKeys.map((key) => (

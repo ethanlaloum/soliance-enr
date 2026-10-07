@@ -1,6 +1,7 @@
 export const paths = {
   home: '/',
   solar: '/panneaux-solaires',
+  localSolar: '/panneaux-solaires/:area',
   heatPump: '/pompe-a-chaleur',
   evCharger: '/borne-de-recharge',
   professionals: '/professionnels',
@@ -23,3 +24,5 @@ export const paths = {
 export const contactAnchor = 'contact';
 
 export const projectPath = (slug: string) => `/realisations/${slug}`;
+
+export const localSolarPath = (areaSlug: string) => `/panneaux-solaires/${areaSlug}`;

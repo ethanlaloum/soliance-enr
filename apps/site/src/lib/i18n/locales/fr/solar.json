@@ -203,6 +203,11 @@
       }
     }
   },
+  "areas": {
+    "title": "Installateur panneaux solaires près de chez vous",
+    "description": "Nos techniciens partent de Saint-Laurent-du-Var et posent dans les Alpes-Maritimes, le Var et les Bouches-du-Rhône. Potentiel solaire, démarches et réalisations proches, ville par ville :",
+    "linkLabel": "Panneaux solaires à {{city}}"
+  },
   "cta": {
     "title": "Une étude gratuite, sans engagement, sous 48 h.",
     "description": "Envoyez votre facture d'électricité, nous faisons le reste.",

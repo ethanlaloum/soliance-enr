@@ -203,6 +203,11 @@
       }
     }
   },
+  "areas": {
+    "title": "Solar panel installer near you",
+    "description": "Our technicians leave from Saint-Laurent-du-Var and install across the Alpes-Maritimes, the Var and the Bouches-du-Rhône. Solar potential, paperwork and nearby projects, town by town:",
+    "linkLabel": "Solar panels in {{city}}"
+  },
   "cta": {
     "title": "A free study, no commitment, within 48 hours.",
     "description": "Send us your electricity bill, we take care of the rest.",

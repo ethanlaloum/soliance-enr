@@ -98,7 +98,9 @@ export const breadcrumbListSchema = (entries: BreadcrumbEntry[], siteUrl: string
   })),
 });
 
-export const serviceSchema = (service: ServiceDescription, siteUrl: string, areaServed: string[]) => ({
+export type AreaServedType = 'AdministrativeArea' | 'City';
+
+export const serviceSchema = (service: ServiceDescription, siteUrl: string, areaServed: string[], areaServedType: AreaServedType = 'AdministrativeArea') => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: service.name,
@@ -106,7 +108,7 @@ export const serviceSchema = (service: ServiceDescription, siteUrl: string, area
   description: service.description,
   url: `${siteUrl}${service.path}`,
   provider: { '@type': 'Electrician', '@id': businessId(siteUrl), name: 'Soliance', url: siteUrl },
-  areaServed: areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
+  areaServed: areaServed.map((name) => ({ '@type': areaServedType, name })),
   ...(service.offers && service.offers.length > 0
     ? {
         offers: service.offers.map((offer) => ({

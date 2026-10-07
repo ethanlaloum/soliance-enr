@@ -7,12 +7,14 @@ import { buildHead } from '@/lib/seo/buildHead';
 import { AppRoutes } from '@/routes/Routes';
 import { buildRealDependencies } from '@/store/buildDependencies';
 import { makeStore } from '@/store/makeStore';
-import { paths, projectPath } from '@/routes/paths';
+import { localSolarPath, paths, projectPath } from '@/routes/paths';
 import { projectDetailSlugs } from '@/app/projects/domain/entities/ProjectDetail';
+import { serviceAreaSlugs } from '@/app/service-areas/domain/entities/ServiceArea';
 
 export const prerenderRoutes: string[] = [
   paths.home,
   paths.solar,
+  ...serviceAreaSlugs.map(localSolarPath),
   paths.heatPump,
   paths.evCharger,
   paths.professionals,

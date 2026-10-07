@@ -6,6 +6,7 @@ import { paths } from '@/routes/paths';
 
 const HomePage = lazy(() => import('@/pages/home/HomePage').then((module) => ({ default: module.HomePage })));
 const SolarPage = lazy(() => import('@/pages/solar/SolarPage').then((module) => ({ default: module.SolarPage })));
+const LocalSolarPage = lazy(() => import('@/pages/local-solar/LocalSolarPage').then((module) => ({ default: module.LocalSolarPage })));
 const HeatPumpPage = lazy(() => import('@/pages/heat-pump/HeatPumpPage').then((module) => ({ default: module.HeatPumpPage })));
 const EvChargerPage = lazy(() => import('@/pages/ev-charger/EvChargerPage').then((module) => ({ default: module.EvChargerPage })));
 const ProfessionalsPage = lazy(() => import('@/pages/professionals/ProfessionalsPage').then((module) => ({ default: module.ProfessionalsPage })));
@@ -26,6 +27,7 @@ export const AppRoutes = () => (
         <Route element={<SiteLayout />}>
           <Route path={paths.home} element={<HomePage />} />
           <Route path={paths.solar} element={<SolarPage />} />
+          <Route path={paths.localSolar} element={<LocalSolarPage />} />
           <Route path={paths.heatPump} element={<HeatPumpPage />} />
           <Route path={paths.evCharger} element={<EvChargerPage />} />
           <Route path={paths.professionals} element={<ProfessionalsPage />} />

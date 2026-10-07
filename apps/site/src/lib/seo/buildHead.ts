@@ -1,6 +1,8 @@
 import i18n from '@/lib/i18n/i18n';
 import { config } from '@/config';
 import { paths } from '@/routes/paths';
+import { findServiceArea, serviceAreas, type ServiceArea } from '@/app/service-areas/domain/entities/ServiceArea';
+import { localSolarTextValues } from '@/components/local-solar/localSolarTextValues';
 import { localBusinessSchema } from '@/lib/seo/localBusinessSchema';
 import {
   breadcrumbListSchema,
@@ -64,13 +66,31 @@ const resolveSeoKeyPrefix = (url: string): string | null => {
   return null;
 };
 
+const localSolarPrefix = `${paths.solar}/`;
+
+const resolveLocalSolarArea = (url: string): ServiceArea | null =>
+  url.startsWith(localSolarPrefix) ? findServiceArea(serviceAreas, url.slice(localSolarPrefix.length)) : null;
+
+type SeoTexts = { title: string; description: string };
+
+const resolveSeoTexts = (url: string, localArea: ServiceArea | null): SeoTexts | null => {
+  const seoKeyPrefix = resolveSeoKeyPrefix(url);
+  if (seoKeyPrefix) return { title: i18n.t(`${seoKeyPrefix}.title`), description: i18n.t(`${seoKeyPrefix}.description`) };
+  if (localArea) {
+    const values = localSolarTextValues(localArea, i18n.t(`common:serviceAreas.${localArea.slug}`));
+    return { title: i18n.t('localSolar:seo.title', values), description: i18n.t('localSolar:seo.description', values) };
+  }
+  return null;
+};
+
 const absoluteUrl = (path: string) => (path.startsWith('http') ? path : `${config.siteUrl}${path}`);
 
 export const buildHead = (url: string, html: string): string => {
-  const seoKeyPrefix = resolveSeoKeyPrefix(url);
-  const isIndexable = seoKeyPrefix !== null;
-  const title = isIndexable ? i18n.t(`${seoKeyPrefix}.title`) : i18n.t('common:notFound.seoTitle');
-  const description = isIndexable ? i18n.t(`${seoKeyPrefix}.description`) : i18n.t('common:notFound.seoDescription');
+  const localArea = resolveLocalSolarArea(url);
+  const seoTexts = resolveSeoTexts(url, localArea);
+  const isIndexable = seoTexts !== null;
+  const title = seoTexts?.title ?? i18n.t('common:notFound.seoTitle');
+  const description = seoTexts?.description ?? i18n.t('common:notFound.seoDescription');
   const canonical = absoluteUrl(url);
   const heroImage = extractHeroImage(html);
   const shareImage = absoluteUrl(heroImage?.src ?? defaultShareImage);
@@ -131,6 +151,24 @@ export const buildHead = (url: string, html: string): string => {
           },
           config.siteUrl,
           areaServed,
+        ),
+      ),
+    );
+  }
+  if (localArea) {
+    const city = i18n.t(`common:serviceAreas.${localArea.slug}`);
+    tags.push(
+      jsonLdTag(
+        serviceSchema(
+          {
+            name: i18n.t('localSolar:service.name', { city }),
+            serviceType: i18n.t('localSolar:service.serviceType'),
+            description,
+            path: url,
+          },
+          config.siteUrl,
+          [city],
+          'City',
         ),
       ),
     );
