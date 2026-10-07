@@ -41,11 +41,22 @@
     "mobileContact": "commercial@soliance-enr.fr · 07 63 54 51 44"
   },
   "notFound": {
-    "seoTitle": "Page en préparation | Soliance",
-    "title": "Cette page arrive bientôt",
-    "description": "Nous préparons cette partie du site. En attendant, notre équipe répond à toutes vos questions.",
+    "seoTitle": "Page introuvable | Soliance",
+    "seoDescription": "Cette page du site Soliance est introuvable. Découvrez nos solutions solaires, pompes à chaleur et bornes de recharge.",
+    "eyebrow": "Erreur 404",
+    "title": "Cette page est restée à l'ombre.",
+    "description": "L'adresse a peut-être changé, ou cette page n'est pas encore en ligne. Reprenez depuis l'accueil ou par l'une des pages ci-dessous.",
     "backHome": "Retour à l'accueil",
-    "seoDescription": "Cette page du site Soliance est en préparation. Découvrez nos solutions solaires, pompes à chaleur et bornes de recharge."
+    "callPrompt": "Une question ? Appelez-nous au",
+    "destinationsTitle": "Reprenez par l'une de ces pages",
+    "destinations": {
+      "solar": { "title": "Photovoltaïque", "description": "3 à 12 kWc, toujours avec batterie, démarches incluses." },
+      "heatPump": { "title": "Pompe à chaleur", "description": "Air/air, air/eau et ballon thermodynamique, éligibles MaPrimeRénov' et CEE." },
+      "evCharger": { "title": "Bornes de recharge", "description": "7 à 22 kW, pour la maison et l'entreprise." },
+      "professionals": { "title": "Professionnels", "description": "Toitures, ombrières, bornes pro : étude de rentabilité gratuite." },
+      "projects": { "title": "Réalisations", "description": "Nos installations sur la Côte d'Azur, avec leurs vrais chiffres." },
+      "referral": { "title": "Parrainage", "description": "De 300 € à 600 € par proche équipé grâce à vous." }
+    }
   },
   "breadcrumb": {
     "home": "Accueil",

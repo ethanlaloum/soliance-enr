@@ -41,11 +41,22 @@
     "mobileContact": "commercial@soliance-enr.fr · +33 7 63 54 51 44"
   },
   "notFound": {
-    "seoTitle": "Page in progress | Soliance",
-    "title": "This page is coming soon",
-    "description": "We are preparing this part of the site. In the meantime, our team is happy to answer all your questions.",
+    "seoTitle": "Page not found | Soliance",
+    "seoDescription": "This page of the Soliance website cannot be found. Discover our solar, heat pump and EV charger solutions.",
+    "eyebrow": "Error 404",
+    "title": "This page stayed in the shade.",
+    "description": "The address may have changed, or this page is not online yet. Start again from the home page or from one of the pages below.",
     "backHome": "Back to home",
-    "seoDescription": "This page of the Soliance website is being prepared. Discover our solar, heat pump and EV charger solutions."
+    "callPrompt": "A question? Call us on",
+    "destinationsTitle": "Pick up from one of these pages",
+    "destinations": {
+      "solar": { "title": "Solar panels", "description": "3 to 12 kWp, always with a battery, paperwork included." },
+      "heatPump": { "title": "Heat pumps", "description": "Air-to-air, air-to-water and heat pump water heaters, eligible for MaPrimeRénov' and CEE." },
+      "evCharger": { "title": "EV chargers", "description": "7 to 22 kW, for homes and businesses." },
+      "professionals": { "title": "Businesses", "description": "Roofs, carports, business chargers: free profitability study." },
+      "projects": { "title": "Projects", "description": "Our installations on the Côte d'Azur, with their real figures." },
+      "referral": { "title": "Referral", "description": "€300 to €600 for each friend who goes solar thanks to you." }
+    }
   },
   "breadcrumb": {
     "home": "Home",
