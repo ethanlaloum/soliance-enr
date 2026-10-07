@@ -9,7 +9,7 @@ export const PromoTilesSection = () => {
   const { t } = useTranslation('home');
 
   return (
-    <div className="mx-auto grid w-full max-w-[1440px] gap-3 px-4 pt-6 lg:grid-cols-2 lg:gap-6 lg:px-10 lg:pt-0">
+    <div className="mx-auto grid w-full max-w-[1440px] gap-3 px-4 pt-6 lg:grid-cols-2 lg:gap-6 lg:px-10 lg:pt-[72px]">
       <Link to={paths.referral} data-reveal className={`${tileClassName} bg-solar hover:text-white`}>
         <img
           src="/images/referral-tile.webp"
