@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
+import { Select } from '@/components/ui/select';
 import {
   projectCategories,
   toProjectCity,
@@ -61,22 +62,23 @@ export const ProjectFilters = ({ category, city, counts, totalCount, cities, onC
       </div>
       <div aria-hidden="true" className="mx-1.5 hidden h-7 w-px bg-sand-border lg:block" />
       <div className="flex items-center gap-2">
-        <label htmlFor="projects-city-filter" className="text-sm font-semibold">
+        <label id="projects-city-filter-label" htmlFor="projects-city-filter" className="text-sm font-semibold">
           {t('portfolio.filters.city')}
         </label>
-        <select
-          id="projects-city-filter"
-          value={city ?? ''}
-          onChange={(event) => onCityChange(event.target.value === '' ? null : toProjectCity(event.target.value))}
-          className="h-10 min-w-0 flex-1 rounded-[20px] border border-sand-border bg-white px-3.5 font-sans text-sm text-night outline-none transition-colors focus:border-solar focus:ring-2 focus:ring-solar/30 sm:flex-none lg:min-w-[180px]"
-        >
-          <option value="">{t('portfolio.filters.allCities')}</option>
-          {cities.map((item) => (
-            <option key={item} value={item}>
-              {t(`cities.${item}`)}
-            </option>
-          ))}
-        </select>
+        <div className="min-w-0 flex-1 sm:flex-none lg:min-w-[200px]">
+          <Select
+            id="projects-city-filter"
+            labelId="projects-city-filter-label"
+            value={city ?? ''}
+            options={[
+              { value: '', label: t('portfolio.filters.allCities') },
+              ...cities.map((item) => ({ value: item as string, label: t(`cities.${item}`) })),
+            ]}
+            className="h-10 rounded-[20px] border border-sand-border bg-white px-3.5 font-sans text-sm font-semibold text-night outline-none transition-colors hover:border-night/50 focus:border-solar focus:ring-2 focus:ring-solar/30 motion-reduce:transition-none"
+            listClassName="text-sm"
+            onChange={(value) => onCityChange(value === '' ? null : toProjectCity(value))}
+          />
+        </div>
       </div>
     </div>
   );

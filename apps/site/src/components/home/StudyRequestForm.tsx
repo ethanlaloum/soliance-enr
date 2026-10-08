@@ -1,7 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/lib/utils';
 import { useAppDispatch, useAppSelector } from '@/store/redux';
 import { projectTypes } from '@/app/lead/domain/entities/StudyRequest';
 import { submitStudyRequestRequested } from '@/app/lead/domain/use-cases/submit-study-request/submitStudyRequestEpic';
@@ -11,6 +10,7 @@ import {
   selectSubmitStudyRequestSuccess,
 } from '@/selectors/lead/leadSelectors';
 import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
@@ -36,6 +36,7 @@ export const StudyRequestForm = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<StudyRequestFormData>({
@@ -108,14 +109,26 @@ export const StudyRequestForm = () => {
       </div>
 
       <div className={fieldLabelClassName}>
-        <label htmlFor="study-projectType">{t('contact.form.projectType')}</label>
-        <select id="study-projectType" className={cn(fieldControlClassName, 'px-3')} {...register('projectType')}>
-          {projectTypes.map((projectType) => (
-            <option key={projectType} value={projectType}>
-              {t(`contact.form.projectOptions.${projectType}`)}
-            </option>
-          ))}
-        </select>
+        <label id="study-projectType-label" htmlFor="study-projectType">
+          {t('contact.form.projectType')}
+        </label>
+        <Controller
+          control={control}
+          name="projectType"
+          render={({ field }) => (
+            <Select
+              id="study-projectType"
+              labelId="study-projectType-label"
+              name={field.name}
+              value={field.value}
+              options={projectTypes.map((projectType) => ({ value: projectType, label: t(`contact.form.projectOptions.${projectType}`) }))}
+              className={fieldControlClassName}
+              ref={field.ref}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+            />
+          )}
+        />
       </div>
 
       <div className={fieldLabelClassName}>

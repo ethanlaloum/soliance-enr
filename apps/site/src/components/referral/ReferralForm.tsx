@@ -1,12 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/lib/utils';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import { toReferralLeadFields } from '@/components/referral/referralLeadFields';
 import { referralDefaultValues, ReferralFormData, referralSchema, refereeProjects } from '@/components/referral/referralSchema';
@@ -30,6 +30,7 @@ export const ReferralForm = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     getValues,
@@ -98,14 +99,26 @@ export const ReferralForm = () => {
       </div>
 
       <div className={fieldLabelClassName}>
-        <label htmlFor="referral-refereeProject">{t('form.fields.refereeProject')}</label>
-        <select id="referral-refereeProject" className={cn(fieldControlClassName, 'px-3')} {...register('refereeProject')}>
-          {refereeProjects.map((project) => (
-            <option key={project} value={project}>
-              {t(`form.projectOptions.${project}`)}
-            </option>
-          ))}
-        </select>
+        <label id="referral-refereeProject-label" htmlFor="referral-refereeProject">
+          {t('form.fields.refereeProject')}
+        </label>
+        <Controller
+          control={control}
+          name="refereeProject"
+          render={({ field }) => (
+            <Select
+              id="referral-refereeProject"
+              labelId="referral-refereeProject-label"
+              name={field.name}
+              value={field.value}
+              options={refereeProjects.map((project) => ({ value: project, label: t(`form.projectOptions.${project}`) }))}
+              className={fieldControlClassName}
+              ref={field.ref}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+            />
+          )}
+        />
       </div>
 
       <div className="flex flex-col gap-1.5">

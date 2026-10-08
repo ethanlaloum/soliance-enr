@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
@@ -7,6 +7,7 @@ import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
   professionalProjectTypes,
@@ -52,6 +53,7 @@ export const ProfessionalStudyForm = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<ProfessionalStudyFormData>({
@@ -113,18 +115,26 @@ export const ProfessionalStudyForm = () => {
         {identityFields.map(renderTextField)}
 
         <div className={cn(darkLabelClassName, 'sm:col-span-2')}>
-          <label htmlFor="pro-study-projectType">{t('form.projectType')}</label>
-          <select
-            id="pro-study-projectType"
-            className={cn(darkControlClassName, 'px-3 [&>option]:bg-white [&>option]:text-night')}
-            {...register('projectType')}
-          >
-            {professionalProjectTypes.map((projectType) => (
-              <option key={projectType} value={projectType}>
-                {t(`form.projectOptions.${projectType}`)}
-              </option>
-            ))}
-          </select>
+          <label id="pro-study-projectType-label" htmlFor="pro-study-projectType">
+            {t('form.projectType')}
+          </label>
+          <Controller
+            control={control}
+            name="projectType"
+            render={({ field }) => (
+              <Select
+                id="pro-study-projectType"
+                labelId="pro-study-projectType-label"
+                name={field.name}
+                value={field.value}
+                options={professionalProjectTypes.map((projectType) => ({ value: projectType, label: t(`form.projectOptions.${projectType}`) }))}
+                className={darkControlClassName}
+                ref={field.ref}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+              />
+            )}
+          />
         </div>
 
         {siteFields.map(renderTextField)}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
@@ -10,6 +10,7 @@ import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
   careRequestDefaultValues,
@@ -53,6 +54,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
 
   const {
     register,
+    control,
     handleSubmit,
     setValue,
     reset,
@@ -127,18 +129,31 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
 
       <div className="grid gap-3.5 sm:grid-cols-2">
         <div className={cn(fieldLabelClassName, 'text-care-ink sm:col-span-2')}>
-          <label htmlFor="care-request-requestType">{t('form.interest')}</label>
-          <select
-            id="care-request-requestType"
-            className={cn(controlClassName, 'bg-care-chip px-3')}
-            {...register('requestType', { onChange: (event) => onRequestTypeChange(event.target.value as CareRequestType) })}
-          >
-            {careRequestTypes.map((type) => (
-              <option key={type} value={type}>
-                {t(`form.interests.${type}`)}
-              </option>
-            ))}
-          </select>
+          <label id="care-request-requestType-label" htmlFor="care-request-requestType">
+            {t('form.interest')}
+          </label>
+          <Controller
+            control={control}
+            name="requestType"
+            render={({ field }) => (
+              <Select
+                id="care-request-requestType"
+                labelId="care-request-requestType-label"
+                name={field.name}
+                value={field.value}
+                options={careRequestTypes.map((type) => ({ value: type, label: t(`form.interests.${type}`) }))}
+                tone="care"
+                className={cn(controlClassName, 'bg-care-chip')}
+                listClassName="border-care-line"
+                ref={field.ref}
+                onChange={(type) => {
+                  field.onChange(type);
+                  onRequestTypeChange(type);
+                }}
+                onBlur={field.onBlur}
+              />
+            )}
+          />
         </div>
 
         {textFields.map(renderTextField)}
