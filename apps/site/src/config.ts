@@ -13,4 +13,6 @@ export const config = {
   analyticsMeasurementId: readEnv(import.meta.env.VITE_GA_MEASUREMENT_ID),
   consentStorageKey: 'soliance-consent',
   leadEndpoint: '/api/lead.php',
+  addressSearchEndpoint: 'https://data.geopf.fr/geocodage/search',
+  addressSearchBias: { latitude: 43.6721, longitude: 7.1902 },
 };

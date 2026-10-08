@@ -22,7 +22,7 @@
       "CONSUMPTION": "Étape 3 — Votre consommation",
       "RESULT": "Étape 4 — Votre résultat"
     },
-    "privacyHint": "Rien n'est enregistré pendant la simulation : vos réponses restent sur cet écran tant que vous ne demandez pas l'étude.",
+    "privacyHint": "Nous n'enregistrons rien pendant la simulation : vos réponses ne nous parviennent que si vous demandez l'étude. Les suggestions d'adresse proviennent de la Base Adresse Nationale (IGN).",
     "fields": {
       "address": "Adresse de l'installation",
       "addressPlaceholder": "ex. 12 avenue des Oliviers, Cagnes-sur-Mer",
@@ -38,6 +38,11 @@
       "monthlyBillHint": "Montant moyen TTC de vos factures, en euros par mois.",
       "equipment": "Équipements électriques",
       "daytimePresence": "Présence en journée"
+    },
+    "addressSuggestions": {
+      "label": "Adresses suggérées",
+      "count_one": "{{count}} adresse suggérée, utilisez les flèches haut et bas pour la choisir.",
+      "count_other": "{{count}} adresses suggérées, utilisez les flèches haut et bas pour en choisir une."
     },
     "orientations": {
       "SOUTH": "Sud",

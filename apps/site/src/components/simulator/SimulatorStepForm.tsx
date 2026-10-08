@@ -19,6 +19,7 @@ import {
   toggleEquipment,
 } from '@/app/simulator/domain/entities/SimulatorWizard';
 import { buttonVariants } from '@/components/ui/buttonVariants';
+import { SimulatorAddressField } from '@/components/simulator/SimulatorAddressField';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
   simulatorBackButtonClassName,
@@ -110,15 +111,7 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
       {isAddressStep && <p className="text-sm leading-normal text-slate-ink">{t('wizard.privacyHint')}</p>}
 
       <div className={cn('grid gap-3.5', isAddressStep ? 'sm:grid-cols-[minmax(0,1fr)_150px]' : 'hidden lg:grid')}>
-        <TextField
-          field="address"
-          value={answers.address}
-          errors={errors}
-          autoComplete="street-address"
-          inputMode="text"
-          isRecap={!isAddressStep}
-          onChange={(address) => onChange({ address })}
-        />
+        <SimulatorAddressField value={answers.address} error={errors.address} isRecap={!isAddressStep} onChange={onChange} />
         {isAddressStep && (
           <TextField
             field="postalCode"

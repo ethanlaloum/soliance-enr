@@ -22,7 +22,7 @@
       "CONSUMPTION": "Step 3 — Your consumption",
       "RESULT": "Step 4 — Your result"
     },
-    "privacyHint": "Nothing is saved during the simulation: your answers stay on this screen until you request the study.",
+    "privacyHint": "We save nothing during the simulation: your answers only reach us if you request the study. Address suggestions come from the French National Address Base (IGN).",
     "fields": {
       "address": "Installation address",
       "addressPlaceholder": "e.g. 12 avenue des Oliviers, Cagnes-sur-Mer",
@@ -38,6 +38,11 @@
       "monthlyBillHint": "Average amount of your bills including tax, in euros per month.",
       "equipment": "Electrical equipment",
       "daytimePresence": "Daytime presence"
+    },
+    "addressSuggestions": {
+      "label": "Suggested addresses",
+      "count_one": "{{count}} suggested address, use the up and down arrows to choose it.",
+      "count_other": "{{count}} suggested addresses, use the up and down arrows to choose one."
     },
     "orientations": {
       "SOUTH": "South",
