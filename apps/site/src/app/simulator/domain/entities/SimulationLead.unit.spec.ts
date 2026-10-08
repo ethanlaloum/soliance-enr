@@ -6,6 +6,7 @@ import { buildSimulationLeadFields } from '@/app/simulator/domain/entities/Simul
 const answers: SimulatorAnswers = {
   address: '12 avenue des Oliviers, Cagnes-sur-Mer',
   postalCode: '06800',
+  location: { latitude: 43.6638, longitude: 7.1488 },
   roofAreaM2: 45,
   orientation: RoofOrientation.SOUTH,
   roofCovering: RoofCovering.TILES,

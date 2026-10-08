@@ -60,8 +60,9 @@ describe('Address search gateway', () => {
         name: '30 Avenue du Général Leclerc',
         postalCode: '06700',
         city: 'Saint-Laurent-du-Var',
+        location: { latitude: 43.672097, longitude: 7.190202 },
       },
-      { id: '06088', label: 'Nice', name: 'Nice', postalCode: '06000', city: 'Nice' },
+      { id: '06088', label: 'Nice', name: 'Nice', postalCode: '06000', city: 'Nice', location: { latitude: 43.7032, longitude: 7.2528 } },
     ]);
   });
 

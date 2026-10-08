@@ -126,6 +126,7 @@
     },
     "monthValue": "{{month}}: {{value, number}} kWh",
     "caption": "Estimated monthly production, January to December · source PVGIS, regional average of {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
+    "captionDepartment": "Estimated monthly production, January to December · {{department}}: {{yield, number}} kWh/kWp/year retained, i.e. PVGIS ({{pvgis, number}}) reduced for prudence · indicative estimate, refined during the free study.",
     "months": {
       "january": { "long": "January", "short": "J" },
       "february": { "long": "February", "short": "F" },
@@ -160,7 +161,7 @@
     "title": "Our commitments",
     "dataUsed": {
       "title": "Data used",
-      "description": "Regional average PVGIS solar irradiation, roof orientation, consumption profile."
+      "description": "PVGIS solar irradiation of your department, roof orientation, consumption profile."
     },
     "noDataSold": {
       "title": "No data sold",
@@ -170,5 +171,31 @@
       "title": "Fixed price after the study",
       "description": "The quote details equipment, installation, paperwork and first-year maintenance."
     }
+  },
+  "yieldMap": {
+    "title": "Sunshine in your department",
+    "lead": "Yearly output of 1 kWp of south-facing panels tilted at 30°, from the European Commission PVGIS data.",
+    "own": {
+      "name": "{{name}} ({{code}})",
+      "value": "{{value, number}} kWh/kWp/yr",
+      "gap": {
+        "above": "{{value}} % above the national average ({{average, number}} kWh/kWp).",
+        "below": "{{value}} % below the national average ({{average, number}} kWh/kWp).",
+        "equal": "On the national average ({{average, number}} kWh/kWp)."
+      }
+    },
+    "empty": "Enter your address: we place your roof on the map and show the sunshine of your department. National average: {{average, number}} kWh/kWp/yr.",
+    "outside": "Your postal code is outside mainland France: the map gives the national average, {{average, number}} kWh/kWp/yr.",
+    "ariaLabel": "Map of France showing yearly solar output per department, in kWh per kWp.",
+    "ariaLabelOwn": "Map of France showing yearly solar output per department, in kWh per kWp. {{name}} is outlined.",
+    "ariaLabelPoint": "Map of France showing yearly solar output per department, in kWh per kWp. {{name}} is outlined, your address is marked with a dot.",
+    "tooltipCity": "measured in {{city}}",
+    "legend": {
+      "label": "Legend, in kWh/kWp/yr",
+      "below": "< {{value, number}}",
+      "range": "{{from, number}} – {{to, number}}",
+      "above": "≥ {{value, number}}"
+    },
+    "caption": "Source: PVGIS-SARAH3, most populated commune of each department, 14 % system losses. Hover or tap a department to see its value."
   }
 }

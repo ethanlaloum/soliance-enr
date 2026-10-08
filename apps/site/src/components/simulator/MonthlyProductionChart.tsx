@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
+import { LocalSunshine } from '@/app/simulator/domain/entities/SimulatorWizard';
 
 const monthKeys = [
   'january',
@@ -25,9 +26,10 @@ const columnWidth = chartWidth / monthKeys.length;
 
 type MonthlyProductionChartProps = {
   monthlyKwh: number[] | null;
+  sunshine: LocalSunshine | null;
 };
 
-export const MonthlyProductionChart = ({ monthlyKwh }: MonthlyProductionChartProps) => {
+export const MonthlyProductionChart = ({ monthlyKwh, sunshine }: MonthlyProductionChartProps) => {
   const { t } = useTranslation('simulator');
   const values = monthlyKwh ?? solarEstimateParameters.monthlyProductionShares;
   const peak = Math.max(...values);
@@ -65,7 +67,9 @@ export const MonthlyProductionChart = ({ monthlyKwh }: MonthlyProductionChartPro
         </ul>
       )}
       <figcaption className="text-xs leading-normal text-slate-mist">
-        {t('estimate.caption', { yield: solarEstimateParameters.specificYieldKwhPerKwc })}
+        {sunshine?.departmentName
+          ? t('estimate.captionDepartment', { department: sunshine.departmentName, yield: sunshine.yieldKwhPerKwc, pvgis: sunshine.pvgisKwhPerKwc })
+          : t('estimate.caption', { yield: sunshine?.yieldKwhPerKwc ?? solarEstimateParameters.specificYieldKwhPerKwc })}
       </figcaption>
     </figure>
   );

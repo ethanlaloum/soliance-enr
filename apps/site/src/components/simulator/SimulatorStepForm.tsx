@@ -19,6 +19,7 @@ import {
   toggleEquipment,
 } from '@/app/simulator/domain/entities/SimulatorWizard';
 import { buttonVariants } from '@/components/ui/buttonVariants';
+import { Select } from '@/components/ui/select';
 import { SimulatorAddressField } from '@/components/simulator/SimulatorAddressField';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
 import {
@@ -153,38 +154,34 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
           </div>
 
           <div className={fieldLabelClassName}>
-            <label htmlFor={fieldId('orientation')}>{t('wizard.fields.orientation')}</label>
-            <select
+            <label id={fieldId('orientation-label')} htmlFor={fieldId('orientation')}>
+              {t('wizard.fields.orientation')}
+            </label>
+            <Select<RoofOrientation>
               id={fieldId('orientation')}
+              labelId={fieldId('orientation-label')}
               value={answers.orientation}
-              className={cn(fieldControlClassName, 'px-3', isConsumptionStep && recapControlClassName)}
-              onChange={(event) => onChange({ orientation: event.target.value as RoofOrientation })}
-            >
-              {roofOrientations.map((orientation) => (
-                <option key={orientation} value={orientation}>
-                  {t(`wizard.orientations.${orientation}`)}
-                </option>
-              ))}
-            </select>
+              options={roofOrientations.map((orientation) => ({ value: orientation, label: t(`wizard.orientations.${orientation}`) }))}
+              className={cn(fieldControlClassName, isConsumptionStep && recapControlClassName)}
+              onChange={(orientation) => onChange({ orientation })}
+            />
           </div>
         </div>
       )}
 
       {isRoofStep && (
         <div className={fieldLabelClassName}>
-          <label htmlFor={fieldId('roofCovering')}>{t('wizard.fields.roofCovering')}</label>
-          <select
+          <label id={fieldId('roofCovering-label')} htmlFor={fieldId('roofCovering')}>
+            {t('wizard.fields.roofCovering')}
+          </label>
+          <Select<RoofCovering>
             id={fieldId('roofCovering')}
+            labelId={fieldId('roofCovering-label')}
             value={answers.roofCovering}
-            className={cn(fieldControlClassName, 'px-3')}
-            onChange={(event) => onChange({ roofCovering: event.target.value as RoofCovering })}
-          >
-            {roofCoverings.map((covering) => (
-              <option key={covering} value={covering}>
-                {t(`wizard.roofCoverings.${covering}`)}
-              </option>
-            ))}
-          </select>
+            options={roofCoverings.map((covering) => ({ value: covering, label: t(`wizard.roofCoverings.${covering}`) }))}
+            className={fieldControlClassName}
+            onChange={(roofCovering) => onChange({ roofCovering })}
+          />
         </div>
       )}
 
@@ -226,19 +223,17 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
           </fieldset>
 
           <div className={fieldLabelClassName}>
-            <label htmlFor={fieldId('daytimePresence')}>{t('wizard.fields.daytimePresence')}</label>
-            <select
+            <label id={fieldId('daytimePresence-label')} htmlFor={fieldId('daytimePresence')}>
+              {t('wizard.fields.daytimePresence')}
+            </label>
+            <Select<DaytimePresence>
               id={fieldId('daytimePresence')}
+              labelId={fieldId('daytimePresence-label')}
               value={answers.daytimePresence}
-              className={cn(fieldControlClassName, 'px-3')}
-              onChange={(event) => onChange({ daytimePresence: event.target.value as DaytimePresence })}
-            >
-              {daytimePresences.map((presence) => (
-                <option key={presence} value={presence}>
-                  {t(`wizard.presences.${presence}`)}
-                </option>
-              ))}
-            </select>
+              options={daytimePresences.map((presence) => ({ value: presence, label: t(`wizard.presences.${presence}`) }))}
+              className={fieldControlClassName}
+              onChange={(daytimePresence) => onChange({ daytimePresence })}
+            />
           </div>
         </>
       )}

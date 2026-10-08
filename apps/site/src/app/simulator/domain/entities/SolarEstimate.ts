@@ -69,6 +69,7 @@ export interface SolarEstimateParameters {
   panelPowerKwc: number;
   offeredPowersKwc: number[];
   specificYieldKwhPerKwc: number;
+  pvgisRetainedShare: number;
   orientationCoefficients: Record<RoofOrientation, number>;
   monthlyProductionShares: number[];
   kwhPriceEur: number;
@@ -89,6 +90,7 @@ export const solarEstimateParameters: SolarEstimateParameters = {
   panelPowerKwc: 0.5,
   offeredPowersKwc: [3, 6, 9, 12],
   specificYieldKwhPerKwc: 1300,
+  pvgisRetainedShare: 0.8564,
   orientationCoefficients: {
     [RoofOrientation.SOUTH]: 1,
     [RoofOrientation.SOUTH_EAST]: 0.95,

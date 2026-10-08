@@ -1,4 +1,7 @@
 export interface AddressFeatureDto {
+  geometry: {
+    coordinates: [number, number];
+  };
   properties: {
     id: string;
     label: string;

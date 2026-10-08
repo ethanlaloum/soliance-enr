@@ -32,14 +32,14 @@ export const SimulatorAddressField = ({ value, error, isRecap, onChange }: Simul
   };
 
   const type = (address: string) => {
-    onChange({ address });
+    onChange({ address, location: null });
     setIsOpen(true);
     setActiveIndex(-1);
     search(address);
   };
 
   const pick = (suggestion: AddressSuggestion) => {
-    onChange({ address: addressLineOf(suggestion), postalCode: suggestion.postalCode });
+    onChange({ address: addressLineOf(suggestion), postalCode: suggestion.postalCode, location: suggestion.location });
     close();
     clear();
   };

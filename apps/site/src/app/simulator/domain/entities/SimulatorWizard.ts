@@ -1,3 +1,5 @@
+import { AddressLocation } from '@/app/address/domain/entities/AddressSuggestion';
+import { DepartmentSolarYield, departmentSolarYieldOf, departmentSolarYields } from '@/app/simulator/domain/entities/DepartmentSolarYield';
 import {
   ConsumptionInput,
   DaytimePresence,
@@ -32,6 +34,7 @@ export const roofCoverings: RoofCovering[] = [RoofCovering.TILES, RoofCovering.S
 export interface SimulatorAnswers {
   address: string;
   postalCode: string;
+  location: AddressLocation | null;
   roofAreaM2: number;
   orientation: RoofOrientation;
   roofCovering: RoofCovering;
@@ -43,6 +46,7 @@ export interface SimulatorAnswers {
 export const initialSimulatorAnswers: SimulatorAnswers = {
   address: '',
   postalCode: '',
+  location: null,
   roofAreaM2: 45,
   orientation: RoofOrientation.SOUTH,
   roofCovering: RoofCovering.TILES,
@@ -64,6 +68,13 @@ export type SimulatorErrors = Partial<Record<SimulatorValidatedField, SimulatorF
 export interface SolarEstimatePreview {
   estimate: SolarEstimate;
   referenceMonthlyBillEur: number | null;
+  sunshine: LocalSunshine;
+}
+
+export interface LocalSunshine {
+  departmentName: string | null;
+  pvgisKwhPerKwc: number | null;
+  yieldKwhPerKwc: number;
 }
 
 const minimumAddressLength = 3;
@@ -120,16 +131,39 @@ const previewConsumption = (answers: SimulatorAnswers, step: SimulatorStep, para
   };
 };
 
+export const localSolarParameters = (
+  postalCode: string,
+  parameters: SolarEstimateParameters = solarEstimateParameters,
+  yields: DepartmentSolarYield[] = departmentSolarYields,
+): SolarEstimateParameters => {
+  const department = departmentSolarYieldOf(postalCode, yields);
+  if (!department) return parameters;
+  const monthlyTotal = department.monthlyYieldKwhPerKwc.reduce((total, month) => total + month, 0);
+  return {
+    ...parameters,
+    specificYieldKwhPerKwc: Math.round(department.yieldKwhPerKwc * parameters.pvgisRetainedShare),
+    monthlyProductionShares: department.monthlyYieldKwhPerKwc.map((month) => month / monthlyTotal),
+  };
+};
+
 export const previewSolarEstimate = (
   answers: SimulatorAnswers,
   step: SimulatorStep,
   parameters: SolarEstimateParameters = solarEstimateParameters,
+  yields: DepartmentSolarYield[] = departmentSolarYields,
 ): SolarEstimatePreview | null => {
   if (step === SimulatorStep.ADDRESS) return null;
   const consumption = previewConsumption(answers, step, parameters);
   const usesReferenceBill = step === SimulatorStep.ROOF || parseMonthlyBill(answers.monthlyBill, parameters) === null;
+  const department = departmentSolarYieldOf(answers.postalCode, yields);
+  const localParameters = localSolarParameters(answers.postalCode, parameters, yields);
   return {
-    estimate: estimateSolarInstallation({ roof: { areaM2: answers.roofAreaM2, orientation: answers.orientation }, consumption }, parameters),
+    estimate: estimateSolarInstallation({ roof: { areaM2: answers.roofAreaM2, orientation: answers.orientation }, consumption }, localParameters),
     referenceMonthlyBillEur: usesReferenceBill ? parameters.referenceConsumption.monthlyBillEur : null,
+    sunshine: {
+      departmentName: department?.name ?? null,
+      pvgisKwhPerKwc: department?.yieldKwhPerKwc ?? null,
+      yieldKwhPerKwc: localParameters.specificYieldKwhPerKwc,
+    },
   };
 };

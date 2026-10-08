@@ -11,12 +11,13 @@ export interface AddressSearchBias {
 
 export const addressSuggestionLimit = 5;
 
-const toSuggestion = ({ properties }: AddressFeatureDto): AddressSuggestion => ({
+const toSuggestion = ({ geometry, properties }: AddressFeatureDto): AddressSuggestion => ({
   id: properties.id,
   label: properties.label,
   name: properties.name,
   postalCode: properties.postcode,
   city: properties.city,
+  location: { latitude: geometry.coordinates[1], longitude: geometry.coordinates[0] },
 });
 
 export class SolianceRxAddressGateway implements AddressGateway {

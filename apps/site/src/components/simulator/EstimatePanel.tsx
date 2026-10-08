@@ -68,7 +68,7 @@ export const EstimatePanel = ({ preview, isFinal, className }: EstimatePanelProp
         <p className="text-sm leading-normal text-slate-light">{t('estimate.referenceHint', { bill: preview.referenceMonthlyBillEur })}</p>
       )}
 
-      <MonthlyProductionChart monthlyKwh={estimate?.monthlyProductionKwh ?? null} />
+      <MonthlyProductionChart monthlyKwh={estimate?.monthlyProductionKwh ?? null} sunshine={preview?.sunshine ?? null} />
     </section>
   );
 };

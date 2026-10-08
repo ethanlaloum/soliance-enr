@@ -126,6 +126,7 @@
     },
     "monthValue": "{{month}} : {{value, number}} kWh",
     "caption": "Production mensuelle estimée, janvier à décembre · source PVGIS, moyenne régionale de {{yield, number}} kWh/kWc/an · estimation indicative, affinée lors de l'étude gratuite.",
+    "captionDepartment": "Production mensuelle estimée, janvier à décembre · {{department}} : {{yield, number}} kWh/kWc/an retenus, soit PVGIS ({{pvgis, number}}) minoré par prudence · estimation indicative, affinée lors de l'étude gratuite.",
     "months": {
       "january": { "long": "janvier", "short": "J" },
       "february": { "long": "février", "short": "F" },
@@ -160,7 +161,7 @@
     "title": "Nos engagements",
     "dataUsed": {
       "title": "Données utilisées",
-      "description": "Ensoleillement PVGIS moyen de la région, orientation du toit, profil de consommation."
+      "description": "Ensoleillement PVGIS de votre département, orientation du toit, profil de consommation."
     },
     "noDataSold": {
       "title": "Aucune donnée vendue",
@@ -170,5 +171,31 @@
       "title": "Prix fixe après étude",
       "description": "Le devis détaille matériel, pose, démarches et maintenance de la première année."
     }
+  },
+  "yieldMap": {
+    "title": "Ensoleillement de votre département",
+    "lead": "Production annuelle d’1 kWc de panneaux plein sud, inclinés à 30°, selon les données PVGIS de la Commission européenne.",
+    "own": {
+      "name": "{{name}} ({{code}})",
+      "value": "{{value, number}} kWh/kWc/an",
+      "gap": {
+        "above": "{{value}} % au-dessus de la moyenne nationale ({{average, number}} kWh/kWc).",
+        "below": "{{value}} % en dessous de la moyenne nationale ({{average, number}} kWh/kWc).",
+        "equal": "Dans la moyenne nationale ({{average, number}} kWh/kWc)."
+      }
+    },
+    "empty": "Saisissez votre adresse : nous situons votre toit sur la carte et vous montrons l’ensoleillement de votre département. Moyenne nationale : {{average, number}} kWh/kWc/an.",
+    "outside": "Votre code postal est hors de France métropolitaine : la carte donne la moyenne nationale, {{average, number}} kWh/kWc/an.",
+    "ariaLabel": "Carte de France de la production solaire annuelle par département, en kWh par kWc.",
+    "ariaLabelOwn": "Carte de France de la production solaire annuelle par département, en kWh par kWc. {{name}} est entouré.",
+    "ariaLabelPoint": "Carte de France de la production solaire annuelle par département, en kWh par kWc. {{name}} est entouré, votre adresse est marquée d’un point.",
+    "tooltipCity": "mesuré à {{city}}",
+    "legend": {
+      "label": "Légende, en kWh/kWc/an",
+      "below": "< {{value, number}}",
+      "range": "{{from, number}} – {{to, number}}",
+      "above": "≥ {{value, number}}"
+    },
+    "caption": "Source : PVGIS-SARAH3, commune la plus peuplée de chaque département, pertes système 14 %. Survolez ou touchez un département pour voir sa valeur."
   }
 }

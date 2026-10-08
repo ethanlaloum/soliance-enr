@@ -1,9 +1,15 @@
+export interface AddressLocation {
+  latitude: number;
+  longitude: number;
+}
+
 export interface AddressSuggestion {
   id: string;
   label: string;
   name: string;
   postalCode: string;
   city: string;
+  location: AddressLocation;
 }
 
 export const minimumAddressQueryLength = 3;

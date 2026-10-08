@@ -14,6 +14,7 @@ const showroom: AddressSuggestion = {
   name: '30 Avenue du Général Leclerc',
   postalCode: '06700',
   city: 'Saint-Laurent-du-Var',
+  location: { latitude: 43.672097, longitude: 7.190202 },
 };
 
 const withSuggestions = () => addressReducer(undefined, searchAddressesSucceeded({ suggestions: [showroom] }));
