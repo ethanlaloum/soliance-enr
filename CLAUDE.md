@@ -23,6 +23,10 @@ pnpm --filter soliance-site exec eslint <path>
 
 Never run `vitest` without `run`, `pnpm --filter soliance-site dev` or `preview` from an agent unless backgrounded on purpose.
 
+## Security scan
+
+`.github/workflows/strix.yml` runs Strix (AI pentest agent, pinned to 1.7.0) on demand only: `gh workflow run strix -f scan_mode=quick|standard|deep`. It reviews the checked-out code under `.github/strix-instructions.md`, which forbids any request to the live site and any call to Resend, since `lead.php` mails real staff. The repository is public, so its Actions logs and artifacts are public: the step keeps Strix's output out of the log and uploads only `strix-report.tar.gz.gpg`, encrypted with the `STRIX_REPORT_PASSPHRASE` secret. Read it with `gh run download <run-id> -n strix-report` then `gpg -d strix-report.tar.gz.gpg | tar xz`. Needs the `LLM_API_KEY` secret; the model comes from the `STRIX_LLM` repository variable (default `anthropic/claude-sonnet-4-6`). Never print findings in a step of that workflow.
+
 ## Deploy
 
 The site is served by the client's OVH web hosting (PERSO, `soliand.cluster100.hosting.ovh.net`), the whole stack staying at OVH (domain, DNS zone, hosting, Let's Encrypt certificates). The multisite entry « Soliance site » serves `soliance-enr.fr` and `www.soliance-enr.fr` from the folder `site`, which OVH's Git integration keeps in sync with the branch `ovh-deploy` (read-only deploy key, GitHub push webhook). That branch holds only built files: `pnpm deploy:ovh` builds the current commit and pushes `apps/site/dist/` as a new commit on `ovh-deploy`. Production follows `main`; the `VITE_*` values come from `apps/site/.env` at build time (not committed, see `.env.example`).

@@ -1,0 +1,69 @@
+name: strix
+
+on:
+  workflow_dispatch:
+    inputs:
+      scan_mode:
+        description: Scan depth
+        type: choice
+        options: [quick, standard, deep]
+        default: standard
+
+permissions:
+  contents: read
+
+concurrency:
+  group: strix
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Install Strix
+        env:
+          VERSION: 1.7.0
+        run: |
+          curl -sSL https://strix.ai/install | bash
+          echo "$HOME/.strix/bin" >> "$GITHUB_PATH"
+
+      - name: Run Strix
+        id: strix
+        env:
+          STRIX_LLM: ${{ vars.STRIX_LLM || 'anthropic/claude-sonnet-4-6' }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          SCAN_MODE: ${{ inputs.scan_mode }}
+        run: |
+          set +e
+          strix -n -t ./ --scan-mode "$SCAN_MODE" --instruction-file .github/strix-instructions.md > strix-output.txt 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          echo "Strix exited with code $code; the report is in the encrypted artifact."
+
+      - name: Encrypt the report
+        if: always()
+        env:
+          STRIX_REPORT_PASSPHRASE: ${{ secrets.STRIX_REPORT_PASSPHRASE }}
+        run: |
+          test -n "$STRIX_REPORT_PASSPHRASE"
+          touch strix-output.txt
+          if [ -d strix_runs ]; then tar czf strix-report.tar.gz strix-output.txt strix_runs; else tar czf strix-report.tar.gz strix-output.txt; fi
+          gpg --batch --yes --pinentry-mode loopback --symmetric --cipher-algo AES256 \
+            --passphrase "$STRIX_REPORT_PASSPHRASE" -o strix-report.tar.gz.gpg strix-report.tar.gz
+          rm -rf strix-report.tar.gz strix-output.txt strix_runs
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: strix-report
+          path: strix-report.tar.gz.gpg
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Fail when Strix did not pass
+        if: steps.strix.outputs.exit_code != '0'
+        run: exit 1
