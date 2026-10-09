@@ -129,7 +129,7 @@ export const FranceSunshineSection = () => {
               <defs>
                 <clipPath id={`${svgId}-clip`}><path d={franceMetropolePath} /></clipPath>
                 <radialGradient id={`${svgId}-north`}>
-                  <stop stopColor="#bfd1c0" /><stop offset="1" stopColor="#bfd1c0" stopOpacity="0" />
+                  <stop stopColor="var(--home-light)" /><stop offset="1" stopColor="var(--home-light)" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient id={`${svgId}-middle`}>
                   <stop stopColor="#ebc575" stopOpacity=".8" /><stop offset="1" stopColor="#ebc575" stopOpacity="0" />

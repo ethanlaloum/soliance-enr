@@ -53,18 +53,18 @@ export const ChargerUsagesSection = () => {
             style={revealDelay(index)}
             className={cn(
               'flex flex-col gap-3 rounded-2xl p-6 lg:rounded-[20px] lg:p-8',
-              highlighted ? 'bg-charge text-white' : 'border-2 border-charge-surface bg-white text-night',
+              highlighted ? 'bg-night text-white' : 'border-2 border-sand-line bg-white text-night',
             )}
           >
             <span
               className={cn(
                 'flex h-12 w-12 items-center justify-center rounded-xl',
-                highlighted ? 'bg-white/15 text-white' : 'bg-charge-surface text-charge',
+                highlighted ? 'bg-solar/15 text-solar' : 'bg-ivory text-solar',
               )}
             >
               <Icon />
             </span>
-            <p className={cn('text-[13px] font-semibold uppercase tracking-[1px]', highlighted ? 'text-[#bfeed5]' : 'text-charge')}>
+            <p className={cn('text-[13px] font-semibold uppercase tracking-[1px]', highlighted ? 'text-solar' : 'text-solar-dark')}>
               {t(`usages.${key}.audience`)}
             </p>
             <img
@@ -77,8 +77,8 @@ export const ChargerUsagesSection = () => {
               className="block h-[150px] w-full rounded-xl object-cover"
             />
             <h3 className="text-[22px] font-bold lg:text-[26px]">{t(`usages.${key}.title`)}</h3>
-            <p className={cn('text-[15px] leading-[1.55]', highlighted ? 'text-charge-soft' : 'text-slate-text')}>{t(`usages.${key}.description`)}</p>
-            <ul className={cn('text-sm leading-[1.7]', highlighted ? 'text-charge-soft' : 'text-slate-ink')}>
+            <p className={cn('text-[15px] leading-[1.55]', highlighted ? 'text-slate-light' : 'text-slate-text')}>{t(`usages.${key}.description`)}</p>
+            <ul className={cn('text-sm leading-[1.7]', highlighted ? 'text-slate-light' : 'text-slate-ink')}>
               {featureKeys.map((featureKey) => (
                 <li key={featureKey}>{t(`usages.${key}.features.${featureKey}`)}</li>
               ))}

@@ -21,7 +21,7 @@ export const SolarCareSection = () => {
       >
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end lg:gap-10">
           <div className="flex flex-col gap-3">
-            <p className={cn(eyebrowClassName, 'text-care-mint')}>{t('care.eyebrow')}</p>
+            <p className={cn(eyebrowClassName, 'text-solar')}>{t('care.eyebrow')}</p>
             <h2 id="solar-care-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]">
               {t('care.title')}
             </h2>

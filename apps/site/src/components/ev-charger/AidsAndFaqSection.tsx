@@ -24,8 +24,8 @@ export const AidsAndFaqSection = () => {
         </h2>
         <ul className="flex flex-col gap-3">
           {aidKeys.map((key, index) => (
-            <li key={key} data-reveal style={revealDelay(index)} className="rounded-xl bg-charge-surface px-5 py-[18px]">
-              <h3 className="font-bold text-charge-dark">{t(`aids.items.${key}.title`)}</h3>
+            <li key={key} data-reveal style={revealDelay(index)} className="rounded-xl bg-ivory px-5 py-[18px]">
+              <h3 className="font-bold text-night">{t(`aids.items.${key}.title`)}</h3>
               <p className="mt-1 text-sm leading-normal text-slate-text">{t(`aids.items.${key}.description`)}</p>
             </li>
           ))}
@@ -36,7 +36,7 @@ export const AidsAndFaqSection = () => {
           {t('faq.title')}
         </h2>
         <div data-reveal style={revealDelay(1)}>
-          <FaqList items={faqItems} accentClassName="text-charge" className="divide-charge-line border-charge-line" />
+          <FaqList items={faqItems} accentClassName="text-solar" className="divide-sand-line border-sand-line" />
         </div>
       </section>
     </div>

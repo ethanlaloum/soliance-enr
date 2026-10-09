@@ -11,7 +11,7 @@ import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const trustKeys = ['rge', 'decennial', 'installation', 'localTeam'] as const;
 const statKeys = ['installations', 'savings', 'maintenance'] as const;
-const heroPoster = '/images/hero-villa-premium.webp';
+const heroPoster = '/images/hero-villa-premium.webp?v=3';
 const equipment = [
   { key: 'solar', to: paths.solar },
   { key: 'evCharger', to: paths.evCharger },
@@ -42,7 +42,7 @@ const VillaFilm = () => {
   const { t } = useTranslation('home');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [motionAllowed, setMotionAllowed] = useState(false);
-  const [videoSource, setVideoSource] = useState('/videos/hero-villa-premium.mp4?v=2');
+  const [videoSource, setVideoSource] = useState('/videos/hero-villa-premium.mp4?v=3');
   const [isPaused, setIsPaused] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -52,7 +52,7 @@ const VillaFilm = () => {
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     const updatePreference = () => {
       setMotionAllowed(!preference.matches && !connection?.saveData);
-      setVideoSource(desktop.matches ? '/videos/hero-villa-premium.mp4?v=2' : '/videos/hero-villa-premium-mobile.mp4?v=2');
+      setVideoSource(desktop.matches ? '/videos/hero-villa-premium.mp4?v=3' : '/videos/hero-villa-premium-mobile.mp4?v=3');
     };
     updatePreference();
     preference.addEventListener('change', updatePreference);
@@ -116,7 +116,7 @@ const VillaFilm = () => {
           src={heroPoster}
           alt={t('hero.imageAlt')}
           width={1672}
-          height={941}
+          height={940}
           loading="eager"
           fetchPriority="high"
           className="villa-film__media"

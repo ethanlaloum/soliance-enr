@@ -1,3 +1,17 @@
+.home-motion {
+  --home-night: theme('colors.night.DEFAULT');
+  --home-night-soft: theme('colors.night.soft');
+  --home-night-line: theme('colors.night.line');
+  --home-paper: theme('colors.ivory');
+  --home-solar: theme('colors.solar.DEFAULT');
+  --home-solar-dark: theme('colors.solar.dark');
+  --home-text: theme('colors.slate.text');
+  --home-muted: theme('colors.slate.ink');
+  --home-mist: theme('colors.slate.mist');
+  --home-light: theme('colors.slate.light');
+  --home-border: theme('colors.sand.border');
+}
+
 .home-scroll-charge {
   position: fixed;
   z-index: 100;
@@ -11,13 +25,13 @@
 .home-scroll-charge > span {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #e07b28, #f4ca91 65%, #85c6ae);
+  background: linear-gradient(90deg, var(--home-solar), #f4ca91);
   transform: scaleX(0);
   transform-origin: left;
 }
 
 .home-kicker {
-  color: #b85f17;
+  color: var(--home-solar-dark);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .17em;
@@ -27,8 +41,8 @@
 .energy-story {
   position: relative;
   overflow: hidden;
-  color: #f7f4ef;
-  background: #101e20;
+  color: var(--home-paper);
+  background: var(--home-night);
 }
 
 .energy-story::before {
@@ -36,7 +50,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 78% 30%, rgba(218, 155, 80, .08), transparent 58%);
+  background: radial-gradient(ellipse at 78% 30%, rgba(224, 123, 40, .06), transparent 58%);
 }
 
 .energy-story__layout {
@@ -47,7 +61,7 @@
   padding-bottom: 48px;
 }
 
-.energy-story .home-kicker { color: #d6ae7f; }
+.energy-story .home-kicker { color: var(--home-solar); }
 .energy-story__copy { align-self: center; }
 .energy-story__title {
   max-width: 500px;
@@ -60,7 +74,7 @@
 
 .energy-story__title > span {
   display: block;
-  color: #edbd86;
+  color: var(--home-solar);
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
   font-style: italic;
@@ -70,7 +84,7 @@
 .energy-story__lead {
   max-width: 365px;
   margin-top: 26px;
-  color: #bdc9c5;
+  color: var(--home-light);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -80,7 +94,7 @@
   align-items: center;
   gap: 14px;
   margin-top: 36px;
-  color: #d5dfda;
+  color: var(--home-light);
   font-size: 11px;
   letter-spacing: .03em;
 }
@@ -88,36 +102,34 @@
 .energy-story__signature-line {
   width: 48px;
   height: 1px;
-  background: #43504b;
+  background: var(--home-night-line);
 }
-.energy-story__signature-line > span { display: block; height: 100%; background: #edbd86; transform-origin: left; }
+.energy-story__signature-line > span { display: block; height: 100%; background: var(--home-solar); transform-origin: left; }
 .energy-story__system { min-width: 0; align-self: center; }
 .energy-story__mobile-heading { display: none; }
 .energy-diagram { display: block; width: 100%; overflow: visible; }
-.energy-diagram__orbit { stroke: #c6d8cc; stroke-opacity: .08; }
-.energy-diagram__track { stroke: #849f93; stroke-opacity: .24; stroke-width: 1.25; }
-.energy-diagram__current { stroke: #9dd8bc; stroke-width: 2; stroke-linecap: round; }
-.energy-diagram__current--solar { stroke: #edbd86; }
-.energy-diagram__sun { stroke: #edbd86; stroke-width: 1.5; }
-.energy-diagram__house { stroke: #b8c6bc; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
-.energy-diagram__panels { stroke: #edbd86; fill: rgba(237, 189, 134, .025); }
-.energy-diagram__junction { fill: #edbd86; }
-.energy-diagram__node { fill: #162a29; stroke: #809d8f; stroke-width: 1; }
-[data-energy-node] { color: #acd6bd; }
+.energy-diagram__orbit { stroke: var(--home-light); stroke-opacity: .08; }
+.energy-diagram__track { stroke: var(--home-light); stroke-opacity: .24; stroke-width: 1.25; }
+.energy-diagram__current { stroke: var(--home-solar); stroke-width: 2; stroke-linecap: round; }
+.energy-diagram__sun { stroke: var(--home-solar); stroke-width: 1.5; }
+.energy-diagram__house { stroke: var(--home-light); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
+.energy-diagram__panels { stroke: var(--home-solar); fill: rgba(224, 123, 40, .025); }
+.energy-diagram__junction { fill: var(--home-solar); }
+.energy-diagram__node { fill: var(--home-night-soft); stroke: var(--home-night-line); stroke-width: 1; }
+[data-energy-node] { color: var(--home-solar); }
 .energy-story__uses { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
-.energy-story__use { color: #f7f4ef; }
-.energy-story__use:hover { color: #edbd86; }
+.energy-story__use { color: var(--home-paper); }
+.energy-story__use:hover { color: var(--home-solar); }
 .energy-story__use > span:first-child { display: block; font-size: 15px; font-weight: 500; }
-.energy-story__use > span:last-child { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 7px; color: #a1b3aa; font-size: 10px; }
+.energy-story__use > span:last-child { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 7px; color: var(--home-mist); font-size: 10px; }
 .energy-story__use svg { flex-shrink: 0; transition: transform .25s; }
 .energy-story__use:hover svg { transform: translateX(3px); }
-.energy-story__note { margin-top: 34px; color: #a1b3aa; font-size: 10px; text-align: center; }
-.energy-story__phases { display: flex; justify-content: center; gap: 24px; margin-top: 30px; color: #edbd86; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.energy-story__note { margin-top: 34px; color: var(--home-mist); font-size: 10px; text-align: center; }
+.energy-story__phases { display: flex; justify-content: center; gap: 24px; margin-top: 30px; color: var(--home-solar); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
 .energy-story__phases li { display: flex; align-items: center; gap: 7px; }
 .energy-story__phases li > span { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
-.energy-story__phases li:last-child { color: #9dd8bc; }
-.energy-story__cue { margin-top: 18px; color: #a1b3aa; font-size: 10px; text-align: center; }
-.energy-story__cue > span { display: inline-block; margin-right: 5px; color: #edbd86; }
+.energy-story__cue { margin-top: 18px; color: var(--home-mist); font-size: 10px; text-align: center; }
+.energy-story__cue > span { display: inline-block; margin-right: 5px; color: var(--home-solar); }
 
 .solution-card__media { position: relative; display: none; height: 280px; overflow: hidden; }
 .solution-card__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11, 17, 32, .22)); }
@@ -138,7 +150,7 @@
 .home-team__frame { overflow: hidden; border-radius: 16px; }
 .home-steps__journey { position: relative; }
 .home-steps__track { position: absolute; top: 14px; bottom: 20px; left: 17px; width: 1px; background: #ded7cb; }
-.home-steps__track > span { display: block; width: 100%; height: 100%; transform-origin: top left; background: linear-gradient(#e07b28, #76ad90); }
+.home-steps__track > span { display: block; width: 100%; height: 100%; transform-origin: top left; background: linear-gradient(var(--home-solar), #f4ca91); }
 .home-steps__number { position: relative; padding: 3px 0; background: #f7f4ef; }
 .home-steps__card { position: relative; }
 
@@ -158,7 +170,7 @@
 
 @media (max-width: 767px) {
   .energy-story__system { display: flex; min-height: 100svh; flex-direction: column; justify-content: center; padding-block: 36px; }
-  .energy-story__mobile-heading { display: block; margin-bottom: 26px; color: #edbd86; font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-style: italic; letter-spacing: -.03em; text-align: center; }
+  .energy-story__mobile-heading { display: block; margin-bottom: 26px; color: var(--home-solar); font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-style: italic; letter-spacing: -.03em; text-align: center; }
   .energy-diagram { flex-shrink: 0; }
 }
 
@@ -180,7 +192,7 @@
   .home-solutions [data-solution-card]:nth-child(3) { padding-top: 56px; }
   .home-solutions [data-solution-card] > a { height: auto; min-height: 620px; }
   .home-steps__track { top: 51px; bottom: auto; left: 24px; right: 24px; width: auto; height: 1px; }
-  .home-steps__track > span { transform-origin: left; background: linear-gradient(90deg, #e07b28, #76ad90); }
+  .home-steps__track > span { transform-origin: left; background: linear-gradient(90deg, var(--home-solar), #f4ca91); }
   .home-steps__number { min-width: 66px; }
   .home-steps__card { border-bottom: 1px solid #d5cfc4; }
 }

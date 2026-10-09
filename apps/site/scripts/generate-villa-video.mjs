@@ -24,8 +24,8 @@ const camera = (size) => [
 
 mkdirSync(outputDir, { recursive: true });
 for (const variant of [
-  { filename: 'hero-villa-premium.mp4', size: '1600x900', bitrate: '2000k', buffer: '4000k' },
-  { filename: 'hero-villa-premium-mobile.mp4', size: '960x540', bitrate: '850k', buffer: '1700k' },
+  { filename: 'hero-villa-premium.mp4', size: '2560x1440', crf: '18', bitrate: '8000k', buffer: '16000k', level: '5.1' },
+  { filename: 'hero-villa-premium-mobile.mp4', size: '1440x810', crf: '19', bitrate: '3000k', buffer: '6000k', level: '4.2' },
 ]) {
   const output = resolve(outputDir, variant.filename);
   const temporary = output.replace('.mp4', '.rendering.mp4');
@@ -35,9 +35,9 @@ for (const variant of [
     '-i', resolve(appRoot, 'public/images/hero-villa-premium.webp'),
     '-vf', camera(variant.size),
     '-frames:v', String(frames),
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '23',
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', variant.crf,
     '-maxrate', variant.bitrate, '-bufsize', variant.buffer,
-    '-profile:v', 'high', '-level', '4.2',
+    '-profile:v', 'high', '-level', variant.level,
     '-movflags', '+faststart', '-an', temporary,
   ], { stdio: 'inherit' });
 
