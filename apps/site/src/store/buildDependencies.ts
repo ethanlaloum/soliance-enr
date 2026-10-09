@@ -5,6 +5,7 @@ import { LocalStorageConsentGateway } from '@/app/consent/adapters/RealConsentGa
 import { SolianceRxLeadGateway } from '@/app/lead/adapters/RealLeadGateway';
 import { FetchHttpClient } from '@/app/shared/adapters/FetchHttpClient';
 import { SystemClock } from '@/app/shared/adapters/SystemClock';
+import { SolianceRxSolarYieldGateway } from '@/app/solar-yield/adapters/RealSolarYieldGateway';
 import { Dependencies } from '@/store/dependencies.interface';
 
 export const buildRealDependencies = (): Dependencies => {
@@ -15,6 +16,7 @@ export const buildRealDependencies = (): Dependencies => {
     consentGateway: new LocalStorageConsentGateway(config.consentStorageKey),
     analyticsGateway: new GoogleTagAnalyticsGateway(config.analyticsMeasurementId),
     addressGateway: new SolianceRxAddressGateway(httpClient, config.addressSearchEndpoint, config.addressSearchBias),
+    solarYieldGateway: new SolianceRxSolarYieldGateway(httpClient, config.solarYieldEndpoint),
     clock: new SystemClock(),
   };
 };

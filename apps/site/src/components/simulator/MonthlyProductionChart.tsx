@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
-import { LocalSunshine } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { LocalSunshine, SunshineScope } from '@/app/simulator/domain/entities/SimulatorWizard';
 
 const monthKeys = [
   'january',
@@ -32,14 +32,21 @@ type MonthlyProductionChartProps = {
 export const MonthlyProductionChart = ({ monthlyKwh, sunshine }: MonthlyProductionChartProps) => {
   const { t } = useTranslation('simulator');
   const values = monthlyKwh ?? solarEstimateParameters.monthlyProductionShares;
-  const peak = Math.max(...values);
+  const largestPowerKwc = Math.max(...solarEstimateParameters.offeredPowersKwc);
+  const scale = monthlyKwh && sunshine ? largestPowerKwc * sunshine.peakMonthKwhPerKwc : Math.max(...values);
+  const peakIndex = values.indexOf(Math.max(...values));
 
   return (
     <figure className="flex flex-col gap-3">
+      {monthlyKwh && (
+        <p className="text-xs text-slate-light">
+          {t('estimate.peakMonth', { month: t(`estimate.months.${monthKeys[peakIndex]}.long`), value: monthlyKwh[peakIndex] })}
+        </p>
+      )}
       <div aria-hidden="true">
         <svg viewBox={`0 0 ${chartWidth} 132`} preserveAspectRatio="none" className="block h-[104px] w-full lg:h-[132px]">
           {monthKeys.map((month, index) => {
-            const height = peak > 0 ? (values[index] / peak) * maxBarHeight : 0;
+            const height = scale > 0 ? Math.min(values[index] / scale, 1) * maxBarHeight : 0;
             return (
               <rect
                 key={month}
@@ -67,8 +74,8 @@ export const MonthlyProductionChart = ({ monthlyKwh, sunshine }: MonthlyProducti
         </ul>
       )}
       <figcaption className="text-xs leading-normal text-slate-mist">
-        {sunshine?.departmentName
-          ? t('estimate.captionDepartment', { department: sunshine.departmentName, yield: sunshine.yieldKwhPerKwc, pvgis: sunshine.pvgisKwhPerKwc })
+        {sunshine && sunshine.scope !== SunshineScope.REGIONAL_DEFAULT && sunshine.placeName
+          ? t(`estimate.caption${sunshine.scope === SunshineScope.COMMUNE ? 'Commune' : 'Department'}`, { place: sunshine.placeName, yield: sunshine.yieldKwhPerKwc })
           : t('estimate.caption', { yield: sunshine?.yieldKwhPerKwc ?? solarEstimateParameters.specificYieldKwhPerKwc })}
       </figcaption>
     </figure>

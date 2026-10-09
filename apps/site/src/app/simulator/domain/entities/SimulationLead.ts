@@ -1,6 +1,6 @@
 import { LeadFields } from '@/app/lead/domain/entities/LeadSubmission';
 import { SolarEstimate, SolarEstimateParameters, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
-import { parseMonthlyBill, SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { LocalSunshine, parseMonthlyBill, SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
 
 export interface SimulationContact {
   email: string;
@@ -12,6 +12,7 @@ const equipmentSeparator = ';';
 export const buildSimulationLeadFields = (
   answers: SimulatorAnswers,
   estimate: SolarEstimate,
+  sunshine: LocalSunshine,
   contact: SimulationContact,
   parameters: SolarEstimateParameters = solarEstimateParameters,
 ): LeadFields => {
@@ -35,5 +36,7 @@ export const buildSimulationLeadFields = (
     self_consumed_kwh: String(estimate.selfConsumedKwh),
     autonomy_percent: String(estimate.autonomyPercent),
     annual_savings_eur: String(estimate.annualSavingsEur),
+    solar_yield_kwh_kwc: String(sunshine.yieldKwhPerKwc),
+    solar_yield_source: sunshine.scope,
   };
 };

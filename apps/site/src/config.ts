@@ -15,4 +15,5 @@ export const config = {
   leadEndpoint: '/api/lead.php',
   addressSearchEndpoint: 'https://data.geopf.fr/geocodage/search',
   addressSearchBias: { latitude: 43.6721, longitude: 7.1902 },
+  solarYieldEndpoint: '/api/pvgis.php',
 };

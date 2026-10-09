@@ -30,7 +30,7 @@
       "postalCodePlaceholder": "e.g. 06800",
       "roofArea": "Usable roof area",
       "roofAreaValue": "{{value}} m²",
-      "roofAreaHint": "Free, unshaded area: about 5 m² of panels per kWp.",
+      "roofAreaHint": "Free, unshaded area: up to {{kwc}} kWp can be installed ({{panels}} panels of 500 W, about 5 m² per kWp).",
       "orientation": "Orientation",
       "roofCovering": "Roof covering",
       "monthlyBill": "Monthly electricity bill",
@@ -78,6 +78,7 @@
   },
   "result": {
     "lead": "Here is the estimate of your installation with a battery. It will be refined during the precise study, based on your actual consumption, your household profile and the features of your house.",
+    "profileNotice": "This estimate relies on a typical consumption profile, derived from your bill, your daytime presence and your equipment. It can be improved: with your actual Linky readings and a visit of your roof, the free study gives your exact figures.",
     "details": {
       "power": {
         "label": "Recommended power",
@@ -126,7 +127,9 @@
     },
     "monthValue": "{{month}}: {{value, number}} kWh",
     "caption": "Estimated monthly production, January to December · source PVGIS, regional average of {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
-    "captionDepartment": "Estimated monthly production, January to December · {{department}}: {{yield, number}} kWh/kWp/year retained, i.e. PVGIS ({{pvgis, number}}) reduced for prudence · indicative estimate, refined during the free study.",
+    "captionCommune": "Estimated monthly production, January to December · PVGIS for {{place}}: {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
+    "captionDepartment": "Estimated monthly production, January to December · PVGIS for the department ({{place}}): {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
+    "peakMonth": "Best month: {{month}}, {{value, number}} kWh",
     "months": {
       "january": { "long": "January", "short": "J" },
       "february": { "long": "February", "short": "F" },
@@ -161,7 +164,7 @@
     "title": "Our commitments",
     "dataUsed": {
       "title": "Data used",
-      "description": "PVGIS solar irradiation of your department, roof orientation, consumption profile."
+      "description": "PVGIS sunshine of your town simulated hour by hour, roof orientation, your household consumption profile and battery charging."
     },
     "noDataSold": {
       "title": "No data sold",
@@ -177,6 +180,7 @@
     "lead": "Yearly output of 1 kWp of south-facing panels tilted at 30°, from the European Commission PVGIS data.",
     "own": {
       "name": "{{name}} ({{code}})",
+      "commune": "{{name}} ({{code}}) · PVGIS for your town",
       "value": "{{value, number}} kWh/kWp/yr",
       "gap": {
         "above": "{{value}} % above the national average ({{average, number}} kWh/kWp).",

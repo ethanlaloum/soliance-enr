@@ -2,6 +2,7 @@ import { PointerEvent, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { AddressLocation } from '@/app/address/domain/entities/AddressSuggestion';
+import { CommuneSolarYield } from '@/app/solar-yield/domain/entities/CommuneSolarYield';
 import {
   averageSolarYieldKwhPerKwc,
   departmentCodeOfPostalCode,
@@ -28,11 +29,13 @@ type HoveredDepartment = {
 type SolarYieldMapProps = {
   postalCode: string;
   location: AddressLocation | null;
+  city: string | null;
+  communeYield: CommuneSolarYield | null;
 };
 
 const ownSummaryClassName = 'rounded-xl bg-ivory px-4 py-3 text-sm leading-normal text-slate-text';
 
-export const SolarYieldMap = ({ postalCode, location }: SolarYieldMapProps) => {
+export const SolarYieldMap = ({ postalCode, location, city, communeYield }: SolarYieldMapProps) => {
   const { t } = useTranslation('simulator');
   const frameRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<HoveredDepartment | null>(null);
@@ -41,7 +44,9 @@ export const SolarYieldMap = ({ postalCode, location }: SolarYieldMapProps) => {
   const point = location ? projectOnFranceMap(location) : null;
   const ownShape = own ? franceDepartmentShapes.find((shape) => shape.code === own.code) : undefined;
   const average = averageSolarYieldKwhPerKwc();
-  const gap = own ? solarYieldGapPercent(own.yieldKwhPerKwc) : 0;
+  const commune = own && city && communeYield ? { name: city, yieldKwhPerKwc: communeYield.yearlyKwhPerKwc } : null;
+  const shownYield = commune?.yieldKwhPerKwc ?? own?.yieldKwhPerKwc ?? 0;
+  const gap = own ? solarYieldGapPercent(shownYield) : 0;
   const gapKey = gap > 0 ? 'above' : gap < 0 ? 'below' : 'equal';
   const [first, ...bounds] = solarYieldClassBoundsKwhPerKwc;
 
@@ -73,10 +78,10 @@ export const SolarYieldMap = ({ postalCode, location }: SolarYieldMapProps) => {
 
       {own ? (
         <p aria-live="polite" className={ownSummaryClassName}>
-          <span className="block font-semibold text-night">{t('yieldMap.own.name', { name: own.name, code: own.code })}</span>
-          <span className="block text-[22px] font-bold leading-tight text-solar-dark lg:text-[26px]">
-            {t('yieldMap.own.value', { value: own.yieldKwhPerKwc })}
+          <span className="block font-semibold text-night">
+            {commune ? t('yieldMap.own.commune', { name: commune.name, code: own.code }) : t('yieldMap.own.name', { name: own.name, code: own.code })}
           </span>
+          <span className="block text-[22px] font-bold leading-tight text-solar-dark lg:text-[26px]">{t('yieldMap.own.value', { value: shownYield })}</span>
           <span className="block">{t(`yieldMap.own.gap.${gapKey}`, { value: Math.abs(gap), average })}</span>
         </p>
       ) : (

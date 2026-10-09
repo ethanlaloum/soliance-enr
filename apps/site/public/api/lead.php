@@ -62,6 +62,8 @@ const FIELD_LABELS = [
     'self_consumed_kwh' => 'Énergie autoconsommée (kWh)',
     'autonomy_percent' => 'Autonomie (%)',
     'annual_savings_eur' => 'Économies annuelles (€)',
+    'solar_yield_kwh_kwc' => 'Ensoleillement retenu (kWh/kWc/an)',
+    'solar_yield_source' => "Source de l'ensoleillement",
 ];
 
 const PROJECT_TYPE_LABELS = [
@@ -102,6 +104,11 @@ const VALUE_LABELS = [
         'FLAT_ROOF' => 'Toit-terrasse',
         'OTHER' => 'Autre / ne sait pas',
     ],
+    'solar_yield_source' => [
+        'COMMUNE' => 'PVGIS de la commune',
+        'DEPARTMENT' => 'PVGIS du département',
+        'REGIONAL_DEFAULT' => 'Valeur régionale par défaut',
+    ],
     'daytime_presence' => [
         'MOSTLY_ABSENT' => 'Souvent absent',
         'PRESENT' => 'Présent (télétravail, retraite)',
@@ -117,6 +124,15 @@ const VALUE_LABELS = [
 const LIST_FIELDS = ['equipment'];
 const IDENTITY_FIELDS = ['full_name', 'company', 'referrer_full_name', 'email', 'phone'];
 const REPLY_TO_FIELDS = ['email', 'referrer_email'];
+const RESULT_REPLY_TO = 'commercial@soliance-enr.fr';
+const RESULT_FIELDS = [
+    'recommended_kwc' => ['label' => 'Puissance conseillée', 'unit' => 'kWc'],
+    'panel_count' => ['label' => 'Panneaux', 'unit' => ''],
+    'recommended_battery_kwh' => ['label' => 'Batterie conseillée', 'unit' => 'kWh'],
+    'annual_production_kwh' => ['label' => 'Production estimée', 'unit' => 'kWh par an'],
+    'annual_savings_eur' => ['label' => "Économies estimées", 'unit' => '€ par an'],
+    'autonomy_percent' => ['label' => 'Autonomie', 'unit' => '%'],
+];
 
 function respond(int $status, array $body): void
 {
@@ -368,6 +384,58 @@ function buildMessage(array $lead, string $from): array
     return $message;
 }
 
+function formatNumber(string $digits): string
+{
+    return number_format((int) $digits, 0, ',', "\u{202F}");
+}
+
+function resultRows(array $fields): ?array
+{
+    $rows = [];
+    foreach (RESULT_FIELDS as $name => $field) {
+        $value = $fields[$name] ?? '';
+        if (!is_string($value) || !ctype_digit($value)) {
+            return null;
+        }
+        $rows[] = [$field['label'], trim(formatNumber($value) . ' ' . $field['unit'])];
+    }
+    return $rows;
+}
+
+function buildResultMessage(array $lead, string $from): ?array
+{
+    if ($lead['kind'] !== 'SIMULATION' || $lead['suspect']) {
+        return null;
+    }
+    $email = $lead['fields']['email'] ?? '';
+    $rows = resultRows($lead['fields']);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false || $rows === null) {
+        return null;
+    }
+    $intro = 'Voici l’estimation de votre installation solaire avec batterie, calculée avec les données d’ensoleillement PVGIS de la Commission européenne.';
+    $outro = 'Cette estimation repose sur un profil de consommation type, déduit de votre facture, de votre présence en journée et de vos équipements. Elle est améliorable : un conseiller Soliance vous rappelle pour l’affiner avec vos relevés Linky réels et les caractéristiques de votre maison, puis vous adresser un devis à prix fixe. Estimation indicative, sans valeur contractuelle.';
+    $htmlRows = '';
+    $textRows = [];
+    foreach ($rows as [$label, $value]) {
+        $htmlRows .= '<tr><th align="left" style="padding:6px 16px 6px 0;color:#475569;font-weight:600">' . escapeHtml($label)
+            . '</th><td style="padding:6px 0;font-weight:700;color:#b85f17">' . escapeHtml($value) . '</td></tr>';
+        $textRows[] = $label . ' : ' . $value;
+    }
+    return [
+        'from' => $from,
+        'to' => [$email],
+        'reply_to' => RESULT_REPLY_TO,
+        'subject' => 'Votre estimation solaire Soliance',
+        'html' => '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#0f172a;line-height:1.5">'
+            . '<h2 style="margin:0 0 12px">Votre estimation solaire</h2>'
+            . '<p style="margin:0 0 16px">' . escapeHtml($intro) . '</p>'
+            . '<table cellspacing="0" cellpadding="0" style="border-collapse:collapse">' . $htmlRows . '</table>'
+            . '<p style="margin:16px 0 0;color:#475569;font-size:14px">' . escapeHtml($outro) . '</p>'
+            . '</div>',
+        'text' => implode("\n", array_merge(['Votre estimation solaire', '', $intro, ''], $textRows, ['', $outro])),
+    ];
+}
+
 function sendWithResend(string $apiKey, array $message): bool
 {
     $curl = curl_init(RESEND_URL);
@@ -437,6 +505,11 @@ $lead['suspect'] = $verdict === SPAM_SUSPECT;
 
 if (!sendWithResend($config['apiKey'], buildMessage($lead, $config['from']))) {
     respond(502, ['error' => 'SUBMISSION_FAILED']);
+}
+
+$resultMessage = buildResultMessage($lead, $config['from']);
+if ($resultMessage !== null && !sendWithResend($config['apiKey'], $resultMessage)) {
+    error_log('soliance lead mail: the result could not be sent to the simulation lead');
 }
 
 respond(200, ['status' => 'sent']);

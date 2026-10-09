@@ -42,6 +42,8 @@ export const SimulatorResultCard = ({ estimate, onBack }: SimulatorResultCardPro
         ))}
       </dl>
 
+      <p className="rounded-xl border border-solar/30 bg-solar/5 px-4 py-3 text-sm leading-normal text-night">{t('result.profileNotice')}</p>
+
       <p className="text-[13px] leading-normal text-slate-ink">
         {t('result.surplus', {
           kwh: estimate.surplusKwh,

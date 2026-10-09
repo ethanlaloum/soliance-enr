@@ -3,7 +3,8 @@ import { DepartmentSolarYield } from '@/app/simulator/domain/entities/Department
 import { DaytimePresence, HouseholdEquipment, RoofOrientation, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
 import {
   initialSimulatorAnswers,
-  localSolarParameters,
+  geocodedAnswersPatch,
+  localSolarContext,
   nextSimulatorStep,
   parseMonthlyBill,
   previewSolarEstimate,
@@ -13,6 +14,7 @@ import {
   SimulatorFieldError,
   SimulatorStep,
   simulatorStepNumber,
+  SunshineScope,
   toggleEquipment,
   validateSimulatorStep,
 } from '@/app/simulator/domain/entities/SimulatorWizard';
@@ -21,6 +23,7 @@ const completedAnswers: SimulatorAnswers = {
   address: '12 avenue des Oliviers, Cagnes-sur-Mer',
   postalCode: '06800',
   location: { latitude: 43.6638, longitude: 7.1488 },
+  city: 'Cagnes-sur-Mer',
   roofAreaM2: 45,
   orientation: RoofOrientation.SOUTH,
   roofCovering: RoofCovering.TILES,
@@ -31,29 +34,17 @@ const completedAnswers: SimulatorAnswers = {
 
 const niceMonthlyYield = [86, 95, 130, 141, 155, 161, 173, 164, 136, 112, 85, 81];
 const lilleMonthlyYield = [38, 56, 94, 123, 129, 130, 129, 116, 102, 73, 44, 34];
+const cagnesYield = { yearlyKwhPerKwc: 1504, monthlyKwhPerKwc: [85, 94, 129, 141, 155, 160, 171, 162, 134, 110, 84, 80] };
 
 const testYields: DepartmentSolarYield[] = [
-  { code: '06', name: 'Alpes-Maritimes', referenceCity: 'Nice', yieldKwhPerKwc: 1518, monthlyYieldKwhPerKwc: niceMonthlyYield },
-  { code: '59', name: 'Nord', referenceCity: 'Lille', yieldKwhPerKwc: 1067, monthlyYieldKwhPerKwc: lilleMonthlyYield },
+  { code: '06', name: 'Alpes-Maritimes', referenceCity: 'Nice', location: { latitude: 43.7032, longitude: 7.2528 }, yieldKwhPerKwc: 1518, monthlyYieldKwhPerKwc: niceMonthlyYield },
+  { code: '59', name: 'Nord', referenceCity: 'Lille', location: { latitude: 50.6311, longitude: 3.0468 }, yieldKwhPerKwc: 1067, monthlyYieldKwhPerKwc: lilleMonthlyYield },
 ];
 
-const niceSunshine = { departmentName: 'Alpes-Maritimes', pvgisKwhPerKwc: 1518, yieldKwhPerKwc: 1300 };
+const cagnesSunshine = { scope: SunshineScope.COMMUNE, placeName: 'Cagnes-sur-Mer', yieldKwhPerKwc: 1504, peakMonthKwhPerKwc: 171 };
 
-const preview = (answers: SimulatorAnswers, step: SimulatorStep) => previewSolarEstimate(answers, step, solarEstimateParameters, testYields);
-
-const referenceEstimateOnSouthRoofOf45 = {
-  recommendedKwc: 6,
-  panelCount: 12,
-  recommendedBatteryKwh: 10,
-  annualProductionKwh: 7800,
-  monthlyProductionKwh: [442, 488, 668, 724, 796, 827, 888, 842, 698, 575, 436, 416],
-  annualConsumptionKwh: 8640,
-  selfConsumedKwh: 5720,
-  autonomyPercent: 66,
-  annualSavingsEur: 1430,
-  surplusKwh: 1780,
-  surplusValueEur: 18,
-};
+const preview = (answers: SimulatorAnswers, step: SimulatorStep, communeYield: typeof cagnesYield | null = cagnesYield) =>
+  previewSolarEstimate(answers, step, communeYield, solarEstimateParameters, testYields);
 
 describe('Monthly bill parsing', () => {
   it('reads amounts typed with a currency sign, spaces or a decimal comma', () => {
@@ -142,103 +133,137 @@ describe('Estimate preview', () => {
     expect(preview(completedAnswers, SimulatorStep.ADDRESS)).toEqual(null);
   });
 
-  it('uses the reference household on the roof step, whatever the consumption answers', () => {
+  it('uses the reference household and the PVGIS yield of the commune on the roof step', () => {
     expect(preview({ ...completedAnswers, monthlyBill: '400', daytimePresence: DaytimePresence.PRESENT }, SimulatorStep.ROOF)).toEqual({
-      estimate: referenceEstimateOnSouthRoofOf45,
+      estimate: {
+        recommendedKwc: 6,
+        panelCount: 12,
+        recommendedBatteryKwh: 15,
+        annualProductionKwh: 9020,
+        monthlyProductionKwh: [510, 564, 773, 845, 929, 959, 1025, 971, 803, 660, 504, 480],
+        annualConsumptionKwh: 8640,
+        selfConsumedKwh: 5970,
+        autonomyPercent: 69,
+        annualSavingsEur: 1490,
+        surplusKwh: 2700,
+        surplusValueEur: 27,
+      },
       referenceMonthlyBillEur: 180,
-      sunshine: niceSunshine,
+      sunshine: cagnesSunshine,
     });
   });
 
   it('uses the reference bill with the chosen equipment and presence while the bill is not valid yet', () => {
-    expect(
-      preview(
-        { ...completedAnswers, monthlyBill: '', equipment: [HouseholdEquipment.AIR_CONDITIONING], daytimePresence: DaytimePresence.PRESENT },
-        SimulatorStep.CONSUMPTION,
-      ),
-    ).toEqual({
+    expect(preview({ ...completedAnswers, monthlyBill: '' }, SimulatorStep.CONSUMPTION)).toEqual({
       estimate: {
         recommendedKwc: 6,
         panelCount: 12,
-        recommendedBatteryKwh: 5,
-        annualProductionKwh: 7800,
-        monthlyProductionKwh: [442, 488, 668, 724, 796, 827, 888, 842, 698, 575, 436, 416],
+        recommendedBatteryKwh: 10,
+        annualProductionKwh: 9020,
+        monthlyProductionKwh: [510, 564, 773, 845, 929, 959, 1025, 971, 803, 660, 504, 480],
         annualConsumptionKwh: 8640,
-        selfConsumedKwh: 6100,
-        autonomyPercent: 71,
-        annualSavingsEur: 1530,
-        surplusKwh: 1550,
-        surplusValueEur: 15,
+        selfConsumedKwh: 5170,
+        autonomyPercent: 60,
+        annualSavingsEur: 1290,
+        surplusKwh: 3640,
+        surplusValueEur: 36,
       },
       referenceMonthlyBillEur: 180,
-      sunshine: niceSunshine,
+      sunshine: cagnesSunshine,
     });
   });
 
   it('uses every answer once the bill is valid', () => {
-    expect([
-      preview({ ...completedAnswers, monthlyBill: '250', equipment: [], daytimePresence: DaytimePresence.PRESENT }, SimulatorStep.CONSUMPTION),
-      preview(completedAnswers, SimulatorStep.RESULT),
-    ]).toEqual([
-      {
-        estimate: {
-          recommendedKwc: 9,
-          panelCount: 18,
-          recommendedBatteryKwh: 15,
-          annualProductionKwh: 11700,
-          monthlyProductionKwh: [662, 732, 1001, 1086, 1194, 1240, 1333, 1263, 1048, 863, 655, 624],
-          annualConsumptionKwh: 12000,
-          selfConsumedKwh: 10050,
-          autonomyPercent: 84,
-          annualSavingsEur: 2510,
-          surplusKwh: 1200,
-          surplusValueEur: 12,
-        },
-        referenceMonthlyBillEur: null,
-        sunshine: niceSunshine,
-      },
-      { estimate: referenceEstimateOnSouthRoofOf45, referenceMonthlyBillEur: null, sunshine: niceSunshine },
-    ]);
-  });
-
-  it('produces less on the same roof in the Nord, from its PVGIS sunshine', () => {
-    expect(preview({ ...completedAnswers, postalCode: '59000' }, SimulatorStep.ROOF)).toEqual({
+    expect(preview({ ...completedAnswers, monthlyBill: '300', equipment: [], daytimePresence: DaytimePresence.PRESENT }, SimulatorStep.RESULT)).toEqual({
       estimate: {
         recommendedKwc: 9,
         panelCount: 18,
-        recommendedBatteryKwh: 10,
-        annualProductionKwh: 8230,
-        monthlyProductionKwh: [293, 431, 724, 947, 994, 1001, 994, 893, 786, 562, 339, 262],
-        annualConsumptionKwh: 8640,
-        selfConsumedKwh: 5720,
-        autonomyPercent: 66,
-        annualSavingsEur: 1430,
-        surplusKwh: 2200,
-        surplusValueEur: 22,
+        recommendedBatteryKwh: 15,
+        annualProductionKwh: 13540,
+        monthlyProductionKwh: [764, 845, 1160, 1268, 1394, 1439, 1538, 1457, 1205, 989, 755, 720],
+        annualConsumptionKwh: 14400,
+        selfConsumedKwh: 8970,
+        autonomyPercent: 62,
+        annualSavingsEur: 2240,
+        surplusKwh: 4210,
+        surplusValueEur: 42,
       },
-      referenceMonthlyBillEur: 180,
-      sunshine: { departmentName: 'Nord', pvgisKwhPerKwc: 1067, yieldKwhPerKwc: 914 },
+      referenceMonthlyBillEur: null,
+      sunshine: cagnesSunshine,
     });
   });
 
-  it('keeps the default sunshine outside the known departments', () => {
-    expect(preview({ ...completedAnswers, postalCode: '97400' }, SimulatorStep.ROOF)).toEqual({
-      estimate: {
-        ...referenceEstimateOnSouthRoofOf45,
-        monthlyProductionKwh: [429, 507, 663, 741, 819, 858, 897, 819, 663, 546, 429, 429],
-      },
-      referenceMonthlyBillEur: 180,
-      sunshine: { departmentName: null, pvgisKwhPerKwc: null, yieldKwhPerKwc: 1300 },
+  it('falls back to the department yield until the commune yield is known', () => {
+    expect(preview(completedAnswers, SimulatorStep.ROOF, null)?.sunshine).toEqual({
+      scope: SunshineScope.DEPARTMENT,
+      placeName: 'Alpes-Maritimes',
+      yieldKwhPerKwc: 1518,
+      peakMonthKwhPerKwc: 173,
     });
+  });
+
+  it('keeps the regional default outside the known departments', () => {
+    expect(preview({ ...completedAnswers, postalCode: '97400', location: null }, SimulatorStep.ROOF, null)?.sunshine).toEqual({
+      scope: SunshineScope.REGIONAL_DEFAULT,
+      placeName: null,
+      yieldKwhPerKwc: 1300,
+      peakMonthKwhPerKwc: 150,
+    });
+  });
+
+  it('recommends the same installation in the Nord and the Alpes-Maritimes, and saves less in the Nord', () => {
+    const results = ['06000', '59000'].map((postalCode) => {
+      const estimate = preview({ ...completedAnswers, postalCode, location: null }, SimulatorStep.RESULT, null)?.estimate;
+      return [estimate?.recommendedKwc, estimate?.annualProductionKwh, estimate?.annualSavingsEur];
+    });
+    expect(results).toEqual([
+      [6, 9110, 1300],
+      [6, 6400, 970],
+    ]);
   });
 });
 
-describe('Local solar parameters', () => {
-  it('retains the prudent share of the department PVGIS yield and its monthly profile', () => {
-    const parameters = localSolarParameters('59000', solarEstimateParameters, testYields);
-    expect([parameters.specificYieldKwhPerKwc, parameters.monthlyProductionShares.map((share) => Number(share.toFixed(4)))]).toEqual([
-      914,
-      [0.0356, 0.0524, 0.088, 0.1152, 0.1208, 0.1217, 0.1208, 0.1086, 0.0955, 0.0684, 0.0412, 0.0318],
+describe('Local solar context', () => {
+  it('simulates at the address with the PVGIS yearly and monthly yield of the commune', () => {
+    const { parameters, sunshine } = localSolarContext(completedAnswers, cagnesYield, solarEstimateParameters, testYields);
+    expect([parameters.site, parameters.specificYieldKwhPerKwc, parameters.monthlyProductionShares, sunshine]).toEqual([
+      { latitude: 43.6638, longitude: 7.1488 },
+      1504,
+      cagnesYield.monthlyKwhPerKwc,
+      cagnesSunshine,
     ]);
+  });
+
+  it('simulates at the reference city of the department without a commune yield', () => {
+    const { parameters } = localSolarContext({ ...completedAnswers, postalCode: '59000', location: null }, null, solarEstimateParameters, testYields);
+    expect([parameters.site, parameters.specificYieldKwhPerKwc, parameters.monthlyProductionShares]).toEqual([
+      { latitude: 50.6311, longitude: 3.0468 },
+      1067,
+      lilleMonthlyYield,
+    ]);
+  });
+});
+
+describe('Address geocoding', () => {
+  const suggestion = (postalCode: string, city: string) => ({
+    id: postalCode,
+    label: `12 avenue des Oliviers ${postalCode} ${city}`,
+    name: '12 avenue des Oliviers',
+    postalCode,
+    city,
+    location: { latitude: 43.66, longitude: 7.15 },
+  });
+
+  it('takes the first suggestion in the typed postal code when no suggestion was picked', () => {
+    expect(
+      geocodedAnswersPatch({ location: null, postalCode: ' 06800 ' }, [suggestion('83000', 'Toulon'), suggestion('06800', 'Cagnes-sur-Mer')]),
+    ).toEqual({ location: { latitude: 43.66, longitude: 7.15 }, city: 'Cagnes-sur-Mer' });
+  });
+
+  it('keeps the picked location and ignores suggestions in another postal code', () => {
+    expect([
+      geocodedAnswersPatch({ location: { latitude: 1, longitude: 2 }, postalCode: '06800' }, [suggestion('06800', 'Cagnes-sur-Mer')]),
+      geocodedAnswersPatch({ location: null, postalCode: '06800' }, [suggestion('83000', 'Toulon')]),
+    ]).toEqual([null, null]);
   });
 });

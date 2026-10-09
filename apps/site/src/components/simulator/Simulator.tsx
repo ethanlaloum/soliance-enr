@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import {
+  geocodedAnswersPatch,
   initialSimulatorAnswers,
   nextSimulatorStep,
   previewSolarEstimate,
@@ -16,6 +17,9 @@ import { SimulatorHeader } from '@/components/simulator/SimulatorHeader';
 import { SimulatorResultCard } from '@/components/simulator/SimulatorResultCard';
 import { SimulatorStepForm } from '@/components/simulator/SimulatorStepForm';
 import { simulatorCardClassName, simulatorStepTitleId } from '@/components/simulator/simulatorStyles';
+import { useCommuneSolarYield } from '@/hooks/useCommuneSolarYield';
+import { useAppSelector } from '@/store/redux';
+import { selectAddressSuggestions } from '@/selectors/address/addressSelectors';
 
 const loadSolarYieldMap = () => import('@/components/simulator/SolarYieldMap');
 
@@ -30,8 +34,11 @@ export const Simulator = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const hasNavigated = useRef(false);
 
+  const suggestions = useAppSelector(selectAddressSuggestions);
+  const communeYield = useCommuneSolarYield(answers.location);
+
   const errors = showsErrors ? validateSimulatorStep(step, answers) : {};
-  const preview = previewSolarEstimate(answers, step);
+  const preview = previewSolarEstimate(answers, step, communeYield);
   const isResultStep = step === SimulatorStep.RESULT;
   const showsCapture = step === SimulatorStep.CONSUMPTION || isResultStep;
 
@@ -59,6 +66,10 @@ export const Simulator = () => {
       document.getElementById(`simulator-${firstInvalidField}`)?.focus();
       return;
     }
+    if (step === SimulatorStep.ADDRESS) {
+      const geocoded = geocodedAnswersPatch(answers, suggestions);
+      if (geocoded) changeAnswers(geocoded);
+    }
     goTo(nextSimulatorStep(step));
   };
 
@@ -78,7 +89,7 @@ export const Simulator = () => {
             {step === SimulatorStep.ADDRESS ? (
               hasMounted ? (
                 <Suspense fallback={<div aria-hidden="true" className={mapPlaceholderClassName} />}>
-                  <SolarYieldMap postalCode={answers.postalCode} location={answers.location} />
+                  <SolarYieldMap postalCode={answers.postalCode} location={answers.location} city={answers.city} communeYield={communeYield} />
                 </Suspense>
               ) : (
                 <div aria-hidden="true" className={mapPlaceholderClassName} />
@@ -88,7 +99,7 @@ export const Simulator = () => {
             )}
             {showsCapture && preview && (
               <div className={isResultStep ? undefined : 'hidden lg:block'}>
-                <SimulationCaptureForm answers={answers} estimate={preview.estimate} />
+                <SimulationCaptureForm answers={answers} estimate={preview.estimate} sunshine={preview.sunshine} />
               </div>
             )}
           </div>

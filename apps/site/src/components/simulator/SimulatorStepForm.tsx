@@ -5,6 +5,7 @@ import {
   daytimePresences,
   DaytimePresence,
   householdEquipments,
+  powersFittingRoof,
   RoofOrientation,
   roofOrientations,
   solarEstimateParameters,
@@ -97,6 +98,7 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
   const isRoofStep = step === SimulatorStep.ROOF;
   const isConsumptionStep = step === SimulatorStep.CONSUMPTION;
   const roofArea = solarEstimateParameters.roofAreaM2;
+  const roofCapacityKwc = Math.max(...powersFittingRoof({ areaM2: answers.roofAreaM2, orientation: answers.orientation }));
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -148,7 +150,7 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
             />
             {isRoofStep && (
               <p id={`${fieldId('roofArea')}-hint`} className={simulatorHintClassName}>
-                {t('wizard.fields.roofAreaHint')}
+                {t('wizard.fields.roofAreaHint', { kwc: roofCapacityKwc, panels: roofCapacityKwc / solarEstimateParameters.panelPowerKwc })}
               </p>
             )}
           </div>

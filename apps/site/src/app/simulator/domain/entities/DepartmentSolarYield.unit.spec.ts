@@ -10,9 +10,9 @@ import {
 } from '@/app/simulator/domain/entities/DepartmentSolarYield';
 
 const yields: DepartmentSolarYield[] = [
-  { code: '06', name: 'Alpes-Maritimes', referenceCity: 'Nice', yieldKwhPerKwc: 1500, monthlyYieldKwhPerKwc: [] },
-  { code: '2A', name: 'Corse-du-Sud', referenceCity: 'Ajaccio', yieldKwhPerKwc: 1400, monthlyYieldKwhPerKwc: [] },
-  { code: '59', name: 'Nord', referenceCity: 'Lille', yieldKwhPerKwc: 1000, monthlyYieldKwhPerKwc: [] },
+  { code: '06', name: 'Alpes-Maritimes', referenceCity: 'Nice', location: { latitude: 43.7032, longitude: 7.2528 }, yieldKwhPerKwc: 1500, monthlyYieldKwhPerKwc: [] },
+  { code: '2A', name: 'Corse-du-Sud', referenceCity: 'Ajaccio', location: { latitude: 41.9267, longitude: 8.7369 }, yieldKwhPerKwc: 1400, monthlyYieldKwhPerKwc: [] },
+  { code: '59', name: 'Nord', referenceCity: 'Lille', location: { latitude: 50.6311, longitude: 3.0468 }, yieldKwhPerKwc: 1000, monthlyYieldKwhPerKwc: [] },
 ];
 
 describe('departmentCodeOfPostalCode', () => {
@@ -31,7 +31,7 @@ describe('departmentCodeOfPostalCode', () => {
 
 describe('departmentSolarYieldOf', () => {
   it('finds the department of the postal code', () => {
-    expect(departmentSolarYieldOf('20090', yields)).toEqual({ code: '2A', name: 'Corse-du-Sud', referenceCity: 'Ajaccio', yieldKwhPerKwc: 1400, monthlyYieldKwhPerKwc: [] });
+    expect(departmentSolarYieldOf('20090', yields)).toEqual({ code: '2A', name: 'Corse-du-Sud', referenceCity: 'Ajaccio', location: { latitude: 41.9267, longitude: 8.7369 }, yieldKwhPerKwc: 1400, monthlyYieldKwhPerKwc: [] });
   });
 
   it('returns null outside mainland France', () => {

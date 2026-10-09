@@ -6,7 +6,7 @@ import { useSpamTrap } from '@/hooks/useSpamTrap';
 import { HoneypotField } from '@/components/ui/honeypot-field';
 import { LeadFormKind } from '@/app/lead/domain/entities/LeadSubmission';
 import { SolarEstimate } from '@/app/simulator/domain/entities/SolarEstimate';
-import { SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { LocalSunshine, SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
 import { buildSimulationLeadFields } from '@/app/simulator/domain/entities/SimulationLead';
 import { Button } from '@/components/ui/button';
 import { fieldControlClassName, fieldErrorClassName, fieldLabelClassName } from '@/components/ui/fieldStyles';
@@ -28,11 +28,12 @@ const contactFields: { name: ContactFieldName; type: string; autoComplete: strin
 type SimulationCaptureFormProps = {
   answers: SimulatorAnswers;
   estimate: SolarEstimate;
+  sunshine: LocalSunshine;
 };
 
 const cardClassName = 'flex scroll-mt-24 flex-col gap-2.5 rounded-2xl border border-sand-line bg-white p-5 lg:p-6';
 
-export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFormProps) => {
+export const SimulationCaptureForm = ({ answers, estimate, sunshine }: SimulationCaptureFormProps) => {
   const { t } = useTranslation('simulator');
   const { submit, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.SIMULATION);
   const { honeypotRef, readSpamTrap } = useSpamTrap();
@@ -48,7 +49,7 @@ export const SimulationCaptureForm = ({ answers, estimate }: SimulationCaptureFo
 
   const onSubmit = (values: SimulationCaptureFormData) => {
     submit(
-      buildSimulationLeadFields(answers, estimate, { email: values.email, phone: values.phone }),
+      buildSimulationLeadFields(answers, estimate, sunshine, { email: values.email, phone: values.phone }),
       values.callbackConsent,
       t('capture.consent'),
       readSpamTrap(),

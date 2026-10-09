@@ -30,7 +30,7 @@
       "postalCodePlaceholder": "ex. 06800",
       "roofArea": "Surface de toit exploitable",
       "roofAreaValue": "{{value}} m²",
-      "roofAreaHint": "Surface libre et dégagée : environ 5 m² de panneaux par kWc.",
+      "roofAreaHint": "Surface libre et dégagée : jusqu'à {{kwc}} kWc installables ({{panels}} panneaux de 500 W, environ 5 m² par kWc).",
       "orientation": "Orientation",
       "roofCovering": "Type de couverture",
       "monthlyBill": "Facture d'électricité mensuelle",
@@ -78,6 +78,7 @@
   },
   "result": {
     "lead": "Voici l'estimation de votre installation avec batterie. Elle sera affinée lors de l'étude précise, à partir de vos consommations réelles, du profil de votre foyer et des caractéristiques de votre maison.",
+    "profileNotice": "Cette estimation repose sur un profil de consommation type, déduit de votre facture, de votre présence en journée et de vos équipements. Elle est améliorable : avec vos relevés Linky réels et la visite de votre toit, l'étude gratuite donne vos chiffres exacts.",
     "details": {
       "power": {
         "label": "Puissance conseillée",
@@ -126,7 +127,9 @@
     },
     "monthValue": "{{month}} : {{value, number}} kWh",
     "caption": "Production mensuelle estimée, janvier à décembre · source PVGIS, moyenne régionale de {{yield, number}} kWh/kWc/an · estimation indicative, affinée lors de l'étude gratuite.",
-    "captionDepartment": "Production mensuelle estimée, janvier à décembre · {{department}} : {{yield, number}} kWh/kWc/an retenus, soit PVGIS ({{pvgis, number}}) minoré par prudence · estimation indicative, affinée lors de l'étude gratuite.",
+    "captionCommune": "Production mensuelle estimée, janvier à décembre · PVGIS de {{place}} : {{yield, number}} kWh/kWc/an · estimation indicative, affinée lors de l'étude gratuite.",
+    "captionDepartment": "Production mensuelle estimée, janvier à décembre · PVGIS du département ({{place}}) : {{yield, number}} kWh/kWc/an · estimation indicative, affinée lors de l'étude gratuite.",
+    "peakMonth": "Meilleur mois : {{month}}, {{value, number}} kWh",
     "months": {
       "january": { "long": "janvier", "short": "J" },
       "february": { "long": "février", "short": "F" },
@@ -161,7 +164,7 @@
     "title": "Nos engagements",
     "dataUsed": {
       "title": "Données utilisées",
-      "description": "Ensoleillement PVGIS de votre département, orientation du toit, profil de consommation."
+      "description": "Ensoleillement PVGIS de votre commune simulé heure par heure, orientation du toit, profil de consommation de votre foyer et charge de la batterie."
     },
     "noDataSold": {
       "title": "Aucune donnée vendue",
@@ -177,6 +180,7 @@
     "lead": "Production annuelle d’1 kWc de panneaux plein sud, inclinés à 30°, selon les données PVGIS de la Commission européenne.",
     "own": {
       "name": "{{name}} ({{code}})",
+      "commune": "{{name}} ({{code}}) · PVGIS de votre commune",
       "value": "{{value, number}} kWh/kWc/an",
       "gap": {
         "above": "{{value}} % au-dessus de la moyenne nationale ({{average, number}} kWh/kWc).",
