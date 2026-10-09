@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
-import { CloseIcon, MenuIcon } from '@/components/icons/Icons';
+import { ArrowRightIcon, CloseIcon, MenuIcon } from '@/components/icons/Icons';
 import { careAnchors } from '@/components/care/careAnchors';
 import { CareLogo } from '@/components/care/CareLogo';
 import { CareRequestLink } from '@/components/care/CareRequestLink';
@@ -18,6 +18,8 @@ const navItems = [
 ] as const;
 
 const navLinkClassName = 'whitespace-nowrap text-care-pale transition-colors hover:text-white';
+
+const enrMarkClassName = 'block shrink-0 rotate-45 rounded-[2px] bg-solar';
 
 export const CareHeader = () => {
   const { t } = useTranslation('care');
@@ -39,7 +41,15 @@ export const CareHeader = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 lg:gap-3">
+          <Link
+            to={paths.home}
+            aria-label={t('nav.backToEnr')}
+            className="hidden items-center gap-2 whitespace-nowrap rounded-[20px] border border-white/15 px-3 py-1.5 text-[13px] font-medium text-care-pale transition-colors hover:border-solar/70 hover:bg-white/5 hover:text-white md:inline-flex"
+          >
+            <span aria-hidden="true" className={cn(enrMarkClassName, 'h-2 w-2')} />
+            {t('nav.enr')}
+          </Link>
           <CareRequestLink
             requestType={CareRequestType.SUBSCRIBE_CARE}
             onClick={closeMenu}
@@ -67,9 +77,6 @@ export const CareHeader = () => {
               {t(item.labelKey)}
             </a>
           ))}
-          <Link to={paths.home} className="py-3.5 text-care-leaf hover:text-white">
-            {t('nav.backToEnr')}
-          </Link>
         </nav>
         <CareRequestLink
           requestType={CareRequestType.SUBSCRIBE_CARE}
@@ -78,6 +85,18 @@ export const CareHeader = () => {
         >
           {t('nav.subscribe')}
         </CareRequestLink>
+        <Link
+          to={paths.home}
+          onClick={closeMenu}
+          className="group mt-5 flex items-center gap-3.5 rounded-xl border border-care-moss bg-white/[0.03] px-4 py-3.5 transition-colors hover:border-solar/70 md:hidden"
+        >
+          <span aria-hidden="true" className={cn(enrMarkClassName, 'h-3 w-3')} />
+          <span className="flex min-w-0 flex-1 flex-col">
+            <span className="text-[15px] font-semibold text-white">{t('nav.backToEnr')}</span>
+            <span className="text-[13px] text-care-fog">{t('nav.enrTagline')}</span>
+          </span>
+          <ArrowRightIcon className="h-4 w-4 shrink-0 text-care-pale transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+        </Link>
       </div>
     </header>
   );

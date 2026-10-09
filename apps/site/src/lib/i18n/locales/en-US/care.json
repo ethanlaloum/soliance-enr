@@ -16,6 +16,8 @@
     "business": "Businesses",
     "subscribe": "Subscribe",
     "backToEnr": "Back to the Soliance ENR site",
+    "enr": "Soliance ENR",
+    "enrTagline": "Solar, heat pumps, EV chargers",
     "openMenu": "Open the menu",
     "closeMenu": "Close the menu"
   },
@@ -283,6 +285,7 @@
     "tagline": "Solar insurance.",
     "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",
     "phone": "Technical team: 06 33 25 11 79",
+    "officePhone": "Office: 04 93 19 50 31",
     "company": "Solar Trade SAS · SIREN 949 576 946",
     "linksLabel": "Useful links",
     "enr": "Soliance ENR, the solar installer",

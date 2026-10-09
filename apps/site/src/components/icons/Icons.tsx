@@ -27,6 +27,12 @@ export const CloseIcon = ({ className }: IconProps) => (
   </svg>
 );
 
+export const ArrowRightIcon = ({ className }: IconProps) => (
+  <svg aria-hidden="true" className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+);
+
 export const DiamondPattern = () => (
   <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08]">
     <defs>

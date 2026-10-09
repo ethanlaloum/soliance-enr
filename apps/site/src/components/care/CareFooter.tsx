@@ -30,6 +30,16 @@ export const CareFooter = () => {
               {t('footer.phone')}
             </a>
           </p>
+          <p>
+            <a href={config.officePhoneHref} className="text-care-pale hover:text-white">
+              {t('footer.officePhone')}
+            </a>
+          </p>
+          <p>
+            <a href={`mailto:${config.officeEmail}`} className="text-care-pale hover:text-white">
+              {config.officeEmail}
+            </a>
+          </p>
           <p className="text-care-fog">{t('footer.company')}</p>
         </div>
         <nav aria-label={t('footer.linksLabel')}>

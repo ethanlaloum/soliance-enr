@@ -4,6 +4,8 @@ export const config = {
   siteUrl: 'https://soliance-enr.fr',
   carePhoneHref: 'tel:+33633251179',
   careEmail: 'technique@soliance-enr.fr',
+  officePhoneHref: 'tel:+33493195031',
+  officeEmail: 'adv@soliance-enr.fr',
   simulatorUrl: 'https://vesta.eco/simulateur/soliance',
   showroomMapUrl: 'https://www.google.com/maps/search/?api=1&query=30+avenue+du+G%C3%A9n%C3%A9ral+Leclerc+06700+Saint-Laurent-du-Var',
   salesPhoneHref: 'tel:+33763545144',

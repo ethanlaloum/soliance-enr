@@ -16,6 +16,8 @@
     "business": "Professionnels",
     "subscribe": "Je souscris",
     "backToEnr": "Retour au site Soliance ENR",
+    "enr": "Soliance ENR",
+    "enrTagline": "Solaire, pompes à chaleur, bornes de recharge",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
@@ -283,6 +285,7 @@
     "tagline": "L'assurance du solaire.",
     "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",
     "phone": "Service technique : 06 33 25 11 79",
+    "officePhone": "Bureau : 04 93 19 50 31",
     "company": "Solar Trade SAS · SIREN 949 576 946",
     "linksLabel": "Liens utiles",
     "enr": "Soliance ENR, l'installateur solaire",
