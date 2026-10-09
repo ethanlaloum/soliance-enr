@@ -1,5 +1,5 @@
 import '@/lib/i18n/namespaces/care';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useScrollOnNavigation } from '@/hooks/useScrollOnNavigation';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { careAnchors } from '@/components/care/careAnchors';
@@ -13,6 +13,7 @@ import { CareHeroSection } from '@/components/care/CareHeroSection';
 import { CarePlansSection } from '@/components/care/CarePlansSection';
 import { CareRequestContext } from '@/components/care/careRequestContext';
 import { CareRequestType } from '@/components/care/careRequestSchema';
+import { CareRequestDialog } from '@/components/care/CareRequestDialog';
 import { CareRequestSection } from '@/components/care/CareRequestSection';
 import { CareStepsSection } from '@/components/care/CareStepsSection';
 import { CareTakeoverSection } from '@/components/care/CareTakeoverSection';
@@ -21,11 +22,16 @@ import { CareWarrantySection } from '@/components/care/CareWarrantySection';
 
 export const CarePage = () => {
   const [requestType, setRequestType] = useState(CareRequestType.SUBSCRIBE_CARE);
+  const [isRequestDialogOpen, setIsRequestDialogOpen] = useState(false);
+  const openRequest = useCallback((type: CareRequestType) => {
+    setRequestType(type);
+    setIsRequestDialogOpen(true);
+  }, []);
   useScrollOnNavigation();
   useScrollReveal();
 
   return (
-    <CareRequestContext.Provider value={setRequestType}>
+    <CareRequestContext.Provider value={openRequest}>
       <div id={careAnchors.top} className="flex min-h-screen flex-col bg-care-canvas font-sans text-care-ink">
         <CareHeader />
         <main className="flex flex-1 flex-col">
@@ -43,6 +49,9 @@ export const CarePage = () => {
         </main>
         <CareFooter />
       </div>
+      {isRequestDialogOpen && (
+        <CareRequestDialog requestType={requestType} onRequestTypeChange={setRequestType} onClose={() => setIsRequestDialogOpen(false)} />
+      )}
     </CareRequestContext.Provider>
   );
 };

@@ -6,6 +6,8 @@ import { buttonVariants } from '@/components/ui/buttonVariants';
 import { DiamondPattern } from '@/components/icons/Icons';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 import { professionalStudyAnchor } from '@/components/professionals/professionalStudyAnchor';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 export const ProfessionalsHeroSection = () => {
   const { t } = useTranslation('professionals');
@@ -26,9 +28,9 @@ export const ProfessionalsHeroSection = () => {
             {t('hero.lead')}
           </p>
           <div className="mt-1 flex flex-col gap-3.5 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap">
-            <a href={`#${professionalStudyAnchor}`} className={cn(buttonVariants({ size: 'md' }), 'whitespace-normal text-center sm:whitespace-nowrap')}>
+            <ContactLink kind={ContactFormKind.PROFESSIONAL} href={`#${professionalStudyAnchor}`} className={cn(buttonVariants({ size: 'md' }), 'whitespace-normal text-center sm:whitespace-nowrap')}>
               {t('hero.requestStudy')}
-            </a>
+            </ContactLink>
             <Link to={paths.projects} className={cn(buttonVariants({ variant: 'outlineLight', size: 'md' }), 'whitespace-normal text-center sm:whitespace-nowrap')}>
               {t('hero.seeReferences')}
             </Link>

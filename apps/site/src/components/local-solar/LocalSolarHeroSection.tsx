@@ -7,6 +7,8 @@ import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 import type { ServiceArea } from '@/app/service-areas/domain/entities/ServiceArea';
 import type { LocalSolarTextValues } from '@/components/local-solar/localSolarTextValues';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 type LocalSolarHeroSectionProps = {
   area: ServiceArea;
@@ -36,9 +38,9 @@ export const LocalSolarHeroSection = ({ area, values }: LocalSolarHeroSectionPro
           {t(`areas.${area.slug}.lead`, values)}
         </p>
         <div className="flex flex-col gap-3 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap lg:gap-3.5">
-          <Link to={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
+          <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
             {t('hero.requestStudy')}
-          </Link>
+          </ContactLink>
           <Link
             to={paths.simulator}
             className={cn(buttonVariants({ variant: 'outlineLight', size: 'md' }), 'border-night text-night hover:bg-night/5 hover:text-night')}

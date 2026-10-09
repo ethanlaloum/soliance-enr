@@ -140,5 +140,15 @@
       "Var",
       "Bouches-du-Rhône"
     ]
+  },
+  "callbackPrompt": {
+    "title": "Un projet solaire ? Parlons-en.",
+    "text": "Un conseiller Soliance répond à vos questions et fixe avec vous un rendez-vous pour l'étude gratuite, chez vous ou au showroom de Saint-Laurent-du-Var.",
+    "call": "Appeler le {{phone}}",
+    "appointment": "Prendre rendez-vous",
+    "close": "Fermer"
+  },
+  "contactDialog": {
+    "close": "Fermer le formulaire"
   }
 }

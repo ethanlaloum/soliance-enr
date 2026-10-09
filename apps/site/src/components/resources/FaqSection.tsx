@@ -1,11 +1,12 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { FaqList } from '@/components/page/FaqList';
 import { containerClassName } from '@/components/home/containerClassName';
 import { sectionScrollMarginClassName } from '@/components/resources/resourceSectionIds';
 import { useActiveSection } from '@/components/resources/useActiveSection';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const faqThemes = [
   { key: 'pricing', questionKeys: ['cost', 'financing', 'deposit', 'payback', 'maintenance'] },
@@ -73,7 +74,7 @@ export const FaqSection = () => {
             </div>
           ))}
           <p className="text-[13px] text-slate">
-            <Trans t={t} i18nKey="faq.missing" components={{ contactLink: <Link to={`${paths.home}#${contactAnchor}`} /> }} />
+            <Trans t={t} i18nKey="faq.missing" components={{ contactLink: <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} /> }} />
           </p>
         </div>
       </div>

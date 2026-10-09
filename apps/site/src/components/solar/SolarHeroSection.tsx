@@ -5,6 +5,8 @@ import { contactAnchor, paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { containerClassName } from '@/components/home/containerClassName';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 export const SolarHeroSection = () => {
   const { t } = useTranslation('solar');
@@ -26,9 +28,9 @@ export const SolarHeroSection = () => {
           {t('hero.lead')}
         </p>
         <div className="flex flex-col gap-3 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap lg:gap-3.5">
-          <Link to={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
+          <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
             {t('hero.requestStudy')}
-          </Link>
+          </ContactLink>
           <Link
             to={paths.simulator}
             className={cn(buttonVariants({ variant: 'outlineLight', size: 'md' }), 'border-night text-night hover:bg-night/5 hover:text-night')}

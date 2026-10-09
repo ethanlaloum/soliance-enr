@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 import { contactAnchor, paths } from '@/routes/paths';
 import { SolianceLogo } from '@/components/brand/SolianceLogo';
 import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
-type FooterLink = { labelKey: string; to: string };
+type FooterLink = { labelKey: string; to: string; contact?: ContactFormKind };
 
 const columns: { titleKey: string; links: FooterLink[] }[] = [
   {
@@ -22,7 +24,7 @@ const columns: { titleKey: string; links: FooterLink[] }[] = [
       { labelKey: 'footer.referral', to: paths.referral },
       { labelKey: 'nav.care', to: paths.care },
       { labelKey: 'footer.blog', to: paths.resources },
-      { labelKey: 'footer.contact', to: `${paths.home}#${contactAnchor}` },
+      { labelKey: 'footer.contact', to: `${paths.home}#${contactAnchor}`, contact: ContactFormKind.STUDY },
     ],
   },
   {
@@ -56,9 +58,15 @@ export const SiteFooter = () => {
             <ul className="flex flex-col gap-2">
               {column.links.map((link) => (
                 <li key={link.labelKey}>
-                  <Link to={link.to} className={linkClassName}>
-                    {t(link.labelKey)}
-                  </Link>
+                  {link.contact ? (
+                    <ContactLink kind={link.contact} href={link.to} className={linkClassName}>
+                      {t(link.labelKey)}
+                    </ContactLink>
+                  ) : (
+                    <Link to={link.to} className={linkClassName}>
+                      {t(link.labelKey)}
+                    </Link>
+                  )}
                 </li>
               ))}
               {column.titleKey === 'footer.legalTitle' && (

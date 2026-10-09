@@ -26,7 +26,11 @@ const textFields: { name: TextFieldName; type: string; autoComplete: string; inp
   { name: 'postalCode', type: 'text', autoComplete: 'postal-code', inputMode: 'numeric' },
 ];
 
-export const StudyRequestForm = () => {
+type StudyRequestFormProps = {
+  idPrefix?: string;
+};
+
+export const StudyRequestForm = ({ idPrefix = 'study' }: StudyRequestFormProps) => {
   const { t } = useTranslation('home');
   const dispatch = useAppDispatch();
   const isSubmitting = useAppSelector(selectSubmitStudyRequestLoading);
@@ -76,9 +80,9 @@ export const StudyRequestForm = () => {
   }
 
   return (
-    <form noValidate aria-labelledby="study-request-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+    <form noValidate aria-labelledby={`${idPrefix}-request-title`} onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <HoneypotField ref={honeypotRef} />
-      <h3 id="study-request-title" className="text-xl font-bold lg:text-[22px]">
+      <h3 id={`${idPrefix}-request-title`} className="text-xl font-bold lg:text-[22px]">
         {t('contact.form.title')}
       </h3>
 
@@ -87,19 +91,19 @@ export const StudyRequestForm = () => {
           const error = errors[field.name];
           return (
             <div key={field.name} className={fieldLabelClassName}>
-              <label htmlFor={`study-${field.name}`}>{t(`contact.form.${field.name}`)}</label>
+              <label htmlFor={`${idPrefix}-${field.name}`}>{t(`contact.form.${field.name}`)}</label>
               <input
-                id={`study-${field.name}`}
+                id={`${idPrefix}-${field.name}`}
                 type={field.type}
                 autoComplete={field.autoComplete}
                 inputMode={field.inputMode}
                 aria-invalid={error ? true : undefined}
-                aria-describedby={error ? `study-${field.name}-error` : undefined}
+                aria-describedby={error ? `${idPrefix}-${field.name}-error` : undefined}
                 className={fieldControlClassName}
                 {...register(field.name)}
               />
               {error && (
-                <p id={`study-${field.name}-error`} className={fieldErrorClassName}>
+                <p id={`${idPrefix}-${field.name}-error`} className={fieldErrorClassName}>
                   {error.message}
                 </p>
               )}
@@ -109,7 +113,7 @@ export const StudyRequestForm = () => {
       </div>
 
       <div className={fieldLabelClassName}>
-        <label id="study-projectType-label" htmlFor="study-projectType">
+        <label id={`${idPrefix}-projectType-label`} htmlFor={`${idPrefix}-projectType`}>
           {t('contact.form.projectType')}
         </label>
         <Controller
@@ -117,8 +121,8 @@ export const StudyRequestForm = () => {
           name="projectType"
           render={({ field }) => (
             <Select
-              id="study-projectType"
-              labelId="study-projectType-label"
+              id={`${idPrefix}-projectType`}
+              labelId={`${idPrefix}-projectType-label`}
               name={field.name}
               value={field.value}
               options={projectTypes.map((projectType) => ({ value: projectType, label: t(`contact.form.projectOptions.${projectType}`) }))}
@@ -132,19 +136,19 @@ export const StudyRequestForm = () => {
       </div>
 
       <div className={fieldLabelClassName}>
-        <label htmlFor="study-monthlyBill">{t('contact.form.monthlyBill')}</label>
+        <label htmlFor={`${idPrefix}-monthlyBill`}>{t('contact.form.monthlyBill')}</label>
         <input
-          id="study-monthlyBill"
+          id={`${idPrefix}-monthlyBill`}
           type="text"
           inputMode="decimal"
           placeholder={t('contact.form.monthlyBillPlaceholder')}
           aria-invalid={errors.monthlyBill ? true : undefined}
-          aria-describedby={errors.monthlyBill ? 'study-monthlyBill-error' : undefined}
+          aria-describedby={errors.monthlyBill ? `${idPrefix}-monthlyBill-error` : undefined}
           className={fieldControlClassName}
           {...register('monthlyBill')}
         />
         {errors.monthlyBill && (
-          <p id="study-monthlyBill-error" className={fieldErrorClassName}>
+          <p id={`${idPrefix}-monthlyBill-error`} className={fieldErrorClassName}>
             {errors.monthlyBill.message}
           </p>
         )}
@@ -153,19 +157,19 @@ export const StudyRequestForm = () => {
       <div className="flex flex-col gap-1.5">
         <div className="flex items-start gap-2.5">
           <input
-            id="study-callbackConsent"
+            id={`${idPrefix}-callbackConsent`}
             type="checkbox"
             aria-invalid={errors.callbackConsent ? true : undefined}
-            aria-describedby={errors.callbackConsent ? 'study-callbackConsent-error' : undefined}
+            aria-describedby={errors.callbackConsent ? `${idPrefix}-callbackConsent-error` : undefined}
             className="mt-0.5 h-5 w-5 shrink-0 accent-solar"
             {...register('callbackConsent')}
           />
-          <label htmlFor="study-callbackConsent" className="text-[13px] leading-[1.4] text-slate-ink">
+          <label htmlFor={`${idPrefix}-callbackConsent`} className="text-[13px] leading-[1.4] text-slate-ink">
             {t('contact.form.consent')}
           </label>
         </div>
         {errors.callbackConsent && (
-          <p id="study-callbackConsent-error" className={fieldErrorClassName}>
+          <p id={`${idPrefix}-callbackConsent-error`} className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}

@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName } from '@/components/home/containerClassName';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 export const SolarCtaSection = () => {
   const { t } = useTranslation('solar');
@@ -21,9 +22,9 @@ export const SolarCtaSection = () => {
           </h2>
           <p className="mt-1.5 text-[15px] text-slate-light lg:text-base">{t('cta.description')}</p>
         </div>
-        <Link to={`${paths.home}#${contactAnchor}`} className={cn(buttonVariants({ size: 'lg' }), 'shrink-0')}>
+        <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={cn(buttonVariants({ size: 'lg' }), 'shrink-0')}>
           {t('cta.button')}
-        </Link>
+        </ContactLink>
       </section>
     </div>
   );

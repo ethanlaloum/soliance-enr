@@ -23,7 +23,11 @@ const textFields: { name: TextFieldName; type: string; autoComplete?: string; in
 
 const cardClassName = 'flex flex-col gap-3 rounded-2xl border border-sand-line bg-white p-[22px] lg:gap-4 lg:rounded-[20px] lg:p-9';
 
-export const ReferralForm = () => {
+type ReferralFormProps = {
+  idPrefix?: string;
+};
+
+export const ReferralForm = ({ idPrefix = 'referral' }: ReferralFormProps) => {
   const { t } = useTranslation('referral');
   const { submit, reset: resetSubmission, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.REFERRAL);
   const { honeypotRef, readSpamTrap } = useSpamTrap();
@@ -66,9 +70,9 @@ export const ReferralForm = () => {
   }
 
   return (
-    <form noValidate aria-labelledby="referral-form-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+    <form noValidate aria-labelledby={`${idPrefix}-form-title`} onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <HoneypotField ref={honeypotRef} />
-      <h2 id="referral-form-title" className="text-xl font-bold lg:text-[22px]">
+      <h2 id={`${idPrefix}-form-title`} className="text-xl font-bold lg:text-[22px]">
         {t('form.title')}
       </h2>
 
@@ -77,19 +81,19 @@ export const ReferralForm = () => {
           const error = errors[field.name];
           return (
             <div key={field.name} className={fieldLabelClassName}>
-              <label htmlFor={`referral-${field.name}`}>{t(`form.fields.${field.name}`)}</label>
+              <label htmlFor={`${idPrefix}-${field.name}`}>{t(`form.fields.${field.name}`)}</label>
               <input
-                id={`referral-${field.name}`}
+                id={`${idPrefix}-${field.name}`}
                 type={field.type}
                 autoComplete={field.autoComplete}
                 inputMode={field.inputMode}
                 aria-invalid={error ? true : undefined}
-                aria-describedby={error ? `referral-${field.name}-error` : undefined}
+                aria-describedby={error ? `${idPrefix}-${field.name}-error` : undefined}
                 className={fieldControlClassName}
                 {...register(field.name)}
               />
               {error && (
-                <p id={`referral-${field.name}-error`} className={fieldErrorClassName}>
+                <p id={`${idPrefix}-${field.name}-error`} className={fieldErrorClassName}>
                   {error.message}
                 </p>
               )}
@@ -99,7 +103,7 @@ export const ReferralForm = () => {
       </div>
 
       <div className={fieldLabelClassName}>
-        <label id="referral-refereeProject-label" htmlFor="referral-refereeProject">
+        <label id={`${idPrefix}-refereeProject-label`} htmlFor={`${idPrefix}-refereeProject`}>
           {t('form.fields.refereeProject')}
         </label>
         <Controller
@@ -107,8 +111,8 @@ export const ReferralForm = () => {
           name="refereeProject"
           render={({ field }) => (
             <Select
-              id="referral-refereeProject"
-              labelId="referral-refereeProject-label"
+              id={`${idPrefix}-refereeProject`}
+              labelId={`${idPrefix}-refereeProject-label`}
               name={field.name}
               value={field.value}
               options={refereeProjects.map((project) => ({ value: project, label: t(`form.projectOptions.${project}`) }))}
@@ -124,19 +128,19 @@ export const ReferralForm = () => {
       <div className="flex flex-col gap-1.5">
         <div className="flex items-start gap-2.5">
           <input
-            id="referral-callbackConsent"
+            id={`${idPrefix}-callbackConsent`}
             type="checkbox"
             aria-invalid={errors.callbackConsent ? true : undefined}
-            aria-describedby={errors.callbackConsent ? 'referral-callbackConsent-error' : undefined}
+            aria-describedby={errors.callbackConsent ? `${idPrefix}-callbackConsent-error` : undefined}
             className="mt-0.5 h-5 w-5 shrink-0 accent-solar"
             {...register('callbackConsent')}
           />
-          <label htmlFor="referral-callbackConsent" className="text-[13px] leading-[1.4] text-slate-ink">
+          <label htmlFor={`${idPrefix}-callbackConsent`} className="text-[13px] leading-[1.4] text-slate-ink">
             {t('form.consent')}
           </label>
         </div>
         {errors.callbackConsent && (
-          <p id="referral-callbackConsent-error" className={fieldErrorClassName}>
+          <p id={`${idPrefix}-callbackConsent-error`} className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}

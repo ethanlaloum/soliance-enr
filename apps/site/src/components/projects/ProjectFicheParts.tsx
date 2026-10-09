@@ -3,13 +3,14 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { revealDelay } from '@/components/motion/revealDelay';
-import { callToActionTargets, ficheThemeClassNames } from '@/components/projects/projectFicheTheme';
+import { callToActionContactForms, callToActionTargets, ficheThemeClassNames } from '@/components/projects/projectFicheTheme';
 import {
   ProjectDetailTheme,
   type ProjectCallToAction,
   type ProjectDetailImage,
   type TechnicalSheetRow,
 } from '@/app/projects/domain/entities/ProjectDetail';
+import { ContactLink } from '@/components/contact/ContactLink';
 
 const metricKeys = ['first', 'second', 'third'] as const;
 
@@ -133,20 +134,25 @@ type FicheCallToActionProps = {
 
 export const FicheCallToAction = ({ slug, callToAction, theme = ProjectDetailTheme.SOLAR, compact = false }: FicheCallToActionProps) => {
   const { t } = useTranslation('projects');
+  const contactForm = callToActionContactForms[callToAction];
+  const className = cn(
+    buttonVariants({ size: 'md' }),
+    'whitespace-normal text-center',
+    compact ? 'px-[22px] py-[13px] text-[15px]' : 'px-6 py-3.5 text-base',
+    ficheThemeClassNames[theme].button,
+  );
 
   return (
     <div data-reveal style={revealDelay(1)} className="self-start">
-      <Link
-        to={callToActionTargets[callToAction]}
-        className={cn(
-          buttonVariants({ size: 'md' }),
-          'whitespace-normal text-center',
-          compact ? 'px-[22px] py-[13px] text-[15px]' : 'px-6 py-3.5 text-base',
-          ficheThemeClassNames[theme].button,
-        )}
-      >
-        {t(`fiches.${slug}.cta`)}
-      </Link>
+      {contactForm ? (
+        <ContactLink kind={contactForm} href={callToActionTargets[callToAction]} className={className}>
+          {t(`fiches.${slug}.cta`)}
+        </ContactLink>
+      ) : (
+        <Link to={callToActionTargets[callToAction]} className={className}>
+          {t(`fiches.${slug}.cta`)}
+        </Link>
+      )}
     </div>
   );
 };

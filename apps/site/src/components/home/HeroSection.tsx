@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { CheckIcon, DiamondPattern } from '@/components/icons/Icons';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const trustKeys = ['rge', 'decennial', 'installation', 'localTeam'] as const;
 const statKeys = ['installations', 'signature', 'maintenance'] as const;
@@ -48,9 +50,9 @@ export const HeroSection = () => {
               <Link to={paths.simulator} className={buttonVariants({ size: 'lg' })}>
                 {t('hero.simulate')}
               </Link>
-              <a href={`#${contactAnchor}`} className={buttonVariants({ variant: 'outlineLight', size: 'lg' })}>
+              <ContactLink kind={ContactFormKind.STUDY} href={`#${contactAnchor}`} className={buttonVariants({ variant: 'outlineLight', size: 'lg' })}>
                 {t('hero.requestStudy')}
-              </a>
+              </ContactLink>
             </div>
             <ul aria-label={t('hero.trustLabel')} className="mt-1 flex flex-wrap gap-x-7 gap-y-2 text-[13px] text-slate-mist motion-safe:animate-fade-up motion-safe:[animation-delay:320ms] lg:mt-2 lg:text-sm">
               {trustKeys.map((key) => (

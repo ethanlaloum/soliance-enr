@@ -1,5 +1,4 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
@@ -8,6 +7,8 @@ import { containerClassName, eyebrowClassName } from '@/components/home/containe
 import { LightningShape } from '@/components/ev-charger/EvChargerIcons';
 import { SolarChargeWidget } from '@/components/ev-charger/SolarChargeWidget';
 import { businessAnchor } from '@/components/ev-charger/evChargerAnchors';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const trustKeys = ['irve', 'installation', 'connector'] as const;
 
@@ -31,9 +32,9 @@ export const EvChargerHeroSection = () => {
             {t('hero.lead')}
           </p>
           <div className="flex flex-col gap-3.5 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap">
-            <Link to={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
+            <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
               {t('hero.requestQuote')}
-            </Link>
+            </ContactLink>
             <a
               href={`#${businessAnchor}`}
               className={cn(

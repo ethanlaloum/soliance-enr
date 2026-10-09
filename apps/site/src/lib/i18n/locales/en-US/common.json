@@ -140,5 +140,15 @@
       "Var",
       "Bouches-du-Rhône"
     ]
+  },
+  "callbackPrompt": {
+    "title": "A solar project? Let's talk.",
+    "text": "A Soliance advisor answers your questions and books the free study with you, at your home or at the Saint-Laurent-du-Var showroom.",
+    "call": "Call {{phone}}",
+    "appointment": "Book an appointment",
+    "close": "Close"
+  },
+  "contactDialog": {
+    "close": "Close the form"
   }
 }

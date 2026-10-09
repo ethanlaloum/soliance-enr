@@ -43,11 +43,12 @@ const controlClassName = cn(fieldControlClassName, 'border-care-line focus:borde
 const cardClassName = 'flex flex-col gap-4 rounded-[20px] bg-white p-6 shadow-[0_1px_2px_rgba(15,42,31,0.06),0_16px_40px_rgba(15,42,31,0.1)] lg:p-9';
 
 type CareRequestFormProps = {
+  idPrefix?: string;
   requestType: CareRequestType;
   onRequestTypeChange: (requestType: CareRequestType) => void;
 };
 
-export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareRequestFormProps) => {
+export const CareRequestForm = ({ idPrefix = 'care-request', requestType, onRequestTypeChange }: CareRequestFormProps) => {
   const { t } = useTranslation('care');
   const { submit, reset: resetSubmission, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.CARE_REQUEST);
   const { honeypotRef, readSpamTrap } = useSpamTrap();
@@ -81,7 +82,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h3 id="care-request-form-title" className="text-xl font-bold lg:text-2xl">
+        <h3 id={`${idPrefix}-form-title`} className="text-xl font-bold lg:text-2xl">
           {t('form.successTitle')}
         </h3>
         <p className="text-base text-care-muted">{t('form.successDescription')}</p>
@@ -94,7 +95,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
 
   const renderTextField = (field: TextField) => {
     const error = errors[field.name];
-    const id = `care-request-${field.name}`;
+    const id = `${idPrefix}-${field.name}`;
     return (
       <div key={field.name} className={cn(fieldLabelClassName, 'text-care-ink', field.wide && 'sm:col-span-2')}>
         <label htmlFor={id}>{t(`form.${field.name}`)}</label>
@@ -118,10 +119,10 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
   };
 
   return (
-    <form noValidate aria-labelledby="care-request-form-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+    <form noValidate aria-labelledby={`${idPrefix}-form-title`} onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <HoneypotField ref={honeypotRef} />
       <div className="flex flex-col gap-1">
-        <h3 id="care-request-form-title" className="text-xl font-bold lg:text-2xl">
+        <h3 id={`${idPrefix}-form-title`} className="text-xl font-bold lg:text-2xl">
           {t('form.title')}
         </h3>
         <p className="text-sm text-care-muted lg:text-[15px]">{t('form.lead')}</p>
@@ -129,7 +130,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
 
       <div className="grid gap-3.5 sm:grid-cols-2">
         <div className={cn(fieldLabelClassName, 'text-care-ink sm:col-span-2')}>
-          <label id="care-request-requestType-label" htmlFor="care-request-requestType">
+          <label id={`${idPrefix}-requestType-label`} htmlFor={`${idPrefix}-requestType`}>
             {t('form.interest')}
           </label>
           <Controller
@@ -137,8 +138,8 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
             name="requestType"
             render={({ field }) => (
               <Select
-                id="care-request-requestType"
-                labelId="care-request-requestType-label"
+                id={`${idPrefix}-requestType`}
+                labelId={`${idPrefix}-requestType-label`}
                 name={field.name}
                 value={field.value}
                 options={careRequestTypes.map((type) => ({ value: type, label: t(`form.interests.${type}`) }))}
@@ -159,18 +160,18 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
         {textFields.map(renderTextField)}
 
         <div className={cn(fieldLabelClassName, 'text-care-ink sm:col-span-2')}>
-          <label htmlFor="care-request-situation">{t('form.situation')}</label>
+          <label htmlFor={`${idPrefix}-situation`}>{t('form.situation')}</label>
           <textarea
-            id="care-request-situation"
+            id={`${idPrefix}-situation`}
             rows={3}
             placeholder={t('form.situationHint')}
             aria-invalid={errors.situation ? true : undefined}
-            aria-describedby={errors.situation ? 'care-request-situation-error' : undefined}
+            aria-describedby={errors.situation ? `${idPrefix}-situation-error` : undefined}
             className={cn(controlClassName, 'h-auto py-3 placeholder:text-care-muted/70 sm:h-auto')}
             {...register('situation')}
           />
           {errors.situation && (
-            <p id="care-request-situation-error" className={fieldErrorClassName}>
+            <p id={`${idPrefix}-situation-error`} className={fieldErrorClassName}>
               {errors.situation.message}
             </p>
           )}
@@ -180,14 +181,14 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
       <div className="flex flex-col gap-1.5">
         <div className="flex items-start gap-2.5">
           <input
-            id="care-request-callbackConsent"
+            id={`${idPrefix}-callbackConsent`}
             type="checkbox"
             aria-invalid={errors.callbackConsent ? true : undefined}
-            aria-describedby={errors.callbackConsent ? 'care-request-callbackConsent-error' : undefined}
+            aria-describedby={errors.callbackConsent ? `${idPrefix}-callbackConsent-error` : undefined}
             className="mt-0.5 h-5 w-5 shrink-0 accent-care"
             {...register('callbackConsent')}
           />
-          <label htmlFor="care-request-callbackConsent" className="text-[13px] leading-[1.4] text-care-muted">
+          <label htmlFor={`${idPrefix}-callbackConsent`} className="text-[13px] leading-[1.4] text-care-muted">
             {t('form.consent')}
           </label>
         </div>
@@ -195,7 +196,7 @@ export const CareRequestForm = ({ requestType, onRequestTypeChange }: CareReques
           {t('form.privacyLink')}
         </Link>
         {errors.callbackConsent && (
-          <p id="care-request-callbackConsent-error" className={fieldErrorClassName}>
+          <p id={`${idPrefix}-callbackConsent-error`} className={fieldErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}

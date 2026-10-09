@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName } from '@/components/home/containerClassName';
 import { referralFormAnchor } from '@/components/referral/referralFormAnchor';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const rewardSteps = [
   { key: 'first', heightClassName: 'h-[92px] sm:h-[110px]' },
@@ -28,7 +30,8 @@ export const ReferralHeroSection = () => {
               {t('hero.title')}
             </h1>
             <p className="text-base leading-normal text-white/[0.92] motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-[19px] lg:leading-[1.55]">{t('hero.lead')}</p>
-            <a
+            <ContactLink
+              kind={ContactFormKind.REFERRAL}
               href={`#${referralFormAnchor}`}
               className={cn(
                 buttonVariants({ size: 'lg' }),
@@ -36,7 +39,7 @@ export const ReferralHeroSection = () => {
               )}
             >
               {t('hero.cta')}
-            </a>
+            </ContactLink>
           </div>
           <ol aria-label={t('hero.scaleLabel')} className="grid grid-cols-5 items-end gap-1.5 sm:gap-2.5">
             {rewardSteps.map((step, index) => {

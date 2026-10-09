@@ -46,7 +46,11 @@ const darkControlClassName = cn(fieldControlClassName, 'border-night-line bg-nig
 const darkErrorClassName = cn(fieldErrorClassName, 'text-red-300');
 const cardClassName = 'flex flex-col gap-3.5 rounded-2xl bg-night p-6 text-white lg:rounded-[20px] lg:p-9';
 
-export const ProfessionalStudyForm = () => {
+type ProfessionalStudyFormProps = {
+  idPrefix?: string;
+};
+
+export const ProfessionalStudyForm = ({ idPrefix = 'pro-study' }: ProfessionalStudyFormProps) => {
   const { t } = useTranslation('professionals');
   const { submit, isSubmitting, isSubmitted, errorCode } = useLeadSubmission(LeadFormKind.PROFESSIONAL_STUDY);
   const { honeypotRef, readSpamTrap } = useSpamTrap();
@@ -67,7 +71,7 @@ export const ProfessionalStudyForm = () => {
 
   const renderTextField = (field: TextField) => {
     const error = errors[field.name];
-    const id = `pro-study-${field.name}`;
+    const id = `${idPrefix}-${field.name}`;
     return (
       <div key={field.name} className={cn(darkLabelClassName, field.wide && 'sm:col-span-2')}>
         <label htmlFor={id}>{t(`form.${field.name}`)}</label>
@@ -93,7 +97,7 @@ export const ProfessionalStudyForm = () => {
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h2 id="pro-study-title" className="text-xl font-bold lg:text-[22px]">
+        <h2 id={`${idPrefix}-title`} className="text-xl font-bold lg:text-[22px]">
           {t('form.successTitle')}
         </h2>
         <p className="text-base text-slate-light">{t('form.successDescription')}</p>
@@ -102,10 +106,10 @@ export const ProfessionalStudyForm = () => {
   }
 
   return (
-    <form noValidate aria-labelledby="pro-study-title" onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
+    <form noValidate aria-labelledby={`${idPrefix}-title`} onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <HoneypotField ref={honeypotRef} />
       <div className="flex flex-col gap-1.5">
-        <h2 id="pro-study-title" className="text-xl font-bold lg:text-[22px]">
+        <h2 id={`${idPrefix}-title`} className="text-xl font-bold lg:text-[22px]">
           {t('form.title')}
         </h2>
         <p className="text-sm text-slate-light">{t('form.lead')}</p>
@@ -115,7 +119,7 @@ export const ProfessionalStudyForm = () => {
         {identityFields.map(renderTextField)}
 
         <div className={cn(darkLabelClassName, 'sm:col-span-2')}>
-          <label id="pro-study-projectType-label" htmlFor="pro-study-projectType">
+          <label id={`${idPrefix}-projectType-label`} htmlFor={`${idPrefix}-projectType`}>
             {t('form.projectType')}
           </label>
           <Controller
@@ -123,8 +127,8 @@ export const ProfessionalStudyForm = () => {
             name="projectType"
             render={({ field }) => (
               <Select
-                id="pro-study-projectType"
-                labelId="pro-study-projectType-label"
+                id={`${idPrefix}-projectType`}
+                labelId={`${idPrefix}-projectType-label`}
                 name={field.name}
                 value={field.value}
                 options={professionalProjectTypes.map((projectType) => ({ value: projectType, label: t(`form.projectOptions.${projectType}`) }))}
@@ -143,19 +147,19 @@ export const ProfessionalStudyForm = () => {
       <div className="flex flex-col gap-1.5">
         <div className="flex items-start gap-2.5">
           <input
-            id="pro-study-callbackConsent"
+            id={`${idPrefix}-callbackConsent`}
             type="checkbox"
             aria-invalid={errors.callbackConsent ? true : undefined}
-            aria-describedby={errors.callbackConsent ? 'pro-study-callbackConsent-error' : undefined}
+            aria-describedby={errors.callbackConsent ? `${idPrefix}-callbackConsent-error` : undefined}
             className="mt-0.5 h-5 w-5 shrink-0 accent-solar"
             {...register('callbackConsent')}
           />
-          <label htmlFor="pro-study-callbackConsent" className="text-[13px] leading-[1.4] text-slate-light">
+          <label htmlFor={`${idPrefix}-callbackConsent`} className="text-[13px] leading-[1.4] text-slate-light">
             {t('form.consent')}
           </label>
         </div>
         {errors.callbackConsent && (
-          <p id="pro-study-callbackConsent-error" className={darkErrorClassName}>
+          <p id={`${idPrefix}-callbackConsent-error`} className={darkErrorClassName}>
             {errors.callbackConsent.message}
           </p>
         )}

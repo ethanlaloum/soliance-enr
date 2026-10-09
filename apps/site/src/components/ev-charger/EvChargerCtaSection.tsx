@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName } from '@/components/home/containerClassName';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 export const EvChargerCtaSection = () => {
   const { t } = useTranslation('evCharger');
@@ -21,9 +22,9 @@ export const EvChargerCtaSection = () => {
           </h2>
           <p className="mt-1.5 text-[15px] leading-normal text-charge-soft lg:text-base">{t('cta.body')}</p>
         </div>
-        <Link to={`${paths.home}#${contactAnchor}`} className={cn(buttonVariants({ size: 'lg' }), 'shrink-0 focus-visible:outline-white')}>
+        <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={cn(buttonVariants({ size: 'lg' }), 'shrink-0 focus-visible:outline-white')}>
           {t('cta.button')}
-        </Link>
+        </ContactLink>
       </section>
     </div>
   );

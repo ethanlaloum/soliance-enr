@@ -235,6 +235,7 @@
     "address": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var"
   },
   "form": {
+    "close": "Fermer le formulaire",
     "title": "Votre demande",
     "lead": "Réponse sous 48 heures ouvrées.",
     "interest": "Objet de la demande",

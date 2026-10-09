@@ -1,5 +1,6 @@
 import { contactAnchor, paths } from '@/routes/paths';
 import { ProjectCallToAction, ProjectDetailTheme } from '@/app/projects/domain/entities/ProjectDetail';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 type FicheThemeClassNames = {
   border: string;
@@ -30,6 +31,11 @@ export const ficheThemeClassNames: Record<ProjectDetailTheme, FicheThemeClassNam
     quoteBorder: 'border-heat',
     button: 'bg-heat hover:bg-[#083d82] hover:shadow-[0_12px_24px_-10px_rgba(10,77,162,0.6)]',
   },
+};
+
+export const callToActionContactForms: Partial<Record<ProjectCallToAction, ContactFormKind>> = {
+  [ProjectCallToAction.STUDY]: ContactFormKind.STUDY,
+  [ProjectCallToAction.PROFESSIONAL]: ContactFormKind.PROFESSIONAL,
 };
 
 export const callToActionTargets: Record<ProjectCallToAction, string> = {

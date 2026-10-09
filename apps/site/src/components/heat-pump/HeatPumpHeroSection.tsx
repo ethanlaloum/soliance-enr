@@ -1,12 +1,13 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { contactAnchor, paths } from '@/routes/paths';
 import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName } from '@/components/home/containerClassName';
 import { aidSectionId } from '@/components/heat-pump/HeatPumpAidSection';
+import { ContactLink } from '@/components/contact/ContactLink';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 
 const trustKeys = ['qualipac', 'daikin', 'installation'] as const;
 const statKeys = ['consumption', 'bill', 'energyClass'] as const;
@@ -45,9 +46,9 @@ export const HeatPumpHeroSection = () => {
             {t('hero.lead')}
           </p>
           <div className="mt-1 flex flex-col gap-3.5 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:flex-row sm:flex-wrap">
-            <Link to={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
+            <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className={buttonVariants({ size: 'md' })}>
               {t('hero.requestStudy')}
-            </Link>
+            </ContactLink>
             <a href={`#${aidSectionId}`} className={cn(buttonVariants({ variant: 'outlineLight', size: 'md' }), 'border-white')}>
               {t('hero.computeAid')}
             </a>

@@ -17,7 +17,9 @@ export const CareRequestLink = ({ requestType, className, onClick, children }: C
     <a
       href={`#${careAnchors.request}`}
       className={className}
-      onClick={() => {
+      aria-haspopup="dialog"
+      onClick={(event) => {
+        event.preventDefault();
         chooseRequest(requestType);
         onClick?.();
       }}
