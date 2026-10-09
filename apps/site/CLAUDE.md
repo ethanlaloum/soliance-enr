@@ -33,6 +33,8 @@ Home, `/panneaux-solaires`, `/panneaux-solaires/:area` (8 local SEO pages, see b
 - Only the `common` namespace is loaded at start-up (ADR-001). Each page namespace is registered by `src/lib/i18n/namespaces/<ns>.ts`, which must be the FIRST import of the page and of any module reading a text at module scope (the zod schemas). `en-US` files are maintained key for key but not shipped.
 - Mobile and desktop copy variants are both in the DOM, toggled with `lg:hidden` / `hidden lg:inline`.
 - Scroll: `useScrollOnNavigation` (in `SiteLayout`) scrolls to top on page change and to `#hash` targets once the lazy page has rendered; `useScrollReveal` (called once per page) drives `data-reveal` animations.
+- Smooth scroll: `useSmoothScroll` (in `RootLayout`, so every page, Care included) runs Lenis on the wheel only; touch stays native and reduced motion turns it off. `<dialog>`s and nested scroll areas keep their native scroll; any other inner scroller needs `data-lenis-prevent`. `stopInertiaOnNavigate` stops the glide on an internal link click, or the next page would not land at the top. Lenis stays out of GSAP on purpose: importing GSAP in `RootLayout` would put it in the entry bundle of every page; ScrollTrigger follows the real window scroll that Lenis drives.
+- The home hero film (`public/videos/hero-villa-premium*.mp4`, poster `hero-villa-premium.webp`) is a generated illustration, not a customer installation; `assets/hero-villa-premium/generation.txt` records how it was made and `scripts/generate-villa-video.mjs <ffmpeg>` rebuilds the videos from the poster.
 
 ## Architecture
 

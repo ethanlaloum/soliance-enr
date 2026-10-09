@@ -1,5 +1,6 @@
 import '@/lib/i18n/namespaces/home';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useRef } from 'react';
+import { useHomeScrollMotion } from '@/hooks/useHomeScrollMotion';
 import { ContactSection } from '@/components/home/ContactSection';
 import { HeroSection } from '@/components/home/HeroSection';
 import { PartnersSection } from '@/components/home/PartnersSection';
@@ -10,10 +11,11 @@ import { StepsSection } from '@/components/home/StepsSection';
 import { WhySolianceSection } from '@/components/home/WhySolianceSection';
 
 export const HomePage = () => {
-  useScrollReveal();
+  const motionRef = useRef<HTMLDivElement>(null);
+  useHomeScrollMotion(motionRef);
 
   return (
-    <>
+    <div ref={motionRef}>
       <HeroSection />
       <PartnersSection />
       <SolutionsSection />
@@ -22,6 +24,6 @@ export const HomePage = () => {
       <WhySolianceSection />
       <PromoTilesSection />
       <ContactSection />
-    </>
+    </div>
   );
 };

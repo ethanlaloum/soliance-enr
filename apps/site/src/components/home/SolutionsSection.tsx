@@ -6,7 +6,7 @@ import { paths } from '@/routes/paths';
 import { containerClassName, sectionTitleClassName } from '@/components/home/containerClassName';
 
 const solutions = [
-  { key: 'solar', to: paths.solar, image: '/images/solution-solar.webp', thumbnail: '/images/hero-vence-villa.webp', objectPosition: '50% 45%' },
+  { key: 'solar', to: paths.solar, image: '/images/solution-solar.webp', thumbnail: '/images/solution-solar-thumb.webp', objectPosition: '50% 60%' },
   { key: 'heatPump', to: paths.heatPump, image: '/images/solution-heat-pump.webp', thumbnail: '/images/solution-heat-pump.webp', objectPosition: '50% 50%' },
   { key: 'evCharger', to: paths.evCharger, image: '/images/solution-ev-charger.webp', thumbnail: '/images/solution-ev-charger-thumb.webp', objectPosition: '50% 60%' },
 ] as const;

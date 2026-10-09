@@ -16,7 +16,7 @@ import {
   type MonthlyOffer,
 } from '@/lib/seo/structuredData';
 
-const defaultShareImage = '/images/hero-vence-villa.webp';
+const defaultShareImage = '/images/hero-villa-premium.webp';
 
 const escapeAttribute = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

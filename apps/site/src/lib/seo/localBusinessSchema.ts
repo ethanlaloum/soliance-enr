@@ -9,7 +9,7 @@ export const localBusinessSchema = (description: string) => ({
   legalName: 'Solar Trade SAS',
   description,
   url: config.siteUrl,
-  image: `${config.siteUrl}/images/hero-vence-villa.webp`,
+  image: `${config.siteUrl}/images/hero-villa-premium.webp`,
   logo: `${config.siteUrl}/favicon.svg`,
   telephone: '+33763545144',
   email: 'commercial@soliance-enr.fr',

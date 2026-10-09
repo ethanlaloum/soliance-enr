@@ -18,17 +18,28 @@
       "installation": "Installed in 1 to 3 days",
       "localTeam": "Local team since 2022"
     },
-    "imageAlt": "Villa in Vence equipped by Soliance: 16 kWp and a 15 kWh battery",
+    "imageAlt": "Aerial view of a Mediterranean villa with solar panels, a car connected to an EV charger and a heat pump.",
+    "film": {
+      "label": "A villa equipped with our three energy solutions",
+      "caption": "One home. Three solutions.",
+      "pause": "Pause the video",
+      "play": "Play the video",
+      "equipment": {
+        "solar": "Solar panels",
+        "evCharger": "EV charger",
+        "heatPump": "Heat pump"
+      }
+    },
     "statsLabel": "Soliance in figures",
     "stats": {
       "installations": { "value": "280+", "label": "installations monitored in PACA", "labelShort": "installations monitored" },
-      "signature": { "value": "10 days", "label": "from first contact to signature", "labelShort": "to signature" },
+      "savings": { "value": "−75%", "label": "on your electricity bill", "labelShort": "on your bill" },
       "maintenance": { "value": "1 year", "label": "of maintenance included", "labelShort": "maintenance included" }
     }
   },
   "partners": {
     "title": "Our partners",
-    "logosAlt": "Partner logos: SolaX, Francilienne, K2, Daikin, Sofinco, MMA, BPCE Lease, RI2E, Synexium"
+    "listLabel": "Our partners' logos"
   },
   "solutions": {
     "title": "Our solutions",

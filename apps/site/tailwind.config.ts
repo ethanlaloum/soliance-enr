@@ -62,6 +62,10 @@ export default {
           '0%': { transform: 'scale(1)', opacity: '0.55' },
           '100%': { transform: 'scale(2.6)', opacity: '0' },
         },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both',
@@ -69,6 +73,7 @@ export default {
         'fade-in': 'fade-in 0.5s ease-out both',
         'draw-line': 'draw-line 1.8s cubic-bezier(0.65, 0, 0.35, 1) both',
         'pulse-ring': 'pulse-ring 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite',
+        marquee: 'marquee 45s linear infinite',
       },
       transitionTimingFunction: {
         'out-expo': 'cubic-bezier(0.22, 1, 0.36, 1)',

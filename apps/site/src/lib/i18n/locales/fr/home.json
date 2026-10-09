@@ -18,17 +18,28 @@
       "installation": "Pose en 1 à 3 jours",
       "localTeam": "Équipe locale depuis 2022"
     },
-    "imageAlt": "Villa à Vence équipée par Soliance : 16 kWc et batterie 15 kWh",
+    "imageAlt": "Vue aérienne d'une villa méditerranéenne avec panneaux photovoltaïques, voiture branchée à une borne de recharge et pompe à chaleur.",
+    "film": {
+      "label": "Une villa équipée de nos trois solutions énergétiques",
+      "caption": "Une maison. Trois solutions.",
+      "pause": "Mettre la vidéo en pause",
+      "play": "Lire la vidéo",
+      "equipment": {
+        "solar": "Photovoltaïque",
+        "evCharger": "Borne de recharge",
+        "heatPump": "Pompe à chaleur"
+      }
+    },
     "statsLabel": "Soliance en chiffres",
     "stats": {
       "installations": { "value": "280+", "label": "installations suivies en PACA", "labelShort": "installations suivies" },
-      "signature": { "value": "10 j", "label": "du premier contact à la signature", "labelShort": "jusqu'à la signature" },
+      "savings": { "value": "−75 %", "label": "sur votre facture d'électricité", "labelShort": "sur votre facture" },
       "maintenance": { "value": "1 an", "label": "de maintenance incluse", "labelShort": "maintenance incluse" }
     }
   },
   "partners": {
     "title": "Nos partenaires",
-    "logosAlt": "Logos des partenaires : SolaX, Francilienne, K2, Daikin, Sofinco, MMA, BPCE Lease, RI2E, Synexium"
+    "listLabel": "Logos de nos partenaires"
   },
   "solutions": {
     "title": "Nos solutions",
