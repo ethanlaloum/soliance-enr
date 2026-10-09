@@ -11,11 +11,11 @@ export const WhySolianceSection = () => {
   return (
     <div className="mx-auto w-full max-w-[1440px] px-4 pt-9 lg:px-10 lg:pt-0">
       <section
-        data-reveal
+        data-team-section
         aria-labelledby="why-title"
         className="grid items-center gap-10 rounded-2xl border border-sand-line bg-white p-6 lg:grid-cols-2 lg:gap-14 lg:rounded-3xl lg:px-16 lg:py-14"
       >
-        <div className="flex flex-col gap-4">
+        <div data-reveal className="flex flex-col gap-4">
           <p className={eyebrowClassName}>{t('why.eyebrow')}</p>
           <h2 id="why-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[38px]">
             {t('why.title')}
@@ -34,14 +34,15 @@ export const WhySolianceSection = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-3.5">
-          <img
+          <div className="home-team__frame"><img
+            data-team-image
             src="/images/team-showroom.webp"
             alt={t('why.imageAlt')}
             width={1200}
             height={260}
             loading="lazy"
             className="block h-[220px] w-full rounded-2xl object-cover lg:h-[260px]"
-          />
+          /></div>
           <dl className="grid grid-cols-2 gap-3.5">
             {assuranceKeys.map((key) => (
               <div key={key} className="flex flex-col rounded-xl bg-night p-[18px] text-white">

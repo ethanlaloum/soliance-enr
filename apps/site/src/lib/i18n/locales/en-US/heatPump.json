@@ -5,9 +5,9 @@
   },
   "breadcrumb": "Heat pump",
   "hero": {
-    "eyebrow": "Heating · Air conditioning · Hot water",
-    "title": "Year-round comfort at half the cost of oil or electric heating.",
-    "lead": "Air-to-air or air-to-water heat pump, or heat pump water heater: we size it from a study, install it with our QualiPac-qualified technicians and file your MaPrimeRénov' and CEE applications.",
+    "eyebrow": "Heat pump · Soliance",
+    "title": "Comfort begins",
+    "lead": "Heat, cool, live better. A heat pump sized for your home and installed by our QualiPac-qualified technicians on the French Riviera.",
     "requestStudy": "Request a free study",
     "computeAid": "Calculate my grants",
     "trustLabel": "Our commitments",
@@ -16,7 +16,7 @@
       "daikin": "Daikin installer partner",
       "installation": "Installed in 1 to 2 days"
     },
-    "imageAlt": "Daikin Altherma outdoor unit installed by Soliance",
+    "imageAlt": "Illustration of a graphite heat pump integrated into a contemporary pale stone villa",
     "statsLabel": "Heat pumps in figures",
     "stats": {
       "consumption": {
@@ -31,7 +31,12 @@
         "value": "A+++",
         "label": "energy class of the ranges we install"
       }
-    }
+    },
+    "titleAccent": "in the air.",
+    "discover": "Understand in 3 steps",
+    "imageCaption": "Illustrative equipped home · year-round comfort",
+    "baseline": "Energy already present in the air.",
+    "baselineEnd": "Comfort designed around you."
   },
   "solutions": {
     "title": "Three solutions, one expertise",
@@ -74,7 +79,7 @@
     "eyebrow": "Why Daikin",
     "title": "A brand we have installed and serviced from the start.",
     "description": "We mainly install Daikin heat pumps: reliability, available spare parts, remote control and quiet operation. Our technicians are trained on the range and handle the manufacturer warranty for you.",
-    "caption": "Photo: a real Soliance installation — Altherma hydraulic module and heat pump water heater. Other brands possible depending on the study. [Partnership mention / Daikin logo subject to usage agreement]",
+    "caption": "Photo: a real Soliance installation — Altherma hydraulic module and heat pump water heater. Other brands possible depending on the study.",
     "imageAlt": "Soliance installation: Daikin Altherma hydraulic module and heat pump water heater in a garage",
     "features": {
       "silence": {
@@ -192,5 +197,40 @@
     "title": "Free thermal study and grant simulation.",
     "description": "A technician visits your home, takes measurements and gives you a fixed quote with the grants already deducted.",
     "button": "Request my study"
+  },
+  "explainer": {
+    "eyebrow": "Invisible energy, revealed",
+    "title": "From the air outside.",
+    "titleAccent": "To the comfort inside.",
+    "skip": "Skip to the solutions",
+    "diagramNote": "Air-to-water principle · simplified components",
+    "source": "Learn more with ADEME",
+    "scrollHint": "Keep scrolling to follow the energy",
+    "parts": {
+      "fan": "Fan",
+      "evaporator": "Evaporator",
+      "compressor": "Compressor",
+      "condenser": "Heat exchanger"
+    },
+    "phases": {
+      "capture": {
+        "label": "Capture",
+        "title": "The air already holds heat.",
+        "description": "The fan circulates outdoor air. The evaporator captures its heat and transfers it to the refrigerant, even when the air feels cool.",
+        "chip": "A renewable resource"
+      },
+      "compress": {
+        "label": "Transform",
+        "title": "The temperature rises.",
+        "description": "The electrically powered compressor compresses the refrigerant. Its temperature rises, making the captured energy useful for heating.",
+        "chip": "A thermodynamic cycle"
+      },
+      "comfort": {
+        "label": "Release",
+        "title": "Your home receives the heat.",
+        "description": "The heat exchanger transfers heat to the water in your radiators or underfloor heating. The refrigerant expands, then the cycle starts again.",
+        "chip": "Your existing heating, reimagined"
+      }
+    }
   }
 }

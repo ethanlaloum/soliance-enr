@@ -1,4 +1,5 @@
 import '@/lib/i18n/namespaces/solar';
+import { EnergyScrollExplainer } from '@/components/energy/EnergyScrollExplainer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { SolarAidsAndFaqSection } from '@/components/solar/SolarAidsAndFaqSection';
 import { SolarAreasSection } from '@/components/solar/SolarAreasSection';
@@ -15,8 +16,9 @@ export const SolarPage = () => {
   useScrollReveal();
 
   return (
-    <>
+    <div className="energy-product-page energy-product-page--solar">
       <SolarHeroSection />
+      <EnergyScrollExplainer variant="solar" />
       <SolarKeyFigures />
       <SolarSizesSection />
       <SolarMethodSection />
@@ -26,6 +28,6 @@ export const SolarPage = () => {
       <SolarProjectsSection />
       <SolarAreasSection />
       <SolarCtaSection />
-    </>
+    </div>
   );
 };

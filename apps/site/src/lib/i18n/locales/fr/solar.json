@@ -212,5 +212,62 @@
     "title": "Une étude gratuite, sans engagement, sous 48 h.",
     "description": "Envoyez votre facture d'électricité, nous faisons le reste.",
     "button": "Demander mon étude"
+  },
+  "premium": {
+    "eyebrow": "Photovoltaïque · Batterie · Autoconsommation",
+    "title": "Votre toit.",
+    "accent": "Votre énergie.",
+    "lead": "Le soleil sur votre maison devient une énergie qui vous appartient. Panneaux, batterie et pilotage : une installation pensée pour votre quotidien, posée par nos propres équipes.",
+    "imageAlt": "Illustration d’une villa contemporaine équipée de panneaux photovoltaïques",
+    "caption": "L’énergie solaire, intégrée à votre architecture.",
+    "learn": "Voir l’énergie circuler",
+    "trust": {
+      "study": "Étude sur mesure",
+      "battery": "Batterie physique incluse",
+      "teams": "Nos propres techniciens"
+    }
+  },
+  "explainer": {
+    "scroll": "Faites défiler pour découvrir",
+    "diagramNote": "Schéma de principe · composants illustratifs",
+    "labels": {
+      "glass": "Verre de protection",
+      "cells": "Cellules photovoltaïques",
+      "frame": "Structure aluminium",
+      "inverter": "Onduleur hybride",
+      "battery": "Batterie domestique",
+      "home": "Votre maison",
+      "shell": "Coque protectrice",
+      "electronics": "Électronique de pilotage",
+      "connector": "Connecteur Type 2",
+      "solar": "Production solaire",
+      "meter": "Mesure de puissance",
+      "vehicle": "Batterie du véhicule"
+    },
+    "eyebrow": "Du rayon de soleil à votre quotidien",
+    "title": "Une lumière.",
+    "accent": "Trois transformations.",
+    "source": "Principes · Enedis",
+    "chapters": {
+      "capture": {
+        "label": "Capter",
+        "title": "Tout commence par la lumière.",
+        "body": "Sous le verre, les cellules photovoltaïques convertissent le rayonnement solaire en courant continu. Le panneau produit de l’électricité, même sans chaleur estivale.",
+        "detail": "Le rayonnement fait produire le panneau ; la chaleur n’est pas sa source d’énergie."
+      },
+      "control": {
+        "label": "Convertir",
+        "title": "L’énergie devient utilisable.",
+        "body": "L’onduleur transforme le courant continu des panneaux en courant alternatif. Votre maison peut alors utiliser sa production pour alimenter ses appareils.",
+        "detail": "Une conversion adaptée à votre installation électrique."
+      },
+      "use": {
+        "label": "Profiter",
+        "title": "Le jour nourrit aussi le soir.",
+        "body": "Votre maison consomme la production disponible. Une batterie physique stocke une partie du surplus pour la restituer plus tard, dans la limite de sa capacité.",
+        "detail": "La puissance et le stockage sont dimensionnés sur vos usages réels."
+      }
+    },
+    "skip": "Passer aux solutions"
   }
 }

@@ -212,5 +212,62 @@
     "title": "A free study, no commitment, within 48 hours.",
     "description": "Send us your electricity bill, we take care of the rest.",
     "button": "Request my study"
+  },
+  "premium": {
+    "eyebrow": "Solar power · Battery · Self-consumption",
+    "title": "Your roof.",
+    "accent": "Your energy.",
+    "lead": "Sunlight on your home becomes energy of your own. Panels, a battery and smart control: an installation designed around your everyday life, fitted by our own teams.",
+    "imageAlt": "Illustration of a contemporary villa with rooftop photovoltaic panels",
+    "caption": "Solar energy, integrated into your architecture.",
+    "learn": "Follow the energy",
+    "trust": {
+      "study": "A bespoke study",
+      "battery": "Physical battery included",
+      "teams": "Our own technicians"
+    }
+  },
+  "explainer": {
+    "scroll": "Scroll to explore",
+    "diagramNote": "Principle diagram · illustrative components",
+    "labels": {
+      "glass": "Protective glass",
+      "cells": "Photovoltaic cells",
+      "frame": "Aluminium structure",
+      "inverter": "Hybrid inverter",
+      "battery": "Home battery",
+      "home": "Your home",
+      "shell": "Protective shell",
+      "electronics": "Control electronics",
+      "connector": "Type 2 connector",
+      "solar": "Solar production",
+      "meter": "Power measurement",
+      "vehicle": "Vehicle battery"
+    },
+    "eyebrow": "From sunlight to everyday life",
+    "title": "One light.",
+    "accent": "Three transformations.",
+    "source": "Principles · Enedis",
+    "chapters": {
+      "capture": {
+        "label": "Capture",
+        "title": "It starts with light.",
+        "body": "Beneath the glass, photovoltaic cells convert solar radiation into direct current. A panel produces electricity even without summer heat.",
+        "detail": "Solar radiation powers the panel; heat is not its energy source."
+      },
+      "control": {
+        "label": "Convert",
+        "title": "Energy becomes usable.",
+        "body": "The inverter converts direct current from the panels into alternating current. Your home can then use its production to power appliances.",
+        "detail": "Conversion suited to your electrical installation."
+      },
+      "use": {
+        "label": "Enjoy",
+        "title": "Daylight can power the evening.",
+        "body": "Your home uses available production. A physical battery stores part of the surplus to return it later, within its capacity limits.",
+        "detail": "Power and storage are sized around your real usage."
+      }
+    },
+    "skip": "Skip to solutions"
   }
 }

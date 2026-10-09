@@ -42,6 +42,7 @@
     "listLabel": "Logos de nos partenaires"
   },
   "solutions": {
+    "eyebrow": "Produire · Chauffer · Recharger",
     "title": "Nos solutions",
     "intro": "Trois équipements, une seule équipe : nous concevons, posons, raccordons et entretenons.",
     "discover": "Découvrir",
@@ -82,6 +83,7 @@
     }
   },
   "steps": {
+    "eyebrow": "Du premier échange à votre autonomie",
     "title": "Votre projet en 5 étapes",
     "study": {
       "title": "Étude précise, sur 100 % des projets",
@@ -194,6 +196,36 @@
         "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 07 63 54 51 44.",
         "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
       }
+    }
+  },
+  "flow": {
+    "stageTitle": "Du soleil à votre quotidien.",
+    "scrollCue": "Faites défiler pour suivre l'énergie",
+    "eyebrow": "Une énergie, tout un écosystème",
+    "title": "Le soleil devient",
+    "titleAccent": "votre énergie.",
+    "lead": "Votre toiture produit. Votre batterie conserve. Votre maison et votre voiture en profitent. Nous pensons chaque équipement comme un ensemble.",
+    "signature": "Pensé pour votre quotidien",
+    "note": "Schéma de principe · chaque installation est dimensionnée après étude.",
+    "uses": {
+      "heatPump": {
+        "title": "Chauffer",
+        "description": "Pompe à chaleur"
+      },
+      "battery": {
+        "title": "Stocker",
+        "description": "Batterie solaire"
+      },
+      "evCharger": {
+        "title": "Recharger",
+        "description": "Mobilité électrique"
+      }
+    },
+    "phaseLabel": "Le parcours de votre énergie",
+    "phases": {
+      "produce": "Produire",
+      "store": "Stocker",
+      "use": "Consommer"
     }
   }
 }

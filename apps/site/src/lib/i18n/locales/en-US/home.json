@@ -42,6 +42,7 @@
     "listLabel": "Our partners' logos"
   },
   "solutions": {
+    "eyebrow": "Produce · Heat · Charge",
     "title": "Our solutions",
     "intro": "Three kinds of equipment, one team: we design, install, connect and maintain.",
     "discover": "Discover",
@@ -82,6 +83,7 @@
     }
   },
   "steps": {
+    "eyebrow": "From our first conversation to your energy independence",
     "title": "Your project in 5 steps",
     "study": {
       "title": "A detailed study for 100% of projects",
@@ -194,6 +196,36 @@
         "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 7 63 54 51 44.",
         "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 7 63 54 51 44."
       }
+    }
+  },
+  "flow": {
+    "stageTitle": "From sunlight to everyday life.",
+    "scrollCue": "Scroll to follow the energy",
+    "eyebrow": "One energy, a whole ecosystem",
+    "title": "Sunlight becomes",
+    "titleAccent": "your energy.",
+    "lead": "Your roof produces. Your battery stores. Your home and your car benefit. We design every piece of equipment as part of one system.",
+    "signature": "Designed for everyday life",
+    "note": "Concept diagram · every installation is sized after a detailed study.",
+    "uses": {
+      "heatPump": {
+        "title": "Heat",
+        "description": "Heat pump"
+      },
+      "battery": {
+        "title": "Store",
+        "description": "Solar battery"
+      },
+      "evCharger": {
+        "title": "Charge",
+        "description": "Electric mobility"
+      }
+    },
+    "phaseLabel": "Your energy journey",
+    "phases": {
+      "produce": "Produce",
+      "store": "Store",
+      "use": "Use"
     }
   }
 }

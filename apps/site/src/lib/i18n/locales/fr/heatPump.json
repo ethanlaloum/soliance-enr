@@ -5,9 +5,9 @@
   },
   "breadcrumb": "Pompe à chaleur",
   "hero": {
-    "eyebrow": "Chauffage · Climatisation · Eau chaude",
-    "title": "Le confort toute l'année, à la moitié du prix du fioul ou de l'électrique.",
-    "lead": "Pompe à chaleur air/air, air/eau ou ballon thermodynamique : nous dimensionnons sur étude, posons avec nos techniciens qualifiés QualiPac et montons vos dossiers MaPrimeRénov' et CEE.",
+    "eyebrow": "Pompe à chaleur · Soliance",
+    "title": "Le confort commence",
+    "lead": "Chauffer, rafraîchir, vivre mieux. Une pompe à chaleur dimensionnée pour votre maison et installée par nos techniciens QualiPac, sur la Côte d’Azur.",
     "requestStudy": "Demander une étude gratuite",
     "computeAid": "Calculer mes aides",
     "trustLabel": "Nos engagements",
@@ -16,7 +16,7 @@
       "daikin": "Partenaire installateur Daikin",
       "installation": "Pose en 1 à 2 jours"
     },
-    "imageAlt": "Unité extérieure Daikin Altherma posée par Soliance",
+    "imageAlt": "Illustration d’une pompe à chaleur graphite intégrée à une villa contemporaine en pierre claire",
     "statsLabel": "La pompe à chaleur en chiffres",
     "stats": {
       "consumption": {
@@ -31,7 +31,12 @@
         "value": "A+++",
         "label": "classe énergétique des gammes installées"
       }
-    }
+    },
+    "titleAccent": "dans l’air.",
+    "discover": "Comprendre en 3 étapes",
+    "imageCaption": "Illustration d’un habitat équipé · confort toute l’année",
+    "baseline": "Une énergie présente dans l’air.",
+    "baselineEnd": "Un confort pensé pour vous."
   },
   "solutions": {
     "title": "Trois solutions, un même savoir-faire",
@@ -74,7 +79,7 @@
     "eyebrow": "Pourquoi Daikin",
     "title": "Une marque que nous posons et dépannons depuis le début.",
     "description": "Nous installons principalement des pompes à chaleur Daikin : fiabilité, pièces disponibles, pilotage à distance et silence de fonctionnement. Nos techniciens sont formés à la gamme et gèrent la garantie fabricant à votre place.",
-    "caption": "Photo : installation réelle Soliance — module hydraulique Altherma et ballon thermodynamique. Autres marques possibles selon l'étude. [Mention partenariat / logo Daikin sous réserve d'accord d'usage]",
+    "caption": "Photo : installation réelle Soliance — module hydraulique Altherma et ballon thermodynamique. Autres marques possibles selon l'étude.",
     "imageAlt": "Installation Soliance : module hydraulique Daikin Altherma et ballon thermodynamique dans un garage",
     "features": {
       "silence": {
@@ -192,5 +197,40 @@
     "title": "Étude thermique et simulation d'aides gratuites.",
     "description": "Un technicien passe chez vous, mesure, et vous remet un devis fixe avec les aides déduites.",
     "button": "Demander mon étude"
+  },
+  "explainer": {
+    "eyebrow": "L’énergie invisible, révélée",
+    "title": "De l’air extérieur.",
+    "titleAccent": "À votre confort intérieur.",
+    "skip": "Passer aux solutions",
+    "diagramNote": "Schéma de principe air/eau · composants simplifiés",
+    "source": "Comprendre avec l’ADEME",
+    "scrollHint": "Continuez à défiler pour suivre l’énergie",
+    "parts": {
+      "fan": "Ventilateur",
+      "evaporator": "Évaporateur",
+      "compressor": "Compresseur",
+      "condenser": "Échangeur"
+    },
+    "phases": {
+      "capture": {
+        "label": "Capter",
+        "title": "L’air a déjà de la chaleur.",
+        "description": "Le ventilateur fait circuler l’air extérieur. L’évaporateur récupère sa chaleur et la transmet au fluide frigorigène, même lorsqu’il fait frais.",
+        "chip": "Une ressource renouvelable"
+      },
+      "compress": {
+        "label": "Transformer",
+        "title": "La température monte.",
+        "description": "Le compresseur, alimenté en électricité, comprime le fluide. Sa température augmente : l’énergie captée devient utile pour le chauffage.",
+        "chip": "Un cycle thermodynamique"
+      },
+      "comfort": {
+        "label": "Restituer",
+        "title": "La maison reçoit la chaleur.",
+        "description": "L’échangeur transmet la chaleur à l’eau de vos radiateurs ou de votre plancher chauffant. Le fluide se détend, puis le cycle recommence.",
+        "chip": "Votre chauffage existant, réinventé"
+      }
+    }
   }
 }

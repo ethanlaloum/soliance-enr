@@ -165,5 +165,56 @@
     "title": "Technical visit and fixed quote within 48 h.",
     "body": "Our electrician checks the switchboard, the power supply and the cable route, then gives you an all-inclusive quote.",
     "button": "Request my quote"
+  },
+  "premium": {
+    "title": "Fill up at home.",
+    "accent": "In tune with the sun.",
+    "lead": "An elegant charger with controlled power. Our IRVE electricians install a solution suited to your vehicle, your home and your solar production, when available.",
+    "imageAlt": "Illustration of an electric vehicle charging outside a contemporary home at dusk",
+    "caption": "Electric mobility, at home in your architecture.",
+    "learn": "Explore smart charging"
+  },
+  "explainer": {
+    "scroll": "Scroll to explore",
+    "diagramNote": "Principle diagram · illustrative components",
+    "labels": {
+      "glass": "Protective glass",
+      "cells": "Photovoltaic cells",
+      "frame": "Aluminium structure",
+      "inverter": "Hybrid inverter",
+      "battery": "Home battery",
+      "home": "Your home",
+      "shell": "Protective shell",
+      "electronics": "Control electronics",
+      "connector": "Type 2 connector",
+      "solar": "Solar production",
+      "meter": "Power measurement",
+      "vehicle": "Vehicle battery"
+    },
+    "eyebrow": "Charging, designed as an ecosystem",
+    "title": "Plug in.",
+    "accent": "Let energy do the rest.",
+    "source": "Principles · Wallbox",
+    "chapters": {
+      "capture": {
+        "label": "Connect",
+        "title": "One connection. A whole system.",
+        "body": "The shell protects electronics that communicate with the vehicle. The Type 2 connector links the charger to the car for controlled charging.",
+        "detail": "The station controls power; the vehicle’s onboard charger converts current for its battery."
+      },
+      "control": {
+        "label": "Manage",
+        "title": "The right power at the right time.",
+        "body": "With a compatible meter and control system, the charger adjusts its power to available energy. Solar mode prioritises surplus production from your panels.",
+        "detail": "Grid power can supplement charging according to your chosen mode and available sunlight."
+      },
+      "use": {
+        "label": "Drive",
+        "title": "Your energy hits the road.",
+        "body": "Energy reaches your vehicle’s battery. Schedule charging around departures, off-peak hours or your solar production.",
+        "detail": "Charging sized around your installation and everyday habits."
+      }
+    },
+    "skip": "Skip to solutions"
   }
 }

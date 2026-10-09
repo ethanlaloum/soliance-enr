@@ -165,5 +165,56 @@
     "title": "Visite technique et devis fixe sous 48 h.",
     "body": "Notre électricien vérifie le tableau, la puissance et le cheminement, puis vous remet un devis tout compris.",
     "button": "Demander mon devis"
+  },
+  "premium": {
+    "title": "Le plein chez vous.",
+    "accent": "Au rythme du soleil.",
+    "lead": "Une borne élégante, une charge maîtrisée. Nos électriciens IRVE installent la solution adaptée à votre véhicule, à votre maison et à votre production solaire, quand vous en disposez.",
+    "imageAlt": "Illustration d’un véhicule électrique en charge devant une maison contemporaine au crépuscule",
+    "caption": "La mobilité électrique, à sa place chez vous.",
+    "learn": "Découvrir la charge intelligente"
+  },
+  "explainer": {
+    "scroll": "Faites défiler pour découvrir",
+    "diagramNote": "Schéma de principe · composants illustratifs",
+    "labels": {
+      "glass": "Verre de protection",
+      "cells": "Cellules photovoltaïques",
+      "frame": "Structure aluminium",
+      "inverter": "Onduleur hybride",
+      "battery": "Batterie domestique",
+      "home": "Votre maison",
+      "shell": "Coque protectrice",
+      "electronics": "Électronique de pilotage",
+      "connector": "Connecteur Type 2",
+      "solar": "Production solaire",
+      "meter": "Mesure de puissance",
+      "vehicle": "Batterie du véhicule"
+    },
+    "eyebrow": "La recharge, pensée comme un écosystème",
+    "title": "Brancher.",
+    "accent": "Laisser l’énergie agir.",
+    "source": "Principes · Wallbox",
+    "chapters": {
+      "capture": {
+        "label": "Connecter",
+        "title": "Une connexion, tout un système.",
+        "body": "La coque protège l’électronique qui dialogue avec le véhicule. Le connecteur Type 2 relie la borne à la voiture pour une recharge contrôlée.",
+        "detail": "La borne contrôle l’alimentation ; le chargeur embarqué du véhicule convertit le courant pour sa batterie."
+      },
+      "control": {
+        "label": "Piloter",
+        "title": "La bonne puissance, au bon moment.",
+        "body": "Avec un compteur et un pilotage compatibles, la borne ajuste sa puissance à l’énergie disponible. En mode solaire, elle privilégie le surplus de vos panneaux.",
+        "detail": "Le réseau peut compléter la charge selon le mode choisi et la disponibilité du soleil."
+      },
+      "use": {
+        "label": "Rouler",
+        "title": "Votre énergie prend la route.",
+        "body": "L’énergie rejoint la batterie de votre véhicule. Vous programmez la charge selon vos départs, les heures creuses ou votre production solaire.",
+        "detail": "Une recharge dimensionnée pour votre installation et vos habitudes."
+      }
+    },
+    "skip": "Passer aux solutions"
   }
 }
