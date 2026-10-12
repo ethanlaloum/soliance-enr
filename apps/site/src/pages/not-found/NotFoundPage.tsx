@@ -38,7 +38,7 @@ export const NotFoundPage = () => {
           <ErrorCode className="text-[104px] motion-safe:animate-fade-up lg:hidden" />
           <div className="flex flex-col gap-4 lg:gap-6">
             <p className={cn(eyebrowClassName, 'motion-safe:animate-fade-up')}>{t('notFound.eyebrow')}</p>
-            <h1 className="text-4xl font-bold leading-[1.08] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.05]">
+            <h1 className="text-4xl font-medium tracking-[-0.05em] leading-[1.08] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.05]">
               {t('notFound.title')}
             </h1>
             <p className="max-w-[560px] text-base leading-normal text-slate-light motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-xl lg:leading-[1.55]">
@@ -64,7 +64,7 @@ export const NotFoundPage = () => {
         </div>
       </section>
       <section aria-labelledby="not-found-destinations" className={cn(containerClassName, 'flex flex-col gap-5 py-12 lg:gap-8 lg:py-[88px]')}>
-        <h2 id="not-found-destinations" className="text-2xl font-bold tracking-[-0.02em] lg:text-[34px]">
+        <h2 id="not-found-destinations" className="text-2xl font-medium tracking-[-0.035em] lg:text-[34px]">
           {t('notFound.destinationsTitle')}
         </h2>
         <ul className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">

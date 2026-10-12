@@ -25,7 +25,7 @@ export const ReferralHeroSection = () => {
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/85 motion-safe:animate-fade-up lg:text-sm lg:tracking-[1.5px]">{t('hero.eyebrow')}</p>
             <h1
               id="referral-hero-title"
-              className="text-[36px] font-bold leading-[1.08] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[46px] lg:leading-[1.05] xl:text-[52px] desktop:text-[58px]"
+              className="text-[36px] font-medium tracking-[-0.05em] leading-[1.08] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[46px] lg:leading-[1.05] xl:text-[52px] desktop:text-[58px]"
             >
               {t('hero.title')}
             </h1>

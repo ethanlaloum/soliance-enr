@@ -78,7 +78,7 @@ export const GlossarySection = () => {
       className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-14 pt-8 lg:gap-6 lg:pb-20 lg:pt-10')}
     >
       <div data-reveal className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
-        <h2 id="glossary-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="glossary-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
           {t('glossary.title')}
         </h2>
         <p className="text-[13px] text-slate">{t('glossary.updated')}</p>

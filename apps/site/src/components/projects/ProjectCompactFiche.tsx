@@ -23,7 +23,7 @@ export const ProjectCompactFiche = ({ detail }: { detail: ProjectCompactDetail }
       />
       <div className="flex flex-col justify-center gap-4 p-5 sm:p-8 lg:p-11">
         <p className="text-xs font-semibold uppercase tracking-[1px] text-solar lg:text-[13px]">{t(`${prefix}.eyebrow`)}</p>
-        <h1 id="project-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[30px]">
+        <h1 id="project-title" className="text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[30px]">
           {t(`${prefix}.title`)}
         </h1>
         <p className="text-[15px] leading-[1.55] text-slate-ink">{t(`${prefix}.summary`)}</p>

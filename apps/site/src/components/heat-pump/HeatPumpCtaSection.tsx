@@ -16,7 +16,7 @@ export const HeatPumpCtaSection = () => {
         className="flex flex-col gap-6 rounded-[20px] bg-heat px-6 py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-[52px] lg:py-11"
       >
         <div className="flex flex-col gap-1.5">
-          <h2 id="heat-pump-cta-title" className="text-2xl font-bold leading-tight text-white lg:text-[30px]">
+          <h2 id="heat-pump-cta-title" className="text-2xl font-medium tracking-[-0.035em] leading-tight text-white lg:text-[30px]">
             {t('cta.title')}
           </h2>
           <p className="text-[15px] leading-normal text-heat-sky lg:text-base">{t('cta.description')}</p>

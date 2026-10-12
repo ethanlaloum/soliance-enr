@@ -14,7 +14,7 @@ export type LegalDocumentKey = 'legalNotice' | 'privacy';
 
 const emailPattern = /([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
 
-const sectionTitleClassName = 'text-[22px] font-bold tracking-[-0.01em] lg:text-[28px]';
+const sectionTitleClassName = 'text-[22px] font-medium tracking-[-0.035em] lg:text-[28px]';
 const paragraphClassName = 'text-base leading-[1.6] text-slate-text';
 const linkClassName = 'font-semibold text-solar hover:text-solar-dark';
 
@@ -85,7 +85,7 @@ export const LegalDocument = ({ documentKey }: { documentKey: LegalDocumentKey }
         <Breadcrumb items={[{ label: t(`${documentKey}.breadcrumb`) }]} tone="light" className="motion-safe:animate-fade-up" />
         <h1
           id={`${documentKey}-title`}
-          className="text-[34px] font-bold leading-[1.1] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px]"
+          className="text-[34px] font-medium tracking-[-0.05em] leading-[1.1] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px]"
         >
           {t(`${documentKey}.title`)}
         </h1>

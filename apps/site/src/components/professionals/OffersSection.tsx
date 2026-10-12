@@ -42,7 +42,7 @@ export const OffersSection = () => {
 
   return (
     <section aria-labelledby="offers-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-2 pt-10 lg:gap-8 lg:pb-16 lg:pt-20')}>
-      <h2 id="offers-title" data-reveal className="text-[28px] font-bold tracking-[-0.02em] lg:text-[40px]">
+      <h2 id="offers-title" data-reveal className="text-[28px] font-medium tracking-[-0.035em] lg:text-[40px]">
         {t('offers.title')}
       </h2>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

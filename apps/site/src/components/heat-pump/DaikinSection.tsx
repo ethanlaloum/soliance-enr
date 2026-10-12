@@ -13,7 +13,7 @@ export const DaikinSection = () => {
       <div className="grid items-center gap-8 rounded-[20px] bg-heat-surface px-5 py-8 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:rounded-3xl lg:px-16 lg:py-14">
         <div data-reveal className="flex flex-col gap-3.5 lg:gap-4">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-heat lg:text-sm lg:tracking-[1.5px]">{t('daikin.eyebrow')}</p>
-          <h2 id="heat-pump-daikin-title" className="text-[26px] font-bold leading-tight tracking-[-0.02em] lg:text-4xl">
+          <h2 id="heat-pump-daikin-title" className="text-[26px] font-medium tracking-[-0.035em] leading-tight lg:text-4xl">
             {t('daikin.title')}
           </h2>
           <p className="text-[15px] leading-[1.55] text-slate-ink lg:text-base">{t('daikin.description')}</p>

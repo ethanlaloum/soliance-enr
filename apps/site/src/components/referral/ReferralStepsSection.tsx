@@ -10,7 +10,7 @@ export const ReferralStepsSection = () => {
 
   return (
     <section aria-labelledby="referral-steps-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-10 pt-10 lg:gap-8 lg:pb-14 lg:pt-20')}>
-      <h2 id="referral-steps-title" data-reveal className="text-[28px] font-bold tracking-[-0.02em] lg:text-[40px]">
+      <h2 id="referral-steps-title" data-reveal className="text-[28px] font-medium tracking-[-0.035em] lg:text-[40px]">
         {t('steps.title')}
       </h2>
       <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

@@ -21,7 +21,7 @@ export const StudyCtaSection = () => {
       >
         <div className="flex flex-col gap-2.5">
           <p className="text-xs font-semibold uppercase tracking-[1.5px] text-white lg:text-[13px]">{t('studyCta.eyebrow')}</p>
-          <h2 id="study-cta-title" className="text-2xl font-bold leading-tight tracking-[-0.02em] text-white lg:text-[34px]">
+          <h2 id="study-cta-title" className="text-2xl font-medium tracking-[-0.035em] leading-tight text-white lg:text-[34px]">
             {t('studyCta.title')}
           </h2>
           <p className="text-[15px] leading-[1.55] text-white lg:text-base">{t('studyCta.lead')}</p>

@@ -17,7 +17,7 @@ export const WhySolianceSection = () => {
       >
         <div data-reveal className="flex flex-col gap-4">
           <p className={eyebrowClassName}>{t('why.eyebrow')}</p>
-          <h2 id="why-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[38px]">
+          <h2 id="why-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[38px]">
             {t('why.title')}
           </h2>
           <p className="text-base leading-[1.55] text-slate-ink lg:text-[17px]">{t('why.body')}</p>

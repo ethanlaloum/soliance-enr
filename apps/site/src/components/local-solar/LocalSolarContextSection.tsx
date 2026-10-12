@@ -20,7 +20,7 @@ export const LocalSolarContextSection = ({ area, values }: LocalSolarContextSect
 
   return (
     <section aria-labelledby="local-solar-context-title" className={cn(containerClassName, 'flex flex-col gap-6 pb-10 lg:gap-8 lg:pb-20')}>
-      <h2 id="local-solar-context-title" data-reveal className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]">
+      <h2 id="local-solar-context-title" data-reveal className="text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[36px]">
         {t('context.title', values)}
       </h2>
       <ul className="grid gap-4 md:grid-cols-3 lg:gap-5">

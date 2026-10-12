@@ -19,6 +19,8 @@ type EnergyPremiumHeroProps = {
   accent: string;
   lead: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   imageAlt: string;
   primaryLabel: string;
   secondaryLabel: string;
@@ -29,7 +31,7 @@ type EnergyPremiumHeroProps = {
 };
 
 export const EnergyPremiumHero = ({
-  variant, breadcrumb, eyebrow, title, accent, lead, image, imageAlt,
+  variant, breadcrumb, eyebrow, title, accent, lead, image, imageWidth, imageHeight, imageAlt,
   primaryLabel, secondaryLabel, secondaryHref, caption, learnLabel, trust,
 }: EnergyPremiumHeroProps) => {
   const root = useRef<HTMLElement>(null);
@@ -53,7 +55,7 @@ export const EnergyPremiumHero = ({
   return (
     <section ref={root} className={`energy-hero energy-hero--${variant}`} aria-labelledby={`${variant}-premium-title`}>
       <div className="energy-hero__photograph" aria-hidden="true">
-        <img src={image} alt="" width={1672} height={941} fetchPriority="high" />
+        <img src={image} alt="" width={imageWidth} height={imageHeight} fetchPriority="high" />
       </div>
       <div className="energy-hero__veil" />
       <div className="energy-hero__inner">

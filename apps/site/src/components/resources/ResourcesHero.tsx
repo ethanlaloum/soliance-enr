@@ -11,7 +11,7 @@ export const ResourcesHero = () => {
       <Breadcrumb items={[{ label: t('hero.breadcrumb') }]} tone="light" className="motion-safe:animate-fade-up" />
       <h1
         id="resources-title"
-        className="text-[34px] font-bold leading-[1.1] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px] lg:leading-[1.1]"
+        className="text-[34px] font-medium tracking-[-0.05em] leading-[1.1] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px] lg:leading-[1.1]"
       >
         {t('hero.title')}
       </h1>

@@ -17,7 +17,7 @@ export const SolarCtaSection = () => {
         className="flex flex-col gap-5 rounded-2xl bg-night p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:rounded-[20px] lg:px-[52px] lg:py-11"
       >
         <div>
-          <h2 id="solar-cta-title" className="text-[22px] font-bold leading-[1.2] text-white lg:text-[30px]">
+          <h2 id="solar-cta-title" className="text-[22px] font-medium tracking-[-0.035em] leading-[1.2] text-white lg:text-[30px]">
             {t('cta.title')}
           </h2>
           <p className="mt-1.5 text-[15px] text-slate-light lg:text-base">{t('cta.description')}</p>

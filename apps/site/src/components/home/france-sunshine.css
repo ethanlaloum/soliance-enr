@@ -38,7 +38,7 @@
 .sunshine-section__title {
   margin: 0;
   font-size: clamp(42px, 4.5vw, 66px);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -.045em;
   line-height: 1.06;
 }

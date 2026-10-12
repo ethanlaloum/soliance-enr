@@ -30,7 +30,7 @@ export const FaqSection = () => {
 
   return (
     <section id="faq" aria-labelledby="faq-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-8 lg:gap-6 lg:pb-12 lg:pt-10')}>
-      <h2 id="faq-title" data-reveal className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
+      <h2 id="faq-title" data-reveal className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
         {t('faq.title')}
       </h2>
       <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start lg:gap-8">

@@ -18,7 +18,7 @@ export const SolarMethodSection = () => {
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div>
             <p className={eyebrowClassName}>{t('method.eyebrow')}</p>
-            <h2 id="solar-method-title" className="mt-2 text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]">
+            <h2 id="solar-method-title" className="mt-2 text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[36px]">
               {t('method.title')}
             </h2>
           </div>

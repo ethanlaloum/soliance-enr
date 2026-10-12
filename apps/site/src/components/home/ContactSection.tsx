@@ -16,7 +16,7 @@ export const ContactSection = () => {
       className={cn(containerClassName, 'grid scroll-mt-6 gap-8 pb-6 pt-9 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:pb-[72px] lg:pt-[88px]')}
     >
       <div data-reveal className="flex flex-col gap-4">
-        <h2 id="contact-title" className="text-[28px] font-bold tracking-[-0.02em] lg:text-[40px]">
+        <h2 id="contact-title" className="text-[28px] font-medium tracking-[-0.035em] lg:text-[40px]">
           {t('contact.title')}
         </h2>
         <p className="text-base leading-[1.55] text-slate-ink lg:text-[17px]">{t('contact.lead')}</p>

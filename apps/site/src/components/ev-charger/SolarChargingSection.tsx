@@ -19,7 +19,7 @@ export const SolarChargingSection = () => {
       >
         <div className="flex flex-col gap-4">
           <p className={cn(eyebrowClassName, 'text-solar')}>{t('solarCharging.eyebrow')}</p>
-          <h2 id="solar-charging-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[38px]">
+          <h2 id="solar-charging-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[38px]">
             {t('solarCharging.title')}
           </h2>
           <p className="text-[15px] leading-[1.55] text-slate-light lg:text-base">{t('solarCharging.body')}</p>

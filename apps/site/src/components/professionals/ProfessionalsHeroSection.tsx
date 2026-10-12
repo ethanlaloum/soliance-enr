@@ -20,7 +20,7 @@ export const ProfessionalsHeroSection = () => {
           <p className={cn(eyebrowClassName, 'motion-safe:animate-fade-up')}>{t('hero.eyebrow')}</p>
           <h1
             id="professionals-hero-title"
-            className="text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.06]"
+            className="text-[34px] font-medium tracking-[-0.05em] leading-[1.08] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.06]"
           >
             {t('hero.title')}
           </h1>

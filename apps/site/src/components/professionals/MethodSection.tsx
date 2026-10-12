@@ -13,7 +13,7 @@ export const MethodSection = () => {
   return (
     <div className={cn(containerClassName, 'grid gap-8 pb-2 pt-12 lg:grid-cols-2 lg:gap-14 lg:pb-16 lg:pt-20')}>
       <section aria-labelledby="method-title" className="flex flex-col gap-5">
-        <h2 id="method-title" data-reveal className="text-[28px] font-bold tracking-[-0.02em] lg:text-4xl">
+        <h2 id="method-title" data-reveal className="text-[28px] font-medium tracking-[-0.035em] lg:text-4xl">
           {t('method.title')}
         </h2>
         <ol className="flex flex-col gap-3.5 lg:gap-3">

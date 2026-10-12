@@ -14,7 +14,7 @@ export const SimulatorHeader = ({ step }: SimulatorHeaderProps) => {
   return (
     <div className={cn(containerClassName, 'flex flex-col items-center gap-3 pb-6 pt-9 text-center lg:pb-8 lg:pt-16')}>
       <p className={cn(eyebrowClassName, 'motion-safe:animate-fade-up motion-safe:[animation-delay:80ms]')}>{t('hero.eyebrow')}</p>
-      <h1 className="max-w-[900px] text-[30px] font-bold leading-[1.12] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-5xl lg:leading-[1.15]">
+      <h1 className="max-w-[900px] text-[30px] font-medium tracking-[-0.05em] leading-[1.12] motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-5xl lg:leading-[1.15]">
         {t('hero.title')}
       </h1>
       <SimulatorStepper step={step} className="mt-2 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] lg:mt-3" />

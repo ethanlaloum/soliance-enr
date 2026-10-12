@@ -20,7 +20,7 @@ export const BusinessChargingSection = () => {
     >
       <div data-reveal className="flex max-w-[760px] flex-col gap-2.5">
         <p className={cn(eyebrowClassName, 'text-solar-dark')}>{t('business.eyebrow')}</p>
-        <h2 id="business-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[38px]">
+        <h2 id="business-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[38px]">
           {t('business.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-text lg:text-base">{t('business.body')}</p>

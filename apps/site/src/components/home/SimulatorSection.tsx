@@ -20,7 +20,7 @@ export const SimulatorSection = () => {
         <div className="home-simulator__halo" data-simulator-halo aria-hidden="true" />
         <div data-reveal className="relative flex flex-col gap-3 lg:gap-[18px]">
           <p className={eyebrowClassName}>{t('simulator.eyebrow')}</p>
-          <h2 id="simulator-title" className="text-2xl font-bold leading-[1.15] text-white lg:text-[40px] lg:tracking-[-0.02em]">
+          <h2 id="simulator-title" className="text-2xl font-medium tracking-[-0.035em] leading-[1.15] text-white lg:text-[40px]">
             {t('simulator.title')}
           </h2>
           <p className="text-sm leading-normal text-slate-light lg:text-[17px] lg:leading-[1.55]">

@@ -67,7 +67,7 @@ const SolisInvestCaseStudy = () => {
       </div>
       <div className="flex flex-col justify-center gap-4 p-6 lg:p-12">
         <p className={eyebrowClassName}>{t('caseStudies.solisInvest.eyebrow')}</p>
-        <h2 id="solis-invest-title" className="text-2xl font-bold leading-tight tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="solis-invest-title" className="text-2xl font-medium tracking-[-0.035em] leading-tight lg:text-[32px]">
           {t('caseStudies.solisInvest.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-light">{t('caseStudies.solisInvest.description')}</p>
@@ -100,7 +100,7 @@ const SeranonSparCaseStudy = () => {
       </div>
       <div className="flex flex-col justify-center gap-4 p-6 lg:p-12">
         <p className={eyebrowClassName}>{t('caseStudies.seranonSpar.eyebrow')}</p>
-        <h2 id="seranon-spar-title" className="text-2xl font-bold leading-tight tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="seranon-spar-title" className="text-2xl font-medium tracking-[-0.035em] leading-tight lg:text-[32px]">
           {t('caseStudies.seranonSpar.title')}
         </h2>
         <p className="text-[15px] leading-[1.55] text-slate-ink">{t('caseStudies.seranonSpar.description')}</p>

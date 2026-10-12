@@ -17,7 +17,7 @@ export const HeatPumpProjectsSection = () => {
   return (
     <section aria-labelledby="heat-pump-projects-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-4 pt-8 lg:gap-6 lg:pb-16 lg:pt-0')}>
       <div data-reveal className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-        <h2 id="heat-pump-projects-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="heat-pump-projects-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
           {t('projects.title')}
         </h2>
         <Link to={paths.projects} className="group text-[15px] font-semibold text-heat hover:text-night">

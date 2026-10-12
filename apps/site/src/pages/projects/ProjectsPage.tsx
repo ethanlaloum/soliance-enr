@@ -38,7 +38,7 @@ export const ProjectsPage = () => {
         <Breadcrumb items={[{ label: t('portfolio.breadcrumb') }]} tone="light" className="motion-safe:animate-fade-up" />
         <h1
           id="projects-title"
-          className="text-[34px] font-bold leading-[1.1] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px] lg:leading-[1.08]"
+          className="text-[34px] font-medium tracking-[-0.05em] leading-[1.1] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px] lg:leading-[1.08]"
         >
           {t('portfolio.title')}
         </h1>

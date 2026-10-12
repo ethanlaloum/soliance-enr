@@ -7,7 +7,7 @@ import { containerClassName } from '@/components/home/containerClassName';
 const aidKeys = ['taxCredit', 'reducedVat', 'advenir', 'rightToPlug'] as const;
 const faqKeys = ['reinforcedSocket', 'subscription', 'timeline', 'compatibility', 'condominium'] as const;
 
-const titleClassName = 'text-[26px] font-bold tracking-[-0.02em] lg:text-[36px]';
+const titleClassName = 'text-[26px] font-medium tracking-[-0.035em] lg:text-[36px]';
 
 export const AidsAndFaqSection = () => {
   const { t } = useTranslation('evCharger');

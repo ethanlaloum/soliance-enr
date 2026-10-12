@@ -32,7 +32,7 @@ export const SolarSizesSection = () => {
 
   return (
     <section aria-labelledby="solar-sizes-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-10 pt-12 lg:gap-8 lg:pb-16 lg:pt-20')}>
-      <h2 id="solar-sizes-title" data-reveal className="text-[28px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[40px]">
+      <h2 id="solar-sizes-title" data-reveal className="text-[28px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[40px]">
         {t('sizes.title')}
       </h2>
       <ul className="grid gap-4 lg:grid-cols-3 lg:gap-6">

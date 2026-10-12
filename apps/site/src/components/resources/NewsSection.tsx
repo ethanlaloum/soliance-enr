@@ -53,7 +53,7 @@ export const NewsSection = () => {
   return (
     <section id="news" aria-labelledby="news-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-7 lg:gap-6 lg:pb-12 lg:pt-8')}>
       <div data-reveal className="flex flex-col gap-3.5 lg:flex-row lg:items-end lg:justify-between">
-        <h2 id="news-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="news-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
           {t('news.title')}
         </h2>
         <div role="group" aria-label={t('news.filters.label')} className="flex flex-wrap gap-2 text-[13px]">

@@ -41,7 +41,7 @@ export const LocalSolarProductionSection = ({ area, values }: LocalSolarProducti
     >
       <div data-reveal className="flex flex-col gap-4">
         <p className={eyebrowClassName}>{t('production.eyebrow', values)}</p>
-        <h2 id="local-solar-production-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]">
+        <h2 id="local-solar-production-title" className="text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[36px]">
           {t('production.title', values)}
         </h2>
         <p className="text-[15px] leading-[1.6] text-slate-ink lg:text-base">{t('production.body', values)}</p>

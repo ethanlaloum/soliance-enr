@@ -9,7 +9,7 @@ import type { LocalSolarTextValues } from '@/components/local-solar/localSolarTe
 
 const faqKeys = ['production', 'permit', 'coverage', 'aids'] as const;
 
-const titleClassName = 'text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[36px]';
+const titleClassName = 'text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[36px]';
 
 type LocalSolarFaqSectionProps = {
   area: ServiceArea;

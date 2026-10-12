@@ -12,6 +12,8 @@ export const EvChargerHeroSection = () => {
     accent={t('premium.accent')}
     lead={t('premium.lead')}
     image="/images/solution-ev-charger.webp"
+    imageWidth={900}
+    imageHeight={900}
     imageAlt={t('premium.imageAlt')}
     primaryLabel={t('hero.requestQuote')}
     secondaryLabel={t('hero.businessSolutions')}

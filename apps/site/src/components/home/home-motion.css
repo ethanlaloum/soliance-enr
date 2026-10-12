@@ -75,10 +75,6 @@
 .energy-story__title > span {
   display: block;
   color: var(--home-solar);
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -.05em;
 }
 
 .energy-story__lead {
@@ -170,7 +166,7 @@
 
 @media (max-width: 767px) {
   .energy-story__system { display: flex; min-height: 100svh; flex-direction: column; justify-content: center; padding-block: 36px; }
-  .energy-story__mobile-heading { display: block; margin-bottom: 26px; color: var(--home-solar); font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-style: italic; letter-spacing: -.03em; text-align: center; }
+  .energy-story__mobile-heading { display: block; margin-bottom: 26px; color: var(--home-solar); font-size: 26px; font-weight: 500; letter-spacing: -.035em; text-align: center; }
   .energy-diagram { flex-shrink: 0; }
 }
 

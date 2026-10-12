@@ -189,7 +189,7 @@ export const HeroSection = () => {
               <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-solar" />
               {t('hero.eyebrowShort')}
             </p>
-            <h1 id="home-hero-title" className="mt-5 max-w-[620px] text-[38px] font-bold leading-[1.08] tracking-[-0.035em] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] sm:text-[48px] lg:mt-6 lg:text-[58px] xl:text-[64px]">
+            <h1 id="home-hero-title" className="mt-5 max-w-[620px] text-[38px] font-medium tracking-[-0.05em] leading-[1.08] text-white motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] sm:text-[48px] lg:mt-6 lg:text-[58px] xl:text-[64px]">
               {t('hero.title')}
             </h1>
           </div>

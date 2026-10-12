@@ -72,7 +72,7 @@ export const SchemesSection = () => {
       <div data-reveal className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
         <div className="flex flex-col gap-2">
           <p className={eyebrowClassName}>{t('schemes.eyebrow')}</p>
-          <h2 id="schemes-title" className="text-[28px] font-bold leading-tight tracking-[-0.02em] lg:text-[40px]">
+          <h2 id="schemes-title" className="text-[28px] font-medium tracking-[-0.035em] leading-tight lg:text-[40px]">
             {t('schemes.title')}
           </h2>
         </div>

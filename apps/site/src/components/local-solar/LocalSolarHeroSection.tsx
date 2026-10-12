@@ -30,7 +30,7 @@ export const LocalSolarHeroSection = ({ area, values }: LocalSolarHeroSectionPro
         </p>
         <h1
           id="local-solar-hero-title"
-          className="text-[34px] font-bold leading-[1.08] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.06]"
+          className="text-[34px] font-medium tracking-[-0.05em] leading-[1.08] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[56px] lg:leading-[1.06]"
         >
           {t('hero.title', values)}
         </h1>

@@ -11,7 +11,9 @@ export const SolarHeroSection = () => {
     title={t('premium.title')}
     accent={t('premium.accent')}
     lead={t('premium.lead')}
-    image="/images/hero-villa-premium.webp"
+    image="/images/solar/hero-roquebrune-villa.webp"
+    imageWidth={1280}
+    imageHeight={720}
     imageAlt={t('premium.imageAlt')}
     primaryLabel={t('hero.requestStudy')}
     secondaryLabel={t('hero.simulate')}

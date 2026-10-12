@@ -12,7 +12,7 @@ export const ReferralConditionsSection = () => {
   return (
     <div className={cn(containerClassName, 'grid items-start gap-8 pb-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:pb-16')}>
       <section aria-labelledby="referral-conditions-title" data-reveal className="flex flex-col gap-4 lg:gap-[18px]">
-        <h2 id="referral-conditions-title" className="text-[26px] font-bold tracking-[-0.02em] lg:text-[34px]">
+        <h2 id="referral-conditions-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[34px]">
           {t('conditions.title')}
         </h2>
         <p className="text-[15px] leading-[1.7] text-slate-ink">{t('conditions.text')}</p>

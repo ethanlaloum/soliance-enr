@@ -23,7 +23,7 @@ export const LocalSolarProjectsSection = ({ area, values }: LocalSolarProjectsSe
   return (
     <section aria-labelledby="local-solar-projects-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-10 lg:gap-6 lg:pb-16')}>
       <div data-reveal className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-        <h2 id="local-solar-projects-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[32px]">
+        <h2 id="local-solar-projects-title" className="text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[32px]">
           {t('projects.title', values)}
         </h2>
         <Link to={paths.projects} className="group shrink-0 text-[15px] font-semibold">

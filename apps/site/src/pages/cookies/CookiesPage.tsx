@@ -11,7 +11,7 @@ const closingSections = ['duration', 'withdraw', 'contact'] as const;
 const cookieRows = ['consent', 'ga', 'gaSession'] as const;
 const cookieColumns = ['name', 'purpose', 'duration', 'provider', 'consent'] as const;
 
-const sectionTitleClassName = 'text-[22px] font-bold tracking-[-0.01em] lg:text-[28px]';
+const sectionTitleClassName = 'text-[22px] font-medium tracking-[-0.035em] lg:text-[28px]';
 const paragraphClassName = 'text-base leading-[1.6] text-slate-text';
 
 export const CookiesPage = () => {
@@ -24,7 +24,7 @@ export const CookiesPage = () => {
         <Breadcrumb items={[{ label: t('breadcrumb') }]} tone="light" className="motion-safe:animate-fade-up" />
         <h1
           id="cookies-title"
-          className="text-[34px] font-bold leading-[1.1] tracking-[-0.02em] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px]"
+          className="text-[34px] font-medium tracking-[-0.05em] leading-[1.1] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px]"
         >
           {t('title')}
         </h1>

@@ -152,7 +152,7 @@ export const ProjectStoryFiche = ({ detail }: { detail: ProjectStoryDetail }) =>
       <div className="grid gap-8 p-5 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12 lg:px-12 lg:py-11">
         <div className="flex flex-col gap-4 lg:gap-[18px]">
           <p className={cn('text-xs font-semibold uppercase tracking-[1px] lg:text-[13px]', theme.accent)}>{t(`${prefix}.eyebrow`)}</p>
-          <h1 id="project-title" className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] lg:text-[34px]">
+          <h1 id="project-title" className="text-[26px] font-medium tracking-[-0.035em] leading-[1.15] lg:text-[34px]">
             {t(`${prefix}.title`)}
           </h1>
           <div className="grid gap-3 sm:grid-cols-2 lg:gap-3.5">
