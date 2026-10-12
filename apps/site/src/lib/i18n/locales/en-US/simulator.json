@@ -30,7 +30,7 @@
       "postalCodePlaceholder": "e.g. 06800",
       "roofArea": "Usable roof area",
       "roofAreaValue": "{{value}} m²",
-      "roofAreaHint": "Free, unshaded area: up to {{kwc}} kWp can be installed ({{panels}} panels of 500 W, about 5 m² per kWp).",
+      "roofAreaHint": "Free, unshaded area: up to {{panels}} panels of 500 W ({{kwc, number}} kWp, about 5 m² per kWp).",
       "orientation": "Orientation",
       "roofCovering": "Roof covering",
       "monthlyBill": "Monthly electricity bill",
@@ -70,7 +70,8 @@
     "errors": {
       "ADDRESS_REQUIRED": "Enter the installation address.",
       "POSTAL_CODE_INVALID": "Enter a 5-digit postal code.",
-      "MONTHLY_BILL_INVALID": "Enter an amount between €{{min}} and €{{max, number}} per month, for example €180."
+      "MONTHLY_BILL_INVALID": "Enter an amount between €{{min}} and €{{max, number}} per month, for example €180.",
+      "ANNUAL_CONSUMPTION_INVALID": "Enter a consumption between 1,000 and 50,000 kWh per year."
     },
     "back": "Back",
     "next": "Continue",
@@ -82,11 +83,14 @@
     "details": {
       "power": {
         "label": "Recommended power",
-        "value": "{{kwc}} kWp · {{panels}} panels"
+        "value": "{{kwc, number}} kWp · {{panels}} panels",
+        "customLabel": "Chosen power (advice: {{kwc, number}} kWp)"
       },
       "battery": {
         "label": "Recommended physical battery",
-        "value": "{{kwh}} kWh"
+        "value": "{{kwh}} kWh",
+        "customLabel": "Chosen battery",
+        "none": "No battery"
       },
       "consumption": {
         "label": "Estimated annual consumption",
@@ -99,7 +103,11 @@
     },
     "surplus": "Remaining surplus: ≈ {{kwh, number}} kWh per year, bought back at €{{tariff, number}}/kWh (≈ €{{value, number}}). It is not counted in the savings shown: we store it, we no longer sell it.",
     "price": "Price quoted after the study, fixed and detailed.",
-    "cta": "Get the free detailed study"
+    "cta": "Get the free detailed study",
+    "leadWithoutBattery": "Here is the estimate of your solar installation, without a battery. It will be refined during the detailed study, from your real consumption, your household profile and the features of your home.",
+    "profileNoticeAnnual": "This estimate relies on the yearly consumption you entered, spread according to your daytime presence and your equipment. With your real Linky readings and a visit of your roof, the free study gives your exact figures.",
+    "profileNoticeReference": "This estimate relies on a reference household spending €180 a month on electricity, as no bill was entered. The free study uses your real consumption and a visit of your roof.",
+    "surplusWithoutBattery": "Surplus: ≈ {{kwh, number}} kWh per year go to the grid, bought back at €{{tariff, number}}/kWh (≈ €{{value, number}}). A battery would let you use them in the evening."
   },
   "estimate": {
     "title": "Your estimate",
@@ -109,9 +117,12 @@
     "emptyHint": "Describe your roof in the next step to see a first estimate.",
     "referenceHint": "Provisional figures for a typical household (€{{bill}} of electricity per month): they get more precise with your consumption.",
     "power": {
-      "value": "{{kwc}} kWp + {{battery}} kWh",
+      "value": "{{kwc, number}} kWp + {{battery}} kWh",
       "label": "{{panels}} panels and battery recommended",
-      "emptyLabel": "panels and battery recommended"
+      "emptyLabel": "panels and battery recommended",
+      "valueWithoutBattery": "{{kwc, number}} kWp without battery",
+      "customLabel": "{{panels}} panels chosen",
+      "labelWithoutBattery": "{{panels}} panels, without battery"
     },
     "production": {
       "value": "{{value, number}} kWh",
@@ -123,7 +134,8 @@
     },
     "autonomy": {
       "value": "≈ {{value}}%",
-      "label": "self-sufficiency thanks to the battery"
+      "label": "self-sufficiency thanks to the battery",
+      "labelWithoutBattery": "self-sufficiency"
     },
     "monthValue": "{{month}}: {{value, number}} kWh",
     "caption": "Estimated monthly production, January to December · source PVGIS, regional average of {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
@@ -131,18 +143,54 @@
     "captionDepartment": "Estimated monthly production, January to December · PVGIS for the department ({{place}}): {{yield, number}} kWh/kWp/year · indicative estimate, refined during the free study.",
     "peakMonth": "Best month: {{month}}, {{value, number}} kWh",
     "months": {
-      "january": { "long": "January", "short": "J" },
-      "february": { "long": "February", "short": "F" },
-      "march": { "long": "March", "short": "M" },
-      "april": { "long": "April", "short": "A" },
-      "may": { "long": "May", "short": "M" },
-      "june": { "long": "June", "short": "J" },
-      "july": { "long": "July", "short": "J" },
-      "august": { "long": "August", "short": "A" },
-      "september": { "long": "September", "short": "S" },
-      "october": { "long": "October", "short": "O" },
-      "november": { "long": "November", "short": "N" },
-      "december": { "long": "December", "short": "D" }
+      "january": {
+        "long": "January",
+        "short": "J"
+      },
+      "february": {
+        "long": "February",
+        "short": "F"
+      },
+      "march": {
+        "long": "March",
+        "short": "M"
+      },
+      "april": {
+        "long": "April",
+        "short": "A"
+      },
+      "may": {
+        "long": "May",
+        "short": "M"
+      },
+      "june": {
+        "long": "June",
+        "short": "J"
+      },
+      "july": {
+        "long": "July",
+        "short": "J"
+      },
+      "august": {
+        "long": "August",
+        "short": "A"
+      },
+      "september": {
+        "long": "September",
+        "short": "S"
+      },
+      "october": {
+        "long": "October",
+        "short": "O"
+      },
+      "november": {
+        "long": "November",
+        "short": "N"
+      },
+      "december": {
+        "long": "December",
+        "short": "D"
+      }
     }
   },
   "capture": {
@@ -175,6 +223,38 @@
       "description": "The quote details equipment, installation, paperwork and first-year maintenance."
     }
   },
+  "house": {
+    "title": "Your house in 3D",
+    "hint": "Turn it with your finger or mouse",
+    "loading": "Building your house…",
+    "unavailable": "The 3D preview is not available on this device. Your installation:",
+    "legendLabel": "Items shown on the house",
+    "legend": {
+      "panels_one": "{{count}} panel · {{kwc, number}} kWp",
+      "panels_other": "{{count}} panels · {{kwc, number}} kWp",
+      "battery": "{{kwh}} kWh battery",
+      "roof": "Roof: {{covering}} · {{orientation}} · {{tilt}}°",
+      "noBattery": "No battery"
+    },
+    "equipments": {
+      "ELECTRIC_HEATING": "Electric heating",
+      "AIR_CONDITIONING": "Air conditioning",
+      "POOL": "Swimming pool",
+      "ELECTRIC_VEHICLE": "Electric vehicle and charger"
+    },
+    "callouts": {
+      "panels_one": "{{count}} panel installed",
+      "panels_other": "{{count}} panels installed",
+      "battery": "{{kwh}} kWh battery",
+      "equipment": "+ {{label}}"
+    },
+    "compass": {
+      "north": "N",
+      "east": "E",
+      "south": "S",
+      "west": "W"
+    }
+  },
   "yieldMap": {
     "title": "Sunshine in your department",
     "lead": "Yearly output of 1 kWp of south-facing panels tilted at 30°, from the European Commission PVGIS data.",
@@ -201,5 +281,179 @@
       "above": "≥ {{value, number}}"
     },
     "caption": "Source: PVGIS-SARAH3, most populated commune of each department, 14 % system losses. Hover or tap a department to see its value."
+  },
+  "dashboard": {
+    "title": "Your simulated installation",
+    "live": "Live update",
+    "kpis": {
+      "savings": "saved per year",
+      "autonomy": "self-sufficiency: your consumption covered",
+      "production": "produced per year",
+      "selfConsumption": "of the production used at home"
+    },
+    "tabsLabel": "Result charts",
+    "tabs": {
+      "monthly": "Months",
+      "typical": "Day",
+      "projection": "{{years}} years",
+      "battery": "Battery"
+    }
+  },
+  "controls": {
+    "roofTilt": {
+      "label": "Roof pitch",
+      "options": {
+        "LOW": "Mediterranean",
+        "CLASSIC": "Classic",
+        "STEEP": "Steep"
+      },
+      "degrees": "{{value}}°",
+      "hint": "Tiled roofs on the Côte d'Azur are mostly between 15° and 30°."
+    },
+    "shading": {
+      "label": "Shading on the roof",
+      "options": {
+        "NONE": "None",
+        "LIGHT": "Light",
+        "STRONG": "Strong"
+      },
+      "hints": {
+        "NONE": "0%",
+        "LIGHT": "−5%",
+        "STRONG": "−15%"
+      },
+      "hint": "Trees, chimney, neighbouring building… The study measures the real shading on site."
+    },
+    "panelCount": {
+      "label": "Number of panels",
+      "panels_one": "{{count}} panel",
+      "panels_other": "{{count}} panels",
+      "kwc": "{{kwc, number}} kWp",
+      "valueText_one": "{{count}} panel, {{kwc, number}} kWp",
+      "valueText_other": "{{count}} panels, {{kwc, number}} kWp",
+      "recommendedMarker": "Advised",
+      "hint": "Sized for your household. Adjust it freely to compare.",
+      "customHint_one": "Advised for your household: {{count}} panel ({{kwc, number}} kWp).",
+      "customHint_other": "Advised for your household: {{count}} panels ({{kwc, number}} kWp).",
+      "reset": "Back to the advice",
+      "referenceHint": "Advice for a reference household: it adapts to your consumption at the next step.",
+      "customReferenceHint_one": "Advised for a reference household: {{count}} panel ({{kwc, number}} kWp).",
+      "customReferenceHint_other": "Advised for a reference household: {{count}} panels ({{kwc, number}} kWp)."
+    },
+    "electricVehicle": {
+      "title": "Your electric vehicle",
+      "km": "Yearly mileage",
+      "kmValue": "{{km, number}} km/yr · ≈ {{kwh, number}} kWh",
+      "charging": "Charging hours",
+      "chargingOptions": {
+        "NIGHT": "At night",
+        "MIXED": "Day and night",
+        "DAYTIME": "In the daytime"
+      },
+      "chargingHint": "Charging in the daytime uses your solar production directly and increases your savings."
+    },
+    "annualConsumption": {
+      "toggle": "I know my yearly consumption (Linky reading, annual statement)",
+      "label": "Yearly consumption",
+      "placeholder": "e.g. 6,200",
+      "unit": "kWh / yr",
+      "error": "Enter a consumption between {{min, number}} and {{max, number}} kWh per year.",
+      "estimate": "Estimated at ≈ {{kwh, number}} kWh per year from your bill.",
+      "estimateReference": "Estimated at ≈ {{kwh, number}} kWh per year for a reference household, until you enter your bill."
+    }
+  },
+  "charts": {
+    "legend": {
+      "production": "Production",
+      "consumption": "Consumption",
+      "battery": "Battery ({{kwh}} kWh)"
+    },
+    "monthly": {
+      "title": "Production and consumption, month by month",
+      "srValue": "{{month}}: production {{production, number}} kWh, consumption {{consumption, number}} kWh",
+      "caption": "Estimated production and your household consumption, in kWh per month."
+    },
+    "typicalDay": {
+      "title": "A typical day",
+      "summer": "Summer (July)",
+      "winter": "Winter (January)",
+      "hour": "{{hour}}h",
+      "kwh": "{{value}} kWh",
+      "totals": {
+        "production": "produced",
+        "selfConsumed": "used at home",
+        "imported": "bought from the grid"
+      },
+      "srSummary": "Typical day in {{season}}: {{production}} kWh produced, {{selfConsumed}} kWh used at home, {{imported}} kWh bought from the grid."
+    },
+    "projection": {
+      "title": "Cumulative savings over {{years}} years",
+      "total": "≈ €{{value}}",
+      "subtitle": "Including ≈ €{{value}} in the first {{middle}} years.",
+      "year_one": "{{count}} yr",
+      "year_other": "{{count}} yrs",
+      "srSummary": "Estimated cumulative savings over {{years}} years: about €{{value}}.",
+      "caption": "Includes the electricity price trend and panel ageing. No installation price is included: it is quoted after the study."
+    },
+    "battery": {
+      "title": "What the battery changes",
+      "none": "You are simulating an installation without a battery: the midday surplus goes to the grid. Pick a battery in “Refine my estimate” to compare.",
+      "metrics": {
+        "autonomy": "Self-sufficiency",
+        "savings": "Savings per year"
+      },
+      "with": "With a {{kwh}} kWh battery",
+      "without": "Without battery",
+      "percent": "{{value}}%",
+      "euros": "€{{value}}",
+      "autonomyGain": "+{{value}} points",
+      "savingsGain": "+€{{value}} per year",
+      "caption": "The battery stores the daytime surplus and gives it back in the evening and at night."
+    }
+  },
+  "tune": {
+    "title": "Refine my estimate",
+    "subtitle": "Battery, panels, electricity price, horizon…",
+    "battery": {
+      "title": "Battery",
+      "recommended": "Advised",
+      "none": "None",
+      "kwh": "{{kwh}} kWh",
+      "hint": "It stores the midday surplus for the evening. Solax modules of 5 kWh."
+    },
+    "installation": {
+      "title": "Installation"
+    },
+    "economics": {
+      "title": "Economic assumptions"
+    },
+    "price": {
+      "label": "Price per kWh",
+      "value": "€{{value}}/kWh",
+      "hint": "EDF Tarif Bleu Base option on 1 August 2026: €{{value}} incl. VAT per kWh.",
+      "useRegulated": "Use €{{value}}"
+    },
+    "trend": {
+      "label": "Yearly electricity price increase",
+      "value": "+{{value}}%/yr",
+      "hint": "The HESPUL association advises a prudent 2% per year."
+    },
+    "horizon": {
+      "label": "Projection horizon",
+      "years_one": "{{count}} yr",
+      "years_other": "{{count}} yrs"
+    },
+    "sources": {
+      "title": "Assumptions and sources",
+      "items": {
+        "sunshine": "Sunshine: PVGIS-SARAH3 of your town (European Commission).",
+        "losses": "System losses: 14% (cables, inverter, soiling).",
+        "tilt": "Yield by pitch and orientation: PVGIS ratios measured in Nice.",
+        "ageing": "Panel ageing: 0.5% per year.",
+        "battery": "Solax battery: 90% round-trip efficiency.",
+        "surplus": "Surplus sold at ≈ €0.01 per kWh, not counted in the savings.",
+        "price": "No installation price is shown: it is quoted after the study."
+      }
+    }
   }
 }

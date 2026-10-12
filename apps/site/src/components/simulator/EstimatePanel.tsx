@@ -1,6 +1,9 @@
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
+import { SizingChoice } from '@/app/simulator/domain/entities/SolarEstimate';
 import { SolarEstimatePreview } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { AnimatedNumber } from '@/components/simulator/controls/AnimatedNumber';
 import { MonthlyProductionChart } from '@/components/simulator/MonthlyProductionChart';
 
 type EstimatePanelProps = {
@@ -14,26 +17,43 @@ export const EstimatePanel = ({ preview, isFinal, className }: EstimatePanelProp
   const estimate = preview?.estimate ?? null;
   const empty = t('estimate.empty');
 
+  const formatProduction = useCallback((value: number) => t('estimate.production.value', { value: Math.round(value / 10) * 10 }), [t]);
+  const formatSavings = useCallback((value: number) => t('estimate.savings.value', { value: Math.round(value / 10) * 10 }), [t]);
+  const formatAutonomy = useCallback((value: number) => t('estimate.autonomy.value', { value: Math.round(value) }), [t]);
+
   const tiles = [
     {
       key: 'power',
-      value: estimate ? t('estimate.power.value', { kwc: estimate.recommendedKwc, battery: estimate.recommendedBatteryKwh }) : empty,
-      label: estimate ? t('estimate.power.label', { panels: estimate.panelCount }) : t('estimate.power.emptyLabel'),
+      value: estimate
+        ? estimate.batteryKwh > 0
+          ? t('estimate.power.value', { kwc: estimate.installedKwc, battery: estimate.batteryKwh })
+          : t('estimate.power.valueWithoutBattery', { kwc: estimate.installedKwc })
+        : empty,
+      label: estimate
+        ? t(
+            estimate.panelChoice === SizingChoice.CUSTOM
+              ? 'estimate.power.customLabel'
+              : estimate.batteryKwh > 0
+                ? 'estimate.power.label'
+                : 'estimate.power.labelWithoutBattery',
+            { panels: estimate.panelCount },
+          )
+        : t('estimate.power.emptyLabel'),
     },
     {
       key: 'production',
-      value: estimate ? t('estimate.production.value', { value: estimate.annualProductionKwh }) : empty,
+      value: estimate ? <AnimatedNumber value={estimate.annualProductionKwh} format={formatProduction} /> : empty,
       label: t('estimate.production.label'),
     },
     {
       key: 'savings',
-      value: estimate ? t('estimate.savings.value', { value: estimate.annualSavingsEur }) : empty,
+      value: estimate ? <AnimatedNumber value={estimate.annualSavingsEur} format={formatSavings} /> : empty,
       label: t('estimate.savings.label'),
     },
     {
       key: 'autonomy',
-      value: estimate ? t('estimate.autonomy.value', { value: estimate.autonomyPercent }) : empty,
-      label: t('estimate.autonomy.label'),
+      value: estimate ? <AnimatedNumber value={estimate.autonomyPercent} format={formatAutonomy} /> : empty,
+      label: t(estimate && estimate.batteryKwh === 0 ? 'estimate.autonomy.labelWithoutBattery' : 'estimate.autonomy.label'),
     },
   ];
 

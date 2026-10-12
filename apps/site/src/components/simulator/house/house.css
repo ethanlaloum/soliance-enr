@@ -1,0 +1,58 @@
+.house-callout {
+  display: inline-block;
+  width: max-content;
+  max-width: 11rem;
+  white-space: normal;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(76, 201, 236, 0.55);
+  background: rgba(7, 12, 24, 0.86);
+  color: #e9fbff;
+  font: 600 12px/1.2 'Bai Jamjuree', Helvetica, Arial, sans-serif;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 14px rgba(76, 201, 236, 0.22);
+  animation: house-callout 2.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.house-callout--energy {
+  border-color: rgba(224, 123, 40, 0.65);
+  box-shadow: 0 0 14px rgba(224, 123, 40, 0.28);
+  color: #ffe9d6;
+}
+
+@keyframes house-callout {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  82% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes house-callout-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  85% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .house-callout {
+    animation-name: house-callout-fade;
+  }
+}

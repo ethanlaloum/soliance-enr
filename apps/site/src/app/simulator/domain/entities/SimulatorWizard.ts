@@ -4,13 +4,19 @@ import { DepartmentSolarYield, departmentSolarYieldOf, departmentSolarYields } f
 import {
   ConsumptionInput,
   DaytimePresence,
+  EvCharging,
   estimateSolarInstallation,
   HouseholdEquipment,
   householdEquipments,
   RoofOrientation,
+  RoofTilt,
+  Shading,
   SolarEstimate,
+  SolarEstimateInput,
   SolarEstimateParameters,
   solarEstimateParameters,
+  TypicalDay,
+  typicalDayOf,
 } from '@/app/simulator/domain/entities/SolarEstimate';
 
 export enum SimulatorStep {
@@ -39,10 +45,20 @@ export interface SimulatorAnswers {
   city: string | null;
   roofAreaM2: number;
   orientation: RoofOrientation;
+  roofTilt: RoofTilt;
   roofCovering: RoofCovering;
+  panelCount: number | null;
+  batteryKwh: number | null;
+  shading: Shading;
   monthlyBill: string;
   equipment: HouseholdEquipment[];
   daytimePresence: DaytimePresence;
+  annualConsumption: string | null;
+  evKmPerYear: number;
+  evCharging: EvCharging;
+  kwhPriceEur: number;
+  priceTrendPercent: number;
+  projectionYears: number;
 }
 
 export const initialSimulatorAnswers: SimulatorAnswers = {
@@ -52,19 +68,36 @@ export const initialSimulatorAnswers: SimulatorAnswers = {
   city: null,
   roofAreaM2: 45,
   orientation: RoofOrientation.SOUTH,
+  roofTilt: RoofTilt.CLASSIC,
   roofCovering: RoofCovering.TILES,
+  panelCount: null,
+  batteryKwh: null,
+  shading: Shading.NONE,
   monthlyBill: '',
   equipment: [],
   daytimePresence: DaytimePresence.MOSTLY_ABSENT,
+  annualConsumption: null,
+  evKmPerYear: 13000,
+  evCharging: EvCharging.NIGHT,
+  kwhPriceEur: solarEstimateParameters.kwhPriceEur,
+  priceTrendPercent: solarEstimateParameters.savingsProjection.priceTrendPercent,
+  projectionYears: solarEstimateParameters.savingsProjection.years,
 };
 
 export enum SimulatorFieldError {
   ADDRESS_REQUIRED = 'ADDRESS_REQUIRED',
   POSTAL_CODE_INVALID = 'POSTAL_CODE_INVALID',
   MONTHLY_BILL_INVALID = 'MONTHLY_BILL_INVALID',
+  ANNUAL_CONSUMPTION_INVALID = 'ANNUAL_CONSUMPTION_INVALID',
 }
 
-export type SimulatorValidatedField = 'address' | 'postalCode' | 'monthlyBill';
+export enum ConsumptionSource {
+  ANNUAL = 'ANNUAL',
+  BILL = 'BILL',
+  REFERENCE = 'REFERENCE',
+}
+
+export type SimulatorValidatedField = 'address' | 'postalCode' | 'monthlyBill' | 'annualConsumption';
 
 export type SimulatorErrors = Partial<Record<SimulatorValidatedField, SimulatorFieldError>>;
 
@@ -105,14 +138,46 @@ export const parseMonthlyBill = (text: string, parameters: SolarEstimateParamete
   return value >= min && value <= max ? value : null;
 };
 
+export const annualConsumptionRangeKwh = { min: 1000, max: 50000 };
+
+const ignoredKwhCharacters = /[\s.\u202f\u00a0]/g;
+const kwhPattern = /^\d+(?:\.\d+)?$/;
+
+export const parseAnnualConsumption = (text: string): number | null => {
+  const normalized = text.replace(ignoredKwhCharacters, '').replace(',', '.');
+  if (!kwhPattern.test(normalized)) return null;
+  const kwh = Math.round(Number(normalized));
+  return kwh >= annualConsumptionRangeKwh.min && kwh <= annualConsumptionRangeKwh.max ? kwh : null;
+};
+
+export const chosenAnnualConsumptionKwh = (answers: Pick<SimulatorAnswers, 'annualConsumption'>): number | null =>
+  answers.annualConsumption === null ? null : parseAnnualConsumption(answers.annualConsumption);
+
+export const consumptionSourceOf = (
+  answers: Pick<SimulatorAnswers, 'annualConsumption' | 'monthlyBill'>,
+  parameters: SolarEstimateParameters = solarEstimateParameters,
+): ConsumptionSource => {
+  if (chosenAnnualConsumptionKwh(answers) !== null) return ConsumptionSource.ANNUAL;
+  return parseMonthlyBill(answers.monthlyBill, parameters) === null ? ConsumptionSource.REFERENCE : ConsumptionSource.BILL;
+};
+
+const consumptionErrors = (answers: SimulatorAnswers, parameters: SolarEstimateParameters): SimulatorErrors => {
+  const typedAnnual = answers.annualConsumption !== null && answers.annualConsumption.trim() !== '';
+  const annualIsInvalid = typedAnnual && chosenAnnualConsumptionKwh(answers) === null;
+  const billIsMissing = parseMonthlyBill(answers.monthlyBill, parameters) === null && chosenAnnualConsumptionKwh(answers) === null;
+  return {
+    ...(billIsMissing && !annualIsInvalid ? { monthlyBill: SimulatorFieldError.MONTHLY_BILL_INVALID } : {}),
+    ...(annualIsInvalid ? { annualConsumption: SimulatorFieldError.ANNUAL_CONSUMPTION_INVALID } : {}),
+  };
+};
+
 const stepErrors: Record<SimulatorStep, (answers: SimulatorAnswers, parameters: SolarEstimateParameters) => SimulatorErrors> = {
   [SimulatorStep.ADDRESS]: (answers) => ({
     ...(answers.address.trim().length < minimumAddressLength ? { address: SimulatorFieldError.ADDRESS_REQUIRED } : {}),
     ...(postalCodePattern.test(answers.postalCode.trim()) ? {} : { postalCode: SimulatorFieldError.POSTAL_CODE_INVALID }),
   }),
   [SimulatorStep.ROOF]: () => ({}),
-  [SimulatorStep.CONSUMPTION]: (answers, parameters) =>
-    parseMonthlyBill(answers.monthlyBill, parameters) === null ? { monthlyBill: SimulatorFieldError.MONTHLY_BILL_INVALID } : {},
+  [SimulatorStep.CONSUMPTION]: (answers, parameters) => consumptionErrors(answers, parameters),
   [SimulatorStep.RESULT]: () => ({}),
 };
 
@@ -143,8 +208,14 @@ const previewConsumption = (answers: SimulatorAnswers, step: SimulatorStep, para
     monthlyBillEur: parseMonthlyBill(answers.monthlyBill, parameters) ?? parameters.referenceConsumption.monthlyBillEur,
     equipment: answers.equipment,
     daytimePresence: answers.daytimePresence,
+    annualKwh: chosenAnnualConsumptionKwh(answers),
+    evKmPerYear: answers.equipment.includes(HouseholdEquipment.ELECTRIC_VEHICLE) ? answers.evKmPerYear : null,
+    evCharging: answers.evCharging,
   };
 };
+
+export const effectiveRoofTilt = (answers: Pick<SimulatorAnswers, 'roofTilt' | 'roofCovering'>): RoofTilt =>
+  answers.roofCovering === RoofCovering.FLAT_ROOF ? RoofTilt.LOW : answers.roofTilt;
 
 const sunshineOf = (scope: SunshineScope, placeName: string | null, parameters: SolarEstimateParameters): LocalSolarContext => {
   const monthlyTotal = parameters.monthlyProductionShares.reduce((total, share) => total + share, 0);
@@ -196,6 +267,37 @@ export const localSolarContext = (
   return sunshineOf(SunshineScope.REGIONAL_DEFAULT, null, parameters);
 };
 
+interface PreviewContext {
+  input: SolarEstimateInput;
+  parameters: SolarEstimateParameters;
+  sunshine: LocalSunshine;
+  usesReferenceBill: boolean;
+}
+
+const previewContext = (
+  answers: SimulatorAnswers,
+  step: SimulatorStep,
+  communeYield: CommuneSolarYield | null,
+  parameters: SolarEstimateParameters,
+  yields: DepartmentSolarYield[],
+): PreviewContext | null => {
+  if (step === SimulatorStep.ADDRESS) return null;
+  const priced = { ...parameters, kwhPriceEur: answers.kwhPriceEur };
+  const local = localSolarContext(answers, communeYield, priced, yields);
+  return {
+    input: {
+      roof: { areaM2: answers.roofAreaM2, orientation: answers.orientation, tilt: effectiveRoofTilt(answers) },
+      consumption: previewConsumption(answers, step, priced),
+      panelCount: answers.panelCount,
+      batteryKwh: answers.batteryKwh,
+      shading: answers.shading,
+    },
+    parameters: local.parameters,
+    sunshine: local.sunshine,
+    usesReferenceBill: step === SimulatorStep.ROOF || consumptionSourceOf(answers, priced) === ConsumptionSource.REFERENCE,
+  };
+};
+
 export const previewSolarEstimate = (
   answers: SimulatorAnswers,
   step: SimulatorStep,
@@ -203,15 +305,25 @@ export const previewSolarEstimate = (
   parameters: SolarEstimateParameters = solarEstimateParameters,
   yields: DepartmentSolarYield[] = departmentSolarYields,
 ): SolarEstimatePreview | null => {
-  if (step === SimulatorStep.ADDRESS) return null;
-  const consumption = previewConsumption(answers, step, parameters);
-  const usesReferenceBill = step === SimulatorStep.ROOF || parseMonthlyBill(answers.monthlyBill, parameters) === null;
-  const local = localSolarContext(answers, communeYield, parameters, yields);
+  const context = previewContext(answers, step, communeYield, parameters, yields);
+  if (!context) return null;
   return {
-    estimate: estimateSolarInstallation({ roof: { areaM2: answers.roofAreaM2, orientation: answers.orientation }, consumption }, local.parameters),
-    referenceMonthlyBillEur: usesReferenceBill ? parameters.referenceConsumption.monthlyBillEur : null,
-    sunshine: local.sunshine,
+    estimate: estimateSolarInstallation(context.input, context.parameters),
+    referenceMonthlyBillEur: context.usesReferenceBill ? parameters.referenceConsumption.monthlyBillEur : null,
+    sunshine: context.sunshine,
   };
+};
+
+export const previewTypicalDay = (
+  answers: SimulatorAnswers,
+  step: SimulatorStep,
+  monthIndex: number,
+  communeYield: CommuneSolarYield | null = null,
+  parameters: SolarEstimateParameters = solarEstimateParameters,
+  yields: DepartmentSolarYield[] = departmentSolarYields,
+): TypicalDay | null => {
+  const context = previewContext(answers, step, communeYield, parameters, yields);
+  return context ? typicalDayOf(context.input, monthIndex, context.parameters) : null;
 };
 
 export const geocodedAnswersPatch = (

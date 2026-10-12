@@ -1,16 +1,22 @@
 import { FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import {
+  annualConsumptionFromBillKwh,
   daytimePresences,
   DaytimePresence,
+  HouseholdEquipment,
   householdEquipments,
-  powersFittingRoof,
+  panelCountRange,
   RoofOrientation,
   roofOrientations,
+  SolarEstimate,
   solarEstimateParameters,
 } from '@/app/simulator/domain/entities/SolarEstimate';
 import {
+  effectiveRoofTilt,
+  parseMonthlyBill,
   RoofCovering,
   roofCoverings,
   SimulatorAnswers,
@@ -19,6 +25,11 @@ import {
   SimulatorValidatedField,
   toggleEquipment,
 } from '@/app/simulator/domain/entities/SimulatorWizard';
+import { AnnualConsumptionField } from '@/components/simulator/controls/AnnualConsumptionField';
+import { ElectricVehicleDetails } from '@/components/simulator/controls/ElectricVehicleDetails';
+import { PanelCountField } from '@/components/simulator/controls/PanelCountField';
+import { RoofTiltPicker } from '@/components/simulator/controls/RoofTiltPicker';
+import { ShadingField } from '@/components/simulator/controls/ShadingField';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { Select } from '@/components/ui/select';
 import { SimulatorAddressField } from '@/components/simulator/SimulatorAddressField';
@@ -34,6 +45,7 @@ import {
 type SimulatorStepFormProps = {
   step: SimulatorStep;
   answers: SimulatorAnswers;
+  estimate: SolarEstimate | null;
   errors: SimulatorErrors;
   onChange: (patch: Partial<SimulatorAnswers>) => void;
   onBack: () => void;
@@ -92,13 +104,15 @@ const TextField = ({ field, value, errors, autoComplete, inputMode, isRecap = fa
   );
 };
 
-export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onNext }: SimulatorStepFormProps) => {
+const revealTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const;
+
+export const SimulatorStepForm = ({ step, answers, estimate, errors, onChange, onBack, onNext }: SimulatorStepFormProps) => {
   const { t } = useTranslation('simulator');
   const isAddressStep = step === SimulatorStep.ADDRESS;
   const isRoofStep = step === SimulatorStep.ROOF;
   const isConsumptionStep = step === SimulatorStep.CONSUMPTION;
   const roofArea = solarEstimateParameters.roofAreaM2;
-  const roofCapacityKwc = Math.max(...powersFittingRoof({ areaM2: answers.roofAreaM2, orientation: answers.orientation }));
+  const roofCapacityPanels = panelCountRange({ areaM2: answers.roofAreaM2, orientation: answers.orientation }).max;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -150,7 +164,7 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
             />
             {isRoofStep && (
               <p id={`${fieldId('roofArea')}-hint`} className={simulatorHintClassName}>
-                {t('wizard.fields.roofAreaHint', { kwc: roofCapacityKwc, panels: roofCapacityKwc / solarEstimateParameters.panelPowerKwc })}
+                {t('wizard.fields.roofAreaHint', { panels: roofCapacityPanels, kwc: roofCapacityPanels * solarEstimateParameters.panelPowerKwc })}
               </p>
             )}
           </div>
@@ -172,6 +186,23 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
       )}
 
       {isRoofStep && (
+        <AnimatePresence initial={false}>
+          {answers.roofCovering !== RoofCovering.FLAT_ROOF && (
+            <motion.div
+              key="roof-tilt"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={revealTransition}
+              className="-m-1 overflow-hidden p-1"
+            >
+              <RoofTiltPicker value={answers.roofTilt} onChange={(roofTilt) => onChange({ roofTilt })} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+
+      {isRoofStep && (
         <div className={fieldLabelClassName}>
           <label id={fieldId('roofCovering-label')} htmlFor={fieldId('roofCovering')}>
             {t('wizard.fields.roofCovering')}
@@ -187,6 +218,21 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
         </div>
       )}
 
+      {isRoofStep && <ShadingField value={answers.shading} onChange={(shading) => onChange({ shading })} />}
+
+      {isRoofStep && estimate && (
+        <PanelCountField
+          panelCount={estimate.panelCount}
+          installedKwc={estimate.installedKwc}
+          recommendedPanelCount={estimate.recommendedPanelCount}
+          recommendedKwc={estimate.recommendedKwc}
+          isCustom={answers.panelCount !== null}
+          isReferenceHousehold
+          range={panelCountRange({ areaM2: answers.roofAreaM2, orientation: answers.orientation, tilt: effectiveRoofTilt(answers) })}
+          onChange={(panelCount) => onChange({ panelCount })}
+        />
+      )}
+
       {isConsumptionStep && (
         <>
           <TextField
@@ -197,6 +243,20 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
             inputMode="decimal"
             hasHint
             onChange={(monthlyBill) => onChange({ monthlyBill })}
+          />
+
+          <AnnualConsumptionField
+            inputId={fieldId('annualConsumption')}
+            value={answers.annualConsumption}
+            error={errors.annualConsumption}
+            estimatedKwh={Math.round(
+              annualConsumptionFromBillKwh(
+                parseMonthlyBill(answers.monthlyBill) ?? solarEstimateParameters.referenceConsumption.monthlyBillEur,
+                { ...solarEstimateParameters, kwhPriceEur: answers.kwhPriceEur },
+              ),
+            )}
+            isEstimatedFromBill={parseMonthlyBill(answers.monthlyBill) !== null}
+            onChange={(annualConsumption) => onChange({ annualConsumption })}
           />
 
           <fieldset>
@@ -222,6 +282,11 @@ export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onN
                 );
               })}
             </div>
+            <AnimatePresence initial={false}>
+              {answers.equipment.includes(HouseholdEquipment.ELECTRIC_VEHICLE) && (
+                <ElectricVehicleDetails key="electric-vehicle" kmPerYear={answers.evKmPerYear} charging={answers.evCharging} onChange={onChange} />
+              )}
+            </AnimatePresence>
           </fieldset>
 
           <div className={fieldLabelClassName}>
