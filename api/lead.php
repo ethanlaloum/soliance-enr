@@ -5,7 +5,7 @@ declare(strict_types=1);
 const CONFIG_FILE_NAME = 'soliance-mail.php';
 const RESEND_URL = 'https://api.resend.com/emails';
 const MAX_BODY_BYTES = 20000;
-const MAX_FIELDS = 30;
+const MAX_FIELDS = 40;
 const MAX_VALUE_BYTES = 4000;
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_SECONDS = 600;
@@ -50,14 +50,24 @@ const FIELD_LABELS = [
     'installation_situation' => 'Situation',
     'roof_area_m2' => 'Surface de toiture (m²)',
     'orientation' => 'Orientation',
+    'roof_tilt' => 'Pente du toit',
     'roof_covering' => 'Couverture',
     'monthly_bill_eur' => 'Facture mensuelle (€)',
     'equipment' => 'Équipements',
     'daytime_presence' => 'Présence en journée',
+    'ev_km_per_year' => 'Kilométrage du véhicule électrique (km/an)',
+    'ev_charging' => 'Recharge du véhicule électrique',
     'annual_consumption_kwh' => 'Consommation annuelle (kWh)',
+    'consumption_source' => 'Origine de la consommation',
+    'kwh_price_eur' => 'Prix du kWh retenu (€)',
     'recommended_kwc' => 'Puissance conseillée (kWc)',
+    'installed_kwc' => 'Puissance simulée (kWc)',
     'panel_count' => 'Nombre de panneaux',
+    'panel_choice' => 'Nombre de panneaux',
     'recommended_battery_kwh' => 'Batterie conseillée (kWh)',
+    'battery_kwh' => 'Batterie simulée (kWh)',
+    'battery_choice' => 'Batterie',
+    'shading' => 'Ombrage',
     'annual_production_kwh' => 'Production annuelle (kWh)',
     'self_consumed_kwh' => 'Énergie autoconsommée (kWh)',
     'autonomy_percent' => 'Autonomie (%)',
@@ -113,6 +123,34 @@ const VALUE_LABELS = [
         'MOSTLY_ABSENT' => 'Souvent absent',
         'PRESENT' => 'Présent (télétravail, retraite)',
     ],
+    'roof_tilt' => [
+        'LOW' => 'Faible (15°)',
+        'CLASSIC' => 'Classique (30°)',
+        'STEEP' => 'Forte (45°)',
+    ],
+    'shading' => [
+        'NONE' => 'Aucun',
+        'LIGHT' => 'Léger',
+        'STRONG' => 'Marqué',
+    ],
+    'ev_charging' => [
+        'NIGHT' => 'La nuit',
+        'MIXED' => 'Jour et nuit',
+        'DAYTIME' => 'En journée',
+    ],
+    'consumption_source' => [
+        'ANNUAL' => 'Consommation annuelle saisie par le visiteur',
+        'BILL' => 'Déduite de la facture mensuelle',
+        'REFERENCE' => 'Foyer type à 180 €/mois (aucune facture saisie)',
+    ],
+    'panel_choice' => [
+        'RECOMMENDED' => 'Conseillé par le simulateur',
+        'CUSTOM' => 'Choisi par le visiteur',
+    ],
+    'battery_choice' => [
+        'RECOMMENDED' => 'Conseillée par le simulateur',
+        'CUSTOM' => 'Choisie par le visiteur',
+    ],
     'equipment' => [
         'ELECTRIC_HEATING' => 'Chauffage électrique',
         'AIR_CONDITIONING' => 'Climatisation',
@@ -126,9 +164,9 @@ const IDENTITY_FIELDS = ['full_name', 'company', 'referrer_full_name', 'email', 
 const REPLY_TO_FIELDS = ['email', 'referrer_email'];
 const RESULT_REPLY_TO = 'commercial@soliance-enr.fr';
 const RESULT_FIELDS = [
-    'recommended_kwc' => ['label' => 'Puissance conseillée', 'unit' => 'kWc'],
+    'installed_kwc' => ['label' => 'Puissance conseillée', 'customLabel' => 'Puissance choisie', 'choice' => 'panel_choice', 'unit' => 'kWc'],
     'panel_count' => ['label' => 'Panneaux', 'unit' => ''],
-    'recommended_battery_kwh' => ['label' => 'Batterie conseillée', 'unit' => 'kWh'],
+    'battery_kwh' => ['label' => 'Batterie conseillée', 'customLabel' => 'Batterie choisie', 'choice' => 'battery_choice', 'unit' => 'kWh'],
     'annual_production_kwh' => ['label' => 'Production estimée', 'unit' => 'kWh par an'],
     'annual_savings_eur' => ['label' => "Économies estimées", 'unit' => '€ par an'],
     'autonomy_percent' => ['label' => 'Autonomie', 'unit' => '%'],
@@ -384,9 +422,10 @@ function buildMessage(array $lead, string $from): array
     return $message;
 }
 
-function formatNumber(string $digits): string
+function formatNumber(string $value): string
 {
-    return number_format((int) $digits, 0, ',', "\u{202F}");
+    $decimals = strpos($value, '.') === false ? 0 : 1;
+    return number_format((float) $value, $decimals, ',', "\u{202F}");
 }
 
 function resultRows(array $fields): ?array
@@ -394,10 +433,16 @@ function resultRows(array $fields): ?array
     $rows = [];
     foreach (RESULT_FIELDS as $name => $field) {
         $value = $fields[$name] ?? '';
-        if (!is_string($value) || !ctype_digit($value)) {
+        if (!is_string($value) || preg_match('/^\d+(?:\.\d)?$/', $value) !== 1) {
             return null;
         }
-        $rows[] = [$field['label'], trim(formatNumber($value) . ' ' . $field['unit'])];
+        if ($name === 'battery_kwh' && $value === '0') {
+            $rows[] = ['Batterie', 'Sans batterie'];
+            continue;
+        }
+        $isCustom = isset($field['choice']) && ($fields[$field['choice']] ?? '') === 'CUSTOM';
+        $label = $isCustom ? $field['customLabel'] : $field['label'];
+        $rows[] = [$label, trim(formatNumber($value) . ' ' . $field['unit'])];
     }
     return $rows;
 }
@@ -412,8 +457,16 @@ function buildResultMessage(array $lead, string $from): ?array
     if (filter_var($email, FILTER_VALIDATE_EMAIL) === false || $rows === null) {
         return null;
     }
-    $intro = 'Voici l’estimation de votre installation solaire avec batterie, calculée avec les données d’ensoleillement PVGIS de la Commission européenne.';
-    $outro = 'Cette estimation repose sur un profil de consommation type, déduit de votre facture, de votre présence en journée et de vos équipements. Elle est améliorable : un conseiller Soliance vous rappelle pour l’affiner avec vos relevés Linky réels et les caractéristiques de votre maison, puis vous adresser un devis à prix fixe. Estimation indicative, sans valeur contractuelle.';
+    $hasBattery = ($lead['fields']['battery_kwh'] ?? '') !== '0';
+    $intro = $hasBattery
+        ? 'Voici l’estimation de votre installation solaire avec batterie, calculée avec les données d’ensoleillement PVGIS de la Commission européenne.'
+        : 'Voici l’estimation de votre installation solaire sans batterie, calculée avec les données d’ensoleillement PVGIS de la Commission européenne.';
+    $profileOrigins = [
+        'ANNUAL' => 'Cette estimation repose sur la consommation annuelle que vous avez indiquée, répartie selon votre présence en journée et vos équipements.',
+        'REFERENCE' => 'Cette estimation repose sur un foyer type à 180 € d’électricité par mois, faute de facture indiquée.',
+    ];
+    $profile = $profileOrigins[$lead['fields']['consumption_source'] ?? ''] ?? 'Cette estimation repose sur un profil de consommation type, déduit de votre facture, de votre présence en journée et de vos équipements.';
+    $outro = $profile . ' Elle est améliorable : un conseiller Soliance vous rappelle pour l’affiner avec vos relevés Linky réels et les caractéristiques de votre maison, puis vous adresser un devis à prix fixe. Estimation indicative, sans valeur contractuelle.';
     $htmlRows = '';
     $textRows = [];
     foreach ($rows as [$label, $value]) {
