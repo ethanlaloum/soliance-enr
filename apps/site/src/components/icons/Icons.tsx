@@ -33,6 +33,18 @@ export const ArrowRightIcon = ({ className }: IconProps) => (
   </svg>
 );
 
+export const ArrowUpRightIcon = ({ className }: IconProps) => (
+  <svg aria-hidden="true" className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7 17 17 7M8 7h9v9" />
+  </svg>
+);
+
+export const ArrowDownRightIcon = ({ className }: IconProps) => (
+  <svg aria-hidden="true" className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7 7l10 10M17 8v9H8" />
+  </svg>
+);
+
 export const DiamondPattern = () => (
   <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08]">
     <defs>

@@ -7,6 +7,7 @@ import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { ContactLink } from '@/components/contact/ContactLink';
 import { ContactFormKind } from '@/components/contact/contactDialog';
 import { contactAnchor, paths } from '@/routes/paths';
+import { ArrowUpRightIcon } from '@/components/icons/Icons';
 import './energy-premium.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -65,7 +66,7 @@ export const EnergyPremiumHero = ({
           <h1 id={`${variant}-premium-title`} data-energy-intro>{title}<br /><span>{accent}</span></h1>
           <p className="energy-hero__lead" data-energy-intro>{lead}</p>
           <div className="energy-hero__actions" data-energy-intro>
-            <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true">↗</span></ContactLink>
+            <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></ContactLink>
             {secondaryHref.startsWith('#') ? (
               <a href={secondaryHref} className="energy-hero__secondary">{secondaryLabel}</a>
             ) : (

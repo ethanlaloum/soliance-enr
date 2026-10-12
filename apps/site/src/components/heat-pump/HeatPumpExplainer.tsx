@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cn } from '@/lib/utils';
 import { containerClassName } from '@/components/home/containerClassName';
 import { HeatPumpDiagram } from '@/components/heat-pump/HeatPumpDiagram';
+import { ArrowUpRightIcon } from '@/components/icons/Icons';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -108,7 +109,7 @@ export const HeatPumpExplainer = () => {
               <p className="heat-premium-eyebrow">{t('explainer.eyebrow')}</p>
               <h2 id="heat-pump-explainer-title">{t('explainer.title')} <span>{t('explainer.titleAccent')}</span></h2>
             </div>
-            <a href="#heat-pump-solutions-title" className="heat-explainer__skip">{t('explainer.skip')} <span aria-hidden="true">↗</span></a>
+            <a href="#heat-pump-solutions-title" className="heat-explainer__skip">{t('explainer.skip')} <ArrowUpRightIcon className="h-[1.2em] w-[1.2em]" /></a>
           </div>
           <div className="heat-explainer__body">
             <div className="heat-explainer__visual">
@@ -133,7 +134,7 @@ export const HeatPumpExplainer = () => {
               <p className="heat-explainer__scroll-hint"><span aria-hidden="true">↓</span>{t('explainer.scrollHint')}</p>
             </div>
           </div>
-          <a className="heat-explainer__source" href="https://agirpourlatransition.ademe.fr/particuliers/amenager-maison/chauffer/pompe-chaleur" target="_blank" rel="noreferrer">{t('explainer.source')} <span aria-hidden="true">↗</span></a>
+          <a className="heat-explainer__source" href="https://agirpourlatransition.ademe.fr/particuliers/amenager-maison/chauffer/pompe-chaleur" target="_blank" rel="noreferrer">{t('explainer.source')} <ArrowUpRightIcon className="h-[1.2em] w-[1.2em]" /></a>
         </div>
       </div>
     </section>

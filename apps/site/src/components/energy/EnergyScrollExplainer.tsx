@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowUpRightIcon, ArrowDownRightIcon } from '@/components/icons/Icons';
 import { SolarEnergyIllustration } from './SolarEnergyIllustration';
 import { ChargerEnergyIllustration } from './ChargerEnergyIllustration';
 import './energy-premium.css';
@@ -138,7 +139,7 @@ export const EnergyScrollExplainer = ({ variant }: Props) => {
           <p className="energy-lab__eyebrow"><span />{t('explainer.eyebrow')}</p>
           <h2 id={`${variant}-energy-title`}>{t('explainer.title')} <span>{t('explainer.accent')}</span></h2>
           <p className="energy-lab__scroll-hint">{t('explainer.scroll')}<span aria-hidden="true">↓</span></p>
-          <a href={variant === 'solar' ? '#solar-sizes-title' : '#usages-title'} className="energy-lab__skip">{t('explainer.skip')}<span aria-hidden="true">↘</span></a>
+          <a href={variant === 'solar' ? '#solar-sizes-title' : '#usages-title'} className="energy-lab__skip">{t('explainer.skip')}<ArrowDownRightIcon className="h-[1.2em] w-[1.2em]" /></a>
         </header>
         <div className="energy-lab__body">
           <div className="energy-lab__visual">
@@ -151,7 +152,7 @@ export const EnergyScrollExplainer = ({ variant }: Props) => {
                 <p className="energy-lab__chapter-label"><span>{`${index + 1}`.padStart(2, '0')}</span>{t(`explainer.chapters.${key}.label`)}</p>
                 <h3>{t(`explainer.chapters.${key}.title`)}</h3>
                 <p className="energy-lab__chapter-text">{t(`explainer.chapters.${key}.body`)}</p>
-                <div className="energy-lab__chapter-detail"><span aria-hidden="true">↗</span>{t(`explainer.chapters.${key}.detail`)}</div>
+                <div className="energy-lab__chapter-detail"><span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span>{t(`explainer.chapters.${key}.detail`)}</div>
               </article>
             ))}
           </div>
@@ -160,7 +161,7 @@ export const EnergyScrollExplainer = ({ variant }: Props) => {
           <div className="energy-lab__steps" aria-hidden="true">{chapters.map((key) => <span key={key} data-energy-indicator>{t(`explainer.chapters.${key}.label`)}</span>)}</div>
           <div className="energy-lab__progress" aria-hidden="true"><span className="energy-lab__progress-fill" /></div>
           <span className="energy-lab__count" aria-hidden="true"><strong data-energy-current>01</strong> / 03</span>
-          <a href={source} target="_blank" rel="noreferrer" className="energy-lab__source">{t('explainer.source')}<span aria-hidden="true">↗</span></a>
+          <a href={source} target="_blank" rel="noreferrer" className="energy-lab__source">{t('explainer.source')}<ArrowUpRightIcon className="h-[1.2em] w-[1.2em]" /></a>
         </footer>
       </div>
     </section>
