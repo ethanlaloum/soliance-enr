@@ -8,6 +8,7 @@ export enum ContactFormKind {
 
 export type ContactDialogControls = {
   open: (kind: ContactFormKind) => void;
+  preload: (kind: ContactFormKind) => void;
 };
 
 export const ContactDialogContext = createContext<ContactDialogControls | null>(null);

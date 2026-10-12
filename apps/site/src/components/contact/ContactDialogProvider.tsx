@@ -1,12 +1,11 @@
-import { lazy, ReactNode, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { ComponentType, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormDialog } from '@/components/ui/FormDialog';
 import { ContactDialogContext, contactDialogIdPrefixes, ContactFormKind, loadContactForm } from '@/components/contact/contactDialog';
 
-const forms = {
-  [ContactFormKind.STUDY]: lazy(loadContactForm[ContactFormKind.STUDY]),
-  [ContactFormKind.PROFESSIONAL]: lazy(loadContactForm[ContactFormKind.PROFESSIONAL]),
-  [ContactFormKind.REFERRAL]: lazy(loadContactForm[ContactFormKind.REFERRAL]),
+type OpenDialog = {
+  kind: ContactFormKind;
+  Form: ComponentType<{ idPrefix: string }>;
 };
 
 const titleSuffixes: Record<ContactFormKind, string> = {
@@ -17,10 +16,21 @@ const titleSuffixes: Record<ContactFormKind, string> = {
 
 export const ContactDialogProvider = ({ children }: { children: ReactNode }) => {
   const { t } = useTranslation('common');
-  const [kind, setKind] = useState<ContactFormKind | null>(null);
+  const [dialog, setDialog] = useState<OpenDialog | null>(null);
+  const requested = useRef<ContactFormKind | null>(null);
 
-  const open = useCallback((next: ContactFormKind) => setKind(next), []);
-  const controls = useMemo(() => ({ open }), [open]);
+  const preload = useCallback((next: ContactFormKind) => void loadContactForm[next](), []);
+  const open = useCallback((next: ContactFormKind) => {
+    requested.current = next;
+    void loadContactForm[next]().then(({ default: Form }) => {
+      if (requested.current === next) setDialog({ kind: next, Form });
+    });
+  }, []);
+  const close = useCallback(() => {
+    requested.current = null;
+    setDialog(null);
+  }, []);
+  const controls = useMemo(() => ({ open, preload }), [open, preload]);
 
   useEffect(() => {
     const preloadStudyForm = () => void loadContactForm[ContactFormKind.STUDY]();
@@ -31,21 +41,18 @@ export const ContactDialogProvider = ({ children }: { children: ReactNode }) => 
     const timer = setTimeout(preloadStudyForm, 3000);
     return () => clearTimeout(timer);
   }, []);
-  const Form = kind ? forms[kind] : null;
 
   return (
     <ContactDialogContext.Provider value={controls}>
       {children}
-      {kind && Form && (
+      {dialog && (
         <FormDialog
-          labelledBy={`${contactDialogIdPrefixes[kind]}-${titleSuffixes[kind]}`}
+          labelledBy={`${contactDialogIdPrefixes[dialog.kind]}-${titleSuffixes[dialog.kind]}`}
           closeLabel={t('contactDialog.close')}
-          tone={kind === ContactFormKind.PROFESSIONAL ? 'dark' : 'light'}
-          onClose={() => setKind(null)}
+          tone={dialog.kind === ContactFormKind.PROFESSIONAL ? 'dark' : 'light'}
+          onClose={close}
         >
-          <Suspense fallback={<div className="min-h-[420px] rounded-[20px] bg-white" />}>
-            <Form idPrefix={contactDialogIdPrefixes[kind]} />
-          </Suspense>
+          <dialog.Form idPrefix={contactDialogIdPrefixes[dialog.kind]} />
         </FormDialog>
       )}
     </ContactDialogContext.Provider>

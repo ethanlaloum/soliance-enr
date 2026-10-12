@@ -17,6 +17,8 @@ export const ContactLink = ({ kind, href, className, onClick, children }: Contac
       href={href}
       aria-haspopup={dialog ? 'dialog' : undefined}
       className={className}
+      onPointerEnter={() => dialog?.preload(kind)}
+      onFocus={() => dialog?.preload(kind)}
       onClick={(event) => {
         onClick?.();
         if (!dialog) return;

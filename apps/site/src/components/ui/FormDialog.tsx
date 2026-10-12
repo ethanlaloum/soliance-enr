@@ -43,7 +43,7 @@ export const FormDialog = ({ labelledBy, closeLabel, tone = 'light', onClose, ch
         onClose();
       }}
       onClick={closeOnBackdrop}
-      className="max-h-[calc(100dvh-24px)] w-[calc(100%-24px)] max-w-[600px] overflow-y-auto overscroll-contain rounded-[20px] bg-transparent p-0 font-sans backdrop:bg-night/70 motion-safe:animate-fade-up motion-safe:[animation-duration:250ms]"
+      className="max-h-[calc(100dvh-24px)] w-[calc(100%-24px)] max-w-[600px] overflow-y-auto overscroll-contain rounded-[20px] bg-transparent p-0 font-sans backdrop:bg-night/70 motion-safe:animate-fade-up motion-safe:[animation-duration:250ms] motion-safe:backdrop:animate-fade-in motion-safe:backdrop:[animation-duration:250ms]"
     >
       <div className="relative">
         <button
