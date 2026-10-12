@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { projectPath } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { containerClassName } from '@/components/home/containerClassName';
+import { professionalOffersAnchor } from '@/components/professionals/professionalStudyAnchor';
 
 type Offer = {
   key: 'industrialRoofs' | 'carports' | 'evCharging' | 'collectives';
@@ -35,45 +36,59 @@ const offers: Offer[] = [
   },
 ];
 
-const exampleLinkClassName = 'font-semibold text-solar underline decoration-solar/40 underline-offset-2 hover:text-solar-dark';
+const exampleLinkClassName = 'font-medium text-night underline decoration-solar underline-offset-[3px] hover:text-solar-dark';
 
 export const OffersSection = () => {
   const { t } = useTranslation('professionals');
 
   return (
-    <section aria-labelledby="offers-title" className={cn(containerClassName, 'flex flex-col gap-5 pb-2 pt-10 lg:gap-8 lg:pb-16 lg:pt-20')}>
-      <h2 id="offers-title" data-reveal className="text-[28px] font-medium tracking-[-0.035em] lg:text-[40px]">
-        {t('offers.title')}
-      </h2>
+    <section
+      id={professionalOffersAnchor}
+      aria-labelledby="offers-title"
+      className={cn(containerClassName, 'flex scroll-mt-6 flex-col gap-6 pb-4 pt-12 lg:gap-10 lg:pb-16 lg:pt-24')}
+    >
+      <div data-reveal className="flex flex-col gap-3 lg:gap-4">
+        <p className="energy-kicker">{t('offers.kicker')}</p>
+        <h2 id="offers-title" className="energy-title">
+          {t('offers.title')}
+        </h2>
+      </div>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
         {offers.map((offer, index) => (
           <li
             key={offer.key}
             data-reveal
             style={revealDelay(index)}
-            className="flex flex-col gap-2 overflow-hidden rounded-2xl border border-sand-line bg-white pb-6 lg:pb-[26px]"
+            className="group flex flex-col overflow-hidden rounded-md border border-sand-line bg-white"
           >
-            <img
-              src={offer.image}
-              alt={t(`offers.items.${offer.key}.imageAlt`)}
-              width={offer.width}
-              height={offer.height}
-              loading="lazy"
-              style={{ objectPosition: offer.objectPosition }}
-              className="mb-3 block h-[170px] w-full object-cover"
-            />
-            <h3 className="px-5 text-lg font-bold lg:px-[26px] lg:text-xl">{t(`offers.items.${offer.key}.title`)}</h3>
-            <p className="px-5 text-sm leading-normal text-slate-ink lg:px-[26px]">
-              {offer.exampleSlug ? (
-                <Trans
-                  t={t}
-                  i18nKey={`offers.items.${offer.key}.description`}
-                  components={{ exampleLink: <Link to={projectPath(offer.exampleSlug)} className={exampleLinkClassName} /> }}
-                />
-              ) : (
-                t(`offers.items.${offer.key}.description`)
-              )}
-            </p>
+            <div className="overflow-hidden">
+              <img
+                src={offer.image}
+                alt={t(`offers.items.${offer.key}.imageAlt`)}
+                width={offer.width}
+                height={offer.height}
+                loading="lazy"
+                style={{ objectPosition: offer.objectPosition }}
+                className="block h-[180px] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100 lg:h-[200px]"
+              />
+            </div>
+            <div className="flex flex-1 flex-col gap-2.5 p-5 lg:p-6">
+              <span aria-hidden="true" className="text-[11px] font-semibold tabular-nums tracking-[0.12em] text-solar-dark">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="text-[19px] font-medium leading-tight tracking-[-0.02em] lg:text-xl">{t(`offers.items.${offer.key}.title`)}</h3>
+              <p className="text-sm leading-[1.6] text-slate-ink">
+                {offer.exampleSlug ? (
+                  <Trans
+                    t={t}
+                    i18nKey={`offers.items.${offer.key}.description`}
+                    components={{ exampleLink: <Link to={projectPath(offer.exampleSlug)} className={exampleLinkClassName} /> }}
+                  />
+                ) : (
+                  t(`offers.items.${offer.key}.description`)
+                )}
+              </p>
+            </div>
           </li>
         ))}
       </ul>

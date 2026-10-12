@@ -38,7 +38,7 @@ const briefArticles: NewsArticle[] = [
 
 const filters: NewsFilter[] = ['all', ...newsCategories];
 
-const cardEyebrowClassName = 'text-xs font-semibold uppercase tracking-[1px] text-solar';
+const cardEyebrowClassName = 'text-[11px] font-semibold uppercase tracking-[0.14em]';
 
 export const NewsSection = () => {
   const { t } = useTranslation('resources');
@@ -51,65 +51,56 @@ export const NewsSection = () => {
   const hasBriefs = briefArticles.some(isShown);
 
   return (
-    <section id="news" aria-labelledby="news-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-7 lg:gap-6 lg:pb-12 lg:pt-8')}>
-      <div data-reveal className="flex flex-col gap-3.5 lg:flex-row lg:items-end lg:justify-between">
-        <h2 id="news-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
-          {t('news.title')}
-        </h2>
-        <div role="group" aria-label={t('news.filters.label')} className="flex flex-wrap gap-2 text-[13px]">
-          {filters.map((filter) => {
-            const isActive = filter === activeFilter;
-            return (
-              <button
-                key={filter}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setActiveFilter(filter)}
-                className={cn(
-                  'rounded-[14px] border px-3 py-[7px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar',
-                  isActive ? 'border-night bg-night text-white' : 'border-sand-border bg-white text-night hover:border-night',
-                )}
-              >
-                {filter === 'all' ? t('news.filters.all') : t(`news.categories.${filter}`)}
-              </button>
-            );
-          })}
+    <section id="news" aria-labelledby="news-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-6 pb-10 pt-12 lg:gap-9 lg:pb-16 lg:pt-20')}>
+      <div data-reveal className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-3 lg:gap-4">
+          <p aria-hidden="true" className="energy-kicker tabular-nums">01 / 03</p>
+          <h2 id="news-title" className="energy-title">
+            {t('news.title')}
+          </h2>
+        </div>
+        <div role="group" aria-label={t('news.filters.label')} className="flex flex-wrap gap-2">
+          {filters.map((filter) => (
+            <button key={filter} type="button" aria-pressed={filter === activeFilter} onClick={() => setActiveFilter(filter)} className="energy-chip">
+              {filter === 'all' ? t('news.filters.all') : t(`news.categories.${filter}`)}
+            </button>
+          ))}
         </div>
       </div>
 
       <div hidden={!hasHighlights}>
         <ul className="grid gap-4 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-5">
           <li hidden={!isShown(featuredArticle)} data-reveal style={revealDelay(0)}>
-            <article className="relative flex h-full min-h-[280px] flex-col justify-end overflow-hidden rounded-[18px] bg-night p-6 text-white lg:min-h-[300px] lg:p-7">
+            <article className="relative isolate flex h-full min-h-[300px] flex-col justify-end overflow-hidden rounded-lg bg-night p-6 text-ivory lg:min-h-[360px] lg:p-8">
               <img
                 src={featuredArticle.image.src}
                 alt=""
                 width={featuredArticle.image.width}
                 height={featuredArticle.image.height}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-[0.45]"
+                className="absolute inset-0 -z-20 h-full w-full object-cover opacity-50"
               />
-              <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,17,32,0)_20%,rgba(11,17,32,0.95)_100%)]" />
-              <div className="relative flex flex-col gap-2.5">
-                <p className={cardEyebrowClassName}>{meta(featuredArticle)}</p>
-                <h3 className="text-[22px] font-bold leading-[1.2] lg:text-[26px]">{t(`news.articles.${featuredArticle.key}.title`)}</h3>
-                <p className="text-sm text-slate-light">{t(`news.articles.${featuredArticle.key}.summary`)}</p>
+              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,17,32,0)_15%,rgba(11,17,32,0.96)_100%)]" />
+              <div className="flex flex-col gap-3">
+                <p className={cn(cardEyebrowClassName, 'text-solar')}>{meta(featuredArticle)}</p>
+                <h3 className="text-[24px] font-medium leading-[1.15] tracking-[-0.03em] lg:text-[30px]">{t(`news.articles.${featuredArticle.key}.title`)}</h3>
+                <p className="max-w-[520px] text-sm leading-[1.6] text-slate-light">{t(`news.articles.${featuredArticle.key}.summary`)}</p>
               </div>
             </article>
           </li>
           {mediaArticles.map((article, index) => (
             <li key={article.key} hidden={!isShown(article)} data-reveal style={revealDelay(index + 1)}>
-              <article className="flex h-full flex-col gap-2.5 rounded-[18px] border border-sand-line bg-white p-5 lg:p-6">
+              <article className="flex h-full flex-col gap-3 rounded-md border border-sand-line bg-white p-4 lg:p-5">
                 <img
                   src={article.image.src}
                   alt={t(`news.articles.${article.key}.imageAlt`)}
                   width={article.image.width}
                   height={article.image.height}
                   loading="lazy"
-                  className="block h-[150px] w-full rounded-[10px] object-cover lg:h-[110px]"
+                  className="block h-[170px] w-full rounded object-cover lg:h-[150px]"
                 />
-                <p className={cardEyebrowClassName}>{meta(article)}</p>
-                <h3 className="text-lg font-bold leading-[1.25] lg:text-[19px]">{t(`news.articles.${article.key}.title`)}</h3>
+                <p className={cn(cardEyebrowClassName, 'mt-1 text-solar-dark')}>{meta(article)}</p>
+                <h3 className="text-lg font-medium leading-[1.25] tracking-[-0.02em] lg:text-[19px]">{t(`news.articles.${article.key}.title`)}</h3>
               </article>
             </li>
           ))}
@@ -120,9 +111,9 @@ export const NewsSection = () => {
         <ul className="grid gap-3 lg:grid-cols-3 lg:gap-5">
           {briefArticles.map((article, index) => (
             <li key={article.key} hidden={!isShown(article)} data-reveal style={revealDelay(index)}>
-              <article className="flex h-full flex-col gap-1.5 rounded-[14px] border border-sand-line bg-white p-5">
-                <p className="text-xs text-slate">{meta(article)}</p>
-                <h3 className="text-base font-bold lg:text-[17px]">{t(`news.articles.${article.key}.title`)}</h3>
+              <article className="flex h-full flex-col gap-2 border-t border-night pt-4">
+                <p className={cn(cardEyebrowClassName, 'text-slate')}>{meta(article)}</p>
+                <h3 className="text-base font-medium leading-snug tracking-[-0.015em] lg:text-[17px]">{t(`news.articles.${article.key}.title`)}</h3>
               </article>
             </li>
           ))}

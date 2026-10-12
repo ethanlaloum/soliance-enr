@@ -5,8 +5,23 @@
   },
   "portfolio": {
     "breadcrumb": "Projects",
-    "title": "Our projects, with their real figures.",
+    "eyebrow": "Solar · Heat pumps · EV chargers",
+    "title": "Our projects,",
+    "titleAccent": "with their real figures.",
     "intro": "Every installation we fit is followed by our monitoring. We publish the production actually measured here, not a brochure promise.",
+    "requestStudy": "Request a free study",
+    "simulate": "Estimate my savings",
+    "imageAlt": "Villa with a pool in Vence, 28.5 kWp spread over the house and the pool house, drone view",
+    "caption": "Soliance project · Vence, 28.5 kWp",
+    "learn": "Browse the projects",
+    "trust": {
+      "published": "{{count}} projects published",
+      "monitoring": "Production followed by our monitoring",
+      "clients": "Homeowners, businesses, local authorities"
+    },
+    "kicker": "The portfolio",
+    "count_one": "{{count}} project",
+    "count_other": "{{count}} projects",
     "filters": {
       "typeLabel": "Filter by installation type",
       "all": "All",

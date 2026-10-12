@@ -44,7 +44,7 @@ const siteFields: TextField[] = [
 const darkLabelClassName = cn(fieldLabelClassName, 'text-white');
 const darkControlClassName = cn(fieldControlClassName, 'border-night-line bg-night-soft text-white focus:border-solar aria-[invalid=true]:border-red-400');
 const darkErrorClassName = cn(fieldErrorClassName, 'text-red-300');
-const cardClassName = 'flex flex-col gap-3.5 rounded-2xl bg-night p-6 text-white lg:rounded-[20px] lg:p-9';
+const cardClassName = 'flex flex-col gap-3.5 rounded-lg bg-night p-6 text-white lg:p-9';
 
 type ProfessionalStudyFormProps = {
   idPrefix?: string;
@@ -97,7 +97,7 @@ export const ProfessionalStudyForm = ({ idPrefix = 'pro-study' }: ProfessionalSt
   if (isSubmitted) {
     return (
       <div role="status" className={cardClassName}>
-        <h2 id={`${idPrefix}-title`} className="text-xl font-bold lg:text-[22px]">
+        <h2 id={`${idPrefix}-title`} className="text-[22px] font-medium tracking-[-0.03em] lg:text-[26px]">
           {t('form.successTitle')}
         </h2>
         <p className="text-base text-slate-light">{t('form.successDescription')}</p>
@@ -109,13 +109,13 @@ export const ProfessionalStudyForm = ({ idPrefix = 'pro-study' }: ProfessionalSt
     <form noValidate aria-labelledby={`${idPrefix}-title`} onSubmit={handleSubmit(onSubmit)} className={cardClassName}>
       <HoneypotField ref={honeypotRef} />
       <div className="flex flex-col gap-1.5">
-        <h2 id={`${idPrefix}-title`} className="text-xl font-bold lg:text-[22px]">
+        <h2 id={`${idPrefix}-title`} className="text-[22px] font-medium tracking-[-0.03em] lg:text-[26px]">
           {t('form.title')}
         </h2>
         <p className="text-sm text-slate-light">{t('form.lead')}</p>
       </div>
 
-      <div className="grid gap-3.5 sm:grid-cols-2">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-3.5 sm:grid-cols-2">
         {identityFields.map(renderTextField)}
 
         <div className={cn(darkLabelClassName, 'sm:col-span-2')}>

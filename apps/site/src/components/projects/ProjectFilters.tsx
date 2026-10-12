@@ -16,15 +16,7 @@ type FilterChipProps = {
 };
 
 const FilterChip = ({ label, pressed, onPress }: FilterChipProps) => (
-  <button
-    type="button"
-    aria-pressed={pressed}
-    onClick={onPress}
-    className={cn(
-      'rounded-[20px] border px-3.5 py-2 text-[13px] font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar motion-reduce:transition-none lg:px-4 lg:py-2.5 lg:text-sm',
-      pressed ? 'border-night bg-night text-white' : 'border-sand-border bg-white text-night hover:border-night/50',
-    )}
-  >
+  <button type="button" aria-pressed={pressed} onClick={onPress} className="energy-chip">
     {label}
   </button>
 );
@@ -45,7 +37,7 @@ export const ProjectFilters = ({ category, city, counts, totalCount, cities, onC
 
   return (
     <div className={cn('flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:items-center lg:gap-2.5', className)}>
-      <div role="group" aria-label={t('portfolio.filters.typeLabel')} className="flex flex-wrap gap-2 lg:gap-2.5">
+      <div role="group" aria-label={t('portfolio.filters.typeLabel')} className="flex flex-wrap gap-2">
         <FilterChip
           label={t('portfolio.filters.chip', { label: t('portfolio.filters.all'), count: totalCount })}
           pressed={category === null}
@@ -60,9 +52,9 @@ export const ProjectFilters = ({ category, city, counts, totalCount, cities, onC
           />
         ))}
       </div>
-      <div aria-hidden="true" className="mx-1.5 hidden h-7 w-px bg-sand-border lg:block" />
+      <div aria-hidden="true" className="mx-2 hidden h-6 w-px bg-sand-border lg:block" />
       <div className="flex items-center gap-2">
-        <label id="projects-city-filter-label" htmlFor="projects-city-filter" className="text-sm font-semibold">
+        <label id="projects-city-filter-label" htmlFor="projects-city-filter" className="text-[13px] font-medium text-slate-ink">
           {t('portfolio.filters.city')}
         </label>
         <div className="min-w-0 flex-1 sm:flex-none lg:min-w-[200px]">
@@ -74,7 +66,7 @@ export const ProjectFilters = ({ category, city, counts, totalCount, cities, onC
               { value: '', label: t('portfolio.filters.allCities') },
               ...cities.map((item) => ({ value: item as string, label: t(`cities.${item}`) })),
             ]}
-            className="h-10 rounded-[20px] border border-sand-border bg-white px-3.5 font-sans text-sm font-semibold text-night outline-none transition-colors hover:border-night/50 focus:border-solar focus:ring-2 focus:ring-solar/30 motion-reduce:transition-none"
+            className="h-[37px] rounded border border-sand-border bg-transparent px-3.5 font-sans text-[13px] font-medium text-night outline-none transition-colors hover:border-night focus:border-solar focus:ring-2 focus:ring-solar/30 motion-reduce:transition-none"
             listClassName="text-sm"
             onChange={(value) => onCityChange(value === '' ? null : toProjectCity(value))}
           />

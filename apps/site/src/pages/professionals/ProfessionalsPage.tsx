@@ -12,7 +12,7 @@ export const ProfessionalsPage = () => {
   useScrollReveal();
 
   return (
-    <>
+    <div className="energy-page flex flex-1 flex-col">
       <ProfessionalsHeroSection />
       <OffersSection />
       <CaseStudiesSection />
@@ -20,6 +20,6 @@ export const ProfessionalsPage = () => {
       <SchemesSection />
       <MethodSection />
       <GuaranteesSection />
-    </>
+    </div>
   );
 };

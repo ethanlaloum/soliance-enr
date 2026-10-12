@@ -1,23 +1,29 @@
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/lib/utils';
-import { Breadcrumb } from '@/components/page/Breadcrumb';
-import { containerClassName } from '@/components/home/containerClassName';
+import { paths } from '@/routes/paths';
+import { EnergyPremiumHero } from '@/components/energy/EnergyPremiumHero';
+import { resourceSectionIds } from '@/components/resources/resourceSectionIds';
 
 export const ResourcesHero = () => {
   const { t } = useTranslation('resources');
 
-  return (
-    <section aria-labelledby="resources-title" className={cn(containerClassName, 'flex flex-col gap-3 pb-5 pt-8 lg:gap-4 lg:pb-7 lg:pt-16')}>
-      <Breadcrumb items={[{ label: t('hero.breadcrumb') }]} tone="light" className="motion-safe:animate-fade-up" />
-      <h1
-        id="resources-title"
-        className="text-[34px] font-medium tracking-[-0.05em] leading-[1.1] motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] lg:text-[52px] lg:leading-[1.1]"
-      >
-        {t('hero.title')}
-      </h1>
-      <p className="max-w-[860px] text-base leading-normal text-slate-ink motion-safe:animate-fade-up motion-safe:[animation-delay:160ms] lg:text-lg lg:leading-[1.55]">
-        {t('hero.lead')}
-      </p>
-    </section>
-  );
+  return <EnergyPremiumHero
+    variant="resources"
+    compact
+    breadcrumb={t('hero.breadcrumb')}
+    eyebrow={t('hero.eyebrow')}
+    title={t('hero.title')}
+    accent={t('hero.titleAccent')}
+    lead={t('hero.lead')}
+    image="/images/projects/vence-villa-16-kwc-panels-hills.webp"
+    imageWidth={1280}
+    imageHeight={853}
+    imageAlt={t('hero.imageAlt')}
+    primaryLabel={t('hero.requestStudy')}
+    secondaryLabel={t('hero.simulate')}
+    secondaryHref={paths.simulator}
+    caption={t('hero.caption')}
+    learnLabel={t('hero.learn')}
+    learnHref={`#${resourceSectionIds[0]}`}
+    trust={['team', 'topics', 'plain'].map((key) => t(`hero.trust.${key}`))}
+  />;
 };

@@ -1,13 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { config } from '@/config';
 import { cn } from '@/lib/utils';
+import { ArrowUpRightIcon, PhoneIcon } from '@/components/icons/Icons';
 import { containerClassName } from '@/components/home/containerClassName';
 import { professionalStudyAnchor } from '@/components/professionals/professionalStudyAnchor';
 import { ContactLink } from '@/components/contact/ContactLink';
 import { ContactFormKind } from '@/components/contact/contactDialog';
-
-const ctaClassName =
-  'flex min-h-[52px] items-center justify-center rounded-[10px] px-6 py-4 text-center text-base font-bold transition-[color,background-color,transform] duration-200 ease-out hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:text-[17px]';
 
 export const StudyCtaSection = () => {
   const { t } = useTranslation('professionals');
@@ -17,23 +15,26 @@ export const StudyCtaSection = () => {
       <section
         data-reveal
         aria-labelledby="study-cta-title"
-        className="grid items-center gap-6 rounded-2xl bg-solar p-6 lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:rounded-3xl lg:px-14 lg:py-12"
+        className="relative isolate grid items-center gap-7 overflow-hidden rounded-lg bg-night p-6 text-ivory lg:grid-cols-[1.3fr_1fr] lg:gap-14 lg:px-14 lg:py-14"
       >
-        <div className="flex flex-col gap-2.5">
-          <p className="text-xs font-semibold uppercase tracking-[1.5px] text-white lg:text-[13px]">{t('studyCta.eyebrow')}</p>
-          <h2 id="study-cta-title" className="text-2xl font-medium tracking-[-0.035em] leading-tight text-white lg:text-[34px]">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_85%_20%,rgba(224,123,40,0.14),transparent_60%)]" />
+        <div className="flex flex-col gap-3.5">
+          <p className="energy-kicker energy-kicker--dark">{t('studyCta.eyebrow')}</p>
+          <h2 id="study-cta-title" className="text-[26px] font-medium leading-[1.12] tracking-[-0.035em] lg:text-[38px]">
             {t('studyCta.title')}
           </h2>
-          <p className="text-[15px] leading-[1.55] text-white lg:text-base">{t('studyCta.lead')}</p>
+          <p className="max-w-[560px] text-[15px] leading-[1.65] text-slate-light lg:text-base">{t('studyCta.lead')}</p>
         </div>
-        <div className="flex flex-col gap-3">
-          <ContactLink kind={ContactFormKind.PROFESSIONAL} href={`#${professionalStudyAnchor}`} className={cn(ctaClassName, 'bg-night text-white hover:bg-night-soft hover:text-white')}>
+        <div className="flex flex-col items-start gap-5 lg:border-l lg:border-night-line lg:pl-12">
+          <ContactLink kind={ContactFormKind.PROFESSIONAL} href={`#${professionalStudyAnchor}`} className="energy-button energy-button--on-dark w-full sm:w-auto">
             {t('studyCta.requestStudy')}
+            <ArrowUpRightIcon className="h-3.5 w-3.5" />
           </ContactLink>
-          <a href={config.salesPhoneHref} className={cn(ctaClassName, 'bg-white text-night hover:bg-ivory hover:text-night')}>
+          <a href={config.salesPhoneHref} className="energy-link energy-link--on-dark">
+            <PhoneIcon className="h-3.5 w-3.5" />
             {t('studyCta.callSales')}
           </a>
-          <p className="text-center text-[13px] text-white">{t('studyCta.note')}</p>
+          <p className="text-xs text-slate-mist">{t('studyCta.note')}</p>
         </div>
       </section>
     </div>

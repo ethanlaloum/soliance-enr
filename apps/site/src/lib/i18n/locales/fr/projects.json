@@ -5,8 +5,23 @@
   },
   "portfolio": {
     "breadcrumb": "Réalisations",
-    "title": "Nos réalisations, avec leurs vrais chiffres.",
+    "eyebrow": "Photovoltaïque · Pompe à chaleur · Bornes",
+    "title": "Nos réalisations,",
+    "titleAccent": "avec leurs vrais chiffres.",
     "intro": "Chaque installation que nous posons est suivie par notre supervision. Nous publions ici la production réellement mesurée, pas une promesse de brochure.",
+    "requestStudy": "Demander une étude gratuite",
+    "simulate": "Simuler mes économies",
+    "imageAlt": "Villa avec piscine à Vence, 28,5 kWc répartis sur la maison et le pool house, vue de drone",
+    "caption": "Réalisation Soliance · Vence, 28,5 kWc",
+    "learn": "Parcourir les réalisations",
+    "trust": {
+      "published": "{{count}} réalisations publiées",
+      "monitoring": "Production suivie en supervision",
+      "clients": "Particuliers, entreprises, collectivités"
+    },
+    "kicker": "Le portfolio",
+    "count_one": "{{count}} réalisation",
+    "count_other": "{{count}} réalisations",
     "filters": {
       "typeLabel": "Filtrer par type d'installation",
       "all": "Tous",

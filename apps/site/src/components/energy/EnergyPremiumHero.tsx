@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router';
+import { cn } from '@/lib/utils';
 import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { ContactLink } from '@/components/contact/ContactLink';
 import { ContactFormKind } from '@/components/contact/contactDialog';
@@ -13,7 +14,8 @@ import './energy-premium.css';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type EnergyPremiumHeroProps = {
-  variant: 'solar' | 'charge';
+  variant: 'solar' | 'charge' | 'pro' | 'projects' | 'resources';
+  compact?: boolean;
   breadcrumb: string;
   eyebrow: string;
   title: string;
@@ -24,16 +26,20 @@ type EnergyPremiumHeroProps = {
   imageHeight: number;
   imageAlt: string;
   primaryLabel: string;
+  primaryKind?: ContactFormKind;
+  primaryHref?: string;
   secondaryLabel: string;
   secondaryHref: string;
   caption: string;
   learnLabel: string;
+  learnHref?: string;
   trust: string[];
 };
 
 export const EnergyPremiumHero = ({
-  variant, breadcrumb, eyebrow, title, accent, lead, image, imageWidth, imageHeight, imageAlt,
-  primaryLabel, secondaryLabel, secondaryHref, caption, learnLabel, trust,
+  variant, compact = false, breadcrumb, eyebrow, title, accent, lead, image, imageWidth, imageHeight, imageAlt,
+  primaryLabel, primaryKind = ContactFormKind.STUDY, primaryHref = `${paths.home}#${contactAnchor}`,
+  secondaryLabel, secondaryHref, caption, learnLabel, learnHref = `#${variant}-energy-story`, trust,
 }: EnergyPremiumHeroProps) => {
   const root = useRef<HTMLElement>(null);
 
@@ -54,7 +60,7 @@ export const EnergyPremiumHero = ({
   }, { scope: root });
 
   return (
-    <section ref={root} className={`energy-hero energy-hero--${variant}`} aria-labelledby={`${variant}-premium-title`}>
+    <section ref={root} className={cn('energy-hero', `energy-hero--${variant}`, compact && 'energy-hero--compact')} aria-labelledby={`${variant}-premium-title`}>
       <div className="energy-hero__photograph" aria-hidden="true">
         <img src={image} alt="" width={imageWidth} height={imageHeight} fetchPriority="high" />
       </div>
@@ -66,7 +72,7 @@ export const EnergyPremiumHero = ({
           <h1 id={`${variant}-premium-title`} data-energy-intro>{title}<br /><span>{accent}</span></h1>
           <p className="energy-hero__lead" data-energy-intro>{lead}</p>
           <div className="energy-hero__actions" data-energy-intro>
-            <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></ContactLink>
+            <ContactLink kind={primaryKind} href={primaryHref} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></ContactLink>
             {secondaryHref.startsWith('#') ? (
               <a href={secondaryHref} className="energy-hero__secondary">{secondaryLabel}</a>
             ) : (
@@ -77,7 +83,7 @@ export const EnergyPremiumHero = ({
         </div>
         <p className="sr-only">{imageAlt}</p>
         <div className="energy-hero__footer">
-          <a href={`#${variant}-energy-story`} className="energy-hero__learn"><span aria-hidden="true">↓</span>{learnLabel}</a>
+          <a href={learnHref} className="energy-hero__learn"><span aria-hidden="true">↓</span>{learnLabel}</a>
           <span className="energy-hero__caption">{caption}</span>
         </div>
       </div>

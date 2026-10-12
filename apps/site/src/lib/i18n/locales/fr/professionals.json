@@ -5,13 +5,22 @@
   },
   "hero": {
     "eyebrow": "Entreprises · Bailleurs · Collectivités",
-    "title": "Votre toiture est un actif. Faites-la produire.",
+    "title": "Votre toiture est un actif.",
+    "titleAccent": "Faites-la produire.",
     "lead": "Toitures industrielles, ombrières de parking, bâtiments agricoles et tertiaires de 36 à 500 kWc. Étude de rentabilité, financement en crédit-bail, réalisation et maintenance par une équipe unique en PACA.",
     "requestStudy": "Demander une étude de rentabilité",
     "seeReferences": "Voir nos références",
-    "imageAlt": "Ombrière photovoltaïque sur un parking d'entreprise, vue aérienne"
+    "imageAlt": "Gymnase municipal de Pertuis équipé de 163 kWc en toiture, stade et piste d'athlétisme autour, vue de drone",
+    "caption": "Réalisation Soliance · Gymnase de Pertuis, 163 kWc",
+    "learn": "Découvrir nos offres",
+    "trust": {
+      "range": "De 36 à 500 kWc",
+      "lease": "Crédit-bail possible",
+      "team": "Une seule équipe, de l'étude à la maintenance"
+    }
   },
   "offers": {
+    "kicker": "Nos offres",
     "title": "Ce que nous réalisons",
     "items": {
       "industrialRoofs": {
@@ -175,6 +184,7 @@
     "footnote": "Définitions simplifiées ; seuils, tarifs et échéances mis à jour dans le <glossaryLink>lexique des ressources</glossaryLink> et vérifiés à chaque étude."
   },
   "method": {
+    "kicker": "Notre méthode",
     "title": "Comment nous travaillons",
     "steps": {
       "study": {

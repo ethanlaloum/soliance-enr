@@ -22,20 +22,23 @@ const themeAnchorId = (themeKey: string) => `faq-${themeKey}`;
 const themeAnchorIds = faqThemes.map((theme) => themeAnchorId(theme.key));
 
 const faqListClassName =
-  'gap-2.5 divide-y-0 rounded-none border-0 bg-transparent [&>details]:rounded-xl [&>details]:border [&>details]:border-sand-line [&>details]:bg-white lg:[&>details]:px-[22px] lg:[&>details]:py-[18px]';
+  'rounded-none border-0 border-y border-sand-line bg-transparent [&>details]:px-0 lg:[&>details]:px-0 [&_summary]:font-medium [&_summary]:tracking-[-0.015em]';
 
 export const FaqSection = () => {
   const { t } = useTranslation('resources');
   const activeThemeId = useActiveSection(themeAnchorIds);
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-8 pt-8 lg:gap-6 lg:pb-12 lg:pt-10')}>
-      <h2 id="faq-title" data-reveal className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
-        {t('faq.title')}
-      </h2>
-      <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start lg:gap-8">
-        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[76px]">
-          <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-1.5">
+    <section id="faq" aria-labelledby="faq-title" className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-6 pb-10 pt-12 lg:gap-10 lg:pb-16 lg:pt-20')}>
+      <div data-reveal className="flex flex-col gap-3 lg:gap-4">
+        <p aria-hidden="true" className="energy-kicker tabular-nums">02 / 03</p>
+        <h2 id="faq-title" className="energy-title">
+          {t('faq.title')}
+        </h2>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start lg:gap-14">
+        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[84px]">
+          <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-0">
             {faqThemes.map((theme) => {
               const anchorId = themeAnchorId(theme.key);
               const isActive = anchorId === activeThemeId;
@@ -45,10 +48,10 @@ export const FaqSection = () => {
                     href={`#${anchorId}`}
                     aria-current={isActive ? 'true' : undefined}
                     className={cn(
-                      'block rounded-lg border px-3.5 py-2 text-sm font-semibold transition-colors lg:border-transparent lg:py-2.5 lg:text-[15px]',
+                      'block rounded border px-3.5 py-2 text-[13px] font-medium transition-colors motion-reduce:transition-none lg:rounded-none lg:border-0 lg:border-l-2 lg:px-4 lg:py-2.5 lg:text-[15px]',
                       isActive
-                        ? 'border-night bg-night text-white hover:text-white lg:border-night'
-                        : 'border-sand-border bg-white text-night hover:text-night lg:bg-transparent lg:hover:bg-white',
+                        ? 'border-night bg-night text-ivory hover:text-ivory lg:border-solar lg:bg-transparent lg:text-night lg:hover:text-night'
+                        : 'border-sand-border text-night hover:border-night hover:text-night lg:border-sand-line lg:text-slate-ink lg:hover:border-slate lg:hover:text-night',
                     )}
                   >
                     {t(`faq.themes.${theme.key}.label`)}
@@ -58,14 +61,13 @@ export const FaqSection = () => {
             })}
           </ul>
         </nav>
-        <div className="flex flex-col gap-8 lg:gap-10">
+        <div className="flex flex-col gap-10 lg:gap-14">
           {faqThemes.map((theme) => (
-            <div key={theme.key} id={themeAnchorId(theme.key)} data-reveal className="flex scroll-mt-16 flex-col gap-3 lg:scroll-mt-[76px]">
-              <h3 className="text-[13px] font-semibold uppercase tracking-[1px] text-solar">
-                {t(`faq.themes.${theme.key}.label`)}
-              </h3>
+            <div key={theme.key} id={themeAnchorId(theme.key)} data-reveal className="flex scroll-mt-16 flex-col gap-4 lg:scroll-mt-[84px]">
+              <h3 className="energy-kicker">{t(`faq.themes.${theme.key}.label`)}</h3>
               <FaqList
                 className={faqListClassName}
+                accentClassName="text-solar-dark"
                 items={theme.questionKeys.map((questionKey) => ({
                   question: t(`faq.themes.${theme.key}.questions.${questionKey}.question`),
                   answer: t(`faq.themes.${theme.key}.questions.${questionKey}.answer`),
@@ -73,8 +75,20 @@ export const FaqSection = () => {
               />
             </div>
           ))}
-          <p className="text-[13px] text-slate">
-            <Trans t={t} i18nKey="faq.missing" components={{ contactLink: <ContactLink kind={ContactFormKind.STUDY} href={`${paths.home}#${contactAnchor}`} /> }} />
+          <p className="text-[13px] text-slate-ink">
+            <Trans
+              t={t}
+              i18nKey="faq.missing"
+              components={{
+                contactLink: (
+                  <ContactLink
+                    kind={ContactFormKind.STUDY}
+                    href={`${paths.home}#${contactAnchor}`}
+                    className="font-medium text-night underline decoration-solar underline-offset-[3px] hover:text-solar-dark"
+                  />
+                ),
+              }}
+            />
           </p>
         </div>
       </div>

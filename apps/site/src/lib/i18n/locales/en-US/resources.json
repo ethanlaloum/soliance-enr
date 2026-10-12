@@ -5,8 +5,20 @@
   },
   "hero": {
     "breadcrumb": "Resources",
-    "title": "Understand everything before you sign.",
-    "lead": "Incentives change every year, the same questions keep coming back and acronyms abound. Here you will find the news, our answers and the definitions, kept up to date by the team."
+    "eyebrow": "News · Frequently asked questions · Glossary",
+    "title": "Understand everything",
+    "titleAccent": "before you sign.",
+    "lead": "Incentives change every year, the same questions keep coming back and acronyms abound. Here you will find the news, our answers and the definitions, kept up to date by the team.",
+    "requestStudy": "Request a free study",
+    "simulate": "Simulate my project",
+    "imageAlt": "Panels on the flat roof of a villa in Vence, hills and pines behind",
+    "caption": "Soliance project · Vence, 16 kWp",
+    "learn": "Browse the resources",
+    "trust": {
+      "team": "Kept up to date by the team",
+      "topics": "Incentives, paperwork, technology",
+      "plain": "Clear answers, no jargon"
+    }
   },
   "sectionNav": {
     "label": "On this page",

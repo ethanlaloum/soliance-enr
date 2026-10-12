@@ -5,13 +5,22 @@
   },
   "hero": {
     "eyebrow": "Businesses · Landlords · Local authorities",
-    "title": "Your roof is an asset. Put it to work.",
+    "title": "Your roof is an asset.",
+    "titleAccent": "Put it to work.",
     "lead": "Industrial roofs, parking canopies, agricultural and commercial buildings from 36 to 500 kWp. Profitability study, lease financing, installation and maintenance by a single team in PACA.",
     "requestStudy": "Request a profitability study",
     "seeReferences": "See our references",
-    "imageAlt": "Solar canopy over a company car park, aerial view"
+    "imageAlt": "Pertuis municipal gymnasium fitted with 163 kWp on its roof, with the stadium and running track around it, drone view",
+    "caption": "Soliance project · Pertuis gymnasium, 163 kWp",
+    "learn": "Discover our offers",
+    "trust": {
+      "range": "From 36 to 500 kWp",
+      "lease": "Lease financing available",
+      "team": "One team, from study to maintenance"
+    }
   },
   "offers": {
+    "kicker": "Our offers",
     "title": "What we deliver",
     "items": {
       "industrialRoofs": {
@@ -175,6 +184,7 @@
     "footnote": "Simplified definitions; thresholds, tariffs and deadlines are updated in the <glossaryLink>resources glossary</glossaryLink> and checked for every study."
   },
   "method": {
+    "kicker": "Our method",
     "title": "How we work",
     "steps": {
       "study": {

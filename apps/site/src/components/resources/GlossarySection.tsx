@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { revealDelay } from '@/components/motion/revealDelay';
+import { ArrowUpRightIcon } from '@/components/icons/Icons';
 import { containerClassName } from '@/components/home/containerClassName';
 import { sectionScrollMarginClassName } from '@/components/resources/resourceSectionIds';
 
@@ -49,13 +50,11 @@ const moreEntries: GlossaryEntry[] = [
 
 const GlossaryLink = ({ link, className }: { link: GlossaryLinkKey; className?: string }) => {
   const { t } = useTranslation('resources');
-  const linkClassName = cn('group/link inline-flex items-center gap-1 self-start text-sm font-semibold', className);
+  const linkClassName = cn('energy-link mt-auto self-start', className);
   const content = (
     <>
       {t(`glossary.links.${link}`)}
-      <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover/link:translate-x-1 motion-reduce:transition-none">
-        →
-      </span>
+      <ArrowUpRightIcon className="h-3 w-3" />
     </>
   );
 
@@ -75,45 +74,48 @@ export const GlossarySection = () => {
     <section
       id="glossary"
       aria-labelledby="glossary-title"
-      className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-5 pb-14 pt-8 lg:gap-6 lg:pb-20 lg:pt-10')}
+      className={cn(containerClassName, sectionScrollMarginClassName, 'flex flex-col gap-6 pb-16 pt-12 lg:gap-10 lg:pb-24 lg:pt-20')}
     >
-      <div data-reveal className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
-        <h2 id="glossary-title" className="text-[26px] font-medium tracking-[-0.035em] lg:text-[32px]">
-          {t('glossary.title')}
-        </h2>
-        <p className="text-[13px] text-slate">{t('glossary.updated')}</p>
+      <div data-reveal className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
+        <div className="flex flex-col gap-3 lg:gap-4">
+          <p aria-hidden="true" className="energy-kicker tabular-nums">03 / 03</p>
+          <h2 id="glossary-title" className="energy-title">
+            {t('glossary.title')}
+          </h2>
+        </div>
+        <p className="text-[13px] text-slate-ink">{t('glossary.updated')}</p>
       </div>
 
-      <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+      <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {glossaryCards.map((card, index) => (
           <li key={card.key} data-reveal style={revealDelay(index % 3)}>
-            <article className="flex h-full flex-col gap-1.5 rounded-[14px] border border-sand-line bg-white p-5 lg:p-[22px]">
-              <p className="text-xs font-semibold uppercase tracking-[1px] text-solar">{t(`glossary.categories.${card.category}`)}</p>
-              <h3 className="text-[17px] font-bold lg:text-lg">{t(`glossary.entries.${card.key}.term`)}</h3>
-              <p className="text-sm leading-normal text-slate-ink">{t(`glossary.entries.${card.key}.definition`)}</p>
+            <article className="flex h-full flex-col gap-2.5 rounded-md border border-sand-line bg-white p-5 lg:p-6">
+              <p className="energy-kicker">{t(`glossary.categories.${card.category}`)}</p>
+              <h3 className="mt-1 text-lg font-medium leading-snug tracking-[-0.02em] lg:text-[19px]">{t(`glossary.entries.${card.key}.term`)}</h3>
+              <p className="pb-2 text-sm leading-[1.6] text-slate-ink">{t(`glossary.entries.${card.key}.definition`)}</p>
               <GlossaryLink link={card.link} />
             </article>
           </li>
         ))}
       </ul>
 
-      <div data-reveal className="flex flex-col gap-3">
-        <h3 className="text-[15px] font-semibold text-slate-ink">{t('glossary.moreTitle')}</h3>
-        <ul className="grid gap-2.5 lg:grid-cols-2 lg:items-start">
+      <div data-reveal className="flex flex-col gap-4">
+        <h3 className="energy-kicker">{t('glossary.moreTitle')}</h3>
+        <ul className="grid border-t border-sand-line lg:grid-cols-2 lg:gap-x-12">
           {sortedMoreEntries.map((entry) => (
-            <li key={entry.key}>
-              <details className="group/entry rounded-xl border border-sand-line bg-white px-5 py-3.5 lg:px-[22px]">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold marker:hidden [&::-webkit-details-marker]:hidden">
+            <li key={entry.key} className="border-b border-sand-line">
+              <details className="group/entry py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium tracking-[-0.015em] marker:hidden [&::-webkit-details-marker]:hidden">
                   <span>{moreTerm(entry)}</span>
                   <span
                     aria-hidden="true"
-                    className="text-2xl leading-none text-solar transition-transform duration-200 group-open/entry:rotate-45 motion-reduce:transition-none"
+                    className="text-2xl leading-none text-solar-dark transition-transform duration-200 group-open/entry:rotate-45 motion-reduce:transition-none"
                   >
                     +
                   </span>
                 </summary>
-                <div className="flex flex-col gap-1.5 pt-2.5">
-                  <p className="text-sm leading-normal text-slate-ink">{t(`glossary.more.${entry.key}.definition`)}</p>
+                <div className="flex flex-col gap-2 pt-3">
+                  <p className="text-sm leading-[1.6] text-slate-ink">{t(`glossary.more.${entry.key}.definition`)}</p>
                   <GlossaryLink link={entry.link} />
                 </div>
               </details>

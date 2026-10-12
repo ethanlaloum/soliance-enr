@@ -5,8 +5,20 @@
   },
   "hero": {
     "breadcrumb": "Ressources",
-    "title": "Tout comprendre avant de signer.",
-    "lead": "Les aides changent chaque année, les questions reviennent souvent, les sigles sont nombreux. Vous trouvez ici l'actualité, nos réponses et les définitions, tenues à jour par l'équipe."
+    "eyebrow": "Actualités · Questions fréquentes · Lexique",
+    "title": "Tout comprendre",
+    "titleAccent": "avant de signer.",
+    "lead": "Les aides changent chaque année, les questions reviennent souvent, les sigles sont nombreux. Vous trouvez ici l'actualité, nos réponses et les définitions, tenues à jour par l'équipe.",
+    "requestStudy": "Demander une étude gratuite",
+    "simulate": "Simuler mon projet",
+    "imageAlt": "Panneaux posés sur la toiture-terrasse d'une villa de Vence, collines et pins en arrière-plan",
+    "caption": "Réalisation Soliance · Vence, 16 kWc",
+    "learn": "Parcourir les ressources",
+    "trust": {
+      "team": "Tenu à jour par l'équipe",
+      "topics": "Aides, démarches, technique",
+      "plain": "Des réponses claires, sans jargon"
+    }
   },
   "sectionNav": {
     "label": "Sommaire de la page",
