@@ -8,6 +8,7 @@ import { ArrowRightIcon, CheckIcon } from '@/components/icons/Icons';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
 import { ContactLink } from '@/components/contact/ContactLink';
 import { ContactFormKind } from '@/components/contact/contactDialog';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 const trustKeys = ['rge', 'decennial', 'installation', 'localTeam'] as const;
 const statKeys = ['installations', 'savings', 'maintenance'] as const;
@@ -30,7 +31,7 @@ const KeyFigures = () => {
               <span className="lg:hidden">{t(`hero.stats.${key}.labelShort`)}</span>
               <span className="hidden lg:inline">{t(`hero.stats.${key}.label`)}</span>
             </dt>
-            <dd className="text-[26px] font-bold leading-none tracking-tight text-solar lg:text-4xl">{t(`hero.stats.${key}.value`)}</dd>
+            <dd className="text-[26px] font-bold leading-none tracking-tight text-solar lg:text-4xl"><CountUpValue value={t(`hero.stats.${key}.value`)} /></dd>
           </div>
         ))}
       </dl>

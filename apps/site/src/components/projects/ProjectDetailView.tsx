@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Breadcrumb } from '@/components/page/Breadcrumb';
 import { containerClassName } from '@/components/home/containerClassName';
@@ -10,6 +11,7 @@ import { ProjectDetailLayout, type ProjectDetail } from '@/app/projects/domain/e
 
 export const ProjectDetailView = ({ detail }: { detail: ProjectDetail }) => {
   useScrollReveal();
+  useCountUp();
   const { t } = useTranslation('projects');
 
   return (

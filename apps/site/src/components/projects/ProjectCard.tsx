@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { projectPath } from '@/routes/paths';
 import { ArrowUpRightIcon, DiamondPattern } from '@/components/icons/Icons';
 import { ProjectBadgeTone, type Project } from '@/app/projects/domain/entities/Project';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 const metricKeys = ['first', 'second', 'third'] as const;
 
@@ -86,7 +87,7 @@ export const ProjectCard = ({ project, titleAs: Title = 'h2' }: ProjectCardProps
             {shownMetricKeys.map((key) => (
               <div key={key} className="flex min-w-0 flex-col-reverse justify-end gap-1 border-sand-line [&:not(:first-child)]:border-l [&:not(:first-child)]:pl-2.5 sm:[&:not(:first-child)]:pl-3">
                 <dt className="text-[11px] leading-snug text-slate-ink">{t(`${prefix}.metrics.${key}.label`)}</dt>
-                <dd className="whitespace-nowrap text-sm font-medium tracking-[-0.02em] text-solar-dark sm:text-[15px] lg:text-base">{t(`${prefix}.metrics.${key}.value`)}</dd>
+                <dd className="whitespace-nowrap text-sm font-medium tracking-[-0.02em] text-solar-dark sm:text-[15px] lg:text-base"><CountUpValue value={t(`${prefix}.metrics.${key}.value`)} /></dd>
               </div>
             ))}
           </dl>

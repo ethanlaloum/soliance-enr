@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { EnergyPremiumHero } from '@/components/energy/EnergyPremiumHero';
@@ -24,6 +25,7 @@ const portfolioAnchor = 'portfolio';
 
 export const ProjectsPage = () => {
   useScrollReveal();
+  useCountUp();
   const { t } = useTranslation('projects');
   const [category, setCategory] = useState<ProjectCategory | null>(null);
   const [city, setCity] = useState<ProjectCity | null>(null);

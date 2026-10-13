@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { containerClassName, eyebrowClassName } from '@/components/home/containerClassName';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 const statKeys = ['energy', 'solarShare'] as const;
 
@@ -41,7 +42,7 @@ export const SolarChargingSection = () => {
             {statKeys.map((key) => (
               <div key={key} className="flex flex-col-reverse justify-end gap-0.5 rounded-[10px] bg-night p-3 lg:p-3.5">
                 <dt className="text-[11px] leading-snug text-slate-light lg:text-xs">{t(`solarCharging.example.stats.${key}.label`)}</dt>
-                <dd className="text-[17px] font-bold leading-tight text-solar lg:text-2xl">{t(`solarCharging.example.stats.${key}.value`)}</dd>
+                <dd className="text-[17px] font-bold leading-tight text-solar lg:text-2xl"><CountUpValue value={t(`solarCharging.example.stats.${key}.value`)} /></dd>
               </div>
             ))}
           </dl>

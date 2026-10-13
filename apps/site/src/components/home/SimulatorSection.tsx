@@ -4,6 +4,7 @@ import { paths } from '@/routes/paths';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { eyebrowClassName } from '@/components/home/containerClassName';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 const estimateKeys = ['power', 'production', 'autonomy'] as const;
 
@@ -43,7 +44,7 @@ export const SimulatorSection = () => {
           />
           <div className="home-simulator__autonomy" aria-hidden="true">
             <svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="51" stroke="currentColor" strokeOpacity=".18" strokeWidth="2" /><circle data-autonomy-ring cx="60" cy="60" r="51" pathLength="100" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="75 100" transform="rotate(-90 60 60)" /></svg>
-            <span>{t('simulator.estimate.autonomy.value')}</span>
+            <CountUpValue value={t('simulator.estimate.autonomy.value')} />
           </div>
           <figcaption className="absolute inset-x-5 bottom-5">
             <dl aria-label={t('simulator.estimateLabel')} className="grid grid-cols-3 gap-3 rounded-xl bg-white/95 px-[18px] py-3.5">
@@ -51,7 +52,7 @@ export const SimulatorSection = () => {
                 <div key={key} data-estimate className="flex flex-col-reverse justify-end">
                   <dt className="text-xs text-slate-ink">{t(`simulator.estimate.${key}.label`)}</dt>
                   <dd className={cn('text-[22px] font-bold', key === 'autonomy' ? 'text-solar-dark' : 'text-night')}>
-                    {t(`simulator.estimate.${key}.value`)}
+                    <CountUpValue value={t(`simulator.estimate.${key}.value`)} />
                   </dd>
                 </div>
               ))}

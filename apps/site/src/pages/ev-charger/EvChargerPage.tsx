@@ -1,5 +1,6 @@
 import '@/lib/i18n/namespaces/evCharger';
 import { EnergyScrollExplainer } from '@/components/energy/EnergyScrollExplainer';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { AidsAndFaqSection } from '@/components/ev-charger/AidsAndFaqSection';
 import { BusinessChargingSection } from '@/components/ev-charger/BusinessChargingSection';
@@ -11,6 +12,7 @@ import { SolarChargingSection } from '@/components/ev-charger/SolarChargingSecti
 
 export const EvChargerPage = () => {
   useScrollReveal();
+  useCountUp();
 
   return (
     <div className="energy-product-page energy-product-page--charge flex flex-1 flex-col">

@@ -1,6 +1,7 @@
 import '@/lib/i18n/namespaces/home';
 import '@/components/home/home-motion.css';
 import { useRef } from 'react';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useHomeScrollMotion } from '@/hooks/useHomeScrollMotion';
 import { ContactSection } from '@/components/home/ContactSection';
 import { HeroSection } from '@/components/home/HeroSection';
@@ -16,6 +17,7 @@ import { FranceSunshineSection } from '@/components/home/FranceSunshineSection';
 export const HomePage = () => {
   const motionRef = useRef<HTMLDivElement>(null);
   useHomeScrollMotion(motionRef);
+  useCountUp();
 
   return (
     <div ref={motionRef} className="home-motion">

@@ -3,6 +3,7 @@ import '@/lib/i18n/namespaces/solar';
 import '@/lib/i18n/namespaces/projects';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
+import { useCountUp } from '@/hooks/useCountUp';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { NotFoundPage } from '@/pages/not-found/NotFoundPage';
 import { SolarCtaSection } from '@/components/solar/SolarCtaSection';
@@ -18,6 +19,7 @@ import { findServiceArea, serviceAreas } from '@/app/service-areas/domain/entiti
 
 export const LocalSolarPage = () => {
   useScrollReveal();
+  useCountUp();
   const { t } = useTranslation('common');
   const { area: areaSlug } = useParams();
   const area = findServiceArea(serviceAreas, areaSlug);

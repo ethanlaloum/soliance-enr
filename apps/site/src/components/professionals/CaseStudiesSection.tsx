@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { projectPath } from '@/routes/paths';
 import { ArrowUpRightIcon } from '@/components/icons/Icons';
 import { containerClassName } from '@/components/home/containerClassName';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 type CaseStudyKey = 'solisInvest' | 'seranonSpar';
 
@@ -25,7 +26,7 @@ const CaseStudyStats = ({ caseStudy, tone }: { caseStudy: CaseStudyKey; tone: To
       {statKeysByCaseStudy[caseStudy].map((key) => (
         <div key={key}>
           <dt>{t(`caseStudies.${caseStudy}.stats.${key}.label`)}</dt>
-          <dd>{t(`caseStudies.${caseStudy}.stats.${key}.value`)}</dd>
+          <dd><CountUpValue value={t(`caseStudies.${caseStudy}.stats.${key}.value`)} /></dd>
         </div>
       ))}
     </dl>

@@ -11,6 +11,7 @@ import {
   type TechnicalSheetRow,
 } from '@/app/projects/domain/entities/ProjectDetail';
 import { ContactLink } from '@/components/contact/ContactLink';
+import { CountUpValue } from '@/components/motion/CountUpValue';
 
 const metricKeys = ['first', 'second', 'third'] as const;
 
@@ -57,7 +58,7 @@ export const FicheMetricTiles = ({ keyPrefix, tone, className }: FicheMetricTile
           className={cn('flex flex-col-reverse justify-end gap-0.5 rounded-[10px] p-3 lg:p-3.5', tone === 'dark' ? 'bg-night-soft' : 'bg-ivory')}
         >
           <dt className={cn('text-xs leading-snug', tone === 'dark' ? 'text-slate-light' : 'text-slate-ink')}>{t(`${keyPrefix}.${key}.label`)}</dt>
-          <dd className="text-lg font-bold leading-tight text-solar lg:text-[22px]">{t(`${keyPrefix}.${key}.value`)}</dd>
+          <dd className="text-lg font-bold leading-tight text-solar lg:text-[22px]"><CountUpValue value={t(`${keyPrefix}.${key}.value`)} /></dd>
         </div>
       ))}
     </dl>
