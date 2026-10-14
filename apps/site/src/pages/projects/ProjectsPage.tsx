@@ -51,7 +51,8 @@ export const ProjectsPage = () => {
         imageWidth={1280}
         imageHeight={720}
         imageAlt={t('portfolio.imageAlt')}
-        primaryLabel={t('portfolio.requestStudy')}
+        primaryLabel={t('portfolio.openPortfolio')}
+        primaryDocumentHref="/documents/portfolio-soliance-enr.pdf"
         secondaryLabel={t('portfolio.simulate')}
         secondaryHref={paths.simulator}
         caption={t('portfolio.caption')}

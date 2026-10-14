@@ -28,6 +28,7 @@ type EnergyPremiumHeroProps = {
   primaryLabel: string;
   primaryKind?: ContactFormKind;
   primaryHref?: string;
+  primaryDocumentHref?: string;
   secondaryLabel: string;
   secondaryHref: string;
   caption: string;
@@ -38,7 +39,7 @@ type EnergyPremiumHeroProps = {
 
 export const EnergyPremiumHero = ({
   variant, compact = false, breadcrumb, eyebrow, title, accent, lead, image, imageWidth, imageHeight, imageAlt,
-  primaryLabel, primaryKind = ContactFormKind.STUDY, primaryHref = `${paths.home}#${contactAnchor}`,
+  primaryLabel, primaryKind = ContactFormKind.STUDY, primaryHref = `${paths.home}#${contactAnchor}`, primaryDocumentHref,
   secondaryLabel, secondaryHref, caption, learnLabel, learnHref = `#${variant}-energy-story`, trust,
 }: EnergyPremiumHeroProps) => {
   const root = useRef<HTMLElement>(null);
@@ -72,7 +73,11 @@ export const EnergyPremiumHero = ({
           <h1 id={`${variant}-premium-title`} data-energy-intro>{title}<br /><span>{accent}</span></h1>
           <p className="energy-hero__lead" data-energy-intro>{lead}</p>
           <div className="energy-hero__actions" data-energy-intro>
-            <ContactLink kind={primaryKind} href={primaryHref} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></ContactLink>
+            {primaryDocumentHref ? (
+              <a href={primaryDocumentHref} target="_blank" rel="noopener" className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></a>
+            ) : (
+              <ContactLink kind={primaryKind} href={primaryHref} className="energy-hero__primary">{primaryLabel}<span aria-hidden="true"><ArrowUpRightIcon className="h-[0.8em] w-[0.8em]" /></span></ContactLink>
+            )}
             {secondaryHref.startsWith('#') ? (
               <a href={secondaryHref} className="energy-hero__secondary">{secondaryLabel}</a>
             ) : (
