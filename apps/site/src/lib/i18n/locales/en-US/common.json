@@ -12,6 +12,7 @@
     "professionals": "Businesses",
     "projects": "Projects",
     "resources": "Resources",
+    "referral": "Referrals",
     "care": "Soliance Care"
   },
   "header": {
@@ -19,7 +20,22 @@
     "callLabel": "Call Soliance",
     "simulate": "Simulate my project",
     "openMenu": "Open the menu",
-    "closeMenu": "Close the menu"
+    "closeMenu": "Close the menu",
+    "menu": "Menu",
+    "brandCaption": "Renewable energy",
+    "myProject": "My project",
+    "ourSolutions": "Our solutions",
+    "forYourHome": "For your home",
+    "solutionsTitle": "The right solution for every project.",
+    "expertise": "RGE-certified installer · Côte d'Azur",
+    "needAdvice": "Need help choosing? Let's build your project together.",
+    "talkToAdvisor": "Talk to an advisor",
+    "careDescription": "Monitoring & maintenance",
+    "solutions": {
+      "solar": { "tag": "Generate", "description": "Your own energy, with a battery." },
+      "heatPump": { "tag": "Better heating", "description": "Comfort in every season." },
+      "evCharger": { "tag": "Charge", "description": "Convenient charging at home." }
+    }
   },
   "footer": {
     "company": "Solar Trade SAS · 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var, France",

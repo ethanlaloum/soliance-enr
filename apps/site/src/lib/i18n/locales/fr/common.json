@@ -12,6 +12,7 @@
     "professionals": "Professionnels",
     "projects": "Réalisations",
     "resources": "Ressources",
+    "referral": "Parrainage",
     "care": "Soliance Care"
   },
   "header": {
@@ -19,7 +20,22 @@
     "callLabel": "Appeler Soliance",
     "simulate": "Simuler mon projet",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "menu": "Menu",
+    "brandCaption": "Énergies renouvelables",
+    "myProject": "Mon projet",
+    "ourSolutions": "Nos solutions",
+    "forYourHome": "Pour votre maison",
+    "solutionsTitle": "À chaque projet, sa solution.",
+    "expertise": "Installateur certifié RGE · Côte d'Azur",
+    "needAdvice": "Vous hésitez ? Construisons votre projet ensemble.",
+    "talkToAdvisor": "Parler à un conseiller",
+    "careDescription": "Supervision & maintenance",
+    "solutions": {
+      "solar": { "tag": "Produire", "description": "Votre énergie, avec batterie." },
+      "heatPump": { "tag": "Mieux chauffer", "description": "Le confort en toute saison." },
+      "evCharger": { "tag": "Recharger", "description": "La recharge à domicile." }
+    }
   },
   "footer": {
     "company": "Solar Trade SAS · 30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var",

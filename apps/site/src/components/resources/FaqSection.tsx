@@ -37,7 +37,7 @@ export const FaqSection = () => {
         </h2>
       </div>
       <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start lg:gap-14">
-        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[84px]">
+        <nav aria-label={t('faq.themesLabel')} className="lg:sticky lg:top-[calc(var(--site-header-height)+84px)]">
           <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-0">
             {faqThemes.map((theme) => {
               const anchorId = themeAnchorId(theme.key);

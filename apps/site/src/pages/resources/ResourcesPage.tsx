@@ -10,7 +10,7 @@ export const ResourcesPage = () => {
   useScrollReveal();
 
   return (
-    <div className="energy-page flex flex-1 flex-col">
+    <div className="site-resources energy-page flex flex-1 flex-col">
       <ResourcesHero />
       <div>
         <ResourcesSectionNav />

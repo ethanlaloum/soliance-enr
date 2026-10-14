@@ -11,7 +11,7 @@ export const ResourcesSectionNav = () => {
   return (
     <nav
       aria-label={t('sectionNav.label')}
-      className="sticky top-0 z-10 border-b border-sand-line bg-ivory/95 supports-[backdrop-filter]:bg-ivory/85 supports-[backdrop-filter]:backdrop-blur"
+      className="sticky top-[var(--site-header-height)] z-10 border-b border-sand-line bg-ivory/95 supports-[backdrop-filter]:bg-ivory/85 supports-[backdrop-filter]:backdrop-blur"
     >
       <div className={containerClassName}>
         <ul className="-mb-px flex overflow-x-auto lg:gap-4">

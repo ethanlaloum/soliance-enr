@@ -41,7 +41,7 @@ const mapPlaceholderClassName = cn(simulatorCardClassName, 'min-h-[420px] lg:min
 const stepTransition = { duration: 0.32, ease: [0.22, 1, 0.36, 1] } as const;
 
 const pinnedCardClassName =
-  '[@media(max-width:1023px)_and_(min-height:640px)]:sticky [@media(max-width:1023px)_and_(min-height:640px)]:top-2 [@media(max-width:1023px)_and_(min-height:640px)]:z-20';
+  '[@media(max-width:1023px)_and_(min-height:640px)]:sticky [@media(max-width:1023px)_and_(min-height:640px)]:top-[calc(var(--site-header-height)+8px)] [@media(max-width:1023px)_and_(min-height:640px)]:z-20';
 
 export const Simulator = () => {
   const [step, setStep] = useState<SimulatorStep>(SimulatorStep.ADDRESS);

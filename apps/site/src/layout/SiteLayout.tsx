@@ -10,7 +10,7 @@ export const SiteLayout = () => {
 
   return (
     <ContactDialogProvider>
-      <div className="flex min-h-screen flex-col bg-ivory font-sans text-night">
+      <div className="site-layout flex min-h-screen flex-col bg-ivory font-sans text-night">
         <SiteHeader />
         <main className="flex flex-1 flex-col">
           <Outlet />
