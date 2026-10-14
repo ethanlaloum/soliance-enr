@@ -21,5 +21,9 @@
   "sourcePrefix": "Carte indicative · Tendances climatiques :",
   "sourceName": "Météo-France",
   "geographyPrefix": "Fond géographique :",
-  "geographyName": "Natural Earth"
+  "geographyName": "Natural Earth",
+  "yieldDepartment": "{{name}} ({{code}})",
+  "yieldValue": "{{value}} kWh/kWc par an",
+  "yieldReference": "Production d’1 kWc à {{city}} · PVGIS",
+  "yieldHint": "Survolez la carte pour voir la production d’1 kWc dans chaque département."
 }

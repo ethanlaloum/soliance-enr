@@ -1,5 +1,5 @@
 import '@/lib/i18n/namespaces/sunshine';
-import { useId, useRef } from 'react';
+import { PointerEvent, useCallback, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { useGSAP } from '@gsap/react';
@@ -8,6 +8,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRightIcon } from '@/components/icons/Icons';
 import { containerClassName } from '@/components/home/containerClassName';
 import { franceMetropolePath } from '@/components/home/france-metropole-path';
+import { sunshineMapTransformOf } from '@/components/home/franceMapProjection';
+import type { DepartmentSolarYield } from '@/app/simulator/domain/entities/DepartmentSolarYield';
+import { cn } from '@/lib/utils';
 import { paths } from '@/routes/paths';
 import './france-sunshine.css';
 
@@ -20,10 +23,57 @@ const localCities = [
   { key: 'nice', x: 481.44, y: 417.44 },
 ] as const;
 
+const loadDepartmentMap = () =>
+  Promise.all([import('@/app/simulator/domain/entities/DepartmentSolarYield'), import('@/components/simulator/franceDepartmentShapes')]).then(
+    ([yields, shapes]) => ({
+      shapes: shapes.franceDepartmentShapes,
+      transform: sunshineMapTransformOf(shapes.projectOnFranceMap),
+      yieldByCode: new Map(yields.departmentSolarYields.map((department) => [department.code, department])),
+    }),
+  );
+
+type DepartmentMap = Awaited<ReturnType<typeof loadDepartmentMap>>;
+
+type HoveredDepartment = {
+  department: DepartmentSolarYield;
+  left: number;
+  top: number;
+};
+
+const tooltipHalfWidth = 104;
+
 export const FranceSunshineSection = () => {
-  const { t } = useTranslation('sunshine');
+  const { t, i18n } = useTranslation('sunshine');
   const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const loading = useRef(false);
+  const [departmentMap, setDepartmentMap] = useState<DepartmentMap | null>(null);
+  const [hovered, setHovered] = useState<HoveredDepartment | null>(null);
   const svgId = `sunshine-${useId().replace(/:/g, '')}`;
+
+  const loadMap = useCallback(() => {
+    if (loading.current) return;
+    loading.current = true;
+    void loadDepartmentMap().then(setDepartmentMap, () => {
+      loading.current = false;
+    });
+  }, []);
+
+  const track = (event: PointerEvent<SVGGElement>) => {
+    const code = (event.target as SVGElement).dataset.code;
+    const department = code ? departmentMap?.yieldByCode.get(code) : undefined;
+    const bounds = stageRef.current?.getBoundingClientRect();
+    if (!department || !bounds) {
+      setHovered(null);
+      return;
+    }
+    const left = Math.min(Math.max(event.clientX - bounds.left, tooltipHalfWidth), bounds.width - tooltipHalfWidth);
+    setHovered({ department, left, top: event.clientY - bounds.top });
+  };
+
+  const leave = (event: PointerEvent<SVGGElement>) => {
+    if (event.pointerType === 'mouse') setHovered(null);
+  };
 
   useGSAP(() => {
     const root = sectionRef.current;
@@ -120,7 +170,7 @@ export const FranceSunshineSection = () => {
         </div>
 
         <figure className="sunshine-section__figure" data-sunshine-stage>
-          <div className="sunshine-section__map-stage">
+          <div ref={stageRef} className="sunshine-section__map-stage">
             <p className="sunshine-section__map-eyebrow">{t('mapEyebrow')}</p>
             <p className="sunshine-section__map-heading">{t('mapSequenceTitle')}</p>
             <svg className="sunshine-map" viewBox="0 0 640 650" role="img" aria-labelledby={`${svgId}-title ${svgId}-description`}>
@@ -180,12 +230,35 @@ export const FranceSunshineSection = () => {
                   </g>
                 ))}
                 <path data-sunshine-leader d="M481.44 417.44C548 426 575 511 489 566H436" className="sunshine-map__leader" />
+                {departmentMap ? (
+                  <g clipPath={`url(#${svgId}-clip)`}>
+                    <g transform={departmentMap.transform} className="sunshine-map__departments" onPointerMove={track} onPointerDown={track} onPointerLeave={leave}>
+                      {departmentMap.shapes.map((shape) => (
+                        <path
+                          key={shape.code}
+                          d={shape.path}
+                          data-code={shape.code}
+                          className={cn('sunshine-map__department', hovered?.department.code === shape.code && 'sunshine-map__department--active')}
+                        />
+                      ))}
+                    </g>
+                  </g>
+                ) : (
+                  <path d={franceMetropolePath} className="sunshine-map__hit" onPointerEnter={loadMap} onPointerDown={loadMap} />
+                )}
               </g>
             </svg>
             <div className="sunshine-section__map-label" data-sunshine-local-label aria-hidden="true">
               <span className="sunshine-section__map-label-dot" />
               <span><small>{t('mapLocalLabel')}</small><strong>{t('mapLocalTitle')}</strong></span>
             </div>
+            {hovered && (
+              <div className="sunshine-section__yield" style={{ left: hovered.left, top: hovered.top }} aria-hidden="true">
+                <small>{t('yieldDepartment', { name: hovered.department.name, code: hovered.department.code })}</small>
+                <strong>{t('yieldValue', { value: new Intl.NumberFormat(i18n.language).format(hovered.department.yieldKwhPerKwc).replace(/\u202f/g, '\u00a0') })}</strong>
+                <span>{t('yieldReference', { city: hovered.department.referenceCity })}</span>
+              </div>
+            )}
             <span className="sunshine-section__scroll-cue" data-sunshine-cue aria-hidden="true">
               <span /> {t('scrollCue')}
             </span>
@@ -196,6 +269,7 @@ export const FranceSunshineSection = () => {
               <span>{t('legendTitle')}</span>
               <div className="sunshine-section__legend-bar"><span data-sunshine-legend-fill /></div>
               <div><span>{t('legendLow')}</span><span>{t('legendHigh')}</span></div>
+              <p className="sunshine-section__hover-hint">{t('yieldHint')}</p>
             </div>
             <p className="sunshine-section__source">
               {t('sourcePrefix')} <a href={climateSource} target="_blank" rel="noreferrer">{t('sourceName')}</a>

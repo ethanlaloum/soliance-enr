@@ -21,5 +21,9 @@
   "sourcePrefix": "Indicative map · Climate trends:",
   "sourceName": "Météo-France",
   "geographyPrefix": "Map outline:",
-  "geographyName": "Natural Earth"
+  "geographyName": "Natural Earth",
+  "yieldDepartment": "{{name}} ({{code}})",
+  "yieldValue": "{{value}} kWh/kWp per year",
+  "yieldReference": "Output of 1 kWp in {{city}} · PVGIS",
+  "yieldHint": "Hover over the map to see the output of 1 kWp in each department."
 }

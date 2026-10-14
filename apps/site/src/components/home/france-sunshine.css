@@ -290,6 +290,76 @@
   font-weight: 500;
 }
 
+.sunshine-map__hit {
+  fill: transparent;
+  pointer-events: fill;
+}
+
+.sunshine-map__departments {
+  cursor: crosshair;
+}
+
+.sunshine-map__department {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: .7;
+  vector-effect: non-scaling-stroke;
+  transition: fill .2s ease, stroke .2s ease;
+}
+
+.sunshine-map__departments:hover .sunshine-map__department {
+  stroke: rgb(255 255 255 / 55%);
+}
+
+.sunshine-map__departments .sunshine-map__department--active {
+  fill: rgb(11 17 32 / 14%);
+  stroke: var(--home-night);
+  stroke-width: 1.4;
+}
+
+.sunshine-section__yield {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  min-width: 176px;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 12px;
+  padding: 11px 15px;
+  background: var(--home-night);
+  box-shadow: 0 9px 24px rgb(11 17 32 / 16%);
+  color: #fff;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 16px));
+  white-space: nowrap;
+}
+
+.sunshine-section__yield small {
+  color: var(--home-light);
+  font-size: 10px;
+  letter-spacing: .4px;
+}
+
+.sunshine-section__yield strong {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.sunshine-section__yield span {
+  color: var(--home-light);
+  font-size: 10px;
+}
+
+.sunshine-section__legend .sunshine-section__hover-hint {
+  display: block;
+  margin-top: 8px;
+  color: var(--home-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
 .sunshine-section__scroll-cue {
   position: absolute;
   bottom: 1%;
@@ -353,7 +423,7 @@
   background: linear-gradient(90deg, var(--home-light), #ebc575 55%, var(--home-solar));
 }
 
-.sunshine-section__legend > div:last-child {
+.sunshine-section__legend > div:not(.sunshine-section__legend-bar) {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
@@ -503,7 +573,7 @@
     font-size: 9px;
   }
 
-  .sunshine-section__legend > div:last-child {
+  .sunshine-section__legend > div:not(.sunshine-section__legend-bar) {
     font-size: 8px;
   }
 
@@ -550,6 +620,12 @@
   }
 
   .sunshine-section__scroll-cue {
+    display: none;
+  }
+}
+
+@media (hover: none) {
+  .sunshine-section__hover-hint {
     display: none;
   }
 }
