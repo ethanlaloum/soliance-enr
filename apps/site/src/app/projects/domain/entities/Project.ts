@@ -232,17 +232,6 @@ export const projects: Project[] = [
     cover: cardImage('immeuble-bureaux-148-kwc'),
   },
   {
-    id: 'villeneuve-loubet-le-kern-145-kwc',
-    slug: null,
-    city: ProjectCity.VILLENEUVE_LOUBET,
-    categories: [ProjectCategory.SOLAR, ProjectCategory.EV_CHARGER, ProjectCategory.PROFESSIONAL],
-    peakPowerKwc: 145,
-    storageKwh: null,
-    year: null,
-    badgeTone: ProjectBadgeTone.SOLAR,
-    cover: null,
-  },
-  {
     id: 'la-colle-sur-loup-pac-13-kwc',
     slug: 'la-colle-sur-loup-pac-13-kwc',
     city: ProjectCity.LA_COLLE_SUR_LOUP,

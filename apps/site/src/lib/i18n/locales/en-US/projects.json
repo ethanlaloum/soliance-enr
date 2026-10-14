@@ -221,17 +221,6 @@
         "third": { "value": "≈ 190 MWh", "label": "per year" }
       }
     },
-    "villeneuve-loubet-le-kern-145-kwc": {
-      "badge": "Businesses",
-      "title": "Villeneuve-Loubet · Le Kern · 145 kWp",
-      "description": "Commercial roof and 6 charging points of 22 kW.",
-      "coverLabel": "145 kWp · 6 × 22 kW chargers",
-      "metrics": {
-        "first": { "value": "170 MWh", "label": "produced per year" },
-        "second": { "value": "6", "label": "charging points" },
-        "third": { "value": "145 kWp", "label": "on the roof" }
-      }
-    },
     "la-colle-sur-loup-pac-13-kwc": {
       "badge": "Solar + battery + heat pump",
       "title": "La Colle-sur-Loup · 13 kWp · 15 kWh · 16 kW Daikin heat pump",

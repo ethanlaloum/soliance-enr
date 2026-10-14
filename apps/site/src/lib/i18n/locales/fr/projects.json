@@ -221,17 +221,6 @@
         "third": { "value": "≈ 190 MWh", "label": "par an" }
       }
     },
-    "villeneuve-loubet-le-kern-145-kwc": {
-      "badge": "Professionnels",
-      "title": "Villeneuve-Loubet · Le Kern · 145 kWc",
-      "description": "Toiture tertiaire et 6 points de charge 22 kW.",
-      "coverLabel": "145 kWc · 6 bornes 22 kW",
-      "metrics": {
-        "first": { "value": "170 MWh", "label": "produits par an" },
-        "second": { "value": "6", "label": "points de charge" },
-        "third": { "value": "145 kWc", "label": "en toiture" }
-      }
-    },
     "la-colle-sur-loup-pac-13-kwc": {
       "badge": "Photovoltaïque + batterie + PAC",
       "title": "La Colle-sur-Loup · 13 kWc · 15 kWh · PAC Daikin 16 kW",

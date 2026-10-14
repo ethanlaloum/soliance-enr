@@ -85,11 +85,11 @@ describe('Project category counts', () => {
 
   it('counts the published portfolio shown on the projects page', () => {
     expect(countProjectsByCategory(projects)).toEqual({
-      [ProjectCategory.SOLAR]: 18,
+      [ProjectCategory.SOLAR]: 17,
       [ProjectCategory.BATTERY]: 14,
       [ProjectCategory.HEAT_PUMP]: 2,
-      [ProjectCategory.EV_CHARGER]: 2,
-      [ProjectCategory.PROFESSIONAL]: 7,
+      [ProjectCategory.EV_CHARGER]: 1,
+      [ProjectCategory.PROFESSIONAL]: 6,
     });
   });
 });
