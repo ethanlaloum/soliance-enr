@@ -20,18 +20,22 @@ const LEAD_RECIPIENTS = [
     'ruben.darmon@soliance-enr.fr',
 ];
 
+const PORTFOLIO_URL = 'https://soliance-enr.fr/documents/portfolio-soliance-enr.pdf';
 const LEAD_KINDS = [
     'STUDY_REQUEST' => ['title' => "Demande d'étude gratuite"],
     'PROFESSIONAL_STUDY' => ['title' => 'Demande professionnelle'],
     'REFERRAL' => ['title' => 'Parrainage'],
     'SIMULATION' => ['title' => 'Simulation solaire'],
     'CARE_REQUEST' => ['title' => 'Demande Soliance Care'],
+    'PORTFOLIO_REQUEST' => ['title' => 'Demande de portfolio'],
 ];
 
 const FIELD_LABELS = [
     'care_request_type' => 'Demande',
     'company' => 'Société',
     'full_name' => 'Nom',
+    'first_name' => 'Prénom',
+    'last_name' => 'Nom',
     'job_title' => 'Fonction',
     'referrer_full_name' => 'Parrain',
     'referrer_phone' => 'Téléphone du parrain',
@@ -243,6 +247,7 @@ function readLead($payload): ?array
         'honeypot' => is_string($website) && strlen($website) <= MAX_VALUE_BYTES ? $website : null,
         'fillDurationMs' => readDuration($payload['fillDurationMs'] ?? null),
         'suspect' => false,
+        'notice' => null,
     ];
 }
 
@@ -353,10 +358,16 @@ function firstFilled(array $fields, array $names): ?string
     return null;
 }
 
+function personName(array $fields): ?string
+{
+    $name = trim(($fields['first_name'] ?? '') . ' ' . ($fields['last_name'] ?? ''));
+    return $name === '' ? null : $name;
+}
+
 function buildSubject(array $lead): string
 {
     $parts = [($lead['suspect'] ? '[Envoi suspect] ' : '') . LEAD_KINDS[$lead['kind']]['title']];
-    $identity = firstFilled($lead['fields'], IDENTITY_FIELDS);
+    $identity = personName($lead['fields']) ?? firstFilled($lead['fields'], IDENTITY_FIELDS);
     if ($identity !== null) {
         $parts[] = $identity;
     }
@@ -382,6 +393,7 @@ function buildHtml(array $lead): string
     return '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#0f172a;line-height:1.5">'
         . '<h2 style="margin:0 0 16px">' . escapeHtml(LEAD_KINDS[$lead['kind']]['title']) . '</h2>'
         . ($notice === null ? '' : '<p style="margin:0 0 16px;padding:10px 14px;border-radius:8px;background:#fff4ea;color:#7a3a0c;font-size:14px">' . escapeHtml($notice) . '</p>')
+        . ($lead['notice'] === null ? '' : '<p style="margin:0 0 16px;padding:10px 14px;border-radius:8px;background:#f1f5f9;color:#0f172a;font-size:14px">' . escapeHtml($lead['notice']) . '</p>')
         . '<table cellspacing="0" cellpadding="0" style="border-collapse:collapse">' . $rows . '</table>'
         . '<p style="margin:24px 0 4px;color:#475569;font-size:13px">Rappel accepté le ' . escapeHtml(formatConsentDate($lead['consentedAt'])) . ' (heure de Paris).</p>'
         . '<p style="margin:0 0 4px;color:#475569;font-size:13px">Consentement affiché : « ' . escapeHtml($lead['consentText']) . ' »</p>'
@@ -395,6 +407,9 @@ function buildText(array $lead): string
     $notice = suspectNotice($lead);
     if ($notice !== null) {
         array_push($lines, $notice, '');
+    }
+    if ($lead['notice'] !== null) {
+        array_push($lines, $lead['notice'], '');
     }
     foreach (orderedFields($lead['fields']) as $name => $value) {
         $lines[] = fieldLabel($name) . ' : ' . displayValue($name, $value);
@@ -489,6 +504,53 @@ function buildResultMessage(array $lead, string $from): ?array
     ];
 }
 
+function isPortfolioRequest(array $lead): bool
+{
+    return $lead['kind'] === 'PORTFOLIO_REQUEST';
+}
+
+function hasValidEmail(array $fields): bool
+{
+    return filter_var($fields['email'] ?? '', FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function buildPortfolioMessage(array $lead, string $from): ?array
+{
+    if (!isPortfolioRequest($lead) || $lead['suspect']) {
+        return null;
+    }
+    $firstName = $lead['fields']['first_name'] ?? '';
+    $greeting = $firstName === '' ? 'Bonjour,' : 'Bonjour ' . $firstName . ',';
+    $intro = 'Merci de l’intérêt que vous portez à Soliance. Comme promis, voici notre portfolio : une sélection de nos réalisations en photovoltaïque, pompe à chaleur et bornes de recharge.';
+    $outro = 'Un conseiller Soliance pourra vous contacter pour échanger sur votre projet. Vous pouvez aussi répondre directement à cet e-mail ou nous appeler au 07 63 54 51 44.';
+    return [
+        'from' => $from,
+        'to' => [$lead['fields']['email']],
+        'reply_to' => RESULT_REPLY_TO,
+        'subject' => 'Le portfolio Soliance',
+        'html' => '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#0f172a;line-height:1.5">'
+            . '<p style="margin:0 0 12px">' . escapeHtml($greeting) . '</p>'
+            . '<p style="margin:0 0 20px">' . escapeHtml($intro) . '</p>'
+            . '<p style="margin:0 0 20px"><a href="' . escapeHtml(PORTFOLIO_URL) . '" style="display:inline-block;padding:12px 22px;border-radius:999px;background:#E07B28;color:#ffffff;font-weight:700;text-decoration:none">Télécharger le portfolio (PDF)</a></p>'
+            . '<p style="margin:0 0 16px;color:#475569;font-size:13px">Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur : <a href="' . escapeHtml(PORTFOLIO_URL) . '">' . escapeHtml(PORTFOLIO_URL) . '</a></p>'
+            . '<p style="margin:0 0 16px">' . escapeHtml($outro) . '</p>'
+            . '<p style="margin:0">L’équipe Soliance</p>'
+            . '</div>',
+        'text' => implode("\n", [$greeting, '', $intro, '', 'Télécharger le portfolio (PDF) : ' . PORTFOLIO_URL, '', $outro, '', 'L’équipe Soliance']),
+    ];
+}
+
+function portfolioNotice(array $lead, bool $sent): string
+{
+    if ($lead['suspect']) {
+        return 'Portfolio non envoyé automatiquement (envoi suspect). Si la demande est réelle, envoyez ce lien au demandeur : ' . PORTFOLIO_URL;
+    }
+    if (!$sent) {
+        return 'L’envoi automatique du portfolio a échoué. Envoyez ce lien au demandeur : ' . PORTFOLIO_URL;
+    }
+    return 'Le portfolio a été envoyé automatiquement à ' . $lead['fields']['email'] . '.';
+}
+
 function sendWithResend(string $apiKey, array $message): bool
 {
     $curl = curl_init(RESEND_URL);
@@ -541,7 +603,7 @@ if (!is_string($body) || strlen($body) > MAX_BODY_BYTES) {
 }
 
 $lead = readLead(json_decode($body, true));
-if ($lead === null) {
+if ($lead === null || (isPortfolioRequest($lead) && !hasValidEmail($lead['fields']))) {
     respond(400, ['error' => 'INVALID_REQUEST']);
 }
 
@@ -556,7 +618,18 @@ if ($verdict === SPAM_DROP) {
 }
 $lead['suspect'] = $verdict === SPAM_SUSPECT;
 
+$portfolioMessage = buildPortfolioMessage($lead, $config['from']);
+$portfolioSent = $portfolioMessage !== null && sendWithResend($config['apiKey'], $portfolioMessage);
+if (isPortfolioRequest($lead)) {
+    $lead['notice'] = portfolioNotice($lead, $portfolioSent);
+}
+
 if (!sendWithResend($config['apiKey'], buildMessage($lead, $config['from']))) {
+    respond(502, ['error' => 'SUBMISSION_FAILED']);
+}
+
+if ($portfolioMessage !== null && !$portfolioSent) {
+    error_log('soliance lead mail: the portfolio could not be sent to the lead');
     respond(502, ['error' => 'SUBMISSION_FAILED']);
 }
 
