@@ -12,6 +12,7 @@ const titleSuffixes: Record<ContactFormKind, string> = {
   [ContactFormKind.STUDY]: 'request-title',
   [ContactFormKind.PROFESSIONAL]: 'title',
   [ContactFormKind.REFERRAL]: 'form-title',
+  [ContactFormKind.PORTFOLIO]: 'form-title',
 };
 
 export const ContactDialogProvider = ({ children }: { children: ReactNode }) => {

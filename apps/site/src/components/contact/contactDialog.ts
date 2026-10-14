@@ -4,6 +4,7 @@ export enum ContactFormKind {
   STUDY = 'STUDY',
   PROFESSIONAL = 'PROFESSIONAL',
   REFERRAL = 'REFERRAL',
+  PORTFOLIO = 'PORTFOLIO',
 }
 
 export type ContactDialogControls = {
@@ -20,10 +21,13 @@ export const loadContactForm = {
   [ContactFormKind.PROFESSIONAL]: () =>
     import('@/components/professionals/ProfessionalStudyForm').then((module) => ({ default: module.ProfessionalStudyForm })),
   [ContactFormKind.REFERRAL]: () => import('@/components/referral/ReferralForm').then((module) => ({ default: module.ReferralForm })),
+  [ContactFormKind.PORTFOLIO]: () =>
+    import('@/components/projects/PortfolioRequestForm').then((module) => ({ default: module.PortfolioRequestForm })),
 };
 
 export const contactDialogIdPrefixes: Record<ContactFormKind, string> = {
   [ContactFormKind.STUDY]: 'dialog-study',
   [ContactFormKind.PROFESSIONAL]: 'dialog-pro-study',
   [ContactFormKind.REFERRAL]: 'dialog-referral',
+  [ContactFormKind.PORTFOLIO]: 'dialog-portfolio',
 };

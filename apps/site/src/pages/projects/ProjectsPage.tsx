@@ -7,6 +7,7 @@ import { useCountUp } from '@/hooks/useCountUp';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { revealDelay } from '@/components/motion/revealDelay';
 import { EnergyPremiumHero } from '@/components/energy/EnergyPremiumHero';
+import { ContactFormKind } from '@/components/contact/contactDialog';
 import { containerClassName } from '@/components/home/containerClassName';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { ProjectFilters } from '@/components/projects/ProjectFilters';
@@ -52,7 +53,7 @@ export const ProjectsPage = () => {
         imageHeight={720}
         imageAlt={t('portfolio.imageAlt')}
         primaryLabel={t('portfolio.openPortfolio')}
-        primaryDocumentHref="/documents/portfolio-soliance-enr.pdf"
+        primaryKind={ContactFormKind.PORTFOLIO}
         secondaryLabel={t('portfolio.simulate')}
         secondaryHref={paths.simulator}
         caption={t('portfolio.caption')}

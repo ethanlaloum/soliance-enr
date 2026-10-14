@@ -40,6 +40,27 @@
     "empty": "Aucune réalisation ne correspond à ces filtres.",
     "reset": "Voir toutes les réalisations"
   },
+  "portfolioRequest": {
+    "title": "Recevoir le portfolio",
+    "description": "Indiquez vos coordonnées : nous vous envoyons le portfolio Soliance par e-mail.",
+    "fields": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone"
+    },
+    "consent": "J'accepte de recevoir le portfolio par e-mail et d'être recontacté par Soliance au sujet de mon projet.",
+    "submit": "Recevoir le portfolio",
+    "successTitle": "Le portfolio est en route",
+    "successDescription": "Nous venons de l'envoyer à {{email}}. S'il n'arrive pas d'ici quelques minutes, pensez à regarder dans vos courriers indésirables.",
+    "validation": {
+      "firstNameRequired": "Indiquez votre prénom.",
+      "lastNameRequired": "Indiquez votre nom.",
+      "emailInvalid": "Indiquez une adresse e-mail valide.",
+      "phoneInvalid": "Indiquez un numéro de téléphone français valide.",
+      "consentRequired": "Cochez la case pour recevoir le portfolio."
+    }
+  },
   "cities": {
     "antibes": "Antibes",
     "berreLEtang": "Berre-l'Étang",

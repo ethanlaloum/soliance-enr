@@ -30,6 +30,7 @@ const initialState: LeadState = {
     [LeadFormKind.REFERRAL]: { state: null },
     [LeadFormKind.SIMULATION]: { state: null },
     [LeadFormKind.CARE_REQUEST]: { state: null },
+    [LeadFormKind.PORTFOLIO_REQUEST]: { state: null },
   },
 };
 
