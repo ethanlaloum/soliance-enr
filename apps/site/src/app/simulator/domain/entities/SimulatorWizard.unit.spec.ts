@@ -1,6 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { DepartmentSolarYield } from '@/app/simulator/domain/entities/DepartmentSolarYield';
-import { DaytimePresence, EvCharging, HouseholdEquipment, RoofOrientation, RoofTilt, Shading, SizingChoice, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
+import {
+  billComparisonOf,
+  DaytimePresence,
+  estimateSolarInstallation,
+  EvCharging,
+  HouseholdEquipment,
+  RoofOrientation,
+  RoofTilt,
+  Shading,
+  SizingChoice,
+  solarEstimateParameters,
+} from '@/app/simulator/domain/entities/SolarEstimate';
 import {
   ConsumptionSource,
   consumptionSourceOf,
@@ -151,25 +162,26 @@ describe('Estimate preview', () => {
   it('uses the reference household and the PVGIS yield of the commune on the roof step', () => {
     expect(preview({ ...completedAnswers, monthlyBill: '400', daytimePresence: DaytimePresence.PRESENT }, SimulatorStep.ROOF)).toEqual({
       estimate: {
-        recommendedKwc: 6,
-        recommendedPanelCount: 12,
-        installedKwc: 6,
-        panelCount: 12,
+        recommendedKwc: 5.5,
+        recommendedPanelCount: 11,
+        installedKwc: 5.5,
+        panelCount: 11,
         panelChoice: SizingChoice.RECOMMENDED,
-        recommendedBatteryKwh: 15,
-        batteryKwh: 15,
+        recommendedBatteryKwh: 10.2,
+        batteryKwh: 10.2,
         batteryChoice: SizingChoice.RECOMMENDED,
-        annualProductionKwh: 9020,
-        monthlyProductionKwh: [510, 564, 773, 845, 929, 959, 1025, 971, 803, 660, 504, 480],
-        annualConsumptionKwh: 8640,
-        monthlyConsumptionKwh: [849, 791, 747, 696, 659, 630, 630, 615, 659, 718, 791, 857],
-        selfConsumedKwh: 5970,
-        selfConsumptionPercent: 66,
-        autonomyPercent: 69,
-        annualSavingsEur: 1490,
-        surplusKwh: 2700,
-        surplusValueEur: 27,
-        withoutBattery: { selfConsumedKwh: 2810, autonomyPercent: 32, annualSavingsEur: 700 },
+        annualProductionKwh: 8270,
+        monthlyProductionKwh: [467, 517, 709, 775, 852, 879, 940, 890, 737, 605, 462, 440],
+        annualConsumptionKwh: 7600,
+        monthlyConsumptionKwh: [747, 696, 657, 612, 580, 554, 554, 541, 580, 631, 696, 754],
+        selfConsumedKwh: 5640,
+        selfConsumptionPercent: 68,
+        autonomyPercent: 74,
+        annualSavingsEur: 1410,
+        surplusKwh: 2530,
+        surplusValueEur: 28,
+        reachesSavingsTarget: true,
+        withoutBattery: { selfConsumedKwh: 2560, autonomyPercent: 34, annualSavingsEur: 640 },
       },
       referenceMonthlyBillEur: 180,
       sunshine: cagnesSunshine,
@@ -179,25 +191,26 @@ describe('Estimate preview', () => {
   it('uses the reference bill with the chosen equipment and presence while the bill is not valid yet', () => {
     expect(preview({ ...completedAnswers, monthlyBill: '' }, SimulatorStep.CONSUMPTION)).toEqual({
       estimate: {
-        recommendedKwc: 6,
-        recommendedPanelCount: 12,
-        installedKwc: 6,
-        panelCount: 12,
+        recommendedKwc: 5.5,
+        recommendedPanelCount: 11,
+        installedKwc: 5.5,
+        panelCount: 11,
         panelChoice: SizingChoice.RECOMMENDED,
-        recommendedBatteryKwh: 10,
-        batteryKwh: 10,
+        recommendedBatteryKwh: 10.2,
+        batteryKwh: 10.2,
         batteryChoice: SizingChoice.RECOMMENDED,
-        annualProductionKwh: 9020,
-        monthlyProductionKwh: [510, 564, 773, 845, 929, 959, 1025, 971, 803, 660, 504, 480],
-        annualConsumptionKwh: 8640,
-        monthlyConsumptionKwh: [1120, 988, 849, 648, 499, 458, 479, 471, 475, 624, 895, 1134],
-        selfConsumedKwh: 5170,
-        selfConsumptionPercent: 57,
-        autonomyPercent: 60,
-        annualSavingsEur: 1290,
-        surplusKwh: 3640,
-        surplusValueEur: 36,
-        withoutBattery: { selfConsumedKwh: 3260, autonomyPercent: 38, annualSavingsEur: 820 },
+        annualProductionKwh: 8270,
+        monthlyProductionKwh: [467, 517, 709, 775, 852, 879, 940, 890, 737, 605, 462, 440],
+        annualConsumptionKwh: 7600,
+        monthlyConsumptionKwh: [790, 724, 685, 619, 557, 529, 532, 523, 535, 602, 702, 803],
+        selfConsumedKwh: 5720,
+        selfConsumptionPercent: 69,
+        autonomyPercent: 75,
+        annualSavingsEur: 1430,
+        surplusKwh: 2470,
+        surplusValueEur: 27,
+        reachesSavingsTarget: true,
+        withoutBattery: { selfConsumedKwh: 3100, autonomyPercent: 41, annualSavingsEur: 780 },
       },
       referenceMonthlyBillEur: 180,
       sunshine: cagnesSunshine,
@@ -207,25 +220,26 @@ describe('Estimate preview', () => {
   it('uses every answer once the bill is valid', () => {
     expect(preview({ ...completedAnswers, monthlyBill: '300', equipment: [], daytimePresence: DaytimePresence.PRESENT }, SimulatorStep.RESULT)).toEqual({
       estimate: {
-        recommendedKwc: 9,
-        recommendedPanelCount: 18,
-        installedKwc: 9,
-        panelCount: 18,
+        recommendedKwc: 9.5,
+        recommendedPanelCount: 19,
+        installedKwc: 9.5,
+        panelCount: 19,
         panelChoice: SizingChoice.RECOMMENDED,
-        recommendedBatteryKwh: 15,
-        batteryKwh: 15,
+        recommendedBatteryKwh: 15.3,
+        batteryKwh: 15.3,
         batteryChoice: SizingChoice.RECOMMENDED,
-        annualProductionKwh: 13540,
-        monthlyProductionKwh: [764, 845, 1160, 1268, 1394, 1439, 1538, 1457, 1205, 989, 755, 720],
-        annualConsumptionKwh: 14400,
-        monthlyConsumptionKwh: [1416, 1318, 1245, 1159, 1098, 1049, 1049, 1025, 1098, 1196, 1318, 1428],
-        selfConsumedKwh: 8970,
-        selfConsumptionPercent: 66,
-        autonomyPercent: 62,
-        annualSavingsEur: 2240,
-        surplusKwh: 4210,
-        surplusValueEur: 42,
-        withoutBattery: { selfConsumedKwh: 5780, autonomyPercent: 40, annualSavingsEur: 1450 },
+        annualProductionKwh: 14290,
+        monthlyProductionKwh: [807, 892, 1225, 1339, 1472, 1519, 1623, 1538, 1272, 1044, 797, 759],
+        annualConsumptionKwh: 13360,
+        monthlyConsumptionKwh: [1313, 1223, 1155, 1076, 1019, 974, 974, 951, 1019, 1110, 1223, 1325],
+        selfConsumedKwh: 10070,
+        selfConsumptionPercent: 70,
+        autonomyPercent: 75,
+        annualSavingsEur: 2520,
+        surplusKwh: 4090,
+        surplusValueEur: 45,
+        reachesSavingsTarget: true,
+        withoutBattery: { selfConsumedKwh: 5810, autonomyPercent: 43, annualSavingsEur: 1450 },
       },
       referenceMonthlyBillEur: null,
       sunshine: cagnesSunshine,
@@ -250,14 +264,14 @@ describe('Estimate preview', () => {
     });
   });
 
-  it('recommends the same installation in the Nord and the Alpes-Maritimes, and saves less in the Nord', () => {
+  it('recommends more power in the Nord than in the Alpes-Maritimes to produce the same consumption', () => {
     const results = ['06000', '59000'].map((postalCode) => {
       const estimate = preview({ ...completedAnswers, postalCode, location: null }, SimulatorStep.RESULT, null)?.estimate;
-      return [estimate?.recommendedKwc, estimate?.annualProductionKwh, estimate?.annualSavingsEur];
+      return [estimate?.recommendedKwc, estimate?.annualProductionKwh, estimate?.autonomyPercent, estimate?.annualSavingsEur];
     });
     expect(results).toEqual([
-      [6, 9110, 1300],
-      [6, 6400, 970],
+      [5.5, 8350, 76, 1430],
+      [8, 8540, 72, 1380],
     ]);
   });
 });
@@ -319,22 +333,16 @@ describe('Detailed parameters', () => {
     const consumption = [0.25, 0.2].map(
       (kwhPriceEur) => preview({ ...completedAnswers, equipment: [], kwhPriceEur }, SimulatorStep.CONSUMPTION)?.estimate.annualConsumptionKwh,
     );
-    expect(consumption).toEqual([8640, 10800]);
+    expect(consumption).toEqual([7600, 9500]);
   });
 
   it('keeps the reference household on the roof step even when detailed consumption is already filled in', () => {
-    expect(preview({ ...completedAnswers, annualConsumption: '3000' }, SimulatorStep.ROOF)?.estimate.annualConsumptionKwh).toEqual(8640);
+    expect(preview({ ...completedAnswers, annualConsumption: '3000' }, SimulatorStep.ROOF)?.estimate.annualConsumptionKwh).toEqual(7600);
   });
 
   it('applies the chosen panels, battery and tilt to the preview', () => {
-    const estimate = preview({ ...completedAnswers, panelCount: 10, batteryKwh: 15, roofTilt: RoofTilt.LOW }, SimulatorStep.RESULT)?.estimate;
-    expect([estimate?.panelCount, estimate?.installedKwc, estimate?.batteryKwh, estimate?.panelChoice, estimate?.batteryChoice]).toEqual([
-      10,
-      5,
-      15,
-      SizingChoice.CUSTOM,
-      SizingChoice.CUSTOM,
-    ]);
+    const estimate = preview({ ...completedAnswers, panelCount: 10, batteryKwh: 15.3, roofTilt: RoofTilt.LOW }, SimulatorStep.RESULT)?.estimate;
+    expect([estimate?.panelCount, estimate?.installedKwc, estimate?.batteryKwh, estimate?.panelChoice, estimate?.batteryChoice]).toEqual([10, 5, 15.3, SizingChoice.CUSTOM, SizingChoice.CUSTOM]);
   });
 
   it('gives no typical day before the roof is known', () => {
@@ -393,5 +401,44 @@ describe('Yearly consumption typed by the visitor', () => {
 
   it('simulates on the typed yearly figure once it is readable', () => {
     expect(preview({ ...completedAnswers, equipment: [], annualConsumption: '5 000' }, SimulatorStep.RESULT)?.estimate.annualConsumptionKwh).toEqual(5000);
+  });
+});
+
+describe('Concordance with the Soliance studies', () => {
+  const studyResult = (postalCode: string, orientation: RoofOrientation, annualKwh: number, equipment: HouseholdEquipment[], panelCount: number, batteryKwh: number, kwhPriceEur: number) => {
+    const parameters = { ...localSolarContext({ postalCode, location: null, city: null }, null).parameters, kwhPriceEur };
+    const estimate = estimateSolarInstallation(
+      {
+        roof: { areaM2: 200, orientation, tilt: RoofTilt.LOW },
+        consumption: { monthlyBillEur: 0, annualKwh, equipment, daytimePresence: DaytimePresence.MOSTLY_ABSENT },
+        panelCount,
+        batteryKwh,
+      },
+      parameters,
+    );
+    const bill = billComparisonOf(estimate, kwhPriceEur, parameters);
+    return [estimate.annualProductionKwh, estimate.autonomyPercent, estimate.selfConsumptionPercent, estimate.annualSavingsEur, bill.afterEur];
+  };
+
+  it('covers 70 % of a 9 kWc Alpes-Maritimes house with a 10.2 kWh battery, the Soliance study finding 68.9 %, 1 716 € saved and a 1 031 € bill', () => {
+    expect(studyResult('06270', RoofOrientation.SOUTH_EAST, 11091, [HouseholdEquipment.ELECTRIC_HEATING, HouseholdEquipment.POOL], 18, 10.2, 0.21)).toEqual([12350, 70, 62, 1620, 970]);
+  });
+
+  it('covers 74 % of a 14 kWc east / west Var house with a 20.4 kWh battery, the Soliance study finding 68.8 % under the shading of its north-east side', () => {
+    expect(
+      studyResult(
+        '83340',
+        RoofOrientation.EAST_WEST,
+        15490,
+        [HouseholdEquipment.ELECTRIC_HEATING, HouseholdEquipment.AIR_CONDITIONING, HouseholdEquipment.ELECTRIC_VEHICLE],
+        28,
+        20.4,
+        0.1879,
+      ),
+    ).toEqual([17580, 74, 65, 2160, 1010]);
+  });
+
+  it('covers 67 % of a 7.5 kWc Nice house with a 10.2 kWh battery, the Soliance study finding 67.8 %, 1 321 € saved and a 939 € bill', () => {
+    expect(studyResult('06000', RoofOrientation.SOUTH_EAST, 9426, [HouseholdEquipment.ELECTRIC_HEATING], 15, 10.2, 0.1807)).toEqual([10290, 67, 61, 1140, 820]);
   });
 });

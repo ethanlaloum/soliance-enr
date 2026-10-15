@@ -1,11 +1,4 @@
-import {
-  HouseholdEquipment,
-  RoofOrientation,
-  RoofTilt,
-  SolarEstimate,
-  SolarEstimateParameters,
-  solarEstimateParameters,
-} from '@/app/simulator/domain/entities/SolarEstimate';
+import { HouseholdEquipment, RoofOrientation, RoofTilt, SolarEstimate } from '@/app/simulator/domain/entities/SolarEstimate';
 import { effectiveRoofTilt, RoofCovering, SimulatorAnswers } from '@/app/simulator/domain/entities/SimulatorWizard';
 
 export enum RoofFace {
@@ -31,6 +24,7 @@ export interface HousePreview {
 }
 
 export interface HousePreviewParameters {
+  roofAreaM2: { min: number; max: number };
   houseLengthM: { min: number; max: number };
   roofEdgeMarginM: number;
   panelPitchM: number;
@@ -40,22 +34,19 @@ export interface HousePreviewParameters {
 }
 
 export const housePreviewParameters: HousePreviewParameters = {
+  roofAreaM2: { min: 20, max: 120 },
   houseLengthM: { min: 9, max: 14 },
   roofEdgeMarginM: 0.6,
   panelPitchM: 0.95,
   maximumPanelRows: 3,
   singleRowMaximumPanels: 4,
-  batteryModuleKwh: 5,
+  batteryModuleKwh: 5.1,
 };
 
 const roundToCentimeter = (value: number) => Math.round(value * 100) / 100;
 
-export const houseLengthOf = (
-  roofAreaM2: number,
-  estimateParameters: SolarEstimateParameters = solarEstimateParameters,
-  parameters: HousePreviewParameters = housePreviewParameters,
-): number => {
-  const { min, max } = estimateParameters.roofAreaM2;
+export const houseLengthOf = (roofAreaM2: number, parameters: HousePreviewParameters = housePreviewParameters): number => {
+  const { min, max } = parameters.roofAreaM2;
   const progress = Math.min(Math.max((roofAreaM2 - min) / (max - min), 0), 1);
   return roundToCentimeter(parameters.houseLengthM.min + progress * (parameters.houseLengthM.max - parameters.houseLengthM.min));
 };
@@ -96,10 +87,9 @@ export const panelSlotsOf = (
 export const housePreviewOf = (
   answers: Pick<SimulatorAnswers, 'roofAreaM2' | 'orientation' | 'roofTilt' | 'roofCovering' | 'equipment'>,
   estimate: Pick<SolarEstimate, 'panelCount' | 'batteryKwh'> | null,
-  estimateParameters: SolarEstimateParameters = solarEstimateParameters,
   parameters: HousePreviewParameters = housePreviewParameters,
 ): HousePreview => {
-  const houseLengthM = houseLengthOf(answers.roofAreaM2, estimateParameters, parameters);
+  const houseLengthM = houseLengthOf(answers.roofAreaM2, parameters);
   return {
     houseLengthM,
     orientation: answers.orientation,

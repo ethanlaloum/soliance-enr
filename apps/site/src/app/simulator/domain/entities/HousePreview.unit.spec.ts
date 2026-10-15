@@ -20,7 +20,7 @@ describe('House length', () => {
   });
 
   it('keeps the house within its bounds outside the slider range', () => {
-    expect([houseLengthOf(5), houseLengthOf(200)]).toEqual([9, 14]);
+    expect([houseLengthOf(5), houseLengthOf(200), houseLengthOf(1000)]).toEqual([9, 14, 14]);
   });
 
   it('fits one panel column every 95 cm once the roof edges are kept clear', () => {

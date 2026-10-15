@@ -1,8 +1,9 @@
 import { useCallback, useId, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
-import { PanelCountRange } from '@/app/simulator/domain/entities/SolarEstimate';
+import { PanelCountRange, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
 import { AnimatedNumber } from '@/components/simulator/controls/AnimatedNumber';
+import { WholeNumberInput } from '@/components/simulator/controls/WholeNumberInput';
 import { simulatorHintClassName } from '@/components/simulator/simulatorStyles';
 import { fieldLabelClassName } from '@/components/ui/fieldStyles';
 
@@ -12,7 +13,6 @@ type PanelCountFieldProps = {
   recommendedPanelCount: number;
   recommendedKwc: number;
   isCustom: boolean;
-  isReferenceHousehold?: boolean;
   range: PanelCountRange;
   onChange: (panelCount: number | null) => void;
   id?: string;
@@ -26,7 +26,6 @@ export const PanelCountField = ({
   recommendedPanelCount,
   recommendedKwc,
   isCustom,
-  isReferenceHousehold = false,
   range,
   onChange,
   id,
@@ -35,8 +34,12 @@ export const PanelCountField = ({
   const generatedId = useId();
   const slider = useRef<HTMLInputElement>(null);
   const inputId = id ?? generatedId;
+  const countInputId = `${inputId}-count`;
   const hintId = `${inputId}-hint`;
-  const span = Math.max(range.max - range.min, 1);
+  const exceedsRoof = panelCount > range.max;
+  const sliderMax = Math.max(range.max, panelCount, recommendedPanelCount);
+  const target = solarEstimateParameters.savingsTarget.autonomyPercent;
+  const span = Math.max(sliderMax - range.min, 1);
   const markerShare = Math.min(Math.max((recommendedPanelCount - range.min) / span, 0), 1);
   const formatPanels = useCallback((value: number) => t('controls.panelCount.panels', { count: Math.round(value) }), [t]);
   const valueText = t('controls.panelCount.valueText', { count: panelCount, kwc: installedKwc });
@@ -50,7 +53,8 @@ export const PanelCountField = ({
           <span className="font-semibold text-slate-ink"> · {t('controls.panelCount.kwc', { kwc: installedKwc })}</span>
         </span>
       </div>
-      <div className="relative pt-5">
+      <div className="flex items-end gap-3">
+      <div className="relative min-w-0 flex-1 pt-5">
         <motion.span
           aria-hidden="true"
           className="pointer-events-none absolute top-0 flex -translate-x-1/2 flex-col items-center text-[10px] font-semibold uppercase tracking-wide text-[#a6540f]"
@@ -66,19 +70,31 @@ export const PanelCountField = ({
           id={inputId}
           type="range"
           min={range.min}
-          max={range.max}
+          max={sliderMax}
           step={1}
-          value={Math.min(Math.max(panelCount, range.min), range.max)}
+          value={Math.max(panelCount, range.min)}
           aria-valuetext={valueText}
           aria-describedby={hintId}
           className="h-11 w-full cursor-pointer accent-solar"
           onChange={(event) => onChange(Number(event.target.value))}
         />
       </div>
+      <WholeNumberInput
+        id={countInputId}
+        value={panelCount}
+        min={range.min}
+        label={t('controls.panelCount.inputLabel')}
+        describedBy={hintId}
+        onChange={onChange}
+      />
+      </div>
+      {exceedsRoof && (
+        <p className="rounded-lg bg-solar/10 px-3 py-2 text-[13px] font-medium leading-snug text-[#7a3d08]">
+          {t('controls.panelCount.beyondRoof', { count: range.max })}
+        </p>
+      )}
       <p id={hintId} className={simulatorHintClassName}>
-        {isCustom
-          ? t(isReferenceHousehold ? 'controls.panelCount.customReferenceHint' : 'controls.panelCount.customHint', { count: recommendedPanelCount, kwc: recommendedKwc })
-          : t(isReferenceHousehold ? 'controls.panelCount.referenceHint' : 'controls.panelCount.hint')}
+        {isCustom ? t('controls.panelCount.customHint', { count: recommendedPanelCount, kwc: recommendedKwc, target }) : t('controls.panelCount.hint', { target })}
         {isCustom && (
           <button
             type="button"

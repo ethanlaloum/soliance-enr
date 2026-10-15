@@ -22,7 +22,7 @@ type TuneEstimatePanelProps = {
 const recommendedBattery = 'recommended';
 const regulatedKwhPriceEur = 0.2001;
 const projectionHorizons = [10, 20, 25, 30];
-const sourceKeys = ['sunshine', 'losses', 'tilt', 'ageing', 'battery', 'surplus', 'price'] as const;
+const sourceKeys = ['sunshine', 'losses', 'tilt', 'profile', 'battery', 'subscription', 'surplus', 'price'] as const;
 
 const groupTitleClassName = 'text-[11px] font-bold uppercase tracking-[0.12em] text-slate-ink';
 const panelEase = [0.22, 1, 0.36, 1] as const;
@@ -109,8 +109,7 @@ export const TuneEstimatePanel = ({
                   value={batteryKwh === null ? recommendedBattery : String(batteryKwh)}
                   onChange={(next) => onChange({ batteryKwh: next === recommendedBattery ? null : Number(next) })}
                   options={batteryOptions}
-                  wrapsOnMobile
-                  className="text-xs sm:text-sm"
+                  className="grid-flow-row grid-cols-4 text-xs sm:grid-cols-5 sm:text-sm"
                 />
                 <p className={simulatorHintClassName}>{t('tune.battery.hint')}</p>
               </motion.div>
@@ -164,7 +163,7 @@ export const TuneEstimatePanel = ({
                     id={trendId}
                     type="range"
                     min={0}
-                    max={5}
+                    max={10}
                     step={0.5}
                     value={priceTrendPercent}
                     aria-valuetext={trendText}

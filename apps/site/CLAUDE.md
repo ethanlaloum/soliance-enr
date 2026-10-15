@@ -45,6 +45,14 @@ Home, `/panneaux-solaires`, `/panneaux-solaires/:area` (8 local SEO pages, see b
 
 Hexagon per jp-way `frontend-conventions`: `src/app/lead/` (entities `StudyRequest` and `LeadSubmission`, port `LeadGateway`, adapter `RealLeadGateway.ts` exporting `SolianceRxLeadGateway`, epics `submitStudyRequestEpic` and `submitLeadEpic`, slice `LeadSlice`), selectors in `src/selectors/lead/`, the five registries in `src/store/`. `src/app/shared/` holds `HttpClient` / `FetchHttpClient` and the `Clock` port (`SystemClock`, `FixedClock` for tests). Pure content/calculation domains without I/O: `src/app/projects/` (réalisations list, filters) and `src/app/simulator/` (estimate parameters in `solarEstimateParameters`, wizard rules).
 
+## Simulator sizing
+
+`/simulateur` is calibrated on three Soliance studies (the PDF proposals of Soliance's study tool); `SimulatorWizard.unit.spec.ts` replays them in « Concordance with the Soliance studies », anonymised. Keep them within a few points when changing `solarEstimateParameters`.
+
+- Panels are sized on the yearly consumption alone (`productionToConsumptionRatio` 1.06, the ratio of the studies), so ticking equipment never lowers them; then the smallest battery covering 70 % of the needs (`savingsTarget`), then more panels only if the largest battery is not enough. `recommendInstallation` takes the panels of the most demanding equipment subset on the same bill (`sameBillLoads`): adding a pool or air conditioning can only lower the battery.
+- The bill is the total: equipment reshapes the consumption, it never adds to it. The bill is converted with `kwhPriceEur` (0.21) after `subscriptionEurPerYear` (260).
+- Engine values taken from the studies: Solax modules of 5.1 kWh (up to 8), 97 % round trip, cloudy/average/sunny days at 55/100/145 %, +7 %/year price trend without panel ageing, surplus sold 0.011 €/kWh and counted in the projection. Production stays plain PVGIS (14 % losses): the studies add site shading from their 3D model, which the simulator cannot know.
+
 ## Lead forms
 
 - All forms post JSON (`kind`, `fields`, consent text and time, page) to `/api/lead.php` (`config.leadEndpoint`). The script is `public/api/lead.php`, copied as is into `dist/` and run by the OVH PHP; it validates the payload, mails the request through the Resend API and answers `400 INVALID_REQUEST`, `429`, `502 SUBMISSION_FAILED` or `503 NOT_CONFIGURED` (mapped to `LeadErrorType` by `SolianceRxLeadGateway`). The study request is sent with the kind `STUDY_REQUEST`, which is not a `LeadFormKind`.

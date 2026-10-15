@@ -8,14 +8,13 @@ import {
   DaytimePresence,
   HouseholdEquipment,
   householdEquipments,
-  panelCountRange,
+  clampRoofArea,
   RoofOrientation,
   roofOrientations,
-  SolarEstimate,
+  roofPanelCapacity,
   solarEstimateParameters,
 } from '@/app/simulator/domain/entities/SolarEstimate';
 import {
-  effectiveRoofTilt,
   parseMonthlyBill,
   RoofCovering,
   roofCoverings,
@@ -27,9 +26,9 @@ import {
 } from '@/app/simulator/domain/entities/SimulatorWizard';
 import { AnnualConsumptionField } from '@/components/simulator/controls/AnnualConsumptionField';
 import { ElectricVehicleDetails } from '@/components/simulator/controls/ElectricVehicleDetails';
-import { PanelCountField } from '@/components/simulator/controls/PanelCountField';
 import { RoofTiltPicker } from '@/components/simulator/controls/RoofTiltPicker';
 import { ShadingField } from '@/components/simulator/controls/ShadingField';
+import { WholeNumberInput } from '@/components/simulator/controls/WholeNumberInput';
 import { buttonVariants } from '@/components/ui/buttonVariants';
 import { Select } from '@/components/ui/select';
 import { SimulatorAddressField } from '@/components/simulator/SimulatorAddressField';
@@ -45,7 +44,6 @@ import {
 type SimulatorStepFormProps = {
   step: SimulatorStep;
   answers: SimulatorAnswers;
-  estimate: SolarEstimate | null;
   errors: SimulatorErrors;
   onChange: (patch: Partial<SimulatorAnswers>) => void;
   onBack: () => void;
@@ -106,13 +104,13 @@ const TextField = ({ field, value, errors, autoComplete, inputMode, isRecap = fa
 
 const revealTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] } as const;
 
-export const SimulatorStepForm = ({ step, answers, estimate, errors, onChange, onBack, onNext }: SimulatorStepFormProps) => {
+export const SimulatorStepForm = ({ step, answers, errors, onChange, onBack, onNext }: SimulatorStepFormProps) => {
   const { t } = useTranslation('simulator');
   const isAddressStep = step === SimulatorStep.ADDRESS;
   const isRoofStep = step === SimulatorStep.ROOF;
   const isConsumptionStep = step === SimulatorStep.CONSUMPTION;
   const roofArea = solarEstimateParameters.roofAreaM2;
-  const roofCapacityPanels = panelCountRange({ areaM2: answers.roofAreaM2, orientation: answers.orientation }).max;
+  const roofCapacityPanels = roofPanelCapacity({ areaM2: answers.roofAreaM2, orientation: answers.orientation });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -144,24 +142,30 @@ export const SimulatorStepForm = ({ step, answers, estimate, errors, onChange, o
       {(isRoofStep || isConsumptionStep) && (
         <div className={cn('grid gap-3.5 sm:grid-cols-2', isConsumptionStep && 'hidden lg:grid')}>
           <div className={fieldLabelClassName}>
-            <div className="flex items-baseline justify-between gap-3">
-              <label htmlFor={fieldId('roofArea')}>{t('wizard.fields.roofArea')}</label>
-              <output htmlFor={fieldId('roofArea')} className="shrink-0 text-base font-bold text-night">
-                {t('wizard.fields.roofAreaValue', { value: answers.roofAreaM2 })}
-              </output>
+            <label htmlFor={fieldId('roofArea')}>{t('wizard.fields.roofArea')}</label>
+            <div className="flex items-center gap-3">
+              <input
+                id={fieldId('roofArea')}
+                type="range"
+                min={roofArea.min}
+                max={Math.max(roofArea.max, answers.roofAreaM2)}
+                step={roofArea.step}
+                value={answers.roofAreaM2}
+                aria-valuetext={t('wizard.fields.roofAreaValue', { value: answers.roofAreaM2 })}
+                aria-describedby={isRoofStep ? `${fieldId('roofArea')}-hint` : undefined}
+                className="h-11 min-w-0 flex-1 cursor-pointer accent-solar"
+                onChange={(event) => onChange({ roofAreaM2: Number(event.target.value) })}
+              />
+              <WholeNumberInput
+                id={fieldId('roofArea-value')}
+                value={answers.roofAreaM2}
+                min={roofArea.min}
+                label={t('wizard.fields.roofAreaInputLabel')}
+                describedBy={isRoofStep ? `${fieldId('roofArea')}-hint` : undefined}
+                className={cn('mb-0 w-[76px]', isConsumptionStep && recapControlClassName)}
+                onChange={(roofAreaM2) => onChange({ roofAreaM2: clampRoofArea(roofAreaM2) })}
+              />
             </div>
-            <input
-              id={fieldId('roofArea')}
-              type="range"
-              min={roofArea.min}
-              max={roofArea.max}
-              step={roofArea.step}
-              value={answers.roofAreaM2}
-              aria-valuetext={t('wizard.fields.roofAreaValue', { value: answers.roofAreaM2 })}
-              aria-describedby={isRoofStep ? `${fieldId('roofArea')}-hint` : undefined}
-              className="h-11 w-full cursor-pointer accent-solar"
-              onChange={(event) => onChange({ roofAreaM2: Number(event.target.value) })}
-            />
             {isRoofStep && (
               <p id={`${fieldId('roofArea')}-hint`} className={simulatorHintClassName}>
                 {t('wizard.fields.roofAreaHint', { panels: roofCapacityPanels, kwc: roofCapacityPanels * solarEstimateParameters.panelPowerKwc })}
@@ -219,19 +223,6 @@ export const SimulatorStepForm = ({ step, answers, estimate, errors, onChange, o
       )}
 
       {isRoofStep && <ShadingField value={answers.shading} onChange={(shading) => onChange({ shading })} />}
-
-      {isRoofStep && estimate && (
-        <PanelCountField
-          panelCount={estimate.panelCount}
-          installedKwc={estimate.installedKwc}
-          recommendedPanelCount={estimate.recommendedPanelCount}
-          recommendedKwc={estimate.recommendedKwc}
-          isCustom={answers.panelCount !== null}
-          isReferenceHousehold
-          range={panelCountRange({ areaM2: answers.roofAreaM2, orientation: answers.orientation, tilt: effectiveRoofTilt(answers) })}
-          onChange={(panelCount) => onChange({ panelCount })}
-        />
-      )}
 
       {isConsumptionStep && (
         <>

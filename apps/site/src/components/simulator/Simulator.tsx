@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import { cn } from '@/lib/utils';
-import { cumulativeSavingsEur, panelCountRange, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
+import { cumulativeSavingsEur, panelCountRange, roofPanelCapacity, solarEstimateParameters } from '@/app/simulator/domain/entities/SolarEstimate';
 import {
   consumptionSourceOf,
   effectiveRoofTilt,
@@ -71,11 +71,15 @@ export const Simulator = () => {
   const cumulativeEur = useMemo(
     () =>
       preview
-        ? cumulativeSavingsEur(preview.estimate.annualSavingsEur, {
-            years: answers.projectionYears,
-            priceTrendPercent: answers.priceTrendPercent,
-            degradationPercent: solarEstimateParameters.savingsProjection.degradationPercent,
-          })
+        ? cumulativeSavingsEur(
+            preview.estimate.annualSavingsEur,
+            {
+              years: answers.projectionYears,
+              priceTrendPercent: answers.priceTrendPercent,
+              degradationPercent: solarEstimateParameters.savingsProjection.degradationPercent,
+            },
+            preview.estimate.surplusValueEur,
+          )
         : [],
     [preview, answers.projectionYears, answers.priceTrendPercent],
   );
@@ -146,7 +150,13 @@ export const Simulator = () => {
                 >
                   {isResultStep && preview ? (
                     <>
-                      <SimulatorResultCard estimate={preview.estimate} consumptionSource={consumptionSourceOf(answers)} onBack={goBack} />
+                      <SimulatorResultCard
+                        estimate={preview.estimate}
+                        consumptionSource={consumptionSourceOf(answers)}
+                        roofCapacityPanels={roofPanelCapacity(roof)}
+                        kwhPriceEur={answers.kwhPriceEur}
+                        onBack={goBack}
+                      />
                       <TuneEstimatePanel
                         batteryKwh={answers.batteryKwh}
                         recommendedBatteryKwh={preview.estimate.recommendedBatteryKwh}
@@ -172,7 +182,6 @@ export const Simulator = () => {
                     <SimulatorStepForm
                       step={step}
                       answers={answers}
-                      estimate={preview?.estimate ?? null}
                       errors={errors}
                       onChange={changeAnswers}
                       onBack={goBack}

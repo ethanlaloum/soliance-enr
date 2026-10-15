@@ -30,6 +30,7 @@
       "postalCodePlaceholder": "ex. 06800",
       "roofArea": "Surface de toit exploitable",
       "roofAreaValue": "{{value}} m²",
+      "roofAreaInputLabel": "Saisir la surface en m²",
       "roofAreaHint": "Surface libre et dégagée : jusqu'à {{panels}} panneaux de 500 W ({{kwc, number}} kWc, environ 5 m² par kWc).",
       "orientation": "Orientation",
       "roofCovering": "Type de couverture",
@@ -88,7 +89,7 @@
       },
       "battery": {
         "label": "Batterie physique conseillée",
-        "value": "{{kwh}} kWh",
+        "value": "{{kwh, number}} kWh",
         "customLabel": "Batterie choisie",
         "none": "Sans batterie"
       },
@@ -107,7 +108,33 @@
     "leadWithoutBattery": "Voici l'estimation de votre installation solaire, sans batterie. Elle sera affinée lors de l'étude précise, à partir de vos consommations réelles, du profil de votre foyer et des caractéristiques de votre maison.",
     "profileNoticeAnnual": "Cette estimation repose sur la consommation annuelle que vous avez indiquée, répartie selon votre présence en journée et vos équipements. Avec vos relevés Linky réels et la visite de votre toit, l'étude gratuite donne vos chiffres exacts.",
     "profileNoticeReference": "Cette estimation repose sur un foyer type à 180 € d'électricité par mois, faute de facture indiquée. L'étude gratuite reprend vos consommations réelles et la visite de votre toit.",
-    "surplusWithoutBattery": "Surplus : ≈ {{kwh, number}} kWh par an partent sur le réseau, rachetés {{tariff, number}} €/kWh (≈ {{value, number}} €). Une batterie permettrait de les utiliser le soir."
+    "surplusWithoutBattery": "Surplus : ≈ {{kwh, number}} kWh par an partent sur le réseau, rachetés {{tariff, number}} €/kWh (≈ {{value, number}} €). Une batterie permettrait de les utiliser le soir.",
+    "targetOutOfReach": "Avec votre profil de consommation, la simulation reste sous {{target}} % de besoins couverts, même avec la plus grande batterie proposée ({{battery, number}} kWh) : vos besoins du soir et de l'hiver dépassent ce qu'elle peut stocker. Votre conseiller étudiera avec vous comment aller plus loin.",
+    "targetOutOfReachChosenBattery": "Avec la batterie choisie, l'installation reste sous {{target}} % de besoins couverts. Revenez à la batterie conseillée pour vous en rapprocher.",
+    "beyondRoof_one": "L'installation conseillée demande plus de panneaux que votre toiture n'en accueille d'après sa surface ({{count}} panneau) : l'étude sur place vérifiera l'implantation.",
+    "beyondRoof_other": "L'installation conseillée demande plus de panneaux que votre toiture n'en accueille d'après sa surface ({{count}} panneaux) : l'étude sur place vérifiera l'implantation.",
+    "bill": {
+      "title": "Votre facture d'électricité, avant et après",
+      "before": "Aujourd'hui",
+      "after": "Avec votre installation",
+      "perYear": "{{value, number}} € par an",
+      "saved": "Vous économisez {{value, number}} € la première année, soit {{monthly, number}} € par mois et {{percent}} % de votre facture."
+    },
+    "levers": {
+      "title": "Trois leviers pour consommer plus de votre production",
+      "shift": {
+        "title": "Décaler les usages en journée",
+        "text": "Programmer le lave-linge, le lave-vaisselle ou le chauffe-eau aux heures où vos panneaux produisent."
+      },
+      "pilot": {
+        "title": "Piloter les appareils",
+        "text": "Un système de pilotage déclenche automatiquement ces usages quand la production est disponible."
+      },
+      "store": {
+        "title": "Stocker le surplus",
+        "text": "Une batterie conserve le surplus de la journée pour le soir et la nuit."
+      }
+    }
   },
   "estimate": {
     "title": "Votre estimation",
@@ -117,7 +144,7 @@
     "emptyHint": "Renseignez votre toiture à l'étape suivante pour voir une première estimation.",
     "referenceHint": "Calcul provisoire pour un foyer type ({{bill}} € d'électricité par mois) : il se précise avec votre consommation.",
     "power": {
-      "value": "{{kwc, number}} kWc + {{battery}} kWh",
+      "value": "{{kwc, number}} kWc + {{battery, number}} kWh",
       "label": "{{panels}} panneaux et batterie conseillés",
       "emptyLabel": "panneaux et batterie conseillés",
       "valueWithoutBattery": "{{kwc, number}} kWc sans batterie",
@@ -232,7 +259,7 @@
     "legend": {
       "panels_one": "{{count}} panneau · {{kwc, number}} kWc",
       "panels_other": "{{count}} panneaux · {{kwc, number}} kWc",
-      "battery": "Batterie {{kwh}} kWh",
+      "battery": "Batterie {{kwh, number}} kWh",
       "roof": "Toit : {{covering}} · {{orientation}} · {{tilt}}°",
       "noBattery": "Sans batterie"
     },
@@ -245,7 +272,7 @@
     "callouts": {
       "panels_one": "{{count}} panneau posé",
       "panels_other": "{{count}} panneaux posés",
-      "battery": "Batterie {{kwh}} kWh",
+      "battery": "Batterie {{kwh, number}} kWh",
       "equipment": "+ {{label}}"
     },
     "compass": {
@@ -287,7 +314,7 @@
     "live": "Mise à jour en direct",
     "kpis": {
       "savings": "d'économies par an",
-      "autonomy": "d'autonomie : votre consommation couverte",
+      "autonomy": "de vos besoins couverts par le solaire",
       "production": "produits par an",
       "selfConsumption": "de la production consommée chez vous"
     },
@@ -332,13 +359,13 @@
       "valueText_one": "{{count}} panneau, {{kwc, number}} kWc",
       "valueText_other": "{{count}} panneaux, {{kwc, number}} kWc",
       "recommendedMarker": "Conseillé",
-      "hint": "Calculé pour votre foyer. Ajustez-le librement pour comparer.",
-      "customHint_one": "Conseillé pour votre foyer : {{count}} panneau ({{kwc, number}} kWc).",
-      "customHint_other": "Conseillé pour votre foyer : {{count}} panneaux ({{kwc, number}} kWc).",
+      "hint": "Calculé sur votre consommation de l'année, avec assez de panneaux et de batterie pour en couvrir au moins {{target}} %. Ajustez-le librement pour comparer.",
+      "customHint_one": "Conseillé pour produire l'équivalent de votre consommation : {{count}} panneau ({{kwc, number}} kWc).",
+      "customHint_other": "Conseillé pour produire l'équivalent de votre consommation : {{count}} panneaux ({{kwc, number}} kWc).",
       "reset": "Revenir au conseil",
-      "referenceHint": "Conseil calculé pour un foyer type : il s'ajuste à votre consommation à l'étape suivante.",
-      "customReferenceHint_one": "Conseillé pour un foyer type : {{count}} panneau ({{kwc, number}} kWc).",
-      "customReferenceHint_other": "Conseillé pour un foyer type : {{count}} panneaux ({{kwc, number}} kWc)."
+      "inputLabel": "Saisir le nombre de panneaux",
+      "beyondRoof_one": "Au-delà du {{count}} panneau que votre toiture accueille d'après sa surface : l'étude sur place vérifiera l'implantation.",
+      "beyondRoof_other": "Au-delà des {{count}} panneaux que votre toiture accueille d'après sa surface : l'étude sur place vérifiera l'implantation."
     },
     "electricVehicle": {
       "title": "Votre véhicule électrique",
@@ -366,7 +393,7 @@
     "legend": {
       "production": "Production",
       "consumption": "Consommation",
-      "battery": "Batterie ({{kwh}} kWh)"
+      "battery": "Batterie ({{kwh, number}} kWh)"
     },
     "monthly": {
       "title": "Production et consommation, mois par mois",
@@ -393,7 +420,7 @@
       "year_one": "{{count}} an",
       "year_other": "{{count}} ans",
       "srSummary": "Économies cumulées estimées sur {{years}} ans : environ {{value}} €.",
-      "caption": "Tient compte de la hausse du prix de l'électricité et du vieillissement des panneaux. Aucun prix d'installation n'est pris en compte : il est établi sur devis après l'étude."
+      "caption": "Tient compte de la hausse du prix de l'électricité et de la revente du surplus, comme les études Soliance. Aucun prix d'installation n'est pris en compte : il est établi sur devis après l'étude."
     },
     "battery": {
       "title": "Ce que change la batterie",
@@ -402,7 +429,7 @@
         "autonomy": "Autonomie",
         "savings": "Économies par an"
       },
-      "with": "Avec batterie {{kwh}} kWh",
+      "with": "Avec batterie {{kwh, number}} kWh",
       "without": "Sans batterie",
       "percent": "{{value}} %",
       "euros": "{{value}} €",
@@ -418,8 +445,8 @@
       "title": "Batterie",
       "recommended": "Conseillée",
       "none": "Sans",
-      "kwh": "{{kwh}} kWh",
-      "hint": "Elle stocke le surplus de midi pour l'utiliser le soir. Modules Solax de 5 kWh."
+      "kwh": "{{kwh, number}} kWh",
+      "hint": "Elle stocke le surplus de midi pour l'utiliser le soir. Modules Solax de 5,1 kWh, jusqu'à 8 modules."
     },
     "installation": {
       "title": "Installation"
@@ -436,7 +463,7 @@
     "trend": {
       "label": "Hausse annuelle du prix de l'électricité",
       "value": "+{{value}} %/an",
-      "hint": "L'association HESPUL conseille une hypothèse prudente de 2 % par an."
+      "hint": "Les études Soliance retiennent 7 % par an. L'association HESPUL conseille 2 % par prudence."
     },
     "horizon": {
       "label": "Durée de la projection",
@@ -449,9 +476,10 @@
         "sunshine": "Ensoleillement : PVGIS-SARAH3 de votre commune (Commission européenne).",
         "losses": "Pertes du système : 14 % (câbles, onduleur, salissures).",
         "tilt": "Rendement selon la pente et l'orientation : rapports PVGIS mesurés à Nice.",
-        "ageing": "Vieillissement des panneaux : 0,5 % par an.",
-        "battery": "Batterie Solax : rendement de 90 % aller-retour.",
-        "surplus": "Surplus revendu ≈ 0,01 € le kWh, non compté dans les économies.",
+        "profile": "Calcul heure par heure, calé sur les études Soliance : jours couverts, moyens et ensoleillés, profils de consommation méditerranéens.",
+        "battery": "Batterie Solax : modules de 5,1 kWh, rendement de 97 %.",
+        "subscription": "Abonnement : 260 € par an, compris dans votre facture mais pas dans les économies.",
+        "surplus": "Surplus revendu ≈ 0,011 € le kWh, non compté dans les économies.",
         "price": "Aucun prix d'installation n'est affiché : il est fixé sur devis après l'étude."
       }
     }

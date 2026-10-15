@@ -33,7 +33,7 @@ export const MonthlyProductionChart = ({ monthlyKwh, sunshine }: MonthlyProducti
   const { t } = useTranslation('simulator');
   const values = monthlyKwh ?? solarEstimateParameters.monthlyProductionShares;
   const largestPowerKwc = Math.max(...solarEstimateParameters.offeredPowersKwc);
-  const scale = monthlyKwh && sunshine ? largestPowerKwc * sunshine.peakMonthKwhPerKwc : Math.max(...values);
+  const scale = monthlyKwh && sunshine ? Math.max(largestPowerKwc * sunshine.peakMonthKwhPerKwc, ...values) : Math.max(...values);
   const peakIndex = values.indexOf(Math.max(...values));
 
   return (

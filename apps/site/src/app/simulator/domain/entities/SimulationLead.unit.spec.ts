@@ -45,6 +45,7 @@ const estimate: SolarEstimate = {
   annualSavingsEur: 1430,
   surplusKwh: 1770,
   surplusValueEur: 18,
+  reachesSavingsTarget: false,
   withoutBattery: { selfConsumedKwh: 3940, autonomyPercent: 45, annualSavingsEur: 990 },
 };
 

@@ -118,6 +118,7 @@ export interface SolarEstimate {
   annualSavingsEur: number;
   surplusKwh: number;
   surplusValueEur: number;
+  reachesSavingsTarget: boolean;
   withoutBattery: BatteryComparison;
 }
 
@@ -132,6 +133,13 @@ export interface ProductionDayType {
   weight: number;
 }
 
+export interface SavingsTarget {
+  autonomyPercent: number;
+  productionToConsumptionRatio: number;
+  maximumProductionRatio: number;
+  minimumGainPercentPerKwc: number;
+}
+
 export interface SavingsProjection {
   years: number;
   priceTrendPercent: number;
@@ -144,6 +152,7 @@ export interface SolarEstimateParameters {
   panelPowerKwc: number;
   minimumPanelCount: number;
   offeredPowersKwc: number[];
+  savingsTarget: SavingsTarget;
   batteryModulesKwh: number[];
   site: SolarSite;
   specificYieldKwhPerKwc: number;
@@ -154,6 +163,7 @@ export interface SolarEstimateParameters {
   shadingFactors: Record<Shading, number>;
   productionDayTypes: ProductionDayType[];
   kwhPriceEur: number;
+  subscriptionEurPerYear: number;
   surplusBuyBackEurPerKwh: number;
   monthlyBillEur: { min: number; max: number };
   baseMonthlyWeights: number[];
@@ -164,7 +174,6 @@ export interface SolarEstimateParameters {
   maximumEquipmentShare: number;
   batteryRoundTripEfficiency: number;
   batteryPowerKwPerKwh: number;
-  sizingYieldKwhPerKwc: number;
   referenceConsumption: ConsumptionInput;
   savingsProjection: SavingsProjection;
 }
@@ -172,12 +181,13 @@ export interface SolarEstimateParameters {
 const nightCharging = [1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1];
 
 export const solarEstimateParameters: SolarEstimateParameters = {
-  roofAreaM2: { min: 20, max: 120, step: 5 },
+  roofAreaM2: { min: 20, max: 300, step: 5 },
   squareMetersPerKwc: 5,
   panelPowerKwc: 0.5,
   minimumPanelCount: 6,
   offeredPowersKwc: [3, 6, 9, 12],
-  batteryModulesKwh: [5, 10, 15],
+  savingsTarget: { autonomyPercent: 70, productionToConsumptionRatio: 1.06, maximumProductionRatio: 3, minimumGainPercentPerKwc: 1 },
+  batteryModulesKwh: [5.1, 10.2, 15.3, 20.4, 25.5, 30.6, 35.7, 40.8],
   site: { latitude: 43.6721, longitude: 7.1902 },
   specificYieldKwhPerKwc: 1300,
   monthlyProductionShares: [0.055, 0.065, 0.085, 0.095, 0.105, 0.11, 0.115, 0.105, 0.085, 0.07, 0.055, 0.055],
@@ -218,12 +228,13 @@ export const solarEstimateParameters: SolarEstimateParameters = {
     [Shading.STRONG]: 0.85,
   },
   productionDayTypes: [
-    { productionFactor: 0.35, weight: 1 / 3 },
+    { productionFactor: 0.55, weight: 1 / 3 },
     { productionFactor: 1, weight: 1 / 3 },
-    { productionFactor: 1.65, weight: 1 / 3 },
+    { productionFactor: 1.45, weight: 1 / 3 },
   ],
-  kwhPriceEur: 0.25,
-  surplusBuyBackEurPerKwh: 0.01,
+  kwhPriceEur: 0.21,
+  subscriptionEurPerYear: 260,
+  surplusBuyBackEurPerKwh: 0.011,
   monthlyBillEur: { min: 20, max: 2000 },
   baseMonthlyWeights: [1.16, 1.08, 1.02, 0.95, 0.9, 0.86, 0.86, 0.84, 0.9, 0.98, 1.08, 1.17],
   baseHourlyWeights: {
@@ -236,8 +247,8 @@ export const solarEstimateParameters: SolarEstimateParameters = {
   },
   equipmentLoads: {
     [HouseholdEquipment.ELECTRIC_HEATING]: {
-      annualShare: 0.4,
-      monthlyWeights: [0.2, 0.17, 0.13, 0.07, 0.02, 0, 0, 0, 0.01, 0.06, 0.14, 0.2],
+      annualShare: 0.2,
+      monthlyWeights: [0.17, 0.15, 0.13, 0.09, 0.04, 0.01, 0, 0, 0.02, 0.07, 0.13, 0.17],
       hourlyWeights: [3, 3, 3, 3, 3.5, 4.5, 6, 6.5, 5.5, 4, 3.2, 3, 3, 2.8, 2.8, 3, 3.8, 5.2, 6.2, 6.2, 5.8, 5, 4.2, 3.5],
     },
     [HouseholdEquipment.AIR_CONDITIONING]: {
@@ -263,15 +274,14 @@ export const solarEstimateParameters: SolarEstimateParameters = {
     [EvCharging.DAYTIME]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0],
   },
   maximumEquipmentShare: 0.7,
-  batteryRoundTripEfficiency: 0.9,
-  batteryPowerKwPerKwh: 0.5,
-  sizingYieldKwhPerKwc: 1400,
+  batteryRoundTripEfficiency: 0.97,
+  batteryPowerKwPerKwh: 1,
   referenceConsumption: {
     monthlyBillEur: 180,
     equipment: [],
     daytimePresence: DaytimePresence.MOSTLY_ABSENT,
   },
-  savingsProjection: { years: 20, priceTrendPercent: 2, degradationPercent: 0.5 },
+  savingsProjection: { years: 20, priceTrendPercent: 7, degradationPercent: 0 },
 };
 
 const monthsPerYear = 12;
@@ -289,7 +299,7 @@ const normalize = (weights: number[]): number[] => {
 const tiltOf = (roof: RoofInput): RoofTilt => roof.tilt ?? RoofTilt.CLASSIC;
 
 export const annualConsumptionFromBillKwh = (monthlyBillEur: number, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
-  (monthlyBillEur * monthsPerYear) / parameters.kwhPriceEur;
+  Math.max(0, monthlyBillEur * monthsPerYear - parameters.subscriptionEurPerYear) / parameters.kwhPriceEur;
 
 export const annualConsumptionKwh = (consumption: ConsumptionInput, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
   consumption.annualKwh ?? annualConsumptionFromBillKwh(consumption.monthlyBillEur, parameters);
@@ -421,29 +431,107 @@ export const batteryOptionsKwh = (parameters: SolarEstimateParameters = solarEst
 export const clampBatteryKwh = (batteryKwh: number, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
   batteryOptionsKwh(parameters).reduce((closest, option) => (Math.abs(option - batteryKwh) < Math.abs(closest - batteryKwh) ? option : closest));
 
-export const powersFittingRoof = (roof: RoofInput, parameters: SolarEstimateParameters = solarEstimateParameters): number[] => {
-  const ascending = [...parameters.offeredPowersKwc].sort((left, right) => left - right);
-  const fitting = ascending.filter((power) => power * parameters.squareMetersPerKwc <= roof.areaM2 + floatTolerance);
-  return fitting.length > 0 ? fitting : ascending.slice(0, 1);
+export const clampRoofArea = (areaM2: number, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
+  Math.max(Math.round(areaM2), parameters.roofAreaM2.min);
+
+export const roofPanelCapacity = (roof: RoofInput, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
+  Math.floor(roof.areaM2 / (parameters.squareMetersPerKwc * parameters.panelPowerKwc) + floatTolerance);
+
+export const panelCountRange = (roof: RoofInput, parameters: SolarEstimateParameters = solarEstimateParameters): PanelCountRange => ({
+  min: parameters.minimumPanelCount,
+  max: Math.max(parameters.minimumPanelCount, roofPanelCapacity(roof, parameters)),
+});
+
+export const clampPanelCount = (panelCount: number, parameters: SolarEstimateParameters = solarEstimateParameters): number =>
+  Math.max(Math.round(panelCount), parameters.minimumPanelCount);
+
+const exactAutonomyPercentOf = (energy: YearEnergy) => (energy.consumptionKwh > 0 ? (energy.selfConsumedKwh / energy.consumptionKwh) * 100 : 0);
+
+const autonomyPercentOf = (energy: YearEnergy) => roundToStep(exactAutonomyPercentOf(energy), 1);
+
+export interface InstallationPlan {
+  panelCount: number;
+  batteryKwh: number;
+  reachesSavingsTarget: boolean;
+}
+
+interface SizingContext {
+  productionPerKwc: number[][];
+  loads: number[][];
+  parameters: SolarEstimateParameters;
+}
+
+const kwcOf = (panelCount: number, parameters: SolarEstimateParameters) => roundToStep(panelCount * parameters.panelPowerKwc, parameters.panelPowerKwc);
+
+const autonomyWith = (panelCount: number, batteryKwh: number, { productionPerKwc, loads, parameters }: SizingContext) =>
+  exactAutonomyPercentOf(simulateYear(kwcOf(panelCount, parameters), batteryKwh, productionPerKwc, loads, parameters));
+
+const reachesTarget = (panelCount: number, batteryKwh: number, context: SizingContext) =>
+  roundToStep(autonomyWith(panelCount, batteryKwh, context), 1) >= context.parameters.savingsTarget.autonomyPercent;
+
+const panelsProducing = (productionRatio: number, { productionPerKwc, loads, parameters }: SizingContext): number => {
+  const yearlyKwhPerKwc = sum(daysPerMonth.map((days, month) => sum(productionPerKwc[month]) * days));
+  const yearlyConsumptionKwh = sum(daysPerMonth.map((days, month) => sum(loads[month]) * days));
+  if (yearlyKwhPerKwc <= 0) return parameters.minimumPanelCount;
+  const panels = Math.ceil((productionRatio * yearlyConsumptionKwh) / (yearlyKwhPerKwc * parameters.panelPowerKwc) - floatTolerance);
+  return Math.max(parameters.minimumPanelCount, panels);
 };
 
-export const recommendPowerKwc = (
-  roof: RoofInput,
-  annualConsumption: number,
+const firstMatching = (from: number, to: number, matches: (panelCount: number) => boolean): number | null => {
+  if (from > to || !matches(to)) return null;
+  let low = from;
+  let high = to;
+  while (low < high) {
+    const middle = Math.floor((low + high) / 2);
+    if (matches(middle)) high = middle;
+    else low = middle + 1;
+  }
+  return low;
+};
+
+const levellingPanelCount = (batteryKwh: number, from: number, to: number, context: SizingContext): number => {
+  const panelsPerKwc = Math.round(1 / context.parameters.panelPowerKwc);
+  const levelsOff = (panelCount: number) =>
+    autonomyWith(panelCount + panelsPerKwc, batteryKwh, context) - autonomyWith(panelCount, batteryKwh, context) <
+    context.parameters.savingsTarget.minimumGainPercentPerKwc;
+  return firstMatching(from, to, levelsOff) ?? to;
+};
+
+const panelsCovering = (batteryKwh: number, context: SizingContext): number => {
+  const sized = panelsProducing(context.parameters.savingsTarget.productionToConsumptionRatio, context);
+  if (reachesTarget(sized, batteryKwh, context)) return sized;
+  const largest = Math.max(panelsProducing(context.parameters.savingsTarget.maximumProductionRatio, context), sized + 1);
+  return (
+    firstMatching(sized + 1, largest, (panelCount) => reachesTarget(panelCount, batteryKwh, context)) ??
+    levellingPanelCount(batteryKwh, sized, largest, context)
+  );
+};
+
+export const recommendInstallation = (
+  productionPerKwc: number[][],
+  loads: number[][],
+  chosenBatteryKwh: number | null = null,
   parameters: SolarEstimateParameters = solarEstimateParameters,
-): number => {
-  const fitting = powersFittingRoof(roof, parameters);
-  const coveringKwc = annualConsumption / (parameters.sizingYieldKwhPerKwc * parameters.orientationCoefficients[tiltOf(roof)][roof.orientation]);
-  return fitting.reduce((closest, power) => (Math.abs(power - coveringKwc) < Math.abs(closest - coveringKwc) - floatTolerance ? power : closest));
+  sameBillLoads: number[][][] = [],
+): InstallationPlan => {
+  const context = { productionPerKwc, loads, parameters };
+  const batteries = chosenBatteryKwh === null ? batteryOptionsKwh(parameters) : [clampBatteryKwh(chosenBatteryKwh, parameters)];
+  const largestBattery = batteries[batteries.length - 1];
+  const panelCount = Math.max(...[loads, ...sameBillLoads].map((profile) => panelsCovering(largestBattery, { ...context, loads: profile })));
+  const reaching = batteries.find((batteryKwh) => reachesTarget(panelCount, batteryKwh, context));
+  if (reaching !== undefined) return { panelCount, batteryKwh: reaching, reachesSavingsTarget: true };
+  const autonomies = batteries.map((batteryKwh) => roundToStep(autonomyWith(panelCount, batteryKwh, context), 1));
+  return { panelCount, batteryKwh: batteries[autonomies.indexOf(Math.max(...autonomies))], reachesSavingsTarget: false };
 };
 
-export const panelCountRange = (roof: RoofInput, parameters: SolarEstimateParameters = solarEstimateParameters): PanelCountRange => {
-  const roofCapacity = Math.floor(roof.areaM2 / (parameters.squareMetersPerKwc * parameters.panelPowerKwc) + floatTolerance);
-  const offerCapacity = Math.round(Math.max(...parameters.offeredPowersKwc) / parameters.panelPowerKwc);
-  return { min: parameters.minimumPanelCount, max: Math.max(parameters.minimumPanelCount, Math.min(roofCapacity, offerCapacity)) };
-};
+const equipmentSubsets = (equipment: HouseholdEquipment[]): HouseholdEquipment[][] =>
+  equipment.reduce<HouseholdEquipment[][]>((subsets, item) => subsets.concat(subsets.map((subset) => [...subset, item])), [[]]).filter(
+    (subset) => subset.length < equipment.length,
+  );
 
-export const clampPanelCount = (panelCount: number, range: PanelCountRange): number => Math.min(Math.max(Math.round(panelCount), range.min), range.max);
+const recommendBatteryFor = (panelCount: number, context: SizingContext): number =>
+  batteryOptionsKwh(context.parameters).find((batteryKwh) => reachesTarget(panelCount, batteryKwh, context)) ??
+  recommendBatteryKwh(batteryNeed(kwcOf(panelCount, context.parameters), context.productionPerKwc, context.loads), context.parameters);
 
 interface InstallationSizing {
   loads: number[][];
@@ -456,29 +544,33 @@ interface InstallationSizing {
   recommendedBatteryKwh: number;
   batteryKwh: number;
   batteryChoice: SizingChoice;
+  reachesSavingsTarget: boolean;
 }
 
 const sizeInstallation = (input: SolarEstimateInput, parameters: SolarEstimateParameters): InstallationSizing => {
   const loads = householdDailyLoadsKwh(input.consumption, parameters);
   const productionPerKwc = dailyProductionPerKwc(input.roof.orientation, parameters, tiltOf(input.roof), input.shading ?? Shading.NONE);
-  const recommendedKwc = recommendPowerKwc(input.roof, annualConsumptionKwh(input.consumption, parameters), parameters);
-  const recommendedPanelCount = roundToStep(recommendedKwc / parameters.panelPowerKwc, 1);
-  const chosenPanelCount = input.panelCount ?? null;
-  const panelCount = chosenPanelCount === null ? recommendedPanelCount : clampPanelCount(chosenPanelCount, panelCountRange(input.roof, parameters));
-  const installedKwc = roundToStep(panelCount * parameters.panelPowerKwc, parameters.panelPowerKwc);
-  const recommendedBatteryKwh = recommendBatteryKwh(batteryNeed(installedKwc, productionPerKwc, loads), parameters);
   const chosenBatteryKwh = input.batteryKwh ?? null;
+  const chosenPanelCount = input.panelCount ?? null;
+  const sameBillLoads = equipmentSubsets(input.consumption.equipment).map((equipment) =>
+    householdDailyLoadsKwh({ ...input.consumption, equipment, annualKwh: annualConsumptionKwh(input.consumption, parameters) }, parameters),
+  );
+  const plan = recommendInstallation(productionPerKwc, loads, chosenBatteryKwh, parameters, sameBillLoads);
+  const panelCount = chosenPanelCount === null ? plan.panelCount : clampPanelCount(chosenPanelCount, parameters);
+  const recommendedBatteryKwh =
+    chosenPanelCount === null && chosenBatteryKwh === null ? plan.batteryKwh : recommendBatteryFor(panelCount, { productionPerKwc, loads, parameters });
   return {
     loads,
     productionPerKwc,
-    recommendedKwc,
-    recommendedPanelCount,
+    recommendedKwc: kwcOf(plan.panelCount, parameters),
+    recommendedPanelCount: plan.panelCount,
     panelCount,
     panelChoice: chosenPanelCount === null ? SizingChoice.RECOMMENDED : SizingChoice.CUSTOM,
-    installedKwc,
+    installedKwc: kwcOf(panelCount, parameters),
     recommendedBatteryKwh,
     batteryKwh: chosenBatteryKwh === null ? recommendedBatteryKwh : clampBatteryKwh(chosenBatteryKwh, parameters),
     batteryChoice: chosenBatteryKwh === null ? SizingChoice.RECOMMENDED : SizingChoice.CUSTOM,
+    reachesSavingsTarget: plan.reachesSavingsTarget,
   };
 };
 
@@ -490,7 +582,6 @@ export const estimateSolarInstallation = (
   const year = simulateYear(sizing.installedKwc, sizing.batteryKwh, sizing.productionPerKwc, sizing.loads, parameters);
   const withoutBattery = sizing.batteryKwh === 0 ? year : simulateYear(sizing.installedKwc, 0, sizing.productionPerKwc, sizing.loads, parameters);
   const productionKwh = sum(year.monthlyProductionKwh);
-  const autonomyOf = (energy: YearEnergy) => (energy.consumptionKwh > 0 ? roundToStep((energy.selfConsumedKwh / energy.consumptionKwh) * 100, 1) : 0);
   const savingsOf = (energy: YearEnergy) => roundToStep(energy.selfConsumedKwh * parameters.kwhPriceEur, 10);
 
   return {
@@ -508,15 +599,40 @@ export const estimateSolarInstallation = (
     monthlyConsumptionKwh: year.monthlyConsumptionKwh.map((month) => roundToStep(month, 1)),
     selfConsumedKwh: roundToStep(year.selfConsumedKwh, 10),
     selfConsumptionPercent: productionKwh > 0 ? roundToStep((year.selfConsumedKwh / productionKwh) * 100, 1) : 0,
-    autonomyPercent: autonomyOf(year),
+    autonomyPercent: autonomyPercentOf(year),
     annualSavingsEur: savingsOf(year),
     surplusKwh: roundToStep(year.exportedKwh, 10),
     surplusValueEur: roundToStep(year.exportedKwh * parameters.surplusBuyBackEurPerKwh, 1),
+    reachesSavingsTarget: sizing.reachesSavingsTarget,
     withoutBattery: {
       selfConsumedKwh: roundToStep(withoutBattery.selfConsumedKwh, 10),
-      autonomyPercent: autonomyOf(withoutBattery),
+      autonomyPercent: autonomyPercentOf(withoutBattery),
       annualSavingsEur: savingsOf(withoutBattery),
     },
+  };
+};
+
+export interface BillComparison {
+  beforeEur: number;
+  afterEur: number;
+  savedEur: number;
+  savedPerMonthEur: number;
+  savedPercent: number;
+}
+
+export const billComparisonOf = (
+  estimate: Pick<SolarEstimate, 'annualConsumptionKwh' | 'annualSavingsEur'>,
+  kwhPriceEur: number,
+  parameters: SolarEstimateParameters = solarEstimateParameters,
+): BillComparison => {
+  const beforeEur = roundToStep(estimate.annualConsumptionKwh * kwhPriceEur + (estimate.annualConsumptionKwh > 0 ? parameters.subscriptionEurPerYear : 0), 10);
+  const savedEur = Math.min(estimate.annualSavingsEur, beforeEur);
+  return {
+    beforeEur,
+    afterEur: beforeEur - savedEur,
+    savedEur,
+    savedPerMonthEur: Math.round(savedEur / monthsPerYear),
+    savedPercent: beforeEur > 0 ? roundToStep((savedEur / beforeEur) * 100, 1) : 0,
   };
 };
 
@@ -549,10 +665,10 @@ export const typicalDayOf = (
   };
 };
 
-export const cumulativeSavingsEur = (annualSavingsEur: number, projection: SavingsProjection): number[] => {
+export const cumulativeSavingsEur = (annualSavingsEur: number, projection: SavingsProjection, annualSurplusEur = 0): number[] => {
   let total = 0;
   return Array.from({ length: projection.years }, (_, year) => {
-    total += annualSavingsEur * (1 + projection.priceTrendPercent / 100) ** year * (1 - projection.degradationPercent / 100) ** year;
+    total += annualSavingsEur * (1 + projection.priceTrendPercent / 100) ** year * (1 - projection.degradationPercent / 100) ** year + annualSurplusEur;
     return roundToStep(total, 10);
   });
 };
