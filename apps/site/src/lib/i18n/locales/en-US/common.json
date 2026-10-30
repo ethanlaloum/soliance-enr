@@ -164,6 +164,9 @@
     "appointment": "Book an appointment",
     "close": "Close"
   },
+  "whatsapp": {
+    "label": "Chat with Soliance on WhatsApp"
+  },
   "contactDialog": {
     "close": "Close the form"
   }

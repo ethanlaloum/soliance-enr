@@ -164,6 +164,9 @@
     "appointment": "Prendre rendez-vous",
     "close": "Fermer"
   },
+  "whatsapp": {
+    "label": "Discuter avec Soliance sur WhatsApp"
+  },
   "contactDialog": {
     "close": "Fermer le formulaire"
   }

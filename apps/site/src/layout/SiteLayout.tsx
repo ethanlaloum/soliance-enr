@@ -3,6 +3,7 @@ import { useScrollOnNavigation } from '@/hooks/useScrollOnNavigation';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { CallbackPrompt } from '@/components/layout/CallbackPrompt';
+import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
 import { ContactDialogProvider } from '@/components/contact/ContactDialogProvider';
 
 export const SiteLayout = () => {
@@ -16,6 +17,7 @@ export const SiteLayout = () => {
           <Outlet />
         </main>
         <SiteFooter />
+        <WhatsAppButton />
         <CallbackPrompt />
       </div>
     </ContactDialogProvider>
