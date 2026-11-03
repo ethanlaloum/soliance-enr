@@ -10,7 +10,7 @@ export const localBusinessSchema = (description: string) => ({
   description,
   url: config.siteUrl,
   image: `${config.siteUrl}/images/hero-villa-premium.webp`,
-  logo: `${config.siteUrl}/favicon.svg`,
+  logo: `${config.siteUrl}/icon-192.png`,
   telephone: '+33763545144',
   email: 'commercial@soliance-enr.fr',
   address: {
