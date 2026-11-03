@@ -1,0 +1,1 @@
+import{j as o}from"./index-D8as1mBj.js";import{L as t}from"./LegalDocument-Djv505Fp.js";import"./Breadcrumb-32EpaqTt.js";import"./containerClassName-rUV3gq8J.js";const a=()=>o.jsx(t,{documentKey:"legalNotice"});export{a as LegalNoticePage};
