@@ -1,0 +1,17 @@
+.maplibregl-map {
+  font: inherit;
+}
+
+.maplibregl-ctrl-attrib {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.installations-popup .maplibregl-popup-content {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1120;
+  box-shadow: 0 4px 14px rgb(11 17 32 / 0.14);
+}

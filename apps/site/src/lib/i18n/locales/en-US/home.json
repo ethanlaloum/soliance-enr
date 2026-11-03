@@ -157,7 +157,21 @@
     "agency": { "label": "Office", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
     "details": { "label": "Contact", "email": "adv@soliance-enr.fr", "phone": "+33 4 93 14 69 66" },
     "hours": { "label": "Opening hours", "value": "Monday to Friday, 9 am – 6 pm" },
-    "mapLink": "See the office on Google Maps",
+    "map": {
+      "label": "Map of the {{count}} installations followed by Soliance",
+      "caption": "{{count}} installations followed by Soliance, grouped by town.",
+      "agency": "Soliance office",
+      "popup_one": "{{commune}} · {{count}} installation",
+      "popup_other": "{{commune}} · {{count}} installations",
+      "controls": {
+        "NavigationControl.ZoomIn": "Zoom in",
+        "NavigationControl.ZoomOut": "Zoom out",
+        "AttributionControl.ToggleAttribution": "Toggle attribution",
+        "CooperativeGesturesHandler.WindowsHelpText": "Use Ctrl + scroll to zoom the map",
+        "CooperativeGesturesHandler.MacHelpText": "Use ⌘ + scroll to zoom the map",
+        "CooperativeGesturesHandler.MobileHelpText": "Use two fingers to move the map"
+      }
+    },
     "form": {
       "title": "Request a free study",
       "fullName": "Full name",

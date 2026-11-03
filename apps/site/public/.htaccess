@@ -3,6 +3,9 @@ DirectoryIndex index.html
 DirectorySlash Off
 ErrorDocument 404 /404.html
 
+# The MapLibre worker ships as .mjs: a module worker is refused unless it is served as JavaScript.
+AddType text/javascript .mjs
+
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} ^www\.soliance-enr\.fr$ [NC]

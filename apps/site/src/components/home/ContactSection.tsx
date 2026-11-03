@@ -3,6 +3,7 @@ import { revealDelay } from '@/components/motion/revealDelay';
 import { config } from '@/config';
 import { cn } from '@/lib/utils';
 import { contactAnchor } from '@/routes/paths';
+import { InstallationsMap } from '@/components/home/InstallationsMap';
 import { StudyRequestForm } from '@/components/home/StudyRequestForm';
 import { containerClassName } from '@/components/home/containerClassName';
 
@@ -35,14 +36,7 @@ export const ContactSection = () => {
             <dt className="inline font-bold">{t('contact.hours.label')}</dt> — <dd className="inline">{t('contact.hours.value')}</dd>
           </div>
         </dl>
-        <a
-          href={config.showroomMapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 flex h-[120px] items-center justify-center rounded-[14px] border border-dashed border-sand-border bg-white text-sm font-semibold text-solar hover:text-solar-dark lg:h-[180px]"
-        >
-          {t('contact.mapLink')}
-        </a>
+        <InstallationsMap />
       </div>
       <div data-reveal style={revealDelay(1, 120)}>
         <StudyRequestForm />
