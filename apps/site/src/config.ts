@@ -2,6 +2,7 @@ const readEnv = (value: string | undefined): string | null => (value && value.tr
 
 export const config = {
   siteUrl: 'https://soliance-enr.fr',
+  careSiteUrl: 'https://soliance-care.fr',
   carePhoneHref: 'tel:+33633251179',
   careEmail: 'technique@soliance-enr.fr',
   officePhoneHref: 'tel:+33493195031',

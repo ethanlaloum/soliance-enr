@@ -186,7 +186,7 @@ export const SiteHeader = () => {
               {t(item.labelKey)}
             </NavLink>
           ))}
-          <Link to={paths.care} onClick={closeMenus} className="site-header__care-link"><CareIcon />{t('nav.care')}</Link>
+          <a href={config.careSiteUrl} onClick={closeMenus} className="site-header__care-link"><CareIcon />{t('nav.care')}</a>
         </nav>
 
         <div className="site-header__actions">
@@ -237,11 +237,11 @@ export const SiteHeader = () => {
                   </NavLink>
                 ))}
               </div>
-              <Link to={paths.care} data-nav-entry onClick={closeMenus} className="site-header__mobile-care">
+              <a href={config.careSiteUrl} data-nav-entry onClick={closeMenus} className="site-header__mobile-care">
                 <span className="site-header__care-icon"><CareIcon /></span>
                 <span><span className="site-header__solution-title">{t('nav.care')}</span><span className="site-header__solution-description">{t('header.careDescription')}</span></span>
                 <ArrowUpRightIcon />
-              </Link>
+              </a>
             </nav>
           </div>
           <div className="site-header__mobile-footer">
