@@ -22,20 +22,13 @@ export const ContactSection = () => {
         <p className="text-base leading-[1.55] text-slate-ink lg:text-[17px]">{t('contact.lead')}</p>
         <dl className="mt-2 flex flex-col gap-2.5 text-[15px] lg:text-base">
           <div>
-            <dt className="inline font-bold">{t('contact.showroom.label')}</dt> — <dd className="inline">{t('contact.showroom.value')}</dd>
+            <dt className="inline font-bold">{t('contact.agency.label')}</dt> — <dd className="inline">{t('contact.agency.value')}</dd>
           </div>
           <div>
-            <dt className="inline font-bold">{t('contact.sales.label')}</dt> —{' '}
+            <dt className="inline font-bold">{t('contact.details.label')}</dt> —{' '}
             <dd className="inline">
-              <a href={`mailto:${t('contact.sales.email')}`}>{t('contact.sales.email')}</a> ·{' '}
-              <a href={config.salesPhoneHref}>{t('contact.sales.phone')}</a>
-            </dd>
-          </div>
-          <div>
-            <dt className="inline font-bold">{t('contact.admin.label')}</dt> —{' '}
-            <dd className="inline">
-              <a href={`mailto:${t('contact.admin.email')}`}>{t('contact.admin.email')}</a> ·{' '}
-              <a href={config.adminPhoneHref}>{t('contact.admin.phone')}</a>
+              <a href={`mailto:${t('contact.details.email')}`}>{t('contact.details.email')}</a> ·{' '}
+              <a href={config.contactPhoneHref}>{t('contact.details.phone')}</a>
             </dd>
           </div>
           <div>

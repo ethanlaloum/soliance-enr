@@ -10,7 +10,7 @@ export const config = {
   simulatorUrl: 'https://vesta.eco/simulateur/soliance',
   showroomMapUrl: 'https://www.google.com/maps/search/?api=1&query=30+avenue+du+G%C3%A9n%C3%A9ral+Leclerc+06700+Saint-Laurent-du-Var',
   salesPhoneHref: 'tel:+33763545144',
-  adminPhoneHref: 'tel:+33659403888',
+  contactPhoneHref: 'tel:+33493146966',
   referralPhoneHref: 'tel:+33608628471',
   whatsappUrl: 'https://wa.me/33650141418',
   googleSiteVerification: readEnv(import.meta.env.VITE_GOOGLE_SITE_VERIFICATION),

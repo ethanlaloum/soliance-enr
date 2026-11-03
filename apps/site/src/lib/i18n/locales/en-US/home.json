@@ -153,12 +153,11 @@
   },
   "contact": {
     "title": "Let's talk about your project",
-    "lead": "An advisor calls you back within 48 business hours for a first free study. You can also drop by the showroom.",
-    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
-    "sales": { "label": "Sales", "email": "commercial@soliance-enr.fr", "phone": "+33 7 63 54 51 44" },
-    "admin": { "label": "Administration", "email": "adv@soliance-enr.fr", "phone": "+33 6 59 40 38 88" },
+    "lead": "An advisor calls you back within 48 business hours for a first free study. You can also drop by the office.",
+    "agency": { "label": "Office", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "details": { "label": "Contact", "email": "adv@soliance-enr.fr", "phone": "+33 4 93 14 69 66" },
     "hours": { "label": "Opening hours", "value": "Monday to Friday, 9 am – 6 pm" },
-    "mapLink": "See the showroom on Google Maps",
+    "mapLink": "See the office on Google Maps",
     "form": {
       "title": "Request a free study",
       "fullName": "Full name",

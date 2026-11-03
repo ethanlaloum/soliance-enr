@@ -153,12 +153,11 @@
   },
   "contact": {
     "title": "Parlons de votre projet",
-    "lead": "Un conseiller vous rappelle sous 48 h ouvrées pour une première étude gratuite. Vous pouvez aussi passer au showroom.",
-    "showroom": { "label": "Showroom", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
-    "sales": { "label": "Commercial", "email": "commercial@soliance-enr.fr", "phone": "07 63 54 51 44" },
-    "admin": { "label": "Administratif", "email": "adv@soliance-enr.fr", "phone": "06 59 40 38 88" },
+    "lead": "Un conseiller vous rappelle sous 48 h ouvrées pour une première étude gratuite. Vous pouvez aussi passer à l'agence.",
+    "agency": { "label": "Agence", "value": "30 avenue du Général Leclerc, 06700 Saint-Laurent-du-Var" },
+    "details": { "label": "Contact", "email": "adv@soliance-enr.fr", "phone": "04 93 14 69 66" },
     "hours": { "label": "Horaires", "value": "lundi au vendredi, 9 h – 18 h" },
-    "mapLink": "Voir le showroom sur Google Maps",
+    "mapLink": "Voir l'agence sur Google Maps",
     "form": {
       "title": "Demander une étude gratuite",
       "fullName": "Nom et prénom",
