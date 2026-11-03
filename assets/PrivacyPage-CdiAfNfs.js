@@ -1,1 +1,0 @@
-import{j as o}from"./index-CX8UN4sz.js";import{L as r}from"./LegalDocument-CQ1kF5z2.js";import"./Breadcrumb-DT7eJuSF.js";import"./containerClassName-rUV3gq8J.js";const p=()=>o.jsx(r,{documentKey:"privacy"});export{p as PrivacyPage};
