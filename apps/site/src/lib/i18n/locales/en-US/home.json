@@ -205,9 +205,9 @@
       "errors": {
         "CONSENT_REQUIRED": "We cannot call you back without your consent. Tick the consent box.",
         "INVALID_REQUEST": "Some details were not accepted. Check the form and try again.",
-        "SUBMISSION_FAILED": "Your request could not be sent. Try again in a moment or call us on +33 7 63 54 51 44.",
-        "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 7 63 54 51 44.",
-        "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 7 63 54 51 44."
+        "SUBMISSION_FAILED": "Your request could not be sent. Try again in a moment or call us on +33 6 50 14 14 18.",
+        "NOT_CONFIGURED": "The form is not connected to our service yet. Call us on +33 6 50 14 14 18.",
+        "UNKNOWN_ERROR": "An unexpected error occurred. Call us on +33 6 50 14 14 18."
       }
     }
   },

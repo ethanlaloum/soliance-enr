@@ -11,7 +11,7 @@ export const localBusinessSchema = (description: string) => ({
   url: config.siteUrl,
   image: `${config.siteUrl}/images/hero-villa-premium.webp`,
   logo: `${config.siteUrl}/icon-192.png`,
-  telephone: '+33763545144',
+  telephone: '+33650141418',
   email: 'commercial@soliance-enr.fr',
   address: {
     '@type': 'PostalAddress',

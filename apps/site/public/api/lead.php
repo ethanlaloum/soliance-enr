@@ -522,7 +522,7 @@ function buildPortfolioMessage(array $lead, string $from): ?array
     $firstName = $lead['fields']['first_name'] ?? '';
     $greeting = $firstName === '' ? 'Bonjour,' : 'Bonjour ' . $firstName . ',';
     $intro = 'Merci de l’intérêt que vous portez à Soliance. Comme promis, voici notre portfolio : une sélection de nos réalisations en photovoltaïque, pompe à chaleur et bornes de recharge.';
-    $outro = 'Un conseiller Soliance pourra vous contacter pour échanger sur votre projet. Vous pouvez aussi répondre directement à cet e-mail ou nous appeler au 07 63 54 51 44.';
+    $outro = 'Un conseiller Soliance pourra vous contacter pour échanger sur votre projet. Vous pouvez aussi répondre directement à cet e-mail ou nous appeler au 06 50 14 14 18.';
     return [
         'from' => $from,
         'to' => [$lead['fields']['email']],

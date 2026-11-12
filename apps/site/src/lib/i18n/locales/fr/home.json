@@ -205,9 +205,9 @@
       "errors": {
         "CONSENT_REQUIRED": "Nous ne pouvons pas vous rappeler sans votre accord. Cochez la case de consentement.",
         "INVALID_REQUEST": "Certaines informations n'ont pas été acceptées. Vérifiez le formulaire et réessayez.",
-        "SUBMISSION_FAILED": "Votre demande n'a pas pu être envoyée. Réessayez dans un instant ou appelez-nous au 07 63 54 51 44.",
-        "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 07 63 54 51 44.",
-        "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 07 63 54 51 44."
+        "SUBMISSION_FAILED": "Votre demande n'a pas pu être envoyée. Réessayez dans un instant ou appelez-nous au 06 50 14 14 18.",
+        "NOT_CONFIGURED": "Le formulaire n'est pas encore relié à notre service. Appelez-nous au 06 50 14 14 18.",
+        "UNKNOWN_ERROR": "Une erreur inattendue est survenue. Appelez-nous au 06 50 14 14 18."
       }
     }
   },
